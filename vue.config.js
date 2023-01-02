@@ -1,3 +1,11 @@
 module.exports = {
-  css: { extract: false },
+  css: {
+    loaderOptions: {
+      sass: {
+        data: `
+          @import "./src/styles/style.scss";
+        `,
+      },
+    },
+  },
 };

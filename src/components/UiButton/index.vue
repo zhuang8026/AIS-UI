@@ -33,9 +33,9 @@ export default {
 <style scoped>
 button {
   width: auto;
-  height: 40px;
-  background: linear-gradient(to left, rgb(0, 166, 166), rgb(0, 128, 153));
-  border-radius: 3px;
+  min-width: 80px;
+  /* height: 40px; */
+  background: rgb(0, 123, 146);
   margin: 0 10px;
   padding: 0 10px;
   cursor: pointer;
@@ -47,8 +47,10 @@ button:hover {
   box-shadow: 0px 8px 12px 0 rgba(0, 0, 0, 0.4);
 }
 .type-0 {
+  border-radius: 0px;
 }
 .type-1 {
+  border-radius: 6px;
   background: #fff;
   color: rgb(0, 166, 166);
 }
