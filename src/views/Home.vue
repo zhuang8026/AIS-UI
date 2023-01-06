@@ -84,14 +84,16 @@
   });
 
   const { MenuLangList } = state;
-  console.log('MenuLangList:',MenuLangList)
+  console.log('MenuLangList:',MenuLangList);
+
 </script>
 
 <style lang="scss" scoped>
   .mzl-ui-doc {
     display: flex;
-    height: calc(100vh - 64px - 2vh);
-    margin-top: 2vh;
+    // height: calc(100vh - 64px - 2vh);
+    height: 100vh;
+    // margin-top: 2vh;
     overflow: hidden;
     aside {
       width: 317px;
@@ -109,7 +111,7 @@
           height: auto;
           overflow: hidden;
           p {
-            padding-left: 34px;
+            // padding-left: 34px;
             box-sizing: border-box;
             height: 30px;
             span {
@@ -123,7 +125,7 @@
           }
           li {
             list-style: none;
-            padding-left: 34px;
+            // padding-left: 34px;
             box-sizing: border-box;
             cursor: pointer;
             font-size: 14px;
@@ -138,7 +140,7 @@
             color: $success;
             background: $success_opacity;
             border-left: 3px solid $success;
-            padding-left: 31px;
+            // padding-left: 31px;
             transform: all 0.2s ease;
           }
         }

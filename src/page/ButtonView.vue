@@ -1,9 +1,10 @@
 <template>
   <div class="home">
-    <ui-button msg="1" type="2" />
-    <ui-button msg="Welcome to Your Vue.js + 1" type="1" />
-    <ui-button type="0" />
-    <ui-button msg="Welcome to Your Vue.js + 2" type="2" />
+    <ui-button type="0" msg="0"/>
+    <ui-button type="1" msg="1"/>
+    <ui-button type="1" msg="Welcome to Your Vue.js + 1"/>
+    <ui-button type="2"/>
+    <ui-button type="2" msg="Welcome to Your Vue.js + 2"/>
   </div>
     <!-- <router-view /> -->
 </template>
@@ -24,3 +25,8 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+  .home {
+    margin-top: 20px;
+  }
+</style>
