@@ -1,7 +1,7 @@
 <template>
   <div class="contentBox">
     <div class="imgLogo">
-      <img src="../assets/logo.png" alt="mzl-ui" />
+      <!-- <img src="../assets/logo.png" alt="mzl-ui" /> -->
     </div>
     <h3>一套適合開發者使用的輕量級UI組件庫，完美支持vue3</h3>
     <div class="tiBox">

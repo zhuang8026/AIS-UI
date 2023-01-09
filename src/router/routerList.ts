@@ -41,21 +41,21 @@ const routerList: Array<RouteRecordRaw> = [
     //     name: 'Color 顔色',
     //     component: () => import('/packages/color/doc/doc.md'),
     //   },
-    //   {
-    //     path: 'icon',
-    //     name: 'Icon 圖標',
-    //     component: () => import('/packages/icon/doc/doc.md'),
-    //   },
+      {
+        path: 'icon',
+        name: 'Icon 圖標',
+        component: () => import('@/page/IconView.vue'),
+      },
       {
         path: 'button',
         name: 'Button 按鈕',
         component: () => import('@/page/ButtonView.vue'),
       },
-    //   {
-    //     path: 'input',
-    //     name: 'Input 輸入框',
-    //     component: () => import('/packages/input/doc/doc.md'),
-    //   },
+      {
+        path: 'input',
+        name: 'Input 輸入框',
+        component: () => import('@/page/InputView.vue'),
+      },
     //   {
     //     path: 'textarea',
     //     name: 'Textarea 文本域',
