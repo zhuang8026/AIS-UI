@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     clickBtn() {
-      alert('click, thx!');
+      alert('click, thx! ');
     },
   },
 };
