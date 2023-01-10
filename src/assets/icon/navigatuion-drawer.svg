@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="248" height="900" viewBox="0 0 248 900">
+    <defs>
+        <clipPath id="drej19inua">
+            <path data-name="Rectangle 9092" transform="translate(0 48.318)" style="fill:#3786f7" d="M0 0h248v179H0z"/>
+        </clipPath>
+        <clipPath id="cnzg9fzwmc">
+            <path data-name="Rectangle 9183" transform="translate(834.395 140)" style="fill:#3786f7" d="M0 0h248v172H0z"/>
+        </clipPath>
+        <linearGradient id="l0a3pc62zb" x1=".99" y1=".721" x2="-.001" y2=".723" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#3150ff"/>
+            <stop offset="1" stop-color="#006ce1"/>
+        </linearGradient>
+    </defs>
+    <path d="M0 0h248v900H0z" style="fill:#006ce1"/>
+    <g data-name="Mask Group 16" transform="translate(0 -48.318)" style="clip-path:url(#drej19inua);opacity:.5">
+        <path data-name="Rectangle 9091" transform="rotate(-28 101.457 156.56)" style="fill:url(#l0a3pc62zb)" d="M0 0h284.24v129.897H0z"/>
+    </g>
+    <g data-name="Mask Group 17" transform="rotate(180 541.197 520)" style="clip-path:url(#cnzg9fzwmc);opacity:.5">
+        <path data-name="Rectangle 9182" transform="rotate(-28 634.6 -1436.813)" style="fill:url(#l0a3pc62zb)" d="M0 0h303.763v169.189H0z"/>
+    </g>
+    <path data-name="AIOT-logo_white background" transform="translate(54 40)" style="fill:none" d="M0 0h140v24.823H0z"/>
+</svg>

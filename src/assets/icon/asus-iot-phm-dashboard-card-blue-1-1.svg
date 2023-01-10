@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210" height="202" viewBox="0 0 210 202">
+    <defs>
+        <clipPath id="e7fubd5f6c"/>
+        <clipPath id="a2fefbbz0d">
+            <rect data-name="Rectangle 9185" width="180" height="172" rx="8" style="fill:#3786f7"/>
+        </clipPath>
+        <clipPath id="caxnzbikof">
+            <rect data-name="Rectangle 9186" width="180" height="172" rx="8" transform="translate(.332)" style="fill:#3786f7"/>
+        </clipPath>
+        <filter id="nj9gk8e0ka" x="0" y="0" width="210" height="202" filterUnits="userSpaceOnUse">
+            <feOffset/>
+            <feGaussianBlur stdDeviation="5" result="blur"/>
+            <feFlood flood-color="#eaeaea"/>
+            <feComposite operator="in" in2="blur"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="eii0r6jhqb" x="0" y="0" width="210" height="202" filterUnits="userSpaceOnUse">
+            <feOffset/>
+            <feGaussianBlur stdDeviation="5" result="blur-2"/>
+            <feFlood flood-color="#eaeaea"/>
+            <feComposite operator="in" in2="blur-2"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <linearGradient id="pmvtpzuxbe" x1=".99" y1=".721" x2="-.001" y2=".723" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#589afa"/>
+            <stop offset="1" stop-color="#1b78fc"/>
+        </linearGradient>
+    </defs>
+    <g style="filter:url(#eii0r6jhqb)">
+        <rect data-name="Rectangle 9184" width="180" height="172" rx="8" transform="translate(14.996 15)" style="fill:#248dff"/>
+    </g>
+    <g data-name="Mask Group 23" style="clip-path:url(#e7fubd5f6c)" transform="translate(-249.744 -65)">
+        <g data-name="Mask Group 21" transform="rotate(180 222.372 126)" style="clip-path:url(#a2fefbbz0d);opacity:.5">
+            <path data-name="Path 12330" d="m36.632-13.334 280.839-75.689-71.064 154.378-280.84 75.689z" transform="rotate(-28 72.499 144.088)" style="fill:url(#pmvtpzuxbe)"/>
+        </g>
+        <g data-name="Mask Group 22" transform="translate(264.412 80)" style="clip-path:url(#caxnzbikof);opacity:.5">
+            <path data-name="Path 12331" d="m29.206-10.6 281.185-75.5-64.565 155.714-281.185 75.5z" transform="rotate(-28 64.534 141.587)" style="fill:url(#pmvtpzuxbe)"/>
+        </g>
+    </g>
+</svg>

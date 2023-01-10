@@ -1,78 +1,30 @@
-.calendar {
-  background-image: url('../assets/icon/calendar.png');
-}
-.card-blue2 {
-  background-image: url('../assets/icon/card-blue2.png');
-}
-.card-dark-blue2 {
-  background-image: url('../assets/icon/card-dark-blue2.png');
-}
-.card-dark-blue1 {
-  background-image: url('../assets/icon/card-dark-blue1.png');
-}
-.card-green1 {
-  background-image: url('../assets/icon/card-green1.png');
-}
-.card-green2 {
-  background-image: url('../assets/icon/card-green2.png');
-}
-.dashboard-card-blue1 {
-  background-image: url('../assets/icon/dashboard-card-blue1.png');
-}
-.icon-check-box-h {
-  background-image: url('../assets/icon/icon-check-box-h.png');
-}
-.icon-check-box-n {
-  background-image: url('../assets/icon/icon-check-box-n.png');
-}
-.icon-check-box-p {
-  background-image: url('../assets/icon/icon-check-box-p.png');
-}
-.icon-check-box {
-  background-image: url('../assets/icon/icon-check-box.png');
-}
-.manergement-abnormal-machine {
-  background-image: url('../assets/icon/manergement-abnormal-machine.png');
-}
-.manergement-devicelist {
-  background-image: url('../assets/icon/manergement-devicelist.png');
-}
-.manergement-eventlist {
-  background-image: url('../assets/icon/manergement-eventlist.png');
-}
-.manergement-eventtrash {
-  background-image: url('../assets/icon/manergement-eventtrash.png');
-}
-.manergement-gatewaymanagement {
-  background-image: url('../assets/icon/manergement-gatewaymanagement.png');
-}
-.manergement-modelmanagement {
-  background-image: url('../assets/icon/manergement-modelmanagement.png');
-}
-.manergement-rulesettings {
-  background-image: url('../assets/icon/manergement-rulesettings.png');
-}
-.manergement-sensor-overview {
-  background-image: url('../assets/icon/manergement-sensor-overview.png');
-}
-.navigatuion-drawer {
-  background-image: url('../assets/icon/navigatuion-drawer.png');
-}
-.rectangle-9163 {
-  background-image: url('../assets/icon/rectangle-9163.png');
-}
-.toggle-unselect-d {
-  background-image: url('../assets/icon/toggle-unselect-d.png');
-}
-.toggle-unselect-h {
-  background-image: url('../assets/icon/toggle-unselect-h.png');
-}
-.toggle-unselect-n {
-  background-image: url('../assets/icon/toggle-unselect-n.png');
-}
-.toggle-unselect-p {
-  background-image: url('../assets/icon/toggle-unselect-p.png');
-}
-.user-icon {
-  background-image: url('../assets/icon/user-icon.png');
-}
+
+.aiot-logo-white {background-image: url('../assets/icon/aiot-logo-white.png')}
+.asus-iot-phm-dashboard-card-blue-1-1  {background-image: url('../assets/icon/asus-iot-phm-dashboard-card-blue-1-1.svg')} 
+.asus-iot-phm-dashboard-card-blue-1-2{background-image: url('../assets/icon/asus-iot-phm-dashboard-card-blue-1-2.svg')} 
+.asus-iot-phm-dashboard-card-darkblue-1-1  {background-image: url('../assets/icon/asus-iot-phm-dashboard-card-darkblue-1-1.svg')} 
+.asus-iot-phm-dashboard-card-dark-blue-1-2  {background-image: url('../assets/icon/asus-iot-phm-dashboard-card-dark-blue-1-2.svg')} 
+.asus-iot-phm-dashboard-card-green-1-1  {background-image: url('../assets/icon/asus-iot-phm-dashboard-card-green-1-1.svg')} 
+.asus-iot-phm-dashboard-card-green-1-2  {background-image: url('../assets/icon/asus-iot-phm-dashboard-card-green-1-2.svg')} 
+.asus-iot-phm-dashboard-icon-check-box-d  {background-image: url('../assets/icon/asus-iot-phm-dashboard-icon-check-box-d.svg')} 
+.asus-iot-phm-dashboard-icon-check-box-h  {background-image: url('../assets/icon/asus-iot-phm-dashboard-icon-check-box-h.svg')} 
+.asus-iot-phm-dashboard-icon-check-box-n  {background-image: url('../assets/icon/asus-iot-phm-dashboard-icon-check-box-n.svg')} 
+.asus-iot-phm-dashboard-icon-check-box-p  {background-image: url('../assets/icon/asus-iot-phm-dashboard-icon-check-box-p.svg')} 
+.asus-iot-phm-dashboard-icon-toggle-unselect-d  {background-image: url('../assets/icon/asus-iot-phm-dashboard-icon-toggle-unselect-d.svg')} 
+.asus-iot-phm-dashboard-icon-toggle-unselect-h  {background-image: url('../assets/icon/asus-iot-phm-dashboard-icon-toggle-unselect-h.svg')} 
+.asus-iot-phm-dashboard-icon-toggle-unselect-n  {background-image: url('../assets/icon/asus-iot-phm-dashboard-icon-toggle-unselect-n.svg')} 
+.asus-iot-phm-dashboard-icon-toggle-unselect-p  {background-image: url('../assets/icon/asus-iot-phm-dashboard-icon-toggle-unselect-p.svg')} 
+.asus-iot-phm-icon-search  {background-image: url('../assets/icon/asus-iot-phm-icon-search.svg')} 
+.asus-iot-phm-sider-icon-device-manergement-devicelist  {background-image: url('../assets/icon/asus-iot-phm-sider-icon-device-manergement-devicelist.svg')} 
+.asus-iot-phm-sider-icon-device-manergement-gatewaymanagement  {background-image: url('../assets/icon/asus-iot-phm-sider-icon-device-manergement-gatewaymanagement.svg')} 
+.asus-iot-phm-sider-icon-event-manergement-abnormal-machine  {background-image: url('../assets/icon/asus-iot-phm-sider-icon-event-manergement-abnormal-machine.svg')} 
+.asus-iot-phm-sider-icon-event-manergement-eventlist  {background-image: url('../assets/icon/asus-iot-phm-sider-icon-event-manergement-eventlist.svg')} 
+.asus-iot-phm-sider-icon-event-manergement-eventtrash {background-image: url('../assets/icon/asus-iot-phm-sider-icon-event-manergement-eventtrash.svg')} 
+.asus-iot-phm-sider-icon-event-manergement-sensor-overview  {background-image: url('../assets/icon/asus-iot-phm-sider-icon-event-manergement-sensor-overview.svg')} 
+.asus-iot-phm-sider-icon-rules-manergement-modelmanagement  {background-image: url('~@/assets/icon/asus-iot-phm-sider-icon-rules-manergement-modelmanagement.svg')} 
+.asus-iot-phm-sider-icon-rules-manergement-rulesettings  {background-image: url('../assets/icon/asus-iot-phm-sider-icon-rules-manergement-rulesettings.svg')} 
+.asus-iot-phm-user-icon  {background-image: url('../assets/icon/asus-iot-phm-user-icon.svg')} 
+.calendar  {background-image: url('../assets/icon/calendar.svg')} 
+.navigatuion-drawer  {background-image: url('../assets/icon/navigatuion-drawer.svg')} 
+.rectangle-9163  {background-image: url('../assets/icon/rectangle-9163.svg')} 
+

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="406" height="202" viewBox="0 0 406 202">
+    <defs>
+        <linearGradient id="ak0y2lq2mc" x1=".99" y1=".721" x2="-.001" y2=".723" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#589afa"/>
+            <stop offset="1" stop-color="#1b78fc"/>
+        </linearGradient>
+        <clipPath id="52y2cd8hnb">
+            <rect data-name="Rectangle 9185" width="376" height="172" rx="8" style="fill:#3786f7"/>
+        </clipPath>
+        <filter id="jwxo9586xa" x="0" y="0" width="406" height="202" filterUnits="userSpaceOnUse">
+            <feOffset/>
+            <feGaussianBlur stdDeviation="5" result="blur"/>
+            <feFlood flood-color="#eaeaea"/>
+            <feComposite operator="in" in2="blur"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+    </defs>
+    <g style="filter:url(#jwxo9586xa)">
+        <rect data-name="Rectangle 9184" width="376" height="172" rx="8" transform="translate(15 15)" style="fill:#248dff"/>
+    </g>
+    <g data-name="Mask Group 21" transform="rotate(180 195.5 93.5)" style="opacity:.5;clip-path:url(#52y2cd8hnb)">
+        <path data-name="Path 12330" d="m61.772.035 485.733 33.256-61.68 159.368L.092 159.4z" transform="rotate(-28 40.193 273.643)" style="fill:url(#ak0y2lq2mc)"/>
+    </g>
+    <g data-name="Mask Group 22" transform="translate(15 15)" style="opacity:.5;clip-path:url(#52y2cd8hnb)">
+        <path data-name="Path 12331" d="m49.188.028 485.733 33.255-49.094 163.946L.094 163.974z" transform="rotate(-28 32.156 271.414)" style="fill:url(#ak0y2lq2mc)"/>
+    </g>
+</svg>
