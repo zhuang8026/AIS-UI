@@ -88,11 +88,11 @@ export default [
       //   'title-en': 'Dropdown',
       //   path: '/ais/dropdown',
       // },
-      // {
-      //   'title-cn': 'Radio 單選',
-      //   'title-en': 'Radios',
-      //   path: '/ais/radio',
-      // },
+      {
+        'title-cn': 'Radio 單選',
+        'title-en': 'Radios',
+        path: '/ais/radio',
+      },
       {
         'title-cn': 'Checkbox 多選',
         'title-en': 'Radios',

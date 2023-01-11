@@ -8,12 +8,12 @@
         type="default"
         v-model:checked="checked1"
         @checkChange="checkChangeType1($event)"
-      >Normal</ui-checkbox>
+      >Normal - {{ checked1 }}</ui-checkbox>
       <ui-checkbox
         type="selectbox"
         v-model:checked="checked2"
         @checkChange="checkChangeType2($event)"
-      >Normal</ui-checkbox>
+      >Normal - {{ checked2 }}</ui-checkbox>
     </div>
     <hr />
     <h2>Disable</h2>

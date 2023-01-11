@@ -76,11 +76,11 @@ const routerList: Array<RouteRecordRaw> = [
     //     name: 'Dropdown 下拉選單',
     //     component: () => import('/packages/dropDown/doc/doc.md'),
     //   },
-    //   {
-    //     path: 'radio',
-    //     name: 'Radio 單選',
-    //     component: () => import('/packages/radio/doc/doc.md'),
-    //   },
+      {
+        path: 'radio',
+        name: 'Radio 單選',
+        component: () => import('@/page/RadioView.vue'),
+      },
       {
         path: 'checkbox',
         name: 'Checkbox 多選',
