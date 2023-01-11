@@ -81,11 +81,11 @@ const routerList: Array<RouteRecordRaw> = [
     //     name: 'Radio 單選',
     //     component: () => import('/packages/radio/doc/doc.md'),
     //   },
-    //   {
-    //     path: 'checkbox',
-    //     name: 'Checkbox 多選',
-    //     component: () => import('/packages/checkbox/doc/doc.md'),
-    //   },
+      {
+        path: 'checkbox',
+        name: 'Checkbox 多選',
+        component: () => import('@/page/checkboxView.vue'),
+      },
     //   {
     //     path: 'switch',
     //     name: 'Switch 開關',

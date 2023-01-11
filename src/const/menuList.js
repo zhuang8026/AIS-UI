@@ -68,21 +68,21 @@ export default [
         'title-en': 'Inputs',
         path: '/ais/input',
       },
-      {
-        'title-cn': 'Textarea 文本域',
-        'title-en': 'Textarea',
-        path: '/ais/textarea',
-      },
+      // {
+      //   'title-cn': 'Textarea 文本域',
+      //   'title-en': 'Textarea',
+      //   path: '/ais/textarea',
+      // },
       // {
       //   'title-cn': 'Space 間距',
       //   'title-en': 'Space',
       //   path: '/ais/Space',
       // },
-      {
-        'title-cn': 'Select 下拉框',
-        'title-en': 'Select',
-        path: '/ais/select',
-      },
+      // {
+      //   'title-cn': 'Select 下拉框',
+      //   'title-en': 'Select',
+      //   path: '/ais/select',
+      // },
       // {
       //   'title-cn': 'Dropdown 下拉選單',
       //   'title-en': 'Dropdown',
@@ -93,11 +93,11 @@ export default [
       //   'title-en': 'Radios',
       //   path: '/ais/radio',
       // },
-      // {
-      //   'title-cn': 'Checkbox 多選',
-      //   'title-en': 'Radios',
-      //   path: '/ais/checkbox',
-      // },
+      {
+        'title-cn': 'Checkbox 多選',
+        'title-en': 'Radios',
+        path: '/ais/checkbox',
+      },
       // {
       //   'title-cn': 'Switch 開關',
       //   'title-en': 'Switch',
