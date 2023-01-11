@@ -1,0 +1,224 @@
+
+html{
+    font-size: 16px;
+    // @media(max-width: map-get($screen-size, pc)){
+    //     font-size: 14px;
+    // }
+    // @media(max-width: map-get($screen-size, nb)){
+    //     font-size: 12px;
+    // }
+    // @media(max-width: map-get($screen-size, nb)){
+    //     font-size: 12px;
+    // }
+}
+// @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+//     html{
+//         font-size: 12px;
+//     }
+// }
+
+// @media only screen and (-webkit-min-device-pixel-ratio: 1.25) {
+//     html{
+//         font-size: 14px;
+//     }
+// }
+body{
+    font-family: $font-family;
+    font-weight: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    word-break: break-word;
+    // -webkit-user-select: none;
+    // -moz-user-select: none;
+    // -ms-user-select: none;
+    // user-select: none;
+    &.style--fixed{
+        position: fixed;
+        overflow: hidden;
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
+}
+// scrollbar style
+
+::-webkit-scrollbar {
+    width: 4px;
+    height: 8px; 
+    // background-color: #F5F5F5;
+}
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    background-color: $color-main;
+}
+body{
+    ::-webkit-scrollbar {
+        width: 4px;
+        height: 8px; 
+    }
+}
+
+@media only screen and (hover: none) and (pointer: coarse){
+}
+
+
+
+#app-main-page{
+    flex-grow: 1;
+    &.style--fixed{
+        position: fixed;
+        top: -400px;
+    }
+}
+.hidden{
+    display: none !important;
+}
+.style--invisible{
+    visibility: hidden !important;
+}
+.style--transparent{
+    opacity: 0 !important;
+}
+
+.align-left{
+    text-align: left;
+}
+.align-center{
+    text-align: center;  
+}
+.align-right{
+    text-align: right;  
+}
+.align-justify{
+    text-align: justify;
+}
+.wd--full{
+    width: 100%;
+}
+// link style - no underline
+.link--default{  // no underline
+    color: $color-main;
+    text-decoration: none;
+    transition: color .5s ease-in-out;
+    &:hover{
+        color: $color-white;
+    }
+    &:active{
+        color: $color-main-dark2;
+    }
+    &.disable{
+        color: $color-disable;
+    }
+    &.has--line{
+        text-decoration: underline;
+    }
+} //end: link--default
+
+// link style - has underline
+.link--sub{
+    color: $color-white;
+    text-decoration: underline;
+    transition: color .5s ease-in-out;
+    &:hover{
+        color: $color-main;
+    }
+    &:active{
+        color: $color-main-dark2;
+    }
+    &.disable{
+        color: $color-disable;
+    }
+} //end: link--default
+
+
+.link-block{
+    display: inline-block;
+    padding-left: 4px;
+    box-sizing: border-box;
+}
+.font-highligh{
+    font-weight: bold !important;
+}
+.font-size-md{
+    font-size: $font-size-h8;
+}
+@mixin has-space-list($space: 10px){
+    &.has--space{
+        > li {
+            + li{
+                margin-top: $space;
+            }
+        }
+    } //end: has--space
+}
+.list-style-num{
+    list-style-type: decimal;
+    padding-left: 20px;
+    @include has-space-list();
+}
+//customize number (1) (2)
+.list-style-num2{
+    counter-reset: section;
+    list-style-type: none;
+    > li{
+        padding-left: calc(#{$font-size-h8} * 1.5);
+        &:before{
+            counter-increment: section;           
+            content: "(" counters(section, ".") ")";
+            display: inline-block;
+            text-indent: calc(-1rem * 1.5);
+        }
+    } //end: li
+    @include has-space-list();
+
+}
+
+.list-style--dot{
+    list-style-type: disc;
+    padding-left: 20px;
+    @include has-space-list();
+}
+$color-config:(
+    main: $color-main,
+    sub: $color-sub,
+    bg: $color-bg,
+    
+);
+
+
+@each $key, $val in $color-config{
+    .color--#{$key}{
+        color: $val;
+    }
+    .bg-color--#{$key}{
+        background-color: $val;
+    }
+};
+
+.radius-normal{
+}
+.font--weight-blod{
+    font-weight: bold;
+}
+.font--weight-normal{
+    font-weight: normal;
+}
+
+.t-rotate-90{
+    transform: rotate(90deg);
+}
+
+.text--size-sm{
+    font-size: $font-size-h8;
+    @media(max-width: map-get($screen-size, sm-than-nb)){
+        font-size: $font-size-h9;
+    }
+}
+
+
+//for GTM 設定用的，為了可以追蹤整個組件的id，設定子元素不能被點擊，再使用此class之前需確認子元素有無點擊事件
+.GTMClass_preventPointerEvent{
+    * {
+        pointer-events: none;
+    }
+}

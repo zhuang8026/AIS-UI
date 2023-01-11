@@ -1,0 +1,173 @@
+$color-main: green;
+
+
+/**
+1. color 
+2. font-size
+3. screen-size
+*/
+@import '../helper/function';
+
+
+
+$font-family:'Roboto', '微軟正黑體';
+$font-family-sub: 'Roboto', '微軟正黑體';
+// $font-family: Myriad W08 Regular,Segoe UI,Arial,Microsoft JhengHei,Microsoft Yahei,SF Pro TC,SF Pro Text,PingFang TC,sans-serif, '微軟正黑體';
+// 1. color
+// 1-1. project color
+$color-main: #006ce1;
+$color-main-active: #dfb992;
+$color-main-light: #e6f2f4;
+$color-main-light2: #ffebd3;
+$color-main-light3: #fbdfbe; // used: loading
+$color-main-dark: #d7ba97;
+$color-main-dark2: #dfb992;
+$color-sub: #95d8e6;
+$color-sub-light: #00e5e5;
+$color-sub-light2:#14abb3;
+$color-font: #FFF;
+$color-bg: #1d1f28;
+$color-bg-light: #252934;
+$color-bg-sub-light: #e1f6fa;
+$color-sub-portal: #00d5ff;
+$color-sub-portal-hover: #01badf;
+$color-disable: #a7a8ac;
+$color-disable-light: rgba($color-disable, 0.2);
+$color-contextmenu:#b5bfc6;
+
+
+// 1-2. general color
+$color-white: #fff;
+$color-black: #000;
+
+// 1-3. grey
+$color-grey-light: #e6e6e6;
+$color-grey-light2: #dadada;
+$color-grey-light3: #faf7f7; // for btn bg
+$color-grey-light4: #cecdce; // opacity2
+$color-grey-light5: #343842; // opacity2
+$color-grey-bg: #f2f2f2;
+$color-grey-bg-light: #efefef;
+$color-grey-dark1: #333845;
+$color-grey-dark1-light: #696870;
+$color-grey-dark2: #111116;
+$color-grey-dark2-light: #17181f; 
+$color-grey-dark3-light: #2a2f3b; // opacity 0.5
+$color-grey-dark3: #23242e;
+$color-grey-dark4: #43464f;
+$color-grey-dark5:#151922;
+$color-grey-dark6:#10121A;
+$color-grey-dark7:#090B11;
+$color-grey-dark8: #222634;
+$color-grey-dark9: #272932;
+$color-grey-dark10: #09090d; // header bg
+$color-grey-dark11: #14151a;
+$color-grey-dark12: #22242e;
+$color-grey-dark13: #32353f;
+$color-grey-dark14: #3d3f4a;
+$color-grey-light1: #383e4c;
+$color-grey-light2: #2d3341; // opacity 0.7 color-grey-light1
+$color-grey-light3: #2d2f37;
+$color-grey-light4: #202431;
+$color-grey-light5: #353c4b;
+$color-grey-light6: #30313e;
+
+$color-grey-btn-bg: #2a2f3b;
+$color-grey-btn-bg-disabled: #303543;
+
+
+// $color-main-gradient : linear-gradient(to right, 
+// #ffe9d1, #dfb992);
+$color-main-gradient: linear-gradient(to top, #ffe9d1, $color-main-dark2), linear-gradient(to bottom, $color-main, $color-main);
+$color-main2-gradient: linear-gradient(to left, #ffe9d1, $color-main-dark2);
+
+//specifical color
+$color-error: #bf0020;
+$color-error-light: #f0e1e1;
+$color-alert: #ff5353;
+
+$color-table-caution: #fff568;
+$color-table-limit: #ff6666;
+
+
+
+
+// 02. font 
+$base: 16;
+$font-size-content-max:   (60 / $base) * 1rem; // 60px
+$font-size-content-mlg:   (40 / $base) * 1rem; // 40px
+$font-size-content-lg:   (20 / $base) * 1rem; // 20px
+$font-size-content-md:   (16 / $base) * 1rem; // 16px
+$font-size-h2:   (36 / $base) * 1rem; // 36px
+$font-size-h3:   (32 / $base) * 1rem; // 32px
+$font-size-h4:   (28 / $base) * 1rem; // 28px
+$font-size-h6:   (24 / $base) * 1rem; // 24px
+$font-size-h6-5: (20 / $base) * 1rem; // 20px
+$font-size-h7:   (18 / $base) * 1rem; // 18px
+$font-size-h8:   (16 / $base) * 1rem; // 16px
+$font-size-h8-1: (15 / $base) * 1rem; // 15px
+$font-size-h9:   (14 / $base) * 1rem; // 14px
+$font-size-h10-1:  (13 / $base) * 1rem; // 12px
+$font-size-h10:  (12 / $base) * 1rem; // 12px
+$font-size-normal: (15 / $base) * 1rem; // 15px
+
+$form-font-size-text: $font-size-h8; //一般表單文字大小
+
+
+// 03 screen size
+
+$screen-size:(
+    lg-than-pc: 1441px,
+    pc: 1440px,
+    sm-than-pc: 1399px,
+    lg-than-nb: 1367px,
+    nb: 1366px,
+    sm-than-nb: 1365px,
+    sm-than-nb-xs: 1300px,
+    lg-than-desktop: 1201px,
+    desktop: 1200px,
+    sm-than-desktop: 1199px,
+    lg-than-pad-h: 1025px,
+    pad-h: 1024px,
+    sm-than-pad-h: 1023px,
+    lg-than-pad-v: 769px,
+    pad-v: 768px,
+    sm-than-pad-v: 767px,
+    lg-than-mobile: 376px,
+    mobile: 375px,
+    sm-than-mobile: 374px,
+);
+
+
+// radius
+
+$radius-default: 18px;
+$radius-form: 6px;
+$radius-md: 8px;
+$radius-sm: 4px;
+$radius-xs: 2px;
+
+
+$zIndex:(
+    options: 40, //下拉選單的options
+    loading: 1002, // loading
+    msg-block: 1001, // msg section (global msg)
+    modal: 999, //modal
+    modal-conetent: 1000, //modal content
+    profilebox: 41, // use in header profile detail
+    flash-msg: 1003,
+);
+
+
+//rwd config
+$max-width: 1128px;
+
+
+
+//rwd break point
+
+$mainBoard : 1200px;
+$mainBoardPaddingLeft : 24px;
+$mainBoardPaddingRight : 2px;
+$mainLittleBoardPadding : 20px;
+$scrollBarWidth : 4px;

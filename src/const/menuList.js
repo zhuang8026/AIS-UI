@@ -49,7 +49,7 @@ export default [
       {
         'title-cn': 'Icon 圖標',
         'title-en': 'Icons',
-        path: '/ais/icon',
+      path: '/ais/icon',
       },
     ],
   },
@@ -67,6 +67,11 @@ export default [
         'title-cn': 'Input 輸入框',
         'title-en': 'Inputs',
         path: '/ais/input',
+      },
+      {
+        'title-cn': 'Modal',
+        'title-en': 'Modal',
+        path: '/ais/modal',
       },
       // {
       //   'title-cn': 'Textarea 文本域',

@@ -1,0 +1,22 @@
+$space-modal-side: 36px; // space  modal content 
+.modal-content-detail{
+    display: inline-block;
+    max-width: 100%;
+    width: 100%;
+
+    .space-modal-md{
+        box-sizing: border-box;
+        padding-left: $space-modal-side;
+        padding-right: $space-modal-side;
+    }
+
+    &.style--text{
+        text-align: left;
+        p{
+            margin-bottom: 15px;
+            &.space--sm{
+                margin-bottom: 5px;
+            }
+        } //end: p
+    }//end: style--text
+}

@@ -1,0 +1,36 @@
+$form-h: 42px; // 表單元件高度
+$form-radius: $radius-form; //表單圓角
+$form-border-wd: 1px; //border寬度
+$form-space-start: 24px; //開始顯示文字的 padding
+$form-space-end: 20px; //結尾的space
+
+//color 
+$form-color-default: $color-disable;
+$form-color-active: $color-main;  // focus, active color
+$form-color-error: $color-error;
+$form-color-bg: $color-bg; //form元件的背景
+$form-color-font: $color-white; //form的文字顏色
+$form-color-diable: $color-disable-light; //disable 樣式
+
+
+
+$form-input-config-input:(
+    h: $form-h,
+    radius: $form-radius,
+    space-start: $form-space-start,
+    space-end: $form-space-end,
+);
+
+$form-input-color-config:(
+    default: $form-color-default,
+    active: $form-color-active,
+    hover:  $form-color-active,
+    error: $form-color-error,
+    text: $form-color-font,
+    disable: $form-color-diable,
+);
+
+$form-input-bg-color:(
+    default: $form-color-bg,
+    unset: unset,
+);

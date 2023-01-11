@@ -1,11 +1,18 @@
 const path = require('path');
 module.exports = {
+  lintOnSave: false,
   css: {
     loaderOptions: {
-      sass: {
+      scss: {
         data: `
           @import "./src/styles/style.scss";
+          @import "src/assets/scss/style-import.scss";
         `,
+        sassOptions: {
+          includePaths: [
+              'src/assets/scss'
+          ]
+        }, //end: sassOptions
       },
     },
   },

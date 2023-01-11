@@ -1,14 +1,15 @@
 {
+  
+  "allowJs": true,
   "compilerOptions": {
+    "noImplicitAny":false,
     "target": "esnext",
-    "module": "esnext",
-    "strict": true,
-    "jsx": "preserve",
+    "module": "CommonJS",
+    "strict": false,
     "importHelpers": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "skipLibCheck": true,
-    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",

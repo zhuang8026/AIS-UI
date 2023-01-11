@@ -56,6 +56,11 @@ const routerList: Array<RouteRecordRaw> = [
         name: 'Input 輸入框',
         component: () => import('@/page/InputView.vue'),
       },
+      {
+        path: 'modal',
+        name: 'Modal',
+        component: () => import('@/page/ModalView.vue'),
+      },
     //   {
     //     path: 'textarea',
     //     name: 'Textarea 文本域',

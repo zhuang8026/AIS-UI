@@ -18,7 +18,7 @@ export default {
     round: Boolean,
     size: {
       type: String,
-      default: 'default',
+      default: 'default', // default
     },
     customColor: {
       type: String,
@@ -121,6 +121,8 @@ export default {
   color: $color-main-disable-1;
   pointer-events: none;
 }
+
+
 
 .ais-button-importance {
   width: 160px;
