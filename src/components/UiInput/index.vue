@@ -1,14 +1,36 @@
 <template>
-  <input type="text" :value="msg" />
+  <input
+    :type="type"
+    :value="defaultValue"
+    :placeholder="placeholder"
+    :disabled="disabled"
+    v-model="privateDefaultValue"
+    @focus="focus"
+    @blur="blur"
+    @change="change"
+  />
 </template>
 
 <script>
 export default {
   name: 'UiInput',
   props: {
-    msg: {
+    type: String,
+    defaultValue: {
       type: String,
-      default: '人生漫漫, 喜樂無常',
+      default: '',
+    },
+    placeholder: String,
+    autofocus: Boolean,
+  },
+  computed: {
+    privateDefaultValue: {
+      get() {
+        return this.defaultValue;
+      },
+      set(val) {
+        this.$emit('update:defaultValue', val);
+      },
     },
   },
   methods: {},
@@ -16,13 +38,26 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
 input {
-  width: auto;
-  height: 40px;
-  border-radius: 3px;
-  margin: 0 10px;
-  padding: 0 10px;
-  border: 2px solid rgb(0, 123, 146);
+  width: 296px;
+  height: 20px;
+  border-radius: 4px;
+  border: solid 1px $input-main;
+  padding: 6px 12px;
+  &:hover {
+    border: 1px solid $color-main-hover;
+  }
+  &:active {
+    border: 1px solid $color-main-pressed;
+  }
+}
+input::placeholder {
+  /* 大部分现代浏览器 */
+  color: $input-main;
+  font-size: 14px;
+}
+input:focus {
+  outline: none;
 }
 </style>

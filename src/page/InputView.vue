@@ -1,6 +1,12 @@
 <template>
   <div class="home">
-    <ui-input type="0"/>
+    <h2>TextBox</h2>
+    <hr/>
+    <ui-input 
+      type="text"
+      placeholder="基本使用"
+      v-model:defaultValue="text"
+    />
   </div>
 </template>
 
@@ -15,8 +21,11 @@ export default {
   },
   data() {
     return {
-      radius: true,
+      text: 'Input Text',
     };
   },
 };
 </script>
+<style lang="scss" scope>
+//
+</style>
