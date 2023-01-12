@@ -39,11 +39,6 @@ export default {
        * hyperLink-button
        * */
       return [
-        // this.size == 'default' ? 'basic-button'
-        // : this.size == 'medium' ? 'ais-button-medium'
-        // : this.size == 'small' ? 'ais-button-small'
-        // : this.size == 'mini' ? 'ais-button-mini'
-        // : 'ais-button',
         this.type ? `ais-button-${this.type}` : '',
         // className 3: disabled
         this.disabled ? `ais-button-${this.type}-disabled` : '',
@@ -52,20 +47,20 @@ export default {
         {
           'ais-button-round': this.round,
         },
+        {
+          'width': this.size != '' ? this.size : ''
+        }
       ];
     },
     styles() {
       const mBtnDeaultStyle = {
-        background: this.customColor,
-        border: this.customColor,
-        color: '#fff',
+        // background: this.customColor,
+        // border: this.customColor,
+        width: `${this.size}px`,
+        // color: '#fff',
       };
       return [
-        this.customColor == ''
-          ? {}
-          : this.type == 'default'
-          ? {}
-          : mBtnDeaultStyle,
+        this.size == '' ? {} : mBtnDeaultStyle
       ];
     },
   },

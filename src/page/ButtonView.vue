@@ -37,7 +37,11 @@
     <ui-button type="small-important" round>Important</ui-button>
     <ui-button type="small-important" disabled round>Important</ui-button>
     <hr/>
-    <h3>Small Important</h3>
+    <h3>Custom</h3>
+    <ui-button type="small" size="132" round>Small Custom</ui-button>
+    <ui-button type="small-important" size="132" disabled round>Small Custom</ui-button>
+    <hr/>
+    <h3>icon</h3>
     <div class="icon-btn">
       <ui-button type="icon" icon="calendar" leftIcon>Text + icon</ui-button>
       <ui-button type="icon" icon="asus-iot-phm-sider-icon-rules-manergement-rulesettings" leftIcon disabled>Text + icon</ui-button>
