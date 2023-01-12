@@ -83,11 +83,11 @@ export default [
       //   'title-en': 'Space',
       //   path: '/ais/Space',
       // },
-      // {
-      //   'title-cn': 'Select 下拉框',
-      //   'title-en': 'Select',
-      //   path: '/ais/select',
-      // },
+      {
+        'title-cn': 'Select 下拉選單',
+        'title-en': 'Select',
+        path: '/ais/select',
+      },
       // {
       //   'title-cn': 'Dropdown 下拉選單',
       //   'title-en': 'Dropdown',
