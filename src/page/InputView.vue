@@ -21,7 +21,7 @@
           type="text" 
           placeholder="基本使用" 
           v-model:defaultValue="text2"
-          rightIcon="asus-iot-phm-icon-search"
+          rightIcon="search"
         />
       </div>
       <div class="input-md">
@@ -30,7 +30,7 @@
           round
           placeholder="基本使用" 
           v-model:defaultValue="text2"
-          rightIcon="asus-iot-phm-icon-search"
+          rightIcon="search"
         />
       </div>
     </div>
@@ -43,7 +43,7 @@
           type="text" 
           placeholder="基本使用" 
           v-model:defaultValue="text3"
-          rightIcon="asus-iot-phm-icon-search"
+          rightIcon="search"
           @onKeypress="onKeypress($event)"
           @onChange="onChange($event)"
         />
@@ -54,7 +54,7 @@
           round
           placeholder="基本使用" 
           v-model:defaultValue="text3"
-          rightIcon="asus-iot-phm-icon-search"
+          rightIcon="search"
         />
       </div>
     </div>
