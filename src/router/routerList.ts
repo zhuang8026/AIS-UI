@@ -71,11 +71,11 @@ const routerList: Array<RouteRecordRaw> = [
     //     name: 'Space 間距',
     //     component: () => import('/packages/Space/doc/doc.md'),
     //   },
-    //   {
-    //     path: 'select',
-    //     name: 'Select 下拉框',
-    //     component: () => import('/packages/select/doc/doc.md'),
-    //   },
+      // {
+      //   path: 'select',
+      //   name: 'Select 下拉框',
+      //   component: () => import('@/page/SelectView.vue'),
+      // },
     //   {
     //     path: 'dropDown',
     //     name: 'Dropdown 下拉選單',

@@ -12,49 +12,43 @@ export default {
   props: {
     type: {
       type: String,
-      default: 'default',
+      default: 'basic', // basic, importance, 
+                        // small, small-important, 
+                        // add-icon, icon, hyperLink
     },
-    icon: String,
-    disabled: Boolean,
-    round: Boolean,
-    size: {
-      type: String,
-      default: '', // px
-    },
+    icon: String, // trash
+    disabled: Boolean, // btn disabled
+    round: Boolean, // border-radius:50%
+    // size: {
+    //   type: String,
+    //   default: '', // px
+    // },
     width: {
       type: String,
-      default: '', // ''
+      default: '', // 'md'=>132px
     },
-    customColor: {
-      type: String,
-      default: '',
-    },
-    leftIcon: Boolean,
-    rightIcon: Boolean,
-    localing: Boolean,
+    // customColor: {
+    //   type: String,
+    //   default: '',
+    // },
+    leftIcon: Boolean, // left icon
+    rightIcon: Boolean, // left icon
+    // localing: Boolean, 
   },
   computed: {
     isClass() {
-      /**
-       * basic-button
-       * importance-button
-       * small-button
-       * small-important-button
-       * text-icon-button
-       * hyperLink-button
-       * */
       return [
         this.type ? `ais-button-${this.type}` : '',
-        // className 3: disabled
+        // className : disabled
         this.disabled ? `ais-button-${this.type}-disabled` : '',
         this.disabled&&this.icon ? `btn-icon-disabled` : '',
-        // className 4: border-radius
+        // className : border-radius
         {
           'ais-button-round': this.round,
         },
-        {
-          'width': this.size != '' ? this.size : ''
-        }
+        // {
+        //   'width': this.size != '' ? this.size : ''
+        // }
       ];
     },
     iconClass() {
@@ -67,8 +61,9 @@ export default {
       const mBtnDeaultStyle = {
         // background: this.customColor,
         // border: this.customColor,
-        // width: `${this.size}px`,
-        width: this.width == 'md' ? '132px':''
+        width: this.width == 'lg' ? '160px':
+        (this.width == 'md' ? '132px' : 
+        (this.width == 'sm'? '69px' : ''))
       };
       return [
         // this.size == '' ? {} : mBtnDeaultStyle
