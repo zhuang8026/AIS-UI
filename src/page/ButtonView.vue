@@ -37,13 +37,25 @@
     <ui-button type="small-important" round>Important</ui-button>
     <ui-button type="small-important" disabled round>Important</ui-button>
     <hr/>
-    <h3>Custom</h3>
-    <ui-button type="small" size="132" round>Small Custom</ui-button>
-    <ui-button type="small-important" size="132" disabled round>Small Custom</ui-button>
+    <h3>Custom 132px(width="md")</h3>
+    <ui-button type="small" width="md" round>Small Custom</ui-button>
+    <ui-button type="small-important" width="md" disabled round>Small Custom</ui-button>
+    <hr/>
+    <h3>btn-icon right</h3>
+    <div class="flex-center">
+      <ui-button type="add-icon" round rightIcon icon="asus-iot-phm-sider-icon-rules-manergement-rulesettings">Small Custom</ui-button>
+      <ui-button type="add-icon" disabled round rightIcon icon="asus-iot-phm-sider-icon-rules-manergement-rulesettings">Small Custom</ui-button>
+    </div>
+    <hr/>
+    <h3>btn-icon left</h3>
+    <div class="flex-center">
+      <ui-button type="add-icon" round leftIcon icon="asus-iot-phm-sider-icon-rules-manergement-rulesettings">Small Custom</ui-button>
+      <ui-button type="add-icon" disabled round leftIcon icon="asus-iot-phm-sider-icon-rules-manergement-rulesettings">Small Custom</ui-button>
+    </div>
     <hr/>
     <h3>icon</h3>
-    <div class="icon-btn">
-      <ui-button type="icon" icon="calendar" leftIcon>Text + icon</ui-button>
+    <div class="flex-center">
+      <ui-button type="icon" icon="asus-iot-phm-sider-icon-rules-manergement-rulesettings" leftIcon>Text + icon</ui-button>
       <ui-button type="icon" icon="asus-iot-phm-sider-icon-rules-manergement-rulesettings" leftIcon disabled>Text + icon</ui-button>
     </div>
     <a href="https://codepen.io/martinridgway/pen/jOqVOgg">color change to svg filter</a>
@@ -86,7 +98,7 @@
   button {
     margin: 0 5px;
   }
-  .icon-btn {
+  .flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
