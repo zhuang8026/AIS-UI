@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     checkChange() {
-      this.$emit('checkChange', this.checked);
+      this.$emit('change', this.checked);
     },
   },
 };

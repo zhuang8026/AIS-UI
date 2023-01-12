@@ -5,14 +5,14 @@
     <h3>type="text" + round</h3>
     <div class="flex-center">
       <div class="input-md">
-        <ui-input type="text" placeholder="基本使用" v-model:defaultValue="text"/>
+        <ui-input type="text" placeholder="基本使用" v-model:defaultValue="text1"/>
       </div>
       <div class="input-md">
-        <ui-input type="text" round placeholder="基本使用" v-model:defaultValue="text"/>
+        <ui-input type="text" round placeholder="基本使用" v-model:defaultValue="text1"/>
       </div>
       
     </div>
-    output -> {{ text }}
+    output -> {{ text1 }}
     <hr/>
     <h3>type="text" + icon</h3>
     <div class="flex-center">
@@ -20,7 +20,7 @@
         <ui-input 
           type="text" 
           placeholder="基本使用" 
-          v-model:defaultValue="text"
+          v-model:defaultValue="text2"
           rightIcon="asus-iot-phm-icon-search"
         />
       </div>
@@ -29,12 +29,36 @@
           type="text" 
           round
           placeholder="基本使用" 
-          v-model:defaultValue="text"
+          v-model:defaultValue="text2"
           rightIcon="asus-iot-phm-icon-search"
         />
       </div>
     </div>
-    output -> {{ text }}
+    output -> {{ text2 }}
+    <hr/>
+    <h3>type="text" + event(keypress)</h3>
+    <div class="flex-center">
+      <div class="input-md">
+        <ui-input 
+          type="text" 
+          placeholder="基本使用" 
+          v-model:defaultValue="text3"
+          rightIcon="asus-iot-phm-icon-search"
+          @onKeypress="onKeypress($event)"
+          @onChange="onChange($event)"
+        />
+      </div>
+      <div class="input-md">
+        <ui-input 
+          type="text" 
+          round
+          placeholder="基本使用" 
+          v-model:defaultValue="text3"
+          rightIcon="asus-iot-phm-icon-search"
+        />
+      </div>
+    </div>
+    output -> {{ text3 }}
   </div>
 </template>
 
@@ -49,8 +73,18 @@ export default {
   },
   data() {
     return {
-      text: 'ASUS is incomparable company',
+      text1: 'ASUS is incomparable company',
+      text2: 'ASUS is incomparable company',
+      text3: 'ASUS is incomparable company',
     };
+  },
+  methods: {
+    onChange(val) {
+      console.log('onChange->:', val);
+    },
+    onKeypress(val) {
+      console.log('onkeypress->:', val);
+    },
   },
 };
 </script>

@@ -2,19 +2,22 @@
   <div :class="[`ais-input`, isClass]" :style="{ 'min-width': 'auto' }">
     <input
       :type="type"
-      :value="defaultValue"
+      :value="privateDefaultValue"
       :placeholder="placeholder"
       :disabled="disabled"
       v-model="privateDefaultValue"
-      @focus="focus"
-      @blur="blur"
-      @change="change"
+      @focus="onFocus"
+      @blur="onBlur"
+      @change="onChange"
+      @keyup.enter="onKeyupEnter"
+      @keydown.enter="onKeydownEnter"
+      @keypress="onKeypress"
     />
     <div :class="['right-icon',  rightIcon, iconClass]" v-if="rightIcon != ''"></div>
   </div>
 </template>
 
-<script>
+<script lang="ts">
   export default {
     name: 'UiInput',
     props: {
@@ -23,6 +26,10 @@
       defaultValue: {
         type: String,
         default: '',
+      },
+      disabled: {
+        type: Boolean,
+        default: false,
       },
       rightIcon: {
       type: String,
@@ -35,7 +42,7 @@
         get() {
           return this.defaultValue;
         },
-        set(val) {
+        set(val:any) {
           this.$emit('update:defaultValue', val);
         },
       },
@@ -48,9 +55,16 @@
           },
         ];
       },
-
+      iconClass() {}
     },
-    methods: {},
+    methods: {
+      onFocus(e)  {this.$emit('onFocus', {value: e.target.value})},
+      onBlur(e)   {this.$emit('onBlur',  {value: e.target.value})},
+      onChange(e) {this.$emit('onChange',{value: e.target.value})},
+      onKeyupEnter(e)   {this.$emit('onKeyupEnter',  {value: e.target.value})},
+      onKeydownEnter(e) {this.$emit('onKeydownEnter',{value: e.target.value})},
+      onKeypress(e)     {this.$emit('onKeypress',    {value: e.target.value})},
+    },
   };
 </script>
 

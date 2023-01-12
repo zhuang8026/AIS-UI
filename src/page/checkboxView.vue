@@ -7,12 +7,12 @@
       <ui-checkbox
         type="default"
         v-model:checked="checked1"
-        @checkChange="checkChangeType1($event)"
+        @change="checkChangeType1($event)"
       >Normal - {{ checked1 }}</ui-checkbox>
       <ui-checkbox
         type="selectbox"
         v-model:checked="checked2"
-        @checkChange="checkChangeType2($event)"
+        @change="checkChangeType2($event)"
       >Normal - {{ checked2 }}</ui-checkbox>
     </div>
     <hr />
@@ -22,13 +22,13 @@
         type="default"
         v-model:checked="checked3"
         :disabled="disabled"
-        @checkChange="checkChangeType1($event)"
+        @change="checkChangeType1($event)"
       >Disable</ui-checkbox>
       <ui-checkbox
         type="selectbox"
         v-model:checked="checked3"
         :disabled="disabled"
-        @checkChange="checkChangeType2($event)"
+        @change="checkChangeType2($event)"
       >Disable</ui-checkbox>
       <ui-checkbox type="default" :disabled="disabled">Disable</ui-checkbox>
     </div>
