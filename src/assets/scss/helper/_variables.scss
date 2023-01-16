@@ -36,12 +36,19 @@ $color-disable-light: rgba($color-disable, 0.2);
 $color-contextmenu:#b5bfc6;
 
 
+$color-normal: #64dd9f; // green;
+$color-normal-light: rgba(123, 255, 187, 0.3); 
+$color-focus: #fc3a3a;
+$color-focus-light: rgba(252, 152, 152, 0.5);
+
 // 1-2. general color
 $color-white: #fff;
 $color-black: #000;
 
 // 1-3. grey
-$color-grey-light: #e6e6e6;
+$color-grey-light: #f4f4f4; // phm table bg
+$color-grey-light-md: #909090; // phm table head
+// ----
 $color-grey-light2: #dadada;
 $color-grey-light3: #faf7f7; // for btn bg
 $color-grey-light4: #cecdce; // opacity2

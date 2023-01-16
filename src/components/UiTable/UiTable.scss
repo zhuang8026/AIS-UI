@@ -1,0 +1,81 @@
+$space-table-content: 20px;
+$size-dot: 14px;
+$dot-y: 3px;
+.ui-table {
+    table{
+        border-collapse: collapse;
+    }
+    th, td{
+        padding: $space-table-content 10px $space-table-content 10px;
+        text-align: left;
+       
+    }
+    th{
+        vertical-align: center;
+        .txt{
+            color: $color-grey-light-md;
+            font-size: $font-size-h10;
+            font-weight: normal;
+        }
+    }//end: th
+    tbody{
+        tr{
+            &:nth-child(odd){
+                background-color: $color-grey-light;
+                border: none;
+
+            }
+        }
+        td{
+            vertical-align: top;
+            .txt{
+                text-align: left;
+                margin: 0;
+                padding: 0;
+                position: relative;
+                &.style--status{
+                    padding-left: $size-dot + 8px;
+                    &::before, &::after{
+                        content: '';
+                        display: inline-block;
+                        width: $size-dot;
+                        height: $size-dot;
+                        border-radius: 50%;
+                        position: absolute;
+                        left: 0;
+                        top: $dot-y;
+                    }
+                    &:after{
+                        width: $size-dot * 0.7;
+                        height: $size-dot * 0.7;
+                        top: $dot-y + ( $size-dot * 0.7) / 4;
+                        left: ( $size-dot * 0.7) / 4;
+                    }
+
+                }//end: style--status
+                &.normal{
+                    &::before{
+                        background-color: $color-normal-light;
+                       
+                    }
+                    &:after{
+                        background-color: $color-normal;
+                    }
+                }
+                &.active{
+                    &::before{
+                        background-color: $color-focus-light;
+                    }
+                    &:after{
+                        background-color: $color-focus;
+                    }
+                }
+            }//end: txt
+        }
+
+    }//end: tbody
+    .check-content{
+        text-align: center;
+    }
+
+}

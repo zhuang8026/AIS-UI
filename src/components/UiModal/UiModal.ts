@@ -43,7 +43,7 @@ export default {
     },
     alignBtn: {    // left, center, right
       type: String,
-      default: 'right'
+      default: 'center'
     },
     imgLink: {
       type: String,

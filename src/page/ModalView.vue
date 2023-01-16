@@ -3,7 +3,7 @@
     <h2>Modal - wd: default  </h2>
     <ui-button type="basic" round  @click="onClickModal">OpenModal</ui-button>
 
-    <UiModal content="" v-model:isOpen="isOpenNormalUiModal" btnArrange="reverse" @onClickCancel="onClickCancel">
+    <ui-modal content="" v-model:isOpen="isOpenNormalUiModal" btnArrange="reverse" @onClickCancel="onClickCancel">
       <div class="detail-block">
         <p>AAA</p>
         <p>AAA</p>
@@ -21,11 +21,11 @@
         <p>AAA</p>
         <p>AAA</p>
       </div>
-    </UiModal>
+    </ui-modal>
   <h2>Modal - wd: lg  </h2>
     <ui-button type="basic" round  @click="onClickModal2">OpenModal2</ui-button>
 
-    <UiModal :btnConfirm="{}" content="" title="AAA" wd="lg" v-model:isOpen="isOpenNormalUiModal2" btnArrange="reverse" @onClickCancel="onClickCancel">
+    <UiModal :btnConfirm="{}" content="" title="AAA" wd="lg" v-model:isOpen="isOpenNormalUiModal2"  @onClickCancel="onClickCancel">
       <div class="detail-block">
         <p>AAA</p>
         <p>AAA</p>

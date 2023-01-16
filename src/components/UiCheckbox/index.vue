@@ -9,7 +9,7 @@
       }]"
       @click="checkChange"
     >
-      <input type="checkbox" v-model="privateIsCheck" />
+      <input type="checkbox" v-model="privateIsCheck" :checked="checked"/>
       <span class="ais-checkbox-selectbox"></span>
       <span class="ais-checkbox-test">
         <slot></slot>

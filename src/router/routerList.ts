@@ -91,11 +91,11 @@ const routerList: Array<RouteRecordRaw> = [
         name: 'Checkbox 多選',
         component: () => import('@/page/checkboxView.vue'),
       },
-    //   {
-    //     path: 'switch',
-    //     name: 'Switch 開關',
-    //     component: () => import('/packages/switch/doc/doc.md'),
-    //   },
+      {
+        path: 'table',
+        name: 'Table 表格',
+        component: () => import('@/page/TableView.vue'),
+      },
     //   {
     //     path: 'optfile',
     //     name: 'Optfile 文件選擇',
