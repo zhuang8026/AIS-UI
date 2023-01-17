@@ -88,6 +88,11 @@ export default [
         'title-en': 'Select',
         path: '/ais/select',
       },
+      {
+        'title-cn': 'Select 多選下拉選單',
+        'title-en': 'Select',
+        path: '/ais/multiselect',
+      },
       // {
       //   'title-cn': 'Dropdown 下拉選單',
       //   'title-en': 'Dropdown',
