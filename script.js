@@ -47,42 +47,18 @@ fs.readdir(path.join(__dirname, './src/components'), function (err, files) {
 
   })
   ex = ex.join(",")
-  content = content + `export { ${ex} }; `
+  // content = content + `export { ${ex} }; `
 
-  packPic()
+  packPic(ex)
 
   // fs.writeFile(path.join(__dirname, './src/index.js'), content, 'utf8', (err) => {
   //   if (err) throw err;
   // });
 })
 
-// fs.readdir(path.join(__dirname, './src/components/assets'), function (err, files) {
-//   if (err) {
-//     console.log('目錄不存在');
-//     return
-//   }
 
 
-//   files.forEach(item => {
-//     // 讀取目錄名稱
-//     // console.log('000',item)
-//     fs.readdir(path.join(__dirname, `./src/components/assets/${item}`), 
-//     function (err, picForders) {
-//           // console.log('111',picForders.length)
-//           picForders.forEach( eachPic => {
-//             // console.log('222',eachPic)
-//             let iconName = eachPic.split('.svg')[0]
-//             picString  = picString + ','+iconName
-
-//           });
-//     })
-//   })
-
-//   console.log('picString呱吉2', picString)
-// })
-
-
-function packPic() {
+function packPic(ex) {
 
   fs.readdir(path.join(__dirname, './src/components/assets/icon'), function (err, files) {
     if (err) {
@@ -90,12 +66,14 @@ function packPic() {
       return
     }
     files.forEach(eachPic => {
-      let iconName = eachPic.split('.svg')[0]
+      let iconName = eachPic.split('.svg')[0];
+      iconName = camelize(iconName)
       picString  = picString + ','+iconName
+      // console.log('呱吉2聒聒',iconName)
       content = content + `import ${iconName} from './components/assets/icon/${eachPic}';`
     })
   
-    content = content + `export { ${picString} }; `
+    content = content + `export { ${ex}${picString}  }; `
     // console.log('picString呱吉2', picString)
     console.log('picString呱吉2', content)
     packAll()
@@ -110,4 +88,11 @@ function packAll() {
     if (err) throw err;
   });
   
+}
+
+
+function camelize(str) {
+  return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index) {
+    return index === 0 ? word.toLowerCase() : word.toUpperCase();
+  }).replace(/\s+/g, '').replace(/-/g, '');
 }
