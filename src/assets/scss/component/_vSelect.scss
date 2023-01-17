@@ -1,0 +1,237 @@
+//select style init
+.v-select {
+    .vs__dropdown-toggle {
+        @apply border-grey-66 border bg-white overflow-hidden ;
+        &:hover{
+            @apply border-root-dark;
+        }
+        &:active{
+            @apply border-root-darkMore;
+        }
+    }
+    // .vs__dropdown-toggle
+    .vs__selected-options {
+        @apply px-4px
+    }
+    .vs__search{
+        &::placeholder{
+            @apply text-grey-4c;
+        }
+    }
+    .vs__dropdown-option{
+        @apply px-12px
+        
+    }
+    
+    .vs__dropdown-option--selected & .vs__dropdown-option--highlight  {
+        // @apply text-white bg-root-dark;
+    }
+    .vs__dropdown-option--highlight {
+        @apply text-white bg-root-dark;
+    }
+    .vs__dropdown-option--highlight:active {
+        @apply text-white bg-root-darkMore;
+    }
+    .vs__dropdown-option--disabled {
+        @apply  bg-white text-grey-b3;
+    }
+    .vs__dropdown-option--selected{ //待確認 被選 + hover 效果
+        @apply text-main bg-white;
+    }
+    .vs__dropdown-option--selected & .vs__dropdown-option--highlight  {
+        // @apply text-white bg-root-dark;
+        @apply text-main bg-white;
+    }
+    
+    .vs__actions {
+        @apply  overflow-hidden ;
+        .vs__open-indicator {
+            svg {
+                @apply  w-24px h-24px ;
+            }
+        }
+        // 下拉按鈕
+        // .vs__open-indicator {
+        //     fill: black;
+        // }
+    }
+}
+
+
+//無背景互動顏色
+.noBG {
+    .vs__dropdown-option:hover {
+        // 彈出選單中被Highlight的項目
+        @apply text-black bg-white;
+    }
+    .vs__dropdown-option--highlight:active {
+        @apply text-black bg-white;
+    }
+}
+
+.inputSelect{
+  .vs__dropdown-option { //選單上下list選的顏色putHighLight
+        background: none;
+        color: black;
+  }
+}
+
+
+//checkbox的custom樣式
+.inputselect {
+  .vs--disabled {
+      .vs__dropdown-toggle,
+      .vs__clear,
+      .vs__search,
+      .vs__selected,
+      .vs__open-indicator {
+          cursor: not-allowed;
+      }
+  }
+  .v-select {
+      .vs__dropdown-toggle {
+          background-color: white;
+      }
+      .vs__dropdown-option--highlight {
+          // @apply text-main bg-white;
+      }
+      .vs__dropdown-option:hover{
+          &:not(.vs__dropdown-option--disabled){
+              @apply text-main bg-white;
+          }
+      }
+      .vs__dropdown-option--highlight:active {
+          @apply text-main bg-white;
+      }
+      .vs__dropdown-option{
+          padding: 4px 12px;
+      }
+      .vs__dropdown-option--disabled {
+          color: #B8B8B8;
+      }
+      .vs__selected-options {
+          position: relative;
+          span {
+              display: none;
+          }
+      }
+  }
+}
+
+//placeholder
+.lightPlaceholder {
+  .v-select {
+       ::placeholder {
+          /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: #acacac;
+          opacity: 1;
+          /* Firefox */
+      }
+       :-ms-input-placeholder {
+          /* Internet Explorer 10-11 */
+          color: #acacac;
+      }
+       ::-ms-input-placeholder {
+          /* Microsoft Edge */
+          color: #acacac;
+      }
+  }
+}
+
+
+//沒有清除按鈕
+.noClean {
+  .vs__dropdown-toggle {
+      background-color: transparent;
+  }
+}
+// no arrow
+.noArrow {
+  .v-select {
+      .vs__actions {
+          .vs__open-indicator {
+              display: none;
+          }
+      }
+  }
+}
+
+//valid
+.validError {
+    &.v-select{
+        .vs__dropdown-toggle {
+            @apply border-error-0;
+    }
+  }
+}
+
+
+//noShowOp  
+
+.noShowOp{
+    border-radius: 5px;
+    overflow: hidden;
+    .v-select {
+    }
+    .vs__dropdown-menu{
+        display: none;
+        
+    }
+}
+
+
+// input[type="search"]:-webkit-autofill {
+//     -webkit-box-shadow:0 0 0 50px #b12b2b ；
+// }
+
+.vs__search::-webkit-search-decoration,
+.vs__search::-webkit-search-cancel-button,
+.vs__search::-webkit-search-results-button,
+.vs__search::-webkit-search-results-decoration,
+.vs__search::-ms-clear {
+display: none;
+}
+
+
+//disable
+
+.v-select {
+    @apply  bg-white ;
+    &.vs--disabled {
+        @apply  bg-white ;
+        .vs__dropdown-toggle,
+        .vs__clear,
+        .vs__search,
+        .vs__selected,
+        .vs__open-indicator {
+            @apply  bg-white ;
+        }
+        .vs__dropdown-toggle {
+            @apply  bg-white  border-grey-b3;
+            &:hover{
+                @apply bg-white  border-grey-b3;
+            }
+            &:active{
+                @apply bg-white  border-grey-b3;
+            }
+            .vs__selected-options{
+                input{
+                    &::placeholder{
+                        @apply  text-grey-b3;
+                    }
+                }
+            }
+            .vs__actions{
+                .vs__open-indicator{
+                    @apply  text-grey-b3;
+                }
+            }
+            
+        }
+    }
+    
+}
+
+
+
+
