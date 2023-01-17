@@ -58,6 +58,30 @@ fs.readdir(path.join(__dirname, './src/components'), function (err, files) {
 
 
 
+// function packPic(ex) {
+
+//   fs.readdir(path.join(__dirname, './src/components/assets/icon'), function (err, files) {
+//     if (err) {
+//       console.log('目錄不存在');
+//       return
+//     }
+//     files.forEach(eachPic => {
+//       let iconName = eachPic.split('.svg')[0];
+//       iconName = camelize(iconName)
+//       picString  = picString + ','+iconName
+//       // console.log('呱吉2聒聒',iconName)
+//       content = content + `import ${iconName} from './components/assets/icon/${eachPic}';`
+//     })
+  
+//     content = content + `export { ${ex}${picString}  }; `
+//     // console.log('picString呱吉2', picString)
+//     console.log('picString呱吉2', content)
+//     packAll()
+//   })
+  
+// }
+
+
 function packPic(ex) {
 
   fs.readdir(path.join(__dirname, './src/components/assets/icon'), function (err, files) {
@@ -71,6 +95,13 @@ function packPic(ex) {
       picString  = picString + ','+iconName
       // console.log('呱吉2聒聒',iconName)
       content = content + `import ${iconName} from './components/assets/icon/${eachPic}';`
+
+      //
+      // var readStream = fs.createReadStream(`./src/components/assets/icon/${eachPic}`); // 被复制文件
+      // // 创建一个写入流
+      // var writeStream = fs.createWriteStream(`./lib/img/${eachPic}`); // 复制到的目标位置及文件
+      // // 读取流的内容通过管道流写入到输出流
+      // readStream.pipe(writeStream);
     })
   
     content = content + `export { ${ex}${picString}  }; `
