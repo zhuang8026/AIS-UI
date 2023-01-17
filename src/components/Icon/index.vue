@@ -10,6 +10,10 @@
 </template>
 <script>
 
+const requireAll = (requireContext) => requireContext.keys().map(requireContext);
+const req = require.context('@/components/assets/icon', false, /.svg$/);
+requireAll(req);
+
 import {  computed} from 'vue';
 export default {
   props: {

@@ -42,8 +42,14 @@
 </template>
 
 <script>
+
+import Icon from '@/components/Icon/index.vue';
+
 import { reactive} from 'vue';
 export default {
+  components: {
+    Icon
+  },
   props: {
   },
   setup() {
