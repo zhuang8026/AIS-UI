@@ -29,7 +29,7 @@ module.exports = {
       .rule("svg-sprite-loader") 
       .test(/\.svg$/)
       .include
-      .add(resolve("src/assets/icon"))
+      .add(resolve("src/components/assets/icon"))
       .end()
       .use("svg-sprite-loader")
       .loader("svg-sprite-loader")
@@ -38,6 +38,6 @@ module.exports = {
     // 修改 images-loader 配置
     config.module
       .rule("images")
-      .exclude.add(resolve("src/assets/icon"))
+      .exclude.add(resolve("src/components/assets/icon"))
   }
 };

@@ -11,7 +11,7 @@ let app = createApp(App).use(router)
 
 //iCon component register globally
 const requireAll = (requireContext) => requireContext.keys().map(requireContext);
-const req = require.context('@/assets/icon', false, /.svg$/);
+const req = require.context('@/components/assets/icon', false, /.svg$/);
 requireAll(req);
 app.component('Icon', PicIcon)
 
