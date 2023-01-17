@@ -246,6 +246,14 @@ $align-config: left, center, right;
             }//
         }
         //end: btn-align, title
+        .btn-block{
+          .btn-inline {
+              + .btn-inline{
+                margin-left: 24px;
+              }
+          }
+      } //btn=block
+        
 
 
         // content space

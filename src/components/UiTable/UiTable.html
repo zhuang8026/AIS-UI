@@ -1,0 +1,52 @@
+
+<div class="ui-table">
+  <!-- <a href="javascript:;" @click="onClick">click</a>
+  isCheckedAll: {{isCheckedAll}} privateIsChecked:{{privateIsChecked}} -->
+  <table>
+  <!-- table header -->
+  <thead>
+    <tr>
+      <th><UiCheckbox type="default" v-model:checked="privateIsChecked" :checked="isCheckedAll" :disabled="isDisableAll" @checkChange="onCheckAll"></UiCheckbox></th>
+      <!-- head data -->
+      <th v-for="(item, index) in head">
+      <!-- type 1 : normal txtx -->
+        <p v-if="typeof item.txt === 'string' || item.txt instanceof String" class="txt">{{item.txt}}</p>
+
+      <!-- end of type1 -->
+
+      <!-- type2: select filter  -->
+        <ul v-else>
+          <li v-for="option in item.txt">
+            {{option}}
+          </li>
+        </ul>
+
+      <!-- end of type2 -->
+      </th>
+    </tr>
+  </thead>
+  <!-- end of table header -->
+  <tbody>
+    
+    <tr v-for="data in datas">
+      <!-- checkbox -->
+      <td class="check-content">
+        <UiCheckbox type="default" v-model:checked="isCheckList"></UiCheckbox>
+      </td>
+
+      <!-- data -->
+      <td v-for="detail in data.detail">
+        <!-- type1 : normal txt -->
+        <p  v-if="detail.type == 'default'" class="txt">{{detail.txt}}</p>
+        <!-- end of type1  -->
+
+
+        <!-- type2: dot style text -->
+        <p v-else class="txt style--status" :class="detail.type.split(':')[1] == 1 ? 'normal': 'active'">{{detail.txt}}</p>
+        <!-- end of type2 -->
+      </td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+
