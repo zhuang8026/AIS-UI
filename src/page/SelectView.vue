@@ -1,51 +1,197 @@
 <template>
   <div class="home">
-    <h2>Combo box</h2>
+    <h2 class="my-32px">Combo box</h2>
     <hr/>
-    <h2>Normal</h2>
-    <div class="inner">
+    <h2 class="my-32px">Normal </h2>
+    <div class="flex mb-24px justify-start">
+      <div class="flex">
+        <div class="mr-20px">value : </div>
+        <div>{{state.selectedFruit}}</div>
+      </div>
+    </div>
+    <div class="flex mb-24px">
       <ui-select
-        :options="fruits"
-        v-model:defaultSelected="selectedFruit"
+        class="w-296 mr-40px"
+        v-model:defaultSelectedValue="state.selectedFruit"
+        :optionArr="state.fruits" 
+        :required="true"
+        :showCheckIcon="true"
+        @onChange="selectClick"
+        @onblur="toblur" 
+        name="demoSelect"
+        :placeholder="'I am placeholder'"
+      ></ui-select>
+      <ui-select
+        class="w-296 mr-40px"
+        v-model:defaultSelectedValue="state.selectedDisableList"
+        :isDisable="true"
+        :optionArr="state.disableList" 
+        :required="true"
+        :showCheckIcon="true"
+        @onChange="selectClick"
+        @onblur="toblur" 
+        name="demoSelect"
+        :placeholder="'I am placeholder'"
+      ></ui-select>
+      <ui-select
+        class="w-296 mr-40px"
+        v-model:defaultSelectedValue="state.selectedErrorList"
+        :optionArr="state.errorList" 
+        :required="true"
+        :showCheckIcon="true"
+        @onChange="selectClick"
+        @onblur="toblur" 
+        :error="'this is error message'"
+        name="demoSelect"
+        :placeholder="'I am placeholder'"
+      ></ui-select>
+      <Icon class="h-40px w-40px text-main" iconClass="dropdown" type="svg" ></Icon>
+      <!-- <Icon class="h-40px w-40px text-main" iconClass="dropdown" type="svg" :animate="true" ></Icon> -->
+    </div>
+
+    <hr/>
+
+    <h2 class="my-32px">No select Check Icon </h2>
+    <div class="flex mb-24px">
+      <ui-select
+        class="w-296 mr-40px"
+        v-model:defaultSelectedValue="state.selectedFruit"
+        :optionArr="state.fruits" 
+        :required="true"
+        :showCheckIcon="false"
+        @onChange="selectClick"
+        @onblur="toblur" 
+        name="demoSelect"
+        :placeholder="'I am placeholder'"
       ></ui-select>
     </div>
-    <br/>
-    <span>Your Choice is: {{ selectedFruit }}</span>
-    <br/>
+
+    <hr/>
+
+    <h2 class="my-32px">Multi Width</h2>
+    <div class="flex mb-24px">
+      <ui-select
+        class="w-200 mr-40px"
+        v-model:defaultSelectedValue="state.selectedFruit"
+        :optionArr="state.fruits" 
+        :required="true"
+        :showCheckIcon="false"
+        @onChange="selectClick"
+        @onblur="toblur" 
+        name="demoSelect"
+        :placeholder="'I am placeholder'"
+      ></ui-select>
+      <ui-select
+        class="w-296  mr-40px"
+        v-model:defaultSelectedValue="state.selectedFruit"
+        :optionArr="state.fruits" 
+        :required="true"
+        :showCheckIcon="false"
+        @onChange="selectClick"
+        @onblur="toblur" 
+        name="demoSelect"
+        :placeholder="'I am placeholder'"
+      ></ui-select>
+      <ui-select
+        class="w-600 mr-40px"
+        v-model:defaultSelectedValue="state.selectedFruit"
+        :optionArr="state.fruits" 
+        :required="true"
+        :showCheckIcon="false"
+        @onChange="selectClick"
+        @onblur="toblur" 
+        name="demoSelect"
+        :placeholder="'I am placeholder'"
+      ></ui-select>
+    </div>
+
     <hr/>
   </div>
 </template>
 
 <script>
 import UiSelect from '@/components/UiSelect/index.vue'; // @ is an alias to /src
-
+import { reactive, computed, watch, onMounted } from 'vue';
 export default {
-  name: 'SelectView',
   components: {
-    UiSelect,
+    UiSelect
   },
-  data() {
-    return {
+  props: {
+  },
+  setup(props, { emit }) {
+    const state = reactive({
       fruits: [
-        { id: '0', label: 'Mangoo' },
-        { id: '1', label: 'Apple' },
-        { id: '2', label: 'Orange' },
-        { id: '3', label: 'Melon' },
-        { id: '4', label: 'Pineapple' },
-        { id: '5', label: 'Lecy' },
+        {id: 'op1',
+          name: 'Option 1',
+          disabled: false,
+        },
+        {id: 'op2',
+          name: 'Option 2',
+          disabled: false,
+        },
+        {id: 'op3', 
+          name: 'Option 3',
+          disabled: true,
+        },
+        {id: 'op4', 
+          name: 'Option 4',
+          disabled: false,
+        },
+        {id: 'op5', 
+          name: 'Option 5',
+          disabled: false,
+        },
+        {id: 'op6', 
+          name: 'Option 6',
+          disabled: false,
+        },
       ],
-      selectedFruit: 'Lecy',
-    };
-  },
-  computed: {},
-  watch: {},
-  methods: {},
-};
+      disableList: [
+        {id: 'op1',
+          name: 'Option 1',
+          disabled: false,
+        },
+      ],
+      errorList : [
+        {id: 'op1',
+          name: 'Option 1',
+          disabled: false,
+        },
+        {id: 'op2',
+          name: 'Option 2',
+          disabled: false,
+        },
+      ],
+      selectedDisableList: null,
+      selectedFruit: null,
+      selectedErrorList : null,
+    })
+
+
+    onMounted(() => {
+      // init();
+    })
+
+
+    const selectClick = (val) => {
+      console.log('333')
+    }
+
+    const toblur = () => {
+    }
+
+
+
+
+    return {
+      state,
+      // privateIsChecked,
+      toblur,
+      selectClick,
+    }
+  }// end: setup
+}
+
+
 </script>
 
-<style lang="scss">
-.inner {
-  width: 296px;
-  margin: 0 auto;
-}
-</style>
