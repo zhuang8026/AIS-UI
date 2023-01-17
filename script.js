@@ -8,6 +8,7 @@ const path = require('path');
 let content = `/*${new Date()}*/`
 let ex = []
 let picString = ''
+let sassString = ''
 
 // 生成導出代碼脚本
 fs.readdir(path.join(__dirname, './src/components'), function (err, files) {
@@ -47,39 +48,10 @@ fs.readdir(path.join(__dirname, './src/components'), function (err, files) {
 
   })
   ex = ex.join(",")
-  // content = content + `export { ${ex} }; `
 
   packPic(ex)
-
-  // fs.writeFile(path.join(__dirname, './src/index.js'), content, 'utf8', (err) => {
-  //   if (err) throw err;
-  // });
 })
 
-
-
-// function packPic(ex) {
-
-//   fs.readdir(path.join(__dirname, './src/components/assets/icon'), function (err, files) {
-//     if (err) {
-//       console.log('目錄不存在');
-//       return
-//     }
-//     files.forEach(eachPic => {
-//       let iconName = eachPic.split('.svg')[0];
-//       iconName = camelize(iconName)
-//       picString  = picString + ','+iconName
-//       // console.log('呱吉2聒聒',iconName)
-//       content = content + `import ${iconName} from './components/assets/icon/${eachPic}';`
-//     })
-  
-//     content = content + `export { ${ex}${picString}  }; `
-//     // console.log('picString呱吉2', picString)
-//     console.log('picString呱吉2', content)
-//     packAll()
-//   })
-  
-// }
 
 
 function packPic(ex) {
@@ -96,17 +68,37 @@ function packPic(ex) {
       // console.log('呱吉2聒聒',iconName)
       content = content + `import ${iconName} from './components/assets/icon/${eachPic}';`
 
-      //
-      // var readStream = fs.createReadStream(`./src/components/assets/icon/${eachPic}`); // 被复制文件
-      // // 创建一个写入流
-      // var writeStream = fs.createWriteStream(`./lib/img/${eachPic}`); // 复制到的目标位置及文件
-      // // 读取流的内容通过管道流写入到输出流
-      // readStream.pipe(writeStream);
     })
-  
-    content = content + `export { ${ex}${picString}  }; `
+    let tempEx = `${ex}${picString}`
+    // content = content + `export { ${ex}${picString}  }; `
     // console.log('picString呱吉2', picString)
-    console.log('picString呱吉2', content)
+    // console.log('picString呱吉2', content)
+    
+
+    packSass(tempEx)
+  })
+  
+}
+
+function packSass(tempEx) {
+
+  fs.readdir(path.join(__dirname, './src/assets/scss'), function (err, files) {
+    if (err) {
+      console.log('目錄不存在');
+      return
+    }
+    files.forEach(eachSass => {
+      if(/(.scss)$/.test(eachSass)){
+        let cssName = eachSass.split('.scss')[0];
+        cssName = camelize(cssName)
+        sassString  = sassString + ','+cssName
+        console.log('eachSass呱吉2', eachSass)
+        content = content + `import ${cssName} from './assets/scss/${eachSass}';`
+      }
+    })
+    content = content + `export { ${tempEx}${sassString}  }; `
+
+    // console.log('sassString呱吉聒聒', content)
     packAll()
   })
   
