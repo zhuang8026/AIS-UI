@@ -49,7 +49,7 @@ export default [
       {
         'title-cn': 'Icon 圖標',
         'title-en': 'Icons',
-      path: '/ais/icon',
+      path: '/ais/iconPage',
       },
     ],
   },

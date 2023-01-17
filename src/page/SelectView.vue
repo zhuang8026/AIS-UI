@@ -45,8 +45,6 @@
         name="demoSelect"
         :placeholder="'I am placeholder'"
       ></ui-select>
-      <Icon class="h-40px w-40px text-main" iconClass="dropdown" type="svg" ></Icon>
-      <!-- <Icon class="h-40px w-40px text-main" iconClass="dropdown" type="svg" :animate="true" ></Icon> -->
     </div>
 
     <hr/>
