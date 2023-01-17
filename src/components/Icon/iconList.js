@@ -1,5 +1,5 @@
 let iconList = [
-  { className: 'aiot-logo-white.png' },
+  // { className: 'aiot-logo-white.png' },
   { className: 'asus-iot-phm-dashboard-card-blue-1-1' },
   { className: 'asus-iot-phm-dashboard-card-blue-1-2' },
   { className: 'asus-iot-phm-dashboard-card-darkblue-1-1' },

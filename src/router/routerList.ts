@@ -42,10 +42,15 @@ const routerList: Array<RouteRecordRaw> = [
     //     component: () => import('/packages/color/doc/doc.md'),
     //   },
       {
-        path: 'icon',
+        path: 'iconPage',
         name: 'Icon 圖標',
-        component: () => import('@/page/IconView.vue'),
+        component: () => import('@/page/IconListView.vue'),
       },
+      // {
+      //   path: 'iconPage',
+      //   name: 'iconPage',
+      //   component: () => import('@/page/IconListView.vue'),
+      // },
       {
         path: 'button',
         name: 'Button 按鈕',
