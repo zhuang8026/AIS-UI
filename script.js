@@ -22,6 +22,7 @@ fs.readdir(path.join(__dirname, './src/components'), function (err, files) {
   })
   ex = ex.join(",")
   content = content + `export { ${ex} }; `
+  console.log('content',content)
 
   fs.writeFile(path.join(__dirname, './src/index.js'), content, 'utf8', (err) => {
     if (err) throw err;
