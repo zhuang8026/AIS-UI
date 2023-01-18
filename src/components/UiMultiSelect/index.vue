@@ -8,7 +8,7 @@
     @close="close" @open="open" @search:blur="onBlur" ref="select" 
     :append-to-body="position" :label="localArr.id ? 'id': 'name'" :searchable="isSearch" 
     :close-on-select="false" :class="{'validError': state.validClass ,'border-root-light' : !state.validClass}"
-    class=" relative multiSelect w-296 border-b border-error-0">
+    class=" relative multiSelect border-b border-error-0">
     <!-- :dropdownShouldOpen="() => true"  debug 用 
     @update:modelValue="onClickCheck" -->
       <template #search="{events, attributes}">
