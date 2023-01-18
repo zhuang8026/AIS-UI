@@ -12,7 +12,7 @@
     <div class="flex mb-24px">
       <UiMultiSelect
         class="w-296 mr-40px"
-        v-model:defaultSelectedValue="state.selectedFruit"
+        :defaultSelectedValue="state.selectedFruit"
         :optionArr="state.fruits" 
         :required="true"
         :showCheckIcon="true"
@@ -23,7 +23,7 @@
       ></UiMultiSelect>
       <UiMultiSelect
         class="w-296 mr-40px"
-        v-model:defaultSelectedValue="state.selectedDisableList"
+        :defaultSelectedValue="state.selectedDisableList"
         :isDisable="true"
         :optionArr="state.disableList" 
         :required="true"
@@ -35,7 +35,7 @@
       ></UiMultiSelect>
       <UiMultiSelect
         class="w-296 mr-40px"
-        v-model:defaultSelectedValue="state.selectedErrorList"
+        :defaultSelectedValue="state.selectedErrorList"
         :optionArr="state.errorList" 
         :required="true"
         :showCheckIcon="true"
