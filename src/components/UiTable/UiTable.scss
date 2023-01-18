@@ -2,13 +2,14 @@ $space-table-content: 20px;
 $size-dot: 14px;
 $dot-y: 3px;
 .ui-table {
+    width: 100%;
     table{
         border-collapse: collapse;
+        width: 100%;
     }
     th, td{
-        padding: $space-table-content 10px $space-table-content 10px;
+        padding: $space-table-content 5px $space-table-content 5px;
         text-align: left;
-       
     }
     th{
         vertical-align: center;
@@ -16,6 +17,9 @@ $dot-y: 3px;
             color: $color-grey-light-md;
             font-size: $font-size-h10;
             font-weight: normal;
+        }
+        &:first-of-type{
+            text-align: center;
         }
     }//end: th
     tbody{

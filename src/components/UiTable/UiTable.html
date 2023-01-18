@@ -1,12 +1,12 @@
 
 <div class="ui-table">
-  <!-- <a href="javascript:;" @click="onClick">click</a>
-  isCheckedAll: {{isCheckedAll}} privateIsChecked:{{privateIsChecked}} -->
+  <!-- isCheckedAll: {{isCheckedAll}} //  -->
   <table>
   <!-- table header -->
   <thead>
     <tr>
-      <th><UiCheckbox type="default" v-model:checked="privateIsChecked" :checked="isCheckedAll" :disabled="isDisableAll" @checkChange="onCheckAll"></UiCheckbox></th>
+      <!-- @checkChange="onCheckAll" -->
+      <th><UiCheckbox :isCheck="isCheckedAll" type="default" v-model:checked="privateIsCheckAll" :disabled="isDisableAll" ></UiCheckbox></th>
       <!-- head data -->
       <th v-for="(item, index) in head">
       <!-- type 1 : normal txtx -->
@@ -28,14 +28,14 @@
   <!-- end of table header -->
   <tbody>
     
-    <tr v-for="data in datas">
+    <tr v-for="(data, index) in datas" :key="'datas-'+index+ updateKey">
       <!-- checkbox -->
       <td class="check-content">
-        <UiCheckbox type="default" v-model:checked="isCheckList"></UiCheckbox>
+        <UiCheckbox type="default" v-model:checked="data.isCheck" :disabled="false" @updateCheckedVal="updateDataCheck($event, index)"></UiCheckbox>
       </td>
 
       <!-- data -->
-      <td v-for="detail in data.detail">
+      <td v-for="detail in data.detail" :key="'detail-' + index">
         <!-- type1 : normal txt -->
         <p  v-if="detail.type == 'default'" class="txt">{{detail.txt}}</p>
         <!-- end of type1  -->

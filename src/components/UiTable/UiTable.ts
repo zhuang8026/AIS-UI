@@ -1,5 +1,5 @@
 import UiCheckbox from '@/components/UiCheckbox/index.vue'; 
-import {computed, ref} from 'vue';
+import {computed, ref, watch, reactive, getCurrentInstance} from 'vue';
 import { tableData, tableHeader } from './datas';
 export default {
   name: 'ui-table',
@@ -40,50 +40,80 @@ export default {
         return tableHeader
       }//end: default
     },
-    test: {
-      type: Boolean,
-      default: 'ddd',
-    }
+    
 
 
   },//end: props
   setup(props, { emit }) {
 
-    let {isCheckedAll} = props;
     
     // check all
     let onCheckAll = () => {
 
     }//end: onCheckAll
-    const privateIsChecked = computed({
-      get: () => { return isCheckedAll },
-      set: (val) => {
-        // state.myVal = val
-        console.log('go privateIsChecked',val)
+
+    // 是否全選
+    let privateIsCheckAll = ref(props.isCheckedAll);
+    let privateDatas = reactive([...props.datas]); // 接table data
+
+    watch(
+      () => privateIsCheckAll.value,
+      (val) => {
+        console.log('watch privateIsCheckAll',privateIsCheckAll.value, val)
         emit('update:isCheckedAll', val);
-      }
-    })
+      }//end: val
+    )//end: watch
 
-    // const privateIsCheckedAll = computed({
-    //   get: () => props.isCheckedAll,
-    //   set: (val) => {
-    //     console.log('privateIsCheckedAll', val);
-    //     emit('update:isCheckedAll', val);
-    //     console.log('isCheckedAll', props.isCheckedAll);
-    //   }
-    // })
+    //所有data 是否check的array
+    let isCheckList = reactive([]);
 
-    let isCheckList = ref(false);
+    let setDataCheckList = (eve) => {
+      let _eve = eve;
+      console.log('_eve',_eve);
+      isCheckList= [];
+      isCheckList = _eve.map(item => item.isCheck);
+      isCheckList = [...isCheckList];
+      console.log('isCheckList', isCheckList);
+    }//end: setDataCheckList
 
-    let onClick = () => {
-      // isCheckList.value = !isCheckList.value
-      // console.log('onClick',isCheckList.value)
-      // emit('update:isCheckedAll', isCheckList.value);
-      console.log('onClick' + 'goo');
-      // emit('update:test', 'ccc');
-      emit('update:test', 'ssss');
-    }
+    setDataCheckList(props.datas);
 
+    
+
+    // watch(
+    //   () => props.data,
+    //   (val) => {
+    //     setDataCheckList(val);
+    //   } //end: val
+    // )//end: watch
+
+    watch(
+      () => isCheckList,
+      () => {
+        console.log('isCheckList watch');
+        //emit('update:')
+      },
+      { deep: true }
+    )//end: watch
+
+    let updateKey = ref(0);
+
+    let updateDataCheck = (val, index) => {
+      let _index = index;
+      let _val = val;
+      privateDatas[_index].isCheck = _val;
+      emit('update:datas', privateDatas);
+      console.log('updateDataCheck update', props.datas);
+      updateKey.value +=1;
+
+    }//end: updateDataCheck
+
+    
+
+
+    
+
+    
     
 
 
@@ -92,8 +122,10 @@ export default {
       onCheckAll,
       isCheckList,
       // privateIsCheckedAll,
-      privateIsChecked,
-      onClick
+      // privateIsChecked,
+      privateIsCheckAll,
+      updateDataCheck,
+      updateKey
       
     }//end: return
   }, //end: setup

@@ -9,7 +9,8 @@
       }]"
       @click="checkChange"
     >
-      <input type="checkbox" v-model="privateIsCheck" :checked="checked"/>
+      <input type="checkbox" v-model="privateIsCheck" /> 
+      
       <span class="ais-checkbox-selectbox"></span>
       <span class="ais-checkbox-test">
         <slot></slot>
@@ -19,6 +20,7 @@
 </template>
 
 <script>
+import {computed} from 'vue';
 export default {
   name: 'UiCheckbox',
   props: {
@@ -27,30 +29,42 @@ export default {
       default: 'default',
     },
     checked: {
-      type: Boolean,
+      type: Boolean, 
       default: false,
     }, 
     disabled: {
       type: Boolean,
       default: false,
     },
-    customClass: String,
-  },
-  computed: {
-    privateIsCheck: {
-      get() {
-        return this.checked;
-      },
-      set(val) {
-        this.$emit('update:checked', val);
-      },
+    isCheck:{
+      type: Boolean,
+      default: false,
+    },
+    customClass: {
+      type: String,
+      default: '',
     },
   },
-  methods: {
-    checkChange() {
-      this.$emit('change', this.checked);
-    },
-  },
+  setup(props, {emit}){
+
+    let privateIsCheck = computed({
+      get: () => props.checked,
+      set: (val)  => {
+        emit('update:checked', val);
+        emit('updateCheckedVal', val);
+      }
+    }); //end: privateIsCheck
+    
+    let checkChange = () => {
+      emit('update:checked', props.checked)
+    }
+
+    return{
+      privateIsCheck,
+      checkChange
+    }
+
+  }
 };
 </script>
 
@@ -68,7 +82,7 @@ export default {
     line-height: 20px;
     cursor: pointer;
     font-size: 14px;
-    margin-right: 20px;
+   // margin-right: 20px;
     user-select: none;
     span {
       float: left;
@@ -120,6 +134,9 @@ export default {
       color: #000;
       font-size: 16px;
       margin-left: 12px;
+      &:empty{
+        margin-left: 0;
+      }
     }
   }
   .ais-checkbox-label-active {

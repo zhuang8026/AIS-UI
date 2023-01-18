@@ -1,10 +1,10 @@
 <template>
   <div class="home">
     <h2>Table </h2>
-    <!-- isTableCheckAll: {{isTableCheckAll}}
-    ddd: {{ddd}} -->
+    <br>
+    <!-- <p class="text-color-main">isTableCheckAll: {{isTableCheckAll}}</p> -->
+    <br>
     <UiTable v-model:isCheckedAll="isTableCheckAll"></UiTable>
-    
   </div>
 </template>
 
@@ -20,11 +20,9 @@ export default {
   },
   setup(){
     let isTableCheckAll = ref(true);
-    let ddd = ref('upup');
 
     return{
       isTableCheckAll,
-      ddd,
     }
 
   },//end: setup

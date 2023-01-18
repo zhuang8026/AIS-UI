@@ -4,6 +4,26 @@ export let TYPE_HEADER = {
 }
 // table 的資料
 export let tableData = [{
+    isCheck: false,
+    detail: [
+      {
+        txt: '資料1AAA資料1資料1資料1',
+        type: 'default'  // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
+      },
+      { 
+        txt: '資料2資料2資料2資料2資料2',
+        type: 'default'
+      },
+      { 
+        txt: '資料3資料3資料3資料3資料3',
+        type: 'default'
+      },
+      { 
+        txt: '資料3資料3資料3資料3資料3',
+        type: 'status:1'
+      }
+  ]},
+  {
     isCheck: true,
     detail: [
       {
