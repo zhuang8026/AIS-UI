@@ -6,20 +6,20 @@
     range prefix-class="xmx"  format="YYYY/MM/DD" v-model:open="state.open" @confirm="datePickerConfirm"
     :disabled="isDisable" @close="closePicker"
     :confirm="true" confirm-text="Apply" @pick="calendarChange">
-      <template #footer="{ emit }">
+      <!-- <template #footer="{ emit }">
         <div class="datePicker-footer">
           <div class="timeBlock">
-            <!-- <div v-for="(e,i) in selectVal" >
+            <div v-for="(e,i) in selectVal" >
               <div >{{timePick(e, emit)}}</div>
               <div v-if="i == 0">  ~  </div>
-            </div> -->
+            </div>
           </div>
           <div class="datePickerButtonBlock">
             <Button @onClick="applyDate(emit)" type="full" style="margin-right: 24px;" wd="ssmd" h="smd" :disable="state.temp.length!=2" :text="t('__common.__apply')" class="buttonEach"></Button>
             <Button @onClick="closePicker" type="border"  wd="ssmd" h="smd" :text="t('__common.__cancel')" class="buttonEach aaa"></Button>
           </div>
         </div>
-      </template>
+      </template> -->
     </date-picker>
     <!-- <div>time : {{state.time}}</div> -->
     <div :class="{'erroSpan' : error}" v-if="error"> {{error}}</div>
@@ -29,38 +29,18 @@
 
 
 <script>
-import Button from '../button/index.vue';
+// import Button from '../button/index.vue';
 import { reactive, onMounted, ref, watch, computed,  } from 'vue';
-import 'vue-datepicker-next/locale/zh-cn';
-import 'vue-datepicker-next/locale/zh-tw';
-import 'vue-datepicker-next/locale/en';
-import 'vue-datepicker-next/locale/fr';
-import 'vue-datepicker-next/locale/de';
-import 'vue-datepicker-next/locale/ru';
-import 'vue-datepicker-next/locale/it';
-import 'vue-datepicker-next/locale/ja';
-import 'vue-datepicker-next/locale/nl';
-import 'vue-datepicker-next/locale/ko';
-import 'vue-datepicker-next/locale/pl';
-import 'vue-datepicker-next/locale/ro';
-import 'vue-datepicker-next/locale/es';
-import 'vue-datepicker-next/locale/sv';
-import 'vue-datepicker-next/locale/tr';
-import 'vue-datepicker-next/locale/uk';
-import 'vue-datepicker-next/locale/hi';
-import 'vue-datepicker-next/locale/th';
-import 'vue-datepicker-next/locale/vi';
 import * as moment from 'moment';
 import DatePicker from 'vue-datepicker-next';
 import 'vue-datepicker-next/index.css';
-import { useI18n } from 'vue-i18n';
-import { useStore } from 'vuex';
+// import { useStore } from 'vuex';
 
 
 
 export default {
   components: {
-    Button,
+    // Button,
     DatePicker
   },
   props: {
@@ -110,8 +90,8 @@ export default {
       lang: 'lang',
   
   }
-    const { t } = useI18n();
-    const store = useStore()
+    // const { t } = useI18n();
+    // const store = useStore()
     const state = reactive({
       temp: [],
       open: false,
@@ -209,34 +189,20 @@ export default {
 
     const datePicker = ref();
 
-    onMounted(() => {
-      state.langType = dateLang[store.state.langIsSelected]
-      if (props.value.length) {
-        state.time = props.value;
-        state.temp = props.value;
-      }
+    onMounted(() => { //!!
+      // state.langType = dateLang[store.state.langIsSelected]
+      // if (props.value.length) {
+      //   state.time = props.value;
+      //   state.temp = props.value;
+      // }
     })
 
-    // if不成立，先註解掉
-    // watch(() => props.value,
-    //   (val, old) => {
-    //     console.log('val / old', val, old);
-    //     // if (val == [] || old == [] || state.time[0] == null) {
 
-    //     //   if (val.length == 2) {
-    //     //     state.time = props.value;
-    //     //     state.temp = props.value;
-    //     //   }
-    //     // }
 
-    //   },
-    //   { deep: true }
-    // );
-
-    store.watch((state) => (state.langIsSelected ), (newType) => {
-      console.log(newType)
-      state.langType = dateLang[newType]
-    })
+    // store.watch((state) => (state.langIsSelected ), (newType) => { !!
+    //   console.log(newType)
+    //   state.langType = dateLang[newType]
+    // })
 
 
     watch( //
