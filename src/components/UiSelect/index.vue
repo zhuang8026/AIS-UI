@@ -35,18 +35,21 @@
 // import Vue from "vue";
 import vSelect from "vue-select";
 import 'vue-select/dist/vue-select.css';
-import Icon from '../../components/Icon2/Icon.vue';
+import Icon from '@/components/Icon/index.vue';
 import { reactive, computed, watch , onMounted } from 'vue';
 
-// import OpenIndicator from '@/components/Icon/OpenIndicator.vue' //原本的icon長相
-// import SelectIcon from '@/components/Icon/SelectIcon.vue' //新的icon長相
-// vSelect.props.components.default = () => ({ OpenIndicator, SelectIcon });
+import OpenIndicator from '@/components/Icon/OpenIndicator.vue' //原本的icon長相
+import SelectIcon from '@/components/Icon/SelectIcon.vue' //新的icon長相
+vSelect.props.components.default = () => ({ OpenIndicator, SelectIcon });
 
 export default {
   name: 'Select',
   components: {
     vSelect,
-    Icon
+    Icon,
+    OpenIndicator,
+    SelectIcon
+
   },
   props: {
     position:{
@@ -101,9 +104,6 @@ export default {
       required: false,
       default: false,
     },
-  },
-  components:{
-    vSelect,
   },
   setup(props, { emit }) {
     const state = reactive({
