@@ -52,6 +52,7 @@ module.exports = {
         dark:'#0051a8',
         darkMore: "#003a7a",
         inputHighLight: '#9ef',
+        light:'#dee5ec',
       },
       error:{
         0 : '#FF330B'
@@ -243,7 +244,7 @@ module.exports = {
       DEFAULT: theme('colors.gray.200', 'currentColor'),
     }),
     borderOpacity: ({ theme }) => theme('opacity'),
-    borderRadius: {
+    borderRadius: ({ theme }) => ({
       none: '0px',
       sm: '0.125rem',
       DEFAULT: '0.25rem',
@@ -253,17 +254,19 @@ module.exports = {
       '2xl': '1rem',
       '3xl': '1.5rem',
       full: '9999px',
-    },
+      ...theme('spacing'),
+    }),
     borderSpacing: ({ theme }) => ({
       ...theme('spacing'),
     }),
-    borderWidth: {
+    borderWidth:  ({ theme }) => ({
       DEFAULT: '1px',
       0: '0px',
       2: '2px',
       4: '4px',
       8: '8px',
-    },
+      ...theme('spacing'),
+    }),
     boxShadow: {
       sm: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
       DEFAULT: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
