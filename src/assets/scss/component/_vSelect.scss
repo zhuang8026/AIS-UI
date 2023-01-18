@@ -69,53 +69,47 @@
     }
 }
 
-.inputSelect{
-  .vs__dropdown-option { //選單上下list選的顏色putHighLight
-        background: none;
-        color: black;
-  }
-}
-
-
 //checkbox的custom樣式
-.inputselect {
-  .vs--disabled {
-      .vs__dropdown-toggle,
-      .vs__clear,
-      .vs__search,
-      .vs__selected,
-      .vs__open-indicator {
-          cursor: not-allowed;
-      }
-  }
-  .v-select {
-      .vs__dropdown-toggle {
-          background-color: white;
-      }
-      .vs__dropdown-option--highlight {
-          // @apply text-main bg-white;
-      }
-      .vs__dropdown-option:hover{
-          &:not(.vs__dropdown-option--disabled){
-              @apply text-main bg-white;
-          }
-      }
-      .vs__dropdown-option--highlight:active {
-          @apply text-main bg-white;
-      }
-      .vs__dropdown-option{
-          padding: 4px 12px;
-      }
-      .vs__dropdown-option--disabled {
-          color: #B8B8B8;
-      }
-      .vs__selected-options {
-          position: relative;
-          span {
-              display: none;
-          }
-      }
-  }
+.multiSelect {
+    .vs--disabled {
+        .vs__dropdown-toggle,
+        .vs__clear,
+        .vs__search,
+        .vs__selected,
+        .vs__open-indicator {
+            cursor: not-allowed;
+        }
+    }
+    .v-select {
+        .vs__dropdown-toggle {
+            background-color: white;
+        }
+        .vs__dropdown-option--highlight {
+            // @apply text-main bg-white;
+        }
+        .vs__dropdown-option:hover{
+            &:not(.vs__dropdown-option--disabled){
+                @apply text-main bg-white;
+            }
+        }
+        .vs__dropdown-option--highlight:active {
+            @apply text-main bg-white;
+        }
+        .vs__dropdown-option{
+            padding: 4px 12px;
+            background: none;
+            color: black;
+        }
+        .vs__dropdown-option--disabled {
+            color: #B8B8B8;
+        }
+        .vs__selected-options {
+            position: relative;
+            span {
+                display: none;
+            }
+        }
+    }
 }
 
 //placeholder

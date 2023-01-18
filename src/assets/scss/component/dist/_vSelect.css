@@ -1,0 +1,149 @@
+.v-select .vs__dropdown-toggle {
+  @apply border-grey-66 border bg-white overflow-hidden;
+}
+.v-select .vs__dropdown-toggle:hover {
+  @apply border-root-dark;
+}
+.v-select .vs__dropdown-toggle:active {
+  @apply border-root-darkMore;
+}
+.v-select .vs__selected-options {
+  @apply px-4px;
+}
+.v-select .vs__search::placeholder {
+  @apply text-grey-4c;
+}
+.v-select .vs__dropdown-option {
+  @apply px-12px;
+}
+.v-select .vs__dropdown-option--highlight {
+  @apply text-white bg-root-dark;
+}
+.v-select .vs__dropdown-option--highlight:active {
+  @apply text-white bg-root-darkMore;
+}
+.v-select .vs__dropdown-option--disabled {
+  @apply bg-white text-grey-b3;
+}
+.v-select .vs__dropdown-option--selected {
+  @apply text-main bg-white;
+}
+.vs__dropdown-option--selected .v-select .vs__dropdown-option--highlight {
+  @apply text-main bg-white;
+}
+.v-select .vs__actions {
+  @apply overflow-hidden;
+}
+.v-select .vs__actions .vs__open-indicator svg {
+  @apply w-24px h-24px;
+}
+
+.noBG .vs__dropdown-option:hover {
+  @apply text-black bg-white;
+}
+.noBG .vs__dropdown-option--highlight:active {
+  @apply text-black bg-white;
+}
+
+.multiSelect .vs--disabled .vs__dropdown-toggle,
+.multiSelect .vs--disabled .vs__clear,
+.multiSelect .vs--disabled .vs__search,
+.multiSelect .vs--disabled .vs__selected,
+.multiSelect .vs--disabled .vs__open-indicator {
+  cursor: not-allowed;
+}
+.multiSelect .v-select .vs__dropdown-toggle {
+  background-color: white;
+}
+.multiSelect .v-select .vs__dropdown-option:hover:not(.vs__dropdown-option--disabled) {
+  @apply text-main bg-white;
+}
+.multiSelect .v-select .vs__dropdown-option--highlight:active {
+  @apply text-main bg-white;
+}
+.multiSelect .v-select .vs__dropdown-option {
+  padding: 4px 12px;
+  background: none;
+  color: black;
+}
+.multiSelect .v-select .vs__dropdown-option--disabled {
+  color: #B8B8B8;
+}
+.multiSelect .v-select .vs__selected-options {
+  position: relative;
+}
+.multiSelect .v-select .vs__selected-options span {
+  display: none;
+}
+
+.lightPlaceholder .v-select ::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #acacac;
+  opacity: 1;
+  /* Firefox */
+}
+.lightPlaceholder .v-select :-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #acacac;
+}
+.lightPlaceholder .v-select ::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #acacac;
+}
+
+.noClean .vs__dropdown-toggle {
+  background-color: transparent;
+}
+
+.noArrow .v-select .vs__actions .vs__open-indicator {
+  display: none;
+}
+
+.validError.v-select .vs__dropdown-toggle {
+  @apply border-error-0;
+}
+
+.noShowOp {
+  border-radius: 5px;
+  overflow: hidden;
+}
+.noShowOp .vs__dropdown-menu {
+  display: none;
+}
+
+.vs__search::-webkit-search-decoration,
+.vs__search::-webkit-search-cancel-button,
+.vs__search::-webkit-search-results-button,
+.vs__search::-webkit-search-results-decoration,
+.vs__search::-ms-clear {
+  display: none;
+}
+
+.v-select {
+  @apply bg-white;
+}
+.v-select.vs--disabled {
+  @apply bg-white;
+}
+.v-select.vs--disabled .vs__dropdown-toggle,
+.v-select.vs--disabled .vs__clear,
+.v-select.vs--disabled .vs__search,
+.v-select.vs--disabled .vs__selected,
+.v-select.vs--disabled .vs__open-indicator {
+  @apply bg-white;
+}
+.v-select.vs--disabled .vs__dropdown-toggle {
+  @apply bg-white  border-grey-b3;
+}
+.v-select.vs--disabled .vs__dropdown-toggle:hover {
+  @apply bg-white  border-grey-b3;
+}
+.v-select.vs--disabled .vs__dropdown-toggle:active {
+  @apply bg-white  border-grey-b3;
+}
+.v-select.vs--disabled .vs__dropdown-toggle .vs__selected-options input::placeholder {
+  @apply text-grey-b3;
+}
+.v-select.vs--disabled .vs__dropdown-toggle .vs__actions .vs__open-indicator {
+  @apply text-grey-b3;
+}
