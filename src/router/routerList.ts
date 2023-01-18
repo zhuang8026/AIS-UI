@@ -86,6 +86,11 @@ const routerList: Array<RouteRecordRaw> = [
       name: 'multiselect 下拉選單',
       component: () => import('@/page/MultiSelectView.vue'),
     },
+    {
+      path: 'datePicker',
+      name: 'DatePicker',
+      component: () => import('@/page/DatePickerView.vue'),
+    },
     //   {
     //     path: 'dropDown',
     //     name: 'Dropdown 下拉選單',

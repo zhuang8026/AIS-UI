@@ -93,6 +93,11 @@ export default [
         'title-en': 'Select',
         path: '/ais/multiselect',
       },
+      {
+        'title-cn': 'DatePicker',
+        'title-en': 'DatePicker',
+        path: '/ais/datePicker',
+      },
       // {
       //   'title-cn': 'Dropdown 下拉選單',
       //   'title-en': 'Dropdown',
