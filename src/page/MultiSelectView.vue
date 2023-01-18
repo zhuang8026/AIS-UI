@@ -16,7 +16,7 @@
         :optionArr="state.fruits" 
         :required="true"
         :showCheckIcon="true"
-        @onChange="selectClick"
+        @onClickCheck="selectClick"
         @onblur="toblur" 
         name="demoSelect"
         :placeholder="'I am placeholder'"
@@ -43,6 +43,31 @@
         @onblur="toblur" 
         :error="'this is error message'"
         name="demoSelect"
+        :placeholder="'I am placeholder'"
+      ></UiMultiSelect>
+    </div>
+
+
+    <hr/>
+    <h2 class="my-32px"> has "All" option  </h2>
+
+    <div class="flex mb-24px justify-start">
+      <div class="flex">
+        <div class="mr-20px">value : </div>
+        <div>{{state.allListArr}}</div>
+      </div>
+    </div>
+    <div class="flex mb-24px">
+      <UiMultiSelect
+        class="w-296 mr-40px"
+        :defaultSelectedValue="state.allListArr"
+        :optionArr="state.allList" 
+        :required="true"
+        :showCheckIcon="true"
+        @onClickCheck="selectAllList"
+        @onblur="toblur" 
+        name="demoSelect"
+        :hasAllOption="true"
         :placeholder="'I am placeholder'"
       ></UiMultiSelect>
     </div>
@@ -89,10 +114,11 @@ export default {
           name: 'Option 5',
           disabled: false,
         },
-        {id: 'op6', 
-          name: 'Option 6',
-          disabled: false,
-        },
+        // {id: 'op6', 
+        //   name: 'Option 6',
+        //   disabled: false,
+        // },
+
       ],
       disableList: [
         {id: 'op1',
@@ -110,9 +136,38 @@ export default {
           disabled: false,
         },
       ],
+
+      allList: [
+        {id: 'op1',
+          name: 'Option 1',
+          disabled: false,
+        },
+        {id: 'op2',
+          name: 'Option 2',
+          disabled: false,
+        },
+        {id: 'op3', 
+          name: 'Option 3',
+          disabled: true,
+        },
+        {id: 'op4', 
+          name: 'Option 4',
+          disabled: false,
+        },
+        {id: 'op5', 
+          name: 'Option 5',
+          disabled: false,
+        },
+        // {id: 'op6', 
+        //   name: 'Option 6',
+        //   disabled: false,
+        // },
+
+      ],
       selectedDisableList: null,
-      selectedFruit: null,
+      selectedFruit: [],
       selectedErrorList : null,
+      allListArr: [],
     })
 
 
@@ -122,20 +177,23 @@ export default {
 
 
     const selectClick = (val) => {
-      console.log('333')
+      state.selectedFruit = val
     }
 
     const toblur = () => {
     }
 
 
+    const selectAllList = (val) =>{
+      state.allListArr = val
+    }
 
 
     return {
       state,
-      // privateIsChecked,
       toblur,
       selectClick,
+      selectAllList
     }
   }// end: setup
 }
