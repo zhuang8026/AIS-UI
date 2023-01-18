@@ -1,0 +1,379 @@
+
+
+
+$namespace: 'xmx'; // change the 'mx' to 'xmx'. then <date-picker prefix-class="xmx" />
+
+$default-color: $color-white !default;
+$primary-color: $color-main !default;
+
+$today-color: mix(#fff, $primary-color, 5%) !default;
+
+$popup-z-index: 2001 !default;
+
+$input-border-color: #ccc !default;
+$input-color: $color-white !default;
+$input-hover-border-color: $color-main !default;
+
+$disabled-color: #ccc !default;
+$disabled-background-color: #f3f3f3 !default;
+
+$border-color: $color-grey-dark4 !default;
+
+$calendar-active-color: $color-bg !default;
+$calendar-active-background-color: $primary-color !default;
+
+$calendar-hover-color: $color-bg !default;
+$calendar-hover-background-color: mix(#fff, $calendar-active-background-color, 15%) !default;
+
+$calendar-in-range-color: $default-color !default;
+// $calendar-in-range-background-color: mix(#fff, $calendar-active-background-color, 50%) !default;
+$calendar-in-range-background-color: rgba($primary-color, .5) !default;
+
+$time-active-color: $primary-color !default;
+$time-active-background-color: transparent !default;
+
+$time-hover-color: $default-color !default;
+$time-hover-background-color: mix(#fff, $calendar-active-background-color, 95%) !default;
+
+$input-border-radius: 4px !default;
+$sidebar-margin-left: 100px !default;
+
+//new
+$rounded-border-radius: 50% !default;
+//new
+
+@import '~vue-datepicker-next/scss/index.scss';
+
+.#{$namespace}-datepicker-range {
+  width: 100%;
+  
+}
+
+//icon 顏色 disabled
+.#{$namespace}-datepicker{
+  width: 100%;
+}
+
+
+
+//icon 顏色
+.#{$namespace}-icon-calendar,
+.#{$namespace}-icon-clear {
+  position: absolute;
+  right: 20px;
+  color: $color-white;
+}
+
+.#{$namespace}-icon-clear {
+  &:hover {
+    color: $color-white;
+  }
+}
+
+//icon 顏色 disabled
+.#{$namespace}-datepicker-range {
+  &.disabled{
+    .#{$namespace}-icon-calendar{
+      color: $color-disable;
+      opacity: 0.2;
+    }
+  }
+}
+
+
+//input 寬度
+.#{$namespace}-input {
+  background: transparent;
+  height: 42px;
+  padding: 6px 30px;
+  padding-left: 20px; //對應-icon-calendar的right
+  font-size: $font-size-h8;
+  &:disabled,
+  &.disabled {
+    color: $color-disable;
+    background-color: transparent;
+    border-color: $color-disable;
+    cursor: not-allowed;
+    opacity: 0.2;
+    
+  }
+}
+.erroDate{
+  .#{$namespace}-input {
+    border: solid 1px $color-error;
+  }
+}
+
+
+
+//整體顏色設定
+.#{$namespace}-datepicker-main {
+  background-color: $color-bg;
+  border: 1px solid $border-color;
+  border-radius: $input-border-radius;
+}
+
+//pop up顏色與位置設定
+.#{$namespace}-datepicker-popup {
+  margin-top: 8px;
+  margin-bottom: 1px;
+  box-shadow: 0px 1px 6px 0 #000;
+}
+
+
+
+
+//popup calendar padding調整，有影響到外層大小
+.#{$namespace}-calendar-range{
+  padding: 22px 12px 0 12px ;
+}
+
+
+//popup 寬度調整 & 取消popup 內 border-left
+.#{$namespace}-calendar {
+  box-sizing: border-box;
+  width: 336px;
+  padding: 0 12px 12px 12px;
+  
+  position: relative;
+  & + & { //新增小間隔
+    &::after{
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 0;
+      content: '';
+      width: 2px;
+      height: 48px;
+      border-radius: 1.5px;
+      background-color: $color-grey-dark1;
+    }
+    border-left: none;
+  }
+}
+
+
+
+
+//calender行為與高度 (舊版 : 未解決td之間間隔，但hover、active行為較符合原版)
+// .#{$namespace}-calendar-content {
+//   position: relative;
+//   height: 299px;
+//   box-sizing: border-box;
+//   .#{$namespace}-table-date{
+//     .cell {
+//       border-radius: $rounded-border-radius;
+//       transition: all 0.02s linear;
+//       &:hover {
+//         border-radius:   $radius-sm ;
+//       }
+//       &.active {
+//         border-radius:   $radius-sm;
+//       }
+//       &.in-range,
+//       &.hover-in-range {
+//         border-radius: 0;
+//       }
+//     }
+//   }
+//   .#{$namespace}-table-month,
+//   .#{$namespace}-table-year{
+//     .cell{
+//       width: 108px;
+//       border-radius: $radius-sm;
+//       margin: 20px;
+//       &:active{
+//         background: $color-grey-dark1;
+//         color: $color-white;
+//       }
+//     }
+    
+
+//   }
+// }
+
+
+
+//calender行為與高度
+.#{$namespace}-calendar-content {
+  position: relative;
+  // height: 299px;
+  height: unset;
+  box-sizing: border-box;
+  .#{$namespace}-table-date{
+    .cell:not(.disabled) {
+      >div {
+        height: 100%;
+        line-height: 40px;
+        &:hover{
+          color: $calendar-hover-color;
+          background-color: $calendar-hover-background-color;
+          border-radius:   $radius-sm ;
+        }
+      }
+      &:hover {
+        color : unset;
+        background-color : unset;
+        border-radius:   $radius-sm ;
+      }
+    }
+    .cell {
+      border-bottom: 2px solid $color-bg;
+      border-top: 2px solid $color-bg;
+      border-radius: $rounded-border-radius;
+      transition: all 0.02s linear;
+      
+      &.active:not(.not-current-month) {
+        // color : unset;
+        background-color : unset;
+        border-radius:   $radius-sm;
+        > div{
+          color: $calendar-active-color;
+          background-color: $calendar-active-background-color;
+          border-radius:   $radius-sm;
+        }
+      }
+      &.disabled {
+        color: $color-grey-dark1-light;
+        cursor: not-allowed;
+        background-color: transparent;
+        &:hover {
+          background-color : transparent;
+        }
+      }
+      &.in-range,
+      &.hover-in-range {
+        border-radius: 0;
+      }
+    }
+  }
+  .#{$namespace}-table-month,
+  .#{$namespace}-table-year{
+    
+    .cell{
+      >div{
+        height: 100%;
+        line-height: 43px;
+        &:hover {
+          color: $calendar-hover-color !important;
+          background-color: $calendar-hover-background-color !important;
+          border-radius: $radius-sm;
+        }
+      }
+      &:hover {
+        color : unset;
+        background-color : unset;
+      }
+      &.active:not(.not-current-month) {
+        color : unset;
+        background-color : unset;
+        border-radius:   $radius-sm;
+        > div{
+          color: $color-white;
+          background: $color-grey-dark1;
+          border-radius: $radius-sm;
+        }
+      }
+    }
+    
+
+  }
+}
+
+
+
+
+
+
+
+//表頭文字(星期)與底線等等樣式
+.#{$namespace}-table {
+  th {
+    color: $color-disable;
+    border-bottom: solid 1px $color-grey-dark1;
+  }
+}
+
+
+.#{$namespace}-calendar-header {
+  box-sizing: border-box;
+  height: 40px;
+  line-height: 40px;
+  border: solid 1px $color-grey-dark4;
+  border-radius: $radius-sm;
+}
+
+//
+.#{$namespace}-table-date {
+  td,
+  th {
+    height: 40px;
+    font-size: $font-size-h8;
+  }
+  .today {
+    color: $today-color;
+  }
+  .cell.not-current-month {
+    color: $color-disable;
+    background: none; // cover the in-range style
+  }
+}
+
+
+//年分table ，縮小並至中
+.#{$namespace}-table-year {
+  width: 222px ;
+  border-collapse : collapse;
+  height: 260px;
+  margin: 0 auto;
+  margin-top: 20px;
+  td{
+    border-top: 8px solid $color-bg;
+    border-bottom: 8px solid $color-bg;
+    &:first-child{
+      border-right: 6px solid $color-bg;
+    }
+    &:nth-child(2){
+      border-left: 6px solid $color-bg;
+    }
+  }
+}
+
+
+//月份table ，高度都由td的height決定
+.#{$namespace}-table-month {
+  margin-top: 36px;
+  td{
+    height: 40px;
+    border-top: 8px solid $color-bg;
+    border-bottom: 8px solid $color-bg;
+    &:first-child{
+      border-right: 6px solid $color-bg;
+    }
+    &:nth-child(2){
+      border-left: 6px solid $color-bg;
+    }
+  }
+}
+
+
+
+.#{$namespace}-btn {
+}
+.#{$namespace}-datepicker-btn-confirm{
+  display: none;
+  width: 120px;
+  height: 32px;
+  background-color: $color-main;
+  color: #000;
+  border-radius: 18px;
+  font-size: $font-size-normal;
+  transition: all 0.5s ease;
+}
+
+
+.#{$namespace}-datepicker-footer {
+  // display: flex;
+  // // flex-direction: row-reverse;
+  // justify-content: center;
+}
