@@ -16,7 +16,9 @@
         <div class="h-32px flex justify-between items-center" @mousedown="onmousedown(name, id )" :disabled="true">
           <span > {{name}}
           </span>
-          <Icon class="h-24px w-24px inline-block text-main vSelectIcon" iconClass="Ico_Check" type="svg" v-if=" showIcon(id)"></Icon>
+          <span class="h-24px w-24px">
+            <Icon class=" inline-block text-main vSelectIcon" iconClass="Ico_Check" type="svg" v-if=" showIcon(id)"></Icon>
+          </span>
         </div>
       </template>
 
