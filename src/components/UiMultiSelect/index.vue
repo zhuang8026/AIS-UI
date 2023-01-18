@@ -1,43 +1,42 @@
 <template>
 
-  <div class="multiSelect" >
-    <div class="check"></div>
-    <v-select :disabled="isDisable"  :reduce="localArr =>  localArr" 
+  <div class="multiSelect " >
+    <!-- <div class="w-600">{{state.mainSelect}}</div> flex justify-between w-full-->
+    <v-select :disabled="isDisable"  :reduce=" localArr => localArr" 
     v-model="state.mainSelect" :options='localArr' :selectable="option => !option.disabled" 
-    @option:selecting="beforeSelect()"  multiple
-    @close="close" @open="open" @search:blur="onBlur" @input="onClick()" ref="select" 
+    @option:selecting="beforeSelect()"  multiple  
+    @close="close" @open="open" @search:blur="onBlur" ref="select" 
     :append-to-body="position" :label="localArr.id ? 'id': 'name'" :searchable="isSearch" 
-    :close-on-select="true" :class="{'validError': validClass}"
-    class="  noBG relative multiSelect">
+    :close-on-select="false" :class="{'validError': state.validClass ,'border-root-light' : !state.validClass}"
+    class=" relative multiSelect w-296 border-b border-error-0">
+    <!-- :dropdownShouldOpen="() => true"  debug 用 
+    @update:modelValue="onClickCheck" -->
       <template #search="{events, attributes}">
         <input class="vs__search" v-on="events" v-bind="attributes">
         <div class=" absolute mt-6px text-14 ml-5px align-middle z-20 text-grey-4c" 
-        :class="{'text-grey-4c' : isDisable}">
+        :class="{'text-grey-b3' : isDisable}">
             {{placeholder}}
         </div>
       </template>
       <template #list-header>
-        <div class="  px-12px flex justify-between items-center group py-8px cursor-pointer" 
+        <div class="  px-12px flex justify-start items-center group py-8px cursor-pointer" 
         @mousedown="allCheck()" v-if="hasAllOption"> 
+          <button class=" mr-8px w-24px h-24px rounded-5px border border-grey-4c hover:border-root-light"  :class="{'bg-main': state.allChecked ,'border-main': state.allChecked}">
+            <span class="w-24px h-24px" :class="{'check': state.allChecked}"></span>
+          </button>
           All
-          <button class=" w-24px h-24px rounded-2 border border-grey-4c hover:border-main-0" :class="{'check': allChecked}" ></button>
         </div>
       </template>
       <template v-slot:option="option" >
-        <div class="  flex justify-between group" 
+        <div class="  flex justify-start group" 
         @mousedown="onmousedown(option.id ? option.id: option.label)" > 
+          <button class=" mr-8px w-24px h-24px rounded-5px border border-grey-b3 relative" 
+          :class="{'border-main': checkStyle(option) ,'bg-main': checkStyle(option) ,'border-grey-4c' : !option.disabled, 'cursor-default': option.disabled,  'group-hover:border-root-light' : !option.disabled}" >
+            <span class="w-24px h-24px" :class="{'check': checkStyle(option)}"></span>
+          </button>
           <span>{{option.name ? option.name : option.label}}{{option.label}}</span>
-          <button class=" w-24px h-24px rounded-2 border border-grey-4c" 
-          :class="{'check': checkStyle(option) , 'border-grey-9E' : !option.disabled, 'cursor-default': option.disabled,  'group-hover:border-main-0' : !option.disabled}" ></button>
         </div>
       </template>
-      <!-- template( slot="option" slot-scope="option" )
-        
-        .flex.justify-between.group(@mousedown="onmousedown(option.id ? option.id: option.label)" )
-          span {{option.name ? option.name : option.label}}{{option.label}}
-          button.w-24.h-24.rounded-2.border.border-grey-d9(
-            :class="{'check': checkStyle(option) , 'border-grey-9E' : !option.disabled, 'cursor-default': option.disabled,  'group-hover:border-main-0' : !option.disabled}" 
-            ) -->
 
       <template #no-options="{ search, searching }" v-if="isSearch">
         <em v-if="searching "> Sorry, no {{search}}'s matching options.</em>
@@ -56,10 +55,16 @@ import vSelect from "vue-select";
 import 'vue-select/dist/vue-select.css';
 import { reactive, computed, watch , onMounted } from 'vue';
 
+import OpenIndicator from '@/components/Icon/OpenIndicator.vue' //原本的icon長相
+import SelectIcon from '@/components/Icon/SelectIcon.vue' //新的icon長相
+vSelect.props.components.default = () => ({ OpenIndicator, SelectIcon });
+
 export default {
   name: 'Select',
   components: {
     vSelect,
+    OpenIndicator,
+    SelectIcon
   },
   props: {
     position:{
@@ -114,13 +119,10 @@ export default {
       default: false,
     },
   },
-  components:{
-    vSelect,
-  },
   setup(props, { emit }) {
     const state = reactive({
       allChecked: false,
-      // localArr : [],
+      localArr : [],
       mainSelect: [],
       validClass: false,
       obj:[
@@ -141,10 +143,11 @@ export default {
     })
 
     onMounted(() => {
-      state.mainSelect = props.defaultSelectedValue
+      state.validClass = props.error ? true : false;
     })
 
     const onmousedown = (id) => {
+      // console.log('idid',id)
       state.temp = id;
     }
 
@@ -153,21 +156,13 @@ export default {
     }
 
 
-    const onClick = () => {
-      // console.log(state.mainSelect,'666')
-      emit("onClick");
-      
-    }
-
     const onBlur = () => {
-     if(!state.mainSelect.length  && state.required ){
+    if(!state.mainSelect.length  && state.required ){
         state.validClass = true
       }else{
         state.validClass = false
       }
       emit("onblur",{ val: !state.validClass, key: state.name});
-
-      emit("emptyResult", state.noSearchResult);
     }
 
     const close = () => {
@@ -175,28 +170,34 @@ export default {
     }
 
 
+
     const beforeSelect = () => { //反轉checkbox已選擇選項
-      console.log('++', state.mainSelect)
-      // for (let i = 0; i < state.mainSelect.length; i++) {
-      //   if(state.mainSelect[i].id.indexOf(state.temp) > -1){
-      //     state.mainSelect.splice(i,1)
-      //   }
-      // }
-      onClick()
+    // console.log("三小",state.mainSelect)
+      let tempLocal = JSON.parse(JSON.stringify(state.mainSelect));
+      let empty = []
+      for (let i = 0; i < tempLocal.length; i++) {
+        if(tempLocal[i].id.indexOf(state.temp) < 0){
+          empty.push(tempLocal[i])
+        }
+      }
+      const set = new Set()
+      const result = empty.filter(item=>!set.has(item.id)?set.add(item.id):false) 
+      state.mainSelect = result
     }
 
 
     const checkStyle = (option) => {
       let flag  = false;
-      // if(state.mainSelect.length){
-      //   state.mainSelect.forEach(e => {
-      //     if(e.id == option.id){
-      //       flag =  true
-      //     }
-      //   });
-      // }
+      if(state.mainSelect.length){
+        state.mainSelect.forEach(e => {
+          if(e.id == option.id){
+            flag =  true
+          }
+        });
+      }
       return flag
     }
+
 
 
     const allCheck = () => {
@@ -208,20 +209,11 @@ export default {
 
 
 
-    const validClass = computed(() => {
-      return props.error ? true : false;
-    })
+    
 
-
-
-    // let privateSelected = computed({
-    //   get: () => props.defaultSelectedValue,
-    //   set: (val) => {
-    //     state.temp = val
-    //     emit('update:defaultSelectedValue', val);
-    //   }
+    // const validClass = computed(() => {
+    //   return props.error ? true : false;
     // })
-
     
 
     let showIcon = (id) => {
@@ -249,20 +241,15 @@ export default {
 
 
 
-    // watch(
-    //   () => props.optionArr,
-    //   (val) => {
-    //     console.log('??',state.localArr)
-    //     if(val.length){
-    //       if(state.hasAllOption){
-    //         val[0]['first'] = true
-    //       }
-    //     }
-    //     state.localArr = val;
-    //   },
-    //   {deep: true},
-    //   {immediate : true}
-    // )
+    watch(
+      () => props.error,
+      (n) => {
+        return state.validClass = n ? true : false;
+      },
+      {deep: true},
+      // {immediate : true}
+    )
+
 
     watch(
       () => props.defaultSelectedValue,
@@ -270,28 +257,27 @@ export default {
         state.mainSelect = val
       },
       {deep: true},
+      // {immediate : true}
     )
 
     watch(
       () => state.mainSelect,
-      () => {
-        // console.log('??',state.localArr)
-        // let enable  = state.localArr.filter(e => !e.disabled );
-        // let checkArr = state.mainSelect.filter(e => !e.disabled );
-        // // console.log('enable : ',enable, 'checkArr : ',checkArr)
-        // state.allChecked = enable.length === checkArr.length ? true :false;
+      (v) => {
+        let enable  = localArr.value.filter(e => !e.disabled );
+        let checkArr = state.mainSelect.filter(e => !e.disabled );
+        state.allChecked = enable.length === checkArr.length ? true :false;
+        emit("onClickCheck", state.mainSelect);
       },
       {deep: true},
     )
 
     watch(
-      () => props.allChecked,
+      () => state.allChecked,
       (val) => {
         if(val){
-          let temp = localArr
+          let temp = localArr.value
           state.mainSelect = temp.filter(e => !e.disabled );
         }
-        onClick()
       },
       {deep: true},
     )
@@ -300,11 +286,9 @@ export default {
       state,
       open,
       onmousedown,
-      onClick,
       onBlur,
       close,
-      // privateSelected,
-      validClass,
+      // validClass,
       showIcon,
       beforeSelect,
       checkStyle,
@@ -322,13 +306,7 @@ export default {
 
 
 .check {
-  left: 6px;
-  top: 1px;
-  width: 6px;
-  height: 12px;
-  border : solid 1px red;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
+  @apply left-6px top-6px w-6px h-12px inline-block border-white border-r-2px border-b-2px rotate-45;
 }
 
 
