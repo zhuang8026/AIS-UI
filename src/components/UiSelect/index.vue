@@ -1,7 +1,7 @@
 <template>
   <!-- <i-con iconClass="dropdown"></i-con> -->
   <div class="items-center justify-start" :class="{'flex': horizontal}">
-    <v-select :disabled="isDisable" :placeholder="placeholder"
+    <v-select :disabled="isDisable" :placeholder="placeholder" :clearable="false"
     v-model="privateSelected" :options='optionArr' :selectable="option => !option.disabled" 
     @close="close" @open="open" @search:blur="onBlur" @input="onChange()" ref="select" 
     :append-to-body="position" :label="optionArr.id ? 'id': 'name'" :searchable="isSearch" 
@@ -16,9 +16,7 @@
         <div class="h-32px flex justify-between items-center" @mousedown="onmousedown(name, id )" :disabled="true">
           <span > {{name}}
           </span>
-          <span class="h-24px w-24px">
-            <Icon class=" inline-block text-main vSelectIcon" iconClass="Ico_Check" type="svg" v-if=" showIcon(id)"></Icon>
-          </span>
+          <Icon class=" text-main vSelectIcon" iconClass="Ico_Check" type="svg" v-if=" showIcon(id)"></Icon>
         </div>
       </template>
 
@@ -198,24 +196,7 @@ export default {
 
 
 <style lang="scss">
-.vSelect {
-  .vs__clear {
-    display: none;
-  }
-  .vs__dropdown-menu {
-    top: 40px;
-    border: 1px solid $input-main;
-    border-radius: 4px;
-  }
-  .vs__dropdown-toggle {
-    border: 1px solid $input-main;
-    border-radius: 4px;
-    &:hover {
-      border: 1px solid $color-main-hover;
-    }
-    &:active {
-      border: 1px solid $color-main-pressed;
-    }
-  }
+.vSelectIcon{
+  @apply h-24px w-24px;
 }
 </style>
