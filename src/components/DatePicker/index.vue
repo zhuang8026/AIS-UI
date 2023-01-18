@@ -1,60 +1,50 @@
 <template >
 
   <section class="date-picker">
-    <date-picker class="datePicker" ref="datePicker" v-model:value="state.time" :lang="state.langType"
-    type="date"  :editable="false"
-    range prefix-class="xmx"  format="YYYY/MM/DD" v-model:open="state.open" @confirm="datePickerConfirm"
-    :disabled="isDisable" @close="closePicker"
-    :confirm="true" confirm-text="Apply" @pick="calendarChange">
-      <!-- <template #footer="{ emit }">
-        <div class="datePicker-footer">
-          <div class="timeBlock">
-            <div v-for="(e,i) in selectVal" >
-              <div >{{timePick(e, emit)}}</div>
-              <div v-if="i == 0">  ~  </div>
-            </div>
-          </div>
-          <div class="datePickerButtonBlock">
-            <Button @onClick="applyDate(emit)" type="full" style="margin-right: 24px;" wd="ssmd" h="smd" :disable="state.temp.length!=2" :text="t('__common.__apply')" class="buttonEach"></Button>
-            <Button @onClick="closePicker" type="border"  wd="ssmd" h="smd" :text="t('__common.__cancel')" class="buttonEach aaa"></Button>
-          </div>
+  <div>{{state.time }}222</div>
+  <date-picker class="datePicker" :class="{'erroDate' : error}" ref="datePicker" v-model:value="state.time" :lang="state.langType"
+  type="date"  :editable="false" :clearable="clearable"
+  prefix-class="xmx"  format="YYYY/MM/DD" v-model:open="state.open" @confirm="datePickerConfirm"
+  :disabled="isDisable" @close="closePicker" :disabled-date="notBeforeThisDay"
+  :confirm="true" confirm-text="Apply" @pick="calendarChange">
+    <template #footer="{ emit }">
+      <div class="datePicker-footer">
+        <div class="datePickerButtonBlock">
+          <ui-button @onClick="applyDate(emit)" type="small" style="margin-right: 24px;" :disable="!state.temp"  class="buttonEach"> Apply</ui-button>
+          <ui-button @onClick="closePicker" type="small" class="buttonEach ">Cancel</ui-button>
         </div>
-      </template> -->
-    </date-picker>
-    <!-- <div>time : {{state.time}}</div> -->
-    <div :class="{'erroSpan' : error}" v-if="error"> {{error}}</div>
-  </section>
+      </div>
+      <div class="text-red-500 hover:text-main">fsdsgshjkuy</div>
+    </template>
+  </date-picker>
+  <!-- <div>time : {{state.time}}</div> -->
+  <div :class="{'erroSpan' : error}" v-if="error"> {{error}}</div>
+</section>
 </template>
 
 
 
 <script>
-// import Button from '../button/index.vue';
+import UiButton from '@/components/UiButton/index.vue';
 import { reactive, onMounted, ref, watch, computed,  } from 'vue';
+
 import * as moment from 'moment';
 import DatePicker from 'vue-datepicker-next';
 import 'vue-datepicker-next/index.css';
-// import { useStore } from 'vuex';
 
 
 
 export default {
   components: {
-    // Button,
+    UiButton,
     DatePicker
   },
   props: {
     value: {
-      type: Array,
+      type: Object || null   ,
     },
     defaultValue: {
-      type: Array,
-      default() {
-        return [
-          '2022/08/15',
-          '2022/09/15'
-        ]
-      }
+      type: Object || null   ,
     },
     error: {
       type: String,
@@ -63,7 +53,15 @@ export default {
     isDisable: {
       type: Boolean,
       default: false,
-    }
+    },
+    minDay: {
+      type: Object || null ,
+    },
+    clearable: {
+      type: Boolean  ,
+      default: false,
+      required: false, 
+    },
 
   },
   setup(props, { emit }) {
@@ -90,13 +88,10 @@ export default {
       lang: 'lang',
   
   }
-    // const { t } = useI18n();
-    // const store = useStore()
     const state = reactive({
-      temp: [],
+      temp: {},
       open: false,
-      time: [null, null],
-      defaultV: [],
+      time: null,
       func: () => { },
       localTime: null,
       langType: ''
@@ -105,102 +100,71 @@ export default {
     
 
 
+    onMounted(() => {
+      // state.langType = dateLang[store.state.langIsSelected]
+      if (props.value) {
+        state.time = props.value;
+        state.temp = props.value;
+      }
+    })
+
+
     const privateValue = computed({
       get: () => props.value,
       set: (val) => {
-        let defaultStart = moment(val[0]).toISOString()
-        let defaultEnd = moment(val[1]).toISOString()
-        console.log('inside', defaultStart, defaultEnd)
-        let arr = []
-
-        arr[0] = defaultStart
-        arr[1] = defaultEnd
-        state.time = arr;
-        state.temp = arr;
-        // emit('changeDatePicker', val);
+        let defaultStart = moment(val).toISOString()
+        state.time = defaultStart;
+        state.temp = defaultStart;
       }
     });
 
-    const selectVal = computed(() => {
-      return state.temp.length ? state.temp : ['', '']
-    });
 
 
     //picker
     const applyDate = (localEmit) => {
       // console.log('e',localEmit)
       state.func = localEmit;
-      // console.log(state.time.length === state.temp.length && state.time.every(function(value, index) { return value === state.temp[index]}))
+      console.log(JSON.stringify(state.time))
       if (JSON.stringify(state.time) === JSON.stringify(state.temp)) {
         state.open = false
       } else {
         localEmit(state.temp)
         state.localTime = state.temp
       }
-      state.temp = []
-
-
+      state.temp = {}
     };
     const datePickerConfirm = () => {
       // console.log('e',e)
     };
 
+
     const closePicker = () => {
-      state.temp = []
+      state.temp = {}
       state.open = false
 
     };
 
-    const timePick = (e) => {
-      if (e) {
-        return moment(e).format('YYYY/MM/DD')
-      } else {
-        return 'YYYY/MM/DD'
-      }
-    }
 
     const calendarChange = (e) => {
-      if (state.temp.length) {
-        if (state.temp.length == 1) {
-          if (e > state.temp[0]) {
-            state.temp.splice(0 + 1, 0, e);
-          } else {
-            state.temp.splice(0 - 1, 0, e);
-          }
-        } else {
-          state.temp = []
-          state.temp.push(e)
-
-
-        }
-      } else {
-        state.temp.push(e)
-        for (let i = 0; i < state.temp.length; i++) {
-          // console.log(state.temp[i].getUTCHours()); // Hours
-          // console.log(state.temp[i].getUTCMinutes());
-          // console.log(state.temp[i].getUTCSeconds());
-          // console.log('SSS', moment(state.temp[i]).toISOString())
-        }
-      }
+      state.temp = e
     };
 
     //picker
 
 
+    const notBeforeThisDay = (date) => {
+      if(props.minDay){
+        return date < props.minDay;
+      }
+
+    };
+
+
     const datePicker = ref();
 
-    onMounted(() => { //!!
-      // state.langType = dateLang[store.state.langIsSelected]
-      // if (props.value.length) {
-      //   state.time = props.value;
-      //   state.temp = props.value;
-      // }
-    })
 
 
-
-    // store.watch((state) => (state.langIsSelected ), (newType) => { !!
-    //   console.log(newType)
+    // store.watch((state) => (state.langIsSelected ), (newType) => {
     //   state.langType = dateLang[newType]
     // })
 
@@ -209,12 +173,8 @@ export default {
       () => state.open,
       (val) => {
         if (val) {
-          if (props.value.length) {
-            let localTemp = []
-            for (let i = 0; i < props.value.length; i++) {
-              // console.log('SSS', moment(props.value[i]).format('YYYY : MM :DD')) //.utcOffset()
-              localTemp.push(moment(props.value[i]).toISOString())
-            }
+          if (props.value) {
+            let localTemp = moment(props.value).toISOString()
             state.temp = localTemp
           }
         }
@@ -229,24 +189,32 @@ export default {
       (val, old) => {
         if (val != old) {
           let flag = false;
-          let arr = []
-          for (let i = 0; i < val.length; i++) {
-            arr.push(val[i])
-            if (val[i] != null) {
-              flag = true
-            }
+          if (val != null) {
+            flag = true
           }
-
-          // console.log('arr',state.time ,arr)
           if (flag) {
-            emit('changeDatePicker', arr);
+            emit('changeDatePicker', val);
           } else {
-            emit('changeDatePicker', []);
+            emit('changeDatePicker', null);
           }
         }
       },
       { deep: true }
     )//end: watch 
+
+
+    watch(
+      () => props.value,
+      (val) => {
+        state.time = val;
+        state.temp = val;
+      },
+      { deep: true }
+    )//end: watch 
+
+
+
+
 
 
     return {
@@ -256,10 +224,8 @@ export default {
       datePickerConfirm,
       calendarChange,
       closePicker,
-      timePick,
-      selectVal,
       privateValue,
-      t
+      notBeforeThisDay
 
     }
   }
@@ -268,8 +234,8 @@ export default {
 
 </script>
 
-<style lang="scss" scoped>
 
+<style lang="scss">
 
 $color-config:(
   default: $form-color-default,
@@ -283,7 +249,7 @@ $color-config:(
 .date-picker{
   .erroSpan{
     color: map-get($color-config, 'error');
-    margin-top: 4px;
+    margin-top: 10px;
   } 
 }
 
@@ -312,11 +278,12 @@ $color-config:(
 
 .datePickerButtonBlock{
   width: 100%;
+  display: flex;
+  justify-content: space-between;
   .buttonEach{
       display: inline-block;
       flex-shrink: 0;
   }
 }
-
 
 </style>
