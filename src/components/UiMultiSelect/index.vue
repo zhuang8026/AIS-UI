@@ -5,7 +5,7 @@
     <v-select :disabled="isDisable"  :reduce="localArr =>  localArr" 
     v-model="state.mainSelect" :options='localArr' :selectable="option => !option.disabled" 
     @option:selecting="beforeSelect()"  multiple
-    @close="close" @open="open" @search:blur="onBlur" @input="onChange()" ref="select" 
+    @close="close" @open="open" @search:blur="onBlur" @input="onClick()" ref="select" 
     :append-to-body="position" :label="localArr.id ? 'id': 'name'" :searchable="isSearch" 
     :close-on-select="true" :class="{'validError': validClass}"
     class="  noBG relative multiSelect">
