@@ -1,4 +1,5 @@
 <template>
+  <!-- <i-con iconClass="dropdown"></i-con> -->
   <div class="items-center justify-start" :class="{'flex': horizontal}">
     <v-select :disabled="isDisable" :placeholder="placeholder"
     v-model="privateSelected" :options='optionArr' :selectable="option => !option.disabled" 
@@ -31,16 +32,21 @@
 </template>
 
 <script>
-import Vue from "vue";
+// import Vue from "vue";
 import vSelect from "vue-select";
 import 'vue-select/dist/vue-select.css';
+import Icon from '../../components/Icon2/Icon.vue';
 import { reactive, computed, watch , onMounted } from 'vue';
 
-// Vue.component("v-select", vSelect);
+// import OpenIndicator from '@/components/Icon/OpenIndicator.vue' //原本的icon長相
+// import SelectIcon from '@/components/Icon/SelectIcon.vue' //新的icon長相
+// vSelect.props.components.default = () => ({ OpenIndicator, SelectIcon });
+
 export default {
   name: 'Select',
   components: {
     vSelect,
+    Icon
   },
   props: {
     position:{

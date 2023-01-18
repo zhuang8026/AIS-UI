@@ -20,6 +20,23 @@ module.exports = {
     },
   },
   chainWebpack: config => {
+    // config.module
+    //         .rule('ts')
+    //         .use('ts-loader')
+    //         .loader('ts-loader')
+    //         .tap(options => {
+    //             return options
+    //         })
+        
+
+    //     config.optimization.minimizer('terser').tap((args) => {
+    //         args[0].terserOptions.output = {
+    //             ...args[0].terserOptions.output,
+    //             comments: false, // exclude all comments from output
+    //         };
+    //         return args;
+    //     });
+
   
     // 先刪除預設的svg配置
     config.module.rules.delete("svg")
@@ -39,5 +56,7 @@ module.exports = {
     config.module
       .rule("images")
       .exclude.add(resolve("src/components/assets/icon"))
-  }
+  },
+  
 };
+
