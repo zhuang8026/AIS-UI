@@ -16,12 +16,12 @@ let app = createApp(App).use(router)
 // app.component('Icon', PicIcon)
 
 
-//替換掉原本的下拉選單下拉icon
-import OpenIndicator from '@/components/Icon/OpenIndicator.vue' //原本的icon長相
-import SelectIcon from '@/components/Icon/SelectIcon.vue' //新的icon長相
+//替換掉原本的下拉選單下拉icon ==> 改成 組件內替換
+// import OpenIndicator from '@/components/Icon/OpenIndicator.vue' //原本的icon長相
+// import SelectIcon from '@/components/Icon/SelectIcon.vue' //新的icon長相
 
-vSelect.props.components.default = () => ({ OpenIndicator, SelectIcon });
-app.component('v-select', vSelect)
+// vSelect.props.components.default = () => ({ OpenIndicator, SelectIcon });
+// app.component('v-select', vSelect)
 
 
 // .use(store)
