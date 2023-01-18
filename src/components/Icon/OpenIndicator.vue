@@ -5,8 +5,13 @@
 
 </template>
 <script>
+
+import Icon from '../../components/Icon/index.vue';
 export default {
   name: 'OpenIndicator',
+  components: {
+    Icon
+  },
   props: {
   },
 }

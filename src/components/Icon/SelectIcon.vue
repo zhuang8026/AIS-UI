@@ -4,8 +4,12 @@
     </div>
 </template>
 <script>
+import Icon from '../../components/Icon/index.vue';
 export default {
   name: 'SelectIcon',
+  components: {
+    Icon
+  },
   props: {
   },
 }
