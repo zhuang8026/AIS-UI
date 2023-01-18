@@ -38,13 +38,6 @@
   @apply w-24px h-24px;
 }
 
-.noBG .vs__dropdown-option:hover {
-  @apply text-black bg-white;
-}
-.noBG .vs__dropdown-option--highlight:active {
-  @apply text-black bg-white;
-}
-
 .multiSelect .vs--disabled .vs__dropdown-toggle,
 .multiSelect .vs--disabled .vs__clear,
 .multiSelect .vs--disabled .vs__search,
@@ -53,62 +46,46 @@
   cursor: not-allowed;
 }
 .multiSelect .v-select .vs__dropdown-toggle {
+  @apply border-none;
   background-color: white;
 }
-.multiSelect .v-select .vs__dropdown-option:hover:not(.vs__dropdown-option--disabled) {
-  @apply text-main bg-white;
+.multiSelect .v-select .vs__dropdown-option--highlight {
+  @apply text-white bg-root-dark;
+}
+.multiSelect .v-select .vs__dropdown-option--highlight button {
+  @apply border-root-light;
 }
 .multiSelect .v-select .vs__dropdown-option--highlight:active {
-  @apply text-main bg-white;
-}
-.multiSelect .v-select .vs__dropdown-option {
-  padding: 4px 12px;
-  background: none;
-  color: black;
+  @apply text-white bg-root-darkMore;
 }
 .multiSelect .v-select .vs__dropdown-option--disabled {
-  color: #B8B8B8;
+  @apply bg-white text-grey-b3;
+}
+.multiSelect .v-select .vs__dropdown-option--selected {
+  @apply text-main bg-white;
+}
+.vs__dropdown-option--selected .multiSelect .v-select .vs__dropdown-option--highlight {
+  @apply text-main bg-white;
+}
+.vs__dropdown-option--selected .multiSelect .v-select .vs__dropdown-option--highlight button {
+  @apply border-main;
+}
+.multiSelect .v-select .vs__dropdown-option {
+  @apply py-8px px-12px;
 }
 .multiSelect .v-select .vs__selected-options {
-  position: relative;
+  @apply relative;
 }
 .multiSelect .v-select .vs__selected-options span {
-  display: none;
+  @apply hidden;
 }
-
-.lightPlaceholder .v-select ::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #acacac;
-  opacity: 1;
-  /* Firefox */
-}
-.lightPlaceholder .v-select :-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: #acacac;
-}
-.lightPlaceholder .v-select ::-ms-input-placeholder {
-  /* Microsoft Edge */
-  color: #acacac;
-}
-
-.noClean .vs__dropdown-toggle {
-  background-color: transparent;
-}
-
-.noArrow .v-select .vs__actions .vs__open-indicator {
-  display: none;
+.multiSelect .v-select .vs__dropdown-menu {
+  @apply border-none;
+  @apply top-[41px];
 }
 
 .validError.v-select .vs__dropdown-toggle {
   @apply border-error-0;
-}
-
-.noShowOp {
-  border-radius: 5px;
-  overflow: hidden;
-}
-.noShowOp .vs__dropdown-menu {
-  display: none;
 }
 
 .vs__search::-webkit-search-decoration,

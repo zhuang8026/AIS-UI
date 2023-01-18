@@ -19,7 +19,7 @@
         }
     }
     .vs__dropdown-option{
-        @apply px-12px
+        @apply px-12px;
         
     }
     
@@ -58,17 +58,6 @@
 }
 
 
-//無背景互動顏色
-.noBG {
-    .vs__dropdown-option:hover {
-        // 彈出選單中被Highlight的項目
-        @apply text-black bg-white;
-    }
-    .vs__dropdown-option--highlight:active {
-        @apply text-black bg-white;
-    }
-}
-
 //checkbox的custom樣式
 .multiSelect {
     .vs--disabled {
@@ -82,73 +71,48 @@
     }
     .v-select {
         .vs__dropdown-toggle {
+            @apply border-none ;
             background-color: white;
         }
         .vs__dropdown-option--highlight {
-            // @apply text-main bg-white;
-        }
-        .vs__dropdown-option:hover{
-            &:not(.vs__dropdown-option--disabled){
-                @apply text-main bg-white;
+            @apply text-white bg-root-dark;
+            button{
+                @apply border-root-light;
             }
         }
         .vs__dropdown-option--highlight:active {
-            @apply text-main bg-white;
-        }
-        .vs__dropdown-option{
-            padding: 4px 12px;
-            background: none;
-            color: black;
+            @apply text-white bg-root-darkMore;
         }
         .vs__dropdown-option--disabled {
-            color: #B8B8B8;
+            @apply  bg-white text-grey-b3;
+        }
+        .vs__dropdown-option--selected{ //待確認 被選 + hover 效果
+            @apply text-main bg-white;
+        }
+        .vs__dropdown-option--selected & .vs__dropdown-option--highlight  {
+            // @apply text-white bg-root-dark;
+            @apply text-main bg-white;
+            button{
+                @apply border-main;
+            }
+        }
+        .vs__dropdown-option{
+            @apply py-8px px-12px;
+
         }
         .vs__selected-options {
-            position: relative;
+            @apply relative;
             span {
-                display: none;
+                @apply hidden;
             }
+        }
+        .vs__dropdown-menu{
+            @apply border-none ;
+            @apply top-[41px]
         }
     }
 }
 
-//placeholder
-.lightPlaceholder {
-  .v-select {
-       ::placeholder {
-          /* Chrome, Firefox, Opera, Safari 10.1+ */
-          color: #acacac;
-          opacity: 1;
-          /* Firefox */
-      }
-       :-ms-input-placeholder {
-          /* Internet Explorer 10-11 */
-          color: #acacac;
-      }
-       ::-ms-input-placeholder {
-          /* Microsoft Edge */
-          color: #acacac;
-      }
-  }
-}
-
-
-//沒有清除按鈕
-.noClean {
-  .vs__dropdown-toggle {
-      background-color: transparent;
-  }
-}
-// no arrow
-.noArrow {
-  .v-select {
-      .vs__actions {
-          .vs__open-indicator {
-              display: none;
-          }
-      }
-  }
-}
 
 //valid
 .validError {
@@ -159,24 +123,6 @@
   }
 }
 
-
-//noShowOp  
-
-.noShowOp{
-    border-radius: 5px;
-    overflow: hidden;
-    .v-select {
-    }
-    .vs__dropdown-menu{
-        display: none;
-        
-    }
-}
-
-
-// input[type="search"]:-webkit-autofill {
-//     -webkit-box-shadow:0 0 0 50px #b12b2b ；
-// }
 
 .vs__search::-webkit-search-decoration,
 .vs__search::-webkit-search-cancel-button,
