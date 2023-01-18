@@ -61,3 +61,12 @@ export default {
 
 }
 </script>
+
+<style lang="scss" scoped>
+
+.svg-icon {
+  fill: currentColor;
+  overflow: hidden;
+}
+
+</style>
