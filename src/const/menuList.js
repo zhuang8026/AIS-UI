@@ -86,10 +86,20 @@ export default [
       {
         'title-cn': 'Select 下拉選單',
         'title-en': 'Select',
+        path: '/ais/newselect',
+      },
+      {
+        'title-cn': 'multi Select 下拉選單',
+        'title-en': 'multiSelect',
+        path: '/ais/newmultiselect',
+      },
+      {
+        'title-cn': 'VSelect 下拉選單',
+        'title-en': 'Select',
         path: '/ais/select',
       },
       {
-        'title-cn': 'Select 多選下拉選單',
+        'title-cn': 'VSelect 多選下拉選單',
         'title-en': 'Select',
         path: '/ais/multiselect',
       },

@@ -77,13 +77,23 @@ const routerList: Array<RouteRecordRaw> = [
     //     component: () => import('/packages/Space/doc/doc.md'),
     //   },
     {
+      path: 'newselect',
+      name: 'Select',
+      component: () => import('@/page/NewSelectView.vue'),
+    },
+    {
+      path: 'newmultiselect',
+      name: 'multiSelect ',
+      component: () => import('@/page/NewMultiSelectView.vue'),
+    },
+    {
       path: 'select',
-      name: 'Select 下拉選單',
+      name: 'VSelect',
       component: () => import('@/page/SelectView.vue'),
     },
     {
       path: 'multiselect',
-      name: 'multiselect 下拉選單',
+      name: 'multiVSelect',
       component: () => import('@/page/MultiSelectView.vue'),
     },
     {
