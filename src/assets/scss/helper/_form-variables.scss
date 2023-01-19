@@ -1,7 +1,11 @@
-$form-h: 42px; // 表單元件高度
+//phm
+$form-h: 32px; // 表單元件高度
+$form-space-start: 16px; //開始顯示文字的 padding
+//phm
+
+
 $form-radius: $radius-form; //表單圓角
 $form-border-wd: 1px; //border寬度
-$form-space-start: 24px; //開始顯示文字的 padding
 $form-space-end: 20px; //結尾的space
 
 //color 
@@ -10,7 +14,7 @@ $form-color-active: $color-main;  // focus, active color
 $form-color-error: $color-error;
 $form-color-bg: $color-bg; //form元件的背景
 $form-color-font: $color-white; //form的文字顏色
-$form-color-diable: $color-disable-light; //disable 樣式
+$form-color-diable: $color-disable; //disable 樣式
 
 
 

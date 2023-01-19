@@ -16,25 +16,13 @@ $font-family-sub: 'Roboto', '微軟正黑體';
 // 1. color
 // 1-1. project color
 $color-main: #006ce1;
-$color-main-active: #dfb992;
-$color-main-light: #e6f2f4;
-$color-main-light2: #ffebd3;
-$color-main-light3: #fbdfbe; // used: loading
-$color-main-dark: #d7ba97;
-$color-main-dark2: #dfb992;
-$color-sub: #95d8e6;
-$color-sub-light: #00e5e5;
-$color-sub-light2:#14abb3;
-$color-font: #FFF;
-$color-bg: #1d1f28;
-$color-bg-light: #252934;
-$color-bg-sub-light: #e1f6fa;
-$color-sub-portal: #00d5ff;
-$color-sub-portal-hover: #01badf;
-$color-disable: #a7a8ac;
-$color-disable-light: rgba($color-disable, 0.2);
-$color-contextmenu:#b5bfc6;
+$color-main-light: #dee5ec;
+$color-main-deep: #003a7a;
+$color-main-dark: #0051a8;
+$color-main-darkMore: #003a7a;
+$color-main-inputHighLight: #9ef;
 
+$color-bg : #fff;
 
 $color-normal: #64dd9f; // green;
 $color-normal-light: rgba(123, 255, 187, 0.3); 
@@ -48,53 +36,18 @@ $color-black: #000;
 // 1-3. grey
 $color-grey-light: #f4f4f4; // phm table bg
 $color-grey-light-md: #909090; // phm table head
+$color-grey-light2: #666666;
+$color-grey-light3: #4c4c4c; 
+$color-grey-light4: #b3b3b3; 
+$color-disable : #b3b3b3;
 // ----
-$color-grey-light2: #dadada;
-$color-grey-light3: #faf7f7; // for btn bg
-$color-grey-light4: #cecdce; // opacity2
-$color-grey-light5: #343842; // opacity2
-$color-grey-bg: #f2f2f2;
-$color-grey-bg-light: #efefef;
-$color-grey-dark1: #333845;
-$color-grey-dark1-light: #696870;
-$color-grey-dark2: #111116;
-$color-grey-dark2-light: #17181f; 
-$color-grey-dark3-light: #2a2f3b; // opacity 0.5
-$color-grey-dark3: #23242e;
-$color-grey-dark4: #43464f;
-$color-grey-dark5:#151922;
-$color-grey-dark6:#10121A;
-$color-grey-dark7:#090B11;
-$color-grey-dark8: #222634;
-$color-grey-dark9: #272932;
-$color-grey-dark10: #09090d; // header bg
-$color-grey-dark11: #14151a;
-$color-grey-dark12: #22242e;
-$color-grey-dark13: #32353f;
-$color-grey-dark14: #3d3f4a;
-$color-grey-light1: #383e4c;
-$color-grey-light2: #2d3341; // opacity 0.7 color-grey-light1
-$color-grey-light3: #2d2f37;
-$color-grey-light4: #202431;
-$color-grey-light5: #353c4b;
-$color-grey-light6: #30313e;
-
-$color-grey-btn-bg: #2a2f3b;
-$color-grey-btn-bg-disabled: #303543;
 
 
-// $color-main-gradient : linear-gradient(to right, 
-// #ffe9d1, #dfb992);
-$color-main-gradient: linear-gradient(to top, #ffe9d1, $color-main-dark2), linear-gradient(to bottom, $color-main, $color-main);
-$color-main2-gradient: linear-gradient(to left, #ffe9d1, $color-main-dark2);
+
 
 //specifical color
-$color-error: #bf0020;
-$color-error-light: #f0e1e1;
-$color-alert: #ff5353;
+$color-error: #FF330B;
 
-$color-table-caution: #fff568;
-$color-table-limit: #ff6666;
 
 
 
@@ -149,7 +102,7 @@ $screen-size:(
 // radius
 
 $radius-default: 18px;
-$radius-form: 6px;
+$radius-form: 4px;
 $radius-md: 8px;
 $radius-sm: 4px;
 $radius-xs: 2px;

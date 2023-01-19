@@ -17,7 +17,7 @@ $input-hover-border-color: $color-main !default;
 $disabled-color: #ccc !default;
 $disabled-background-color: #f3f3f3 !default;
 
-$border-color: $color-grey-dark4 !default;
+$border-color: $color-grey-light3 !default;
 
 $calendar-active-color: $color-bg !default;
 $calendar-active-background-color: $primary-color !default;
@@ -146,7 +146,7 @@ $rounded-border-radius: 50% !default;
       width: 2px;
       height: 48px;
       border-radius: 1.5px;
-      background-color: $color-grey-dark1;
+      background-color: rgb(127, 127, 127);
     }
     border-left: none;
   }
@@ -183,7 +183,7 @@ $rounded-border-radius: 50% !default;
 //       border-radius: $radius-sm;
 //       margin: 20px;
 //       &:active{
-//         background: $color-grey-dark1;
+//         background: rgb(127, 127, 127);
 //         color: $color-white;
 //       }
 //     }
@@ -234,7 +234,7 @@ $rounded-border-radius: 50% !default;
         }
       }
       &.disabled {
-        color: $color-grey-dark1-light;
+        color: rgb(161, 161, 161);
         cursor: not-allowed;
         background-color: transparent;
         &:hover {
@@ -270,7 +270,7 @@ $rounded-border-radius: 50% !default;
         border-radius:   $radius-sm;
         > div{
           color: $color-white;
-          background: $color-grey-dark1;
+          background: rgb(127, 127, 127);
           border-radius: $radius-sm;
         }
       }
@@ -290,7 +290,7 @@ $rounded-border-radius: 50% !default;
 .#{$namespace}-table {
   th {
     color: $color-disable;
-    border-bottom: solid 1px $color-grey-dark1;
+    border-bottom: solid 1px rgb(127, 127, 127);
   }
 }
 
@@ -299,7 +299,7 @@ $rounded-border-radius: 50% !default;
   box-sizing: border-box;
   height: 40px;
   line-height: 40px;
-  border: solid 1px $color-grey-dark4;
+  border: solid 1px $color-grey-light3;
   border-radius: $radius-sm;
 }
 
