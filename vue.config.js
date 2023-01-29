@@ -5,6 +5,7 @@ function resolve(dir) {
 module.exports = {
   lintOnSave: false,
   css: {
+    extract: false,
     loaderOptions: {
       scss: {
         data: `
