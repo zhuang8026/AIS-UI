@@ -2,10 +2,12 @@ const path = require('path');
 function resolve(dir) {
     return path.join(__dirname, dir);
 }
+
+//@import "src/assets/scss/style-import.scss";
 module.exports = {
   lintOnSave: false,
   css: {
-    extract: false,
+    // extract: false,
     loaderOptions: {
       scss: {
         data: `

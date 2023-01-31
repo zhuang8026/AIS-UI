@@ -23,7 +23,7 @@ fs.readdir(path.join(__dirname, './src/components'), function (err, files) {
     // 讀取目錄名稱
     if(item != 'assets'){
       content = content + `import ${item} from './components/${item}';`
-      // console.log('111',typeof item)
+      // console.log('111', item)
       ex.push(item)
     }
     // else if (item == 'assets'){
@@ -106,6 +106,10 @@ function packSass(tempEx) {
 
 
 function packAll() {
+  // let name = 'uiTaiwind';
+  // content += `import './index.css';`;
+  // // content = content + `export { ${name} }; `
+  // console.log('content',content);
 
   fs.writeFile(path.join(__dirname, './src/index.js'), content, 'utf8', (err) => {
     if (err) throw err;

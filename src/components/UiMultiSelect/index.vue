@@ -1,6 +1,6 @@
 <template>
 
-  <div class="multiSelect " >
+  <div class="multiSelect" >
     <!-- <div class="w-600">{{state.mainSelect}}</div> flex justify-between w-full-->
     <v-select :disabled="isDisable"  :reduce=" localArr => localArr" 
     v-model="state.mainSelect" :options='localArr' :selectable="option => !option.disabled" 

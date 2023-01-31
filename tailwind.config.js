@@ -1,7 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
-  content: [],
+  // content: [
+  //      "./index.html",
+  //      "./src/components/**/*.{vue,js,ts,jsx,tsx}",
+  //      "./src/**/*.{vue,js,ts,jsx,tsx}",
+  //    ],
+  content: {
+    relative: true,
+    files:[
+       "./index.html",
+       "./src/components/**/*.{vue,js,ts,jsx,tsx}",
+       "./src/**/*.{vue,js,ts,jsx,tsx}",
+       // "./node_modules/ais-ui/**/*.{vue,js,ts,jsx,tsx}"    // Add this line
+     ]
+   },
+ 
+  safelist: [
+    'mt-6px',
+    'text-3xl',
+    'lg:text-4xl',
+  ],
   presets: [],
   darkMode: 'media', // or 'class'
   theme: {
