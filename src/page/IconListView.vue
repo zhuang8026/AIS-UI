@@ -111,7 +111,7 @@ export default {
         { className: 'ehs-base-1' },
         { className: 'ehs-base -2' },
         { className: 'ehs-base' },
-        { className: 'ehs-down' },
+        { className: 'ehs-down-normal' },
         { className: 'ehs-log-1' },
         { className: 'ehs-seetings' },
         { className: 'ehs-updated-1' },
