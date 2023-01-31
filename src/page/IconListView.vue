@@ -4,9 +4,9 @@
     <hr/>
     <h2 class="my-32px">Normal </h2>
     <div class=" flex flex-row flex-wrap justify-start" >
-      <div class="shadow-md rounded-sm card p-20px mr-10px mb-10px flex justify-center items-center" v-for="(item, index) in state.iconList" :key="index">
+      <div class="shadow-md bg-gray-200 rounded-sm card p-20px mr-10px mb-10px flex justify-center items-center" v-for="(item, index) in state.iconList" :key="index">
         <div class="sub" >{{item.className}}</div>
-        <Icon class="h-40px w-40px ml-10px" :iconClass="item.className" type="svg" ></Icon>
+        <Icon class="h-100px w-100px ml-10px" :iconClass="item.className" type="svg" ></Icon>
       </div>
     </div>
 
@@ -92,6 +92,30 @@ export default {
         { className: 'exit' },
         { className: 'restore' },
         { className: 'trash' },
+
+        { className: 'ehs-dasboard' },
+        { className: 'ehs-down' },
+        { className: 'ehs-down2' },
+        { className: 'ehs-event' },
+        { className: 'ehs-icon-6' },
+        { className: 'rectangle-9163' },
+        { className: 'ehs-schedule' },
+        { className: 'ehs-up' },
+        { className: 'ehs-user' },
+
+
+        { className: 'ehs-account' },
+        { className: 'ehs-arrow -1' },
+        { className: 'ehs-arrow -2' },
+        { className: 'ehs-arrow' },
+        { className: 'ehs-base-1' },
+        { className: 'ehs-base -2' },
+        { className: 'ehs-base' },
+        { className: 'ehs-down' },
+        { className: 'ehs-log-1' },
+        { className: 'ehs-seetings' },
+        { className: 'ehs-updated-1' },
+
       ]
     })
 

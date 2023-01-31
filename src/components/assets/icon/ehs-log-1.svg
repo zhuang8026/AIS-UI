@@ -1,0 +1,8 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#FFF" fill="none" fill-rule="evenodd">
+        <text stroke-width=".1" font-family="Roboto-Black, Roboto" fill="none" font-size="5" font-weight="800" transform="translate(8.5 7.5)">
+                            <tspan x="3" y="14">LOG</tspan>
+                        </text>
+        <path d="M13.116 7.5h5.915c.062 0 .123.004.183.012 3.26-.012 4.286 1.15 4.286 4.845v7.287c0 3.904-1.078 4.863-4.616 4.856h-5.768c-3.464.007-4.605-1.14-4.616-4.858v-7.285c.011-3.596 1.04-4.864 4.616-4.857zM18 11.1h-6M21 14.5h-9" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+    </g>
+</svg>
