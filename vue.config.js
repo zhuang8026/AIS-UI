@@ -7,7 +7,7 @@ function resolve(dir) {
 module.exports = {
   lintOnSave: false,
   css: {
-    extract: false,
+    extract: true, //要引用tailwind style, 要保持true 
     loaderOptions: {
       scss: {
         data: `
