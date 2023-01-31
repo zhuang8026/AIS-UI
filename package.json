@@ -15,7 +15,7 @@
     "build:style": "postcss src/index.css -o lib/style.css",
     "build:script": "node script.js"
   },
-  "files":[
+  "files": [
     "lib"
   ],
   "dependencies": {
