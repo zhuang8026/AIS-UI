@@ -15,11 +15,11 @@ module.exports = {
      ]
    },
  
-  safelist: [
-    'mt-6px',
-    'text-3xl',
-    'lg:text-4xl',
-  ],
+  // safelist: [
+  //   'mt-6px',
+  //   'text-3xl',
+  //   'lg:text-4xl',
+  // ],
   presets: [],
   darkMode: 'media', // or 'class'
   theme: {
