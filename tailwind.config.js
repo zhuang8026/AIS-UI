@@ -154,6 +154,11 @@ module.exports = {
       'md-s': '20px',
       'md': '24px',
       'lg': '40px',
+      'button' :{
+        'big' : '200px',
+        'small' : '50px',
+        'normal' : '80px',
+      },
     },
     animation: {
       none: 'none',
