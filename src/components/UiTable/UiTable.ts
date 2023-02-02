@@ -99,6 +99,7 @@ export default {
     let updateKey = ref(0);
 
     let updateDataCheck = (val, index) => {
+      console.log('updateDataCheck ->', privateDatas, val, index);
       let _index = index;
       let _val = val;
       privateDatas[_index].isCheck = _val;
