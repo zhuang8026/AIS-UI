@@ -7,6 +7,10 @@ export default {
     UiCheckbox
   },
   props: {
+    test:{
+      type: Number,
+      default: 1,
+    },
     isHasCheck:{
       type: Boolean, //是否要有checkbox
       default: true,
@@ -56,14 +60,6 @@ export default {
     let privateIsCheckAll = ref(props.isCheckedAll);
     let privateDatas = reactive([...props.datas]); // 接table data
 
-    watch(
-      () => privateIsCheckAll.value,
-      (val) => {
-        console.log('watch privateIsCheckAll',privateIsCheckAll.value, val)
-        emit('update:isCheckedAll', val);
-      }//end: val
-    )//end: watch
-
     //所有data 是否check的array
     let isCheckList = reactive([]);
 
@@ -78,13 +74,40 @@ export default {
 
     setDataCheckList(props.datas);
 
+
     watch(
-      () => props.data,
+      () => (props.datas),
       (val) => {
-        console.log('UiTable watch ->', val);
-        setDataCheckList(val);
-      } //end: val
+        console.log('props change',val);
+        privateDatas = [...val]; // 接table data
+        const instance = getCurrentInstance();
+        instance?.proxy?.$forceUpdate();
+        
+      },//end: val
+      {
+        deep:true,
+      },
     )//end: watch
+
+    watch(
+      () => privateIsCheckAll.value,
+      (val) => {
+        console.log('watch privateIsCheckAll',privateIsCheckAll.value, val)
+        emit('update:isCheckedAll', val);
+        setDataCheckList(props.datas);
+      }//end: val
+    )//end: watch
+
+    
+
+    
+
+    // watch(
+    //   () => props.data,
+    //   (val) => {
+    //     setDataCheckList(val);
+    //   } //end: val
+    // )//end: watch
 
     watch(
       () => isCheckList,
@@ -108,13 +131,6 @@ export default {
 
     }//end: updateDataCheck
 
-    
-
-
-    
-
-    
-    
 
 
 
