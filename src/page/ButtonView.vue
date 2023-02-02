@@ -20,68 +20,35 @@
   <div class="home-phm">
     <h2>AIS-PHM use</h2>
   </div>
-  <div class="home home-phm">
-    <h3>Basic</h3>
-    <ui-button type="basic" round>Basic</ui-button>
-    <ui-button type="basic" disabled round>Basic Disabled</ui-button>
-    <p>type="basic" round</p>
-    <hr/>
-    <h3>Importance</h3>
-    <ui-button type="importance" round>Importance</ui-button>
-    <ui-button type="importance" disabled round>Importance</ui-button>
-    <p>type="importance" round</p>
-    <hr/>
-    <h3>Small</h3>
-    <ui-button type="small" round>Small</ui-button>
-    <ui-button type="small" disabled round>Small</ui-button>
-    <p>type="small" round</p>
-    <hr/>
-    <h3>Small Important</h3>
-    <ui-button type="small-important" round>Important</ui-button>
-    <ui-button type="small-important" disabled round>Important</ui-button>
-    <p>type="small-important" round</p>
-    <hr/>
-    <h3>Custom 160px(width="lg")</h3>
-    <ui-button type="small" width="lg" round>Small Custom</ui-button>
-    <ui-button type="small-important" width="lg" disabled round>Small Custom</ui-button>
-    <p>type="small" width="lg" round </p>
-    <hr/>
-    <h3>Custom 132px(width="md")</h3>
-    <ui-button type="small" width="md" round>Small Custom</ui-button>
-    <ui-button type="small-important" width="md" disabled round>Small Custom</ui-button>
-    <p>type="small" width="md" round</p>
-    <hr/>
-    <h3>Custom 69px(width="sm")</h3>
-    <ui-button type="small" width="sm" round>Small</ui-button>
-    <ui-button type="small-important" width="sm" disabled round>Small</ui-button>
-    <p>type="small" width="sm" round</p>
-    <hr/>
-    <h3>btn-icon right</h3>
-    <div class="flex-center">
-      <ui-button type="add-icon" round rightIcon icon="modelmanagement">Small Custom</ui-button>
-      <ui-button type="add-icon" disabled round rightIcon icon="modelmanagement">Small Custom</ui-button>
-    </div>
-    <p>type="add-icon" round rightIcon icon="modelmanagement"</p>
-    <hr/>
-    <h3>btn-icon left</h3>
-    <div class="flex-center">
-      <ui-button type="add-icon" round leftIcon icon="modelmanagement">Small Custom</ui-button>
-      <ui-button type="add-icon" disabled round leftIcon icon="modelmanagement">Small Custom</ui-button>
-    </div>
-    <p>type="add-icon" round leftIcon icon="modelmanagement"</p>
-    <hr/>
-    <h3>icon</h3>
-    <div class="flex-center">
-      <ui-button type="icon" icon="modelmanagement" leftIcon>Text + icon</ui-button>
-      <ui-button type="icon" icon="modelmanagement" leftIcon disabled>Text + icon</ui-button>
-    </div>
-    <p>type="icon" icon="modelmanagement" leftIcon</p>
-    <a href="https://codepen.io/martinridgway/pen/jOqVOgg">color change to svg filter</a>
-    <hr/>
-    <h3>HyperLink</h3>
-    <ui-button type="hyperLink">HyperLink</ui-button>
-    <ui-button type="hyperLink" disabled>HyperLink</ui-button>
-    <p>type="hyperLink"</p>
+  <div class="flex">
+    <Button class=" w-160px m-20 mb-0" type="" text="Button"></Button>
+    <Button class=" w-160px m-20 mb-0" type="" :disable="true" text="Button" ></Button>
+  </div>
+
+  <div class="flex">
+    <Button class=" w-160px m-20 mb-0" type="full" text="Button" ></Button>
+    <Button class=" w-160px m-20 mb-0" type="full" :disable="true" text="Button" ></Button>
+  </div>
+
+  <div class="flex">
+    <Button class=" w-140px m-20 mb-0" type="empty" text="Button" icon="dropdown"></Button>
+    <Button class=" w-140px m-20 mb-0" type="empty" :disable="true" text="Button" icon="dropdown"></Button>
+  </div>
+
+
+  <div class="flex">
+    <Button class=" w-160px m-20 mb-0" type="" text="Button" borderRadius="" height="36"></Button>
+    <Button class=" w-160px m-20 mb-0" type="" :disable="true" text="Button"  borderRadius="" height="36"></Button>
+  </div>
+
+  <div class="flex">
+    <Button class=" w-160px m-20 mb-0" type="full" text="Button"  borderRadius="" height="36"></Button>
+    <Button class=" w-160px m-20 mb-0" type="full" :disable="true" text="Button"  borderRadius="" height="36"></Button>
+  </div>
+
+  <div class="flex">
+    <Button class=" w-140px m-20 mb-0" type="empty" text="Button" icon="dropdown"  borderRadius="" height="36"></Button>
+    <Button class=" w-140px m-20 mb-0" type="empty" :disable="true" text="Button" icon="dropdown"  borderRadius="" height="36"></Button>
   </div>
     <!-- <router-view /> -->
 </template>
@@ -89,13 +56,13 @@
 <script>
   // import { defineComponent } from 'vue';
   import UiButtonFuture from '@/components/UiButtonFuture/index.vue'; // @ is an alias to /src
-  import UiButton from '@/components/UiButton/index.vue'; // @ is an alias to /src
+  import Button from '@/components/UiButton/index.vue'; // @ is an alias to /src
 
   export default {
     name: 'ButtonView',
     components: {
       UiButtonFuture,
-      UiButton,
+      Button,
     },
     data() {
       return {

@@ -1,0 +1,57 @@
+button {
+  transition: all 0.1s linear;
+  
+  @apply  text-main  border border-main bg-white;
+  &:hover{
+    @apply  border border-main  bg-root-hoverBlue ;
+  }
+  &:active{
+    @apply  border border-main  bg-main text-white;
+  }
+  &.disable{
+    @apply  text-grey-b3  border-grey-b3 bg-white cursor-not-allowed ; 
+    &:hover{
+      @apply  text-grey-b3  border-grey-b3 bg-white cursor-not-allowed ;   
+    }
+  }
+  
+  &.full{
+    @apply  border text-white bg-main  border-main ;
+    &:hover{
+      @apply  border text-white border-root-dark  bg-root-dark ;
+    }
+    &:active{
+      @apply  border text-white border-root-deep  bg-root-deep ;
+    }
+    &.disable{
+      @apply cursor-not-allowed  border text-white border-grey-b3 bg-grey-b3  ;
+      &:hover{
+        @apply cursor-not-allowed  border text-white border-grey-b3 bg-grey-b3  ;
+      }
+    }
+  }
+  &.empty{
+    @apply  border text-main bg-transparent  border-transparent ;
+    &:hover{
+      @apply   text-root-dark  ;
+    }
+    &:active{
+      @apply  text-root-deep  ;
+    }
+    &.disable{
+      @apply cursor-not-allowed   text-grey-b3 ;
+      &:hover{
+        @apply text-grey-b3  bg-transparent  border-transparent;
+      }
+    }
+  }
+
+  &.error{
+    @apply bg-error-FF0000 ;
+  }
+  &.warning{
+    @apply bg-green-500 ;
+  }
+
+
+}
