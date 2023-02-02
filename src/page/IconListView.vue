@@ -116,6 +116,9 @@ export default {
         { className: 'ehs-seetings' },
         { className: 'ehs-updated-1' },
 
+        { className: 'asus_proart_sw_ico_lock' },
+        { className: 'user' },
+
       ]
     })
 
