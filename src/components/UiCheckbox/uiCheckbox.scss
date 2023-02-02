@@ -1,0 +1,81 @@
+//打勾後
+.checkbox input{
+  &:checked ~ .checkmark {
+    @apply border-main bg-main;
+  }
+  &:disabled ~ .checkmark {
+    @apply border-grey-b3 ;
+  }
+  &:disabled ~ span {
+    @apply cursor-default;
+    :not([class^="showOnly"]){
+      @apply cursor-not-allowed;
+    }
+    @apply border-grey-b3 ;
+  }
+  &:checked{
+    &:disabled ~ .checkmark {
+      @apply bg-grey-b3 ;
+    }
+  }
+}
+
+
+
+//打勾後物件狀態
+.checkbox input:checked ~ .checkmark:after {
+  @apply inline-block;
+}
+
+.checkbox input:checked ~ .checkmark:before {
+  @apply hidden;
+}
+
+
+//勾勾
+
+.checkbox .checkmark:after {
+  content: "";
+  @apply hidden absolute left-6px top-2px w-6px h-12px border-white border-r-2px border-b-2px rotate-45;
+}
+
+//小的
+.checkbox {
+  .small{
+    &.checkmark:after{
+      @apply border-r-px border-b-px top-px left-2px w-4px h-5px;
+    }
+  }
+}
+
+//hover
+
+.checkbox:hover{
+  input:not([disabled]) {
+    & ~ .checkmark{ //沒打勾的邊邊變色
+    }
+    &:checked ~ .checkmark { //有打勾的背景變色
+      @apply bg-root-dark border-root-dark;
+    }
+    &:checked ~ .checkmark:after{ //有打勾的勾勾變色
+
+    }
+  }
+}
+
+//active
+
+.checkbox:active{
+  input:not([disabled]) {
+    & ~ .checkmark{
+    }
+    &:checked ~ .checkmark { //有打勾的背景變色
+      @apply bg-root-deep border-root-deep;
+    }
+    &:checked ~ .checkmark:after{
+    }
+  }
+  
+}
+
+

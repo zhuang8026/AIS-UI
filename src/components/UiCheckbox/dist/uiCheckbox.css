@@ -1,0 +1,40 @@
+.checkbox input:checked ~ .checkmark {
+  @apply border-main bg-main;
+}
+.checkbox input:disabled ~ .checkmark {
+  @apply border-grey-b3;
+}
+.checkbox input:disabled ~ span {
+  @apply cursor-default;
+  @apply border-grey-b3;
+}
+.checkbox input:disabled ~ span :not([class^=showOnly]) {
+  @apply cursor-not-allowed;
+}
+.checkbox input:checked:disabled ~ .checkmark {
+  @apply bg-grey-b3;
+}
+
+.checkbox input:checked ~ .checkmark:after {
+  @apply inline-block;
+}
+
+.checkbox input:checked ~ .checkmark:before {
+  @apply hidden;
+}
+
+.checkbox .checkmark:after {
+  content: "";
+  @apply hidden absolute left-6px top-2px w-6px h-12px border-white border-r-2px border-b-2px rotate-45;
+}
+
+.checkbox .small.checkmark:after {
+  @apply border-r-px border-b-px top-px left-2px w-4px h-5px;
+}
+
+.checkbox:hover input:not([disabled]):checked ~ .checkmark {
+  @apply bg-root-dark border-root-dark;
+}
+.checkbox:active input:not([disabled]):checked ~ .checkmark {
+  @apply bg-root-deep border-root-deep;
+}
