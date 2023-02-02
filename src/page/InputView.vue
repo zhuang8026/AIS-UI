@@ -1,104 +1,60 @@
 <template>
   <div class="home">
-    <h2>TextBox</h2>
-    <hr/>
-    <h3>type="text" + round</h3>
-    <div class="flex-center">
-      <div class="input-md">
-        <ui-input type="text" placeholder="基本使用" v-model:defaultValue="text1"/>
-      </div>
-      <div class="input-md">
-        <ui-input type="text" round placeholder="基本使用" v-model:defaultValue="text1"/>
-      </div>
-      
+    <div class="flex">
+      <Input class="w-342px m-auto mt-40px mb-20px" 
+        v-model:value="ttt"  placeholder="text" type="text"
+        @onBlur="onblur" :error="false" ></Input>
+
+      <Input class="w-342px m-auto mt-40px mb-20px" 
+        v-model:value="aaa"  placeholder="text" type="text"
+        @onBlur="onblur" :error="false" :isDisable="true"></Input>
     </div>
-    output -> {{ text1 }}
-    <hr/>
-    <h3>type="text" + icon</h3>
-    <div class="flex-center">
-      <div class="input-md">
-        <ui-input 
-          type="text" 
-          placeholder="基本使用" 
-          v-model:defaultValue="text2"
-          rightIcon="search"
-        />
-      </div>
-      <div class="input-md">
-        <ui-input 
-          type="text" 
-          round
-          placeholder="基本使用" 
-          v-model:defaultValue="text2"
-          rightIcon="search"
-        />
-      </div>
+    <div class="flex">
+      <Input class="w-342px m-auto mt-40px mb-20px" prefix="icon" 
+      v-model:value="username"  placeholder="Email" type="email"
+      @onBlur="onblur" :error="false">
+        <template #icon="{onKey}">  
+          <Icon class="h-20px w-20px mr-14px text-grey-ae transition duration-100 ease-in-out" iconClass="user" type="svg"
+          :class="{'text-main' : onKey}"></Icon>
+        </template>
+      </Input>
+      <Input class="w-342px m-auto mt-40px mb-20px" suffix="icon" 
+        v-model:value="yyy"  placeholder="tttttt" 
+        @onBlur="onblur" :error="false">
+          <template #icon="{onKey}">  
+            <Icon class="h-20px w-20px mr-14px text-grey-ae transition duration-100 ease-in-out" iconClass="user" type="svg"
+            :class="{'text-main' : onKey}"></Icon>
+          </template>
+        </Input>
     </div>
-    output -> {{ text2 }}
-    <hr/>
-    <h3>type="text" + event(keypress)</h3>
-    <div class="flex-center">
-      <div class="input-md">
-        <ui-input 
-          type="text" 
-          placeholder="基本使用" 
-          v-model:defaultValue="text3"
-          rightIcon="search"
-          @onKeypress="onKeypress($event)"
-          @onChange="onChange($event)"
-        />
-      </div>
-      <div class="input-md">
-        <ui-input 
-          type="text" 
-          round
-          placeholder="基本使用" 
-          v-model:defaultValue="text3"
-          rightIcon="search"
-        />
-      </div>
-    </div>
-    output -> {{ text3 }}
+
+    
   </div>
 </template>
 
 <script lang="ts">
 // import { defineComponent } from 'vue';
-import UiInput from '@/components/UiInput/index.vue'; // @ is an alias to /src
-
+import Input from '@/components/UiInput/index.vue'; // @ is an alias to /src
+import Icon from '@/components/Icon/index.vue';
 export default {
   name: 'ButtonView',
   components: {
-    UiInput,
+    Input,
+    Icon
   },
   data() {
     return {
-      text1: 'ASUS is incomparable company',
-      text2: 'ASUS is incomparable company',
-      text3: 'ASUS is incomparable company',
+      username: '',
+      ttt: '',
+      aaa: '',
+      yyy: '',
     };
   },
   methods: {
-    onChange(val) {
-      console.log('onChange->:', val);
+    onblur(val) {
     },
     onKeypress(val) {
-      console.log('onkeypress->:', val);
     },
   },
 };
 </script>
-<style lang="scss" scope>
-  input {
-    margin: 0 5px;
-  }
-  .flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .input-md {
-    width: 300px;
-    margin: 0 5px;
-  }
-</style>

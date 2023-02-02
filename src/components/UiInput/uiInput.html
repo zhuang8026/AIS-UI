@@ -1,0 +1,30 @@
+
+<div class="ui-input relative">
+  <input 
+  :type="type" 
+  :name="privateId" 
+  :id="privateId" 
+  :style="{ 'height': height +'px'}"
+  :maxlength="maxLength"
+  :placeholder="placeholderLocal" 
+  v-model="privateValue" 
+  :value="value" 
+  :disabled="isDisable" 
+  :min="min" 
+  required
+  pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+  @keydown="onkeydown($event)"  @keyup="onkeyup($event)"
+  @blur.lazy="blur($event)"
+  class="w-full border border-grey-df rounded-4px h-32 px-10px leading-100 focus:border-main 
+  outline-none hover:border-root-dark disabled:cursor-not-allowed disabled:text-grey-b3 
+  disabled:border-grey-b3 "
+  :class="{'border-sub-tomato': error, 'px-6px': prefix || suffix, 'pl-40px' : prefix}" >
+  <div class="absolute top-1/2 left-3 transform rounded -translate-y-1/2">
+    <slot :name="prefix"  v-if="prefix" :onKey="value"></slot>
+  </div>
+  <div class="absolute top-1/2 right-10px transform rounded -translate-y-1/2">
+    <slot :name="suffix"  v-if="suffix"></slot>
+  </div>
+  <div class=" text-error-FF0000 pt-3px" v-if="error && typeof error != 'boolean'"> {{error}}</div>
+</div>
+
