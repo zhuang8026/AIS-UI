@@ -78,14 +78,13 @@ export default {
 
     setDataCheckList(props.datas);
 
-    
-
-    // watch(
-    //   () => props.data,
-    //   (val) => {
-    //     setDataCheckList(val);
-    //   } //end: val
-    // )//end: watch
+    watch(
+      () => props.data,
+      (val) => {
+        console.log('UiTable watch ->', val);
+        setDataCheckList(val);
+      } //end: val
+    )//end: watch
 
     watch(
       () => isCheckList,
