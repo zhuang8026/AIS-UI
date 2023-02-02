@@ -16,6 +16,7 @@
       <div class="shadow-md rounded-sm card p-20px mr-10px mb-10px flex justify-center items-center">
         <div class="sub" >multi color
         </div>
+        <Icon class="h-40px w-40px ml-20px text-red-500" iconClass="calendar" type="svg"></Icon>
         <Icon class="h-40px w-40px ml-20px text-grey-66" iconClass="dropdown" type="svg"></Icon>
         <Icon class="h-40px w-40px ml-20px text-green-500" iconClass="dropdown" type="svg"></Icon>
         <Icon class="h-40px w-40px ml-20px text-yellow-600" iconClass="dropdown" type="svg"></Icon>
