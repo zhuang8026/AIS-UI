@@ -85,7 +85,7 @@
 }
 
 .validError.v-select .vs__dropdown-toggle {
-  @apply border-error-0;
+  @apply border-error-FF0000;
 }
 
 .vs__search::-webkit-search-decoration,
