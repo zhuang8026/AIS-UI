@@ -433,6 +433,10 @@ video {
 .m-auto {
   margin: auto;
 }
+.my-14px {
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
 .my-32px {
   margin-top: 32px;
   margin-bottom: 32px;
@@ -594,6 +598,9 @@ video {
 .cursor-default {
   cursor: default;
 }
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
 .select-none {
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -686,6 +693,10 @@ video {
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+.bg-grey-97 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(151 151 151 / var(--tw-bg-opacity));
 }
 .bg-gray-200 {
   --tw-bg-opacity: 1;
