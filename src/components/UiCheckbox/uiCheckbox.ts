@@ -61,6 +61,8 @@ export default {
         
         emit('update:value', val);
 
+        emit('changeValue', val);
+
       }
     });
 

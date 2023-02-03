@@ -53,6 +53,7 @@ exports["default"] = {
             get: function () { return props.value; },
             set: function (val) {
                 emit('update:value', val);
+                emit('changeValue', val);
             }
         });
         return {
