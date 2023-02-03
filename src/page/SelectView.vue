@@ -11,7 +11,7 @@
     </div>
     <div class="flex mb-24px">
       <ui-select
-        class="w-296 mr-40px"
+        class="w-296px mr-40px"
         v-model:defaultSelectedValue="state.selectedFruit"
         :optionArr="state.fruits" 
         :required="true"
@@ -22,7 +22,7 @@
         :placeholder="'I am placeholder'"
       ></ui-select>
       <ui-select
-        class="w-296 mr-40px"
+        class="w-296px mr-40px"
         v-model:defaultSelectedValue="state.selectedDisableList"
         :isDisable="true"
         :optionArr="state.disableList" 
@@ -34,7 +34,7 @@
         :placeholder="'I am placeholder'"
       ></ui-select>
       <ui-select
-        class="w-296 mr-40px"
+        class="w-296px mr-40px"
         v-model:defaultSelectedValue="state.selectedErrorList"
         :optionArr="state.errorList" 
         :required="true"
@@ -52,7 +52,7 @@
     <h2 class="my-32px">No select Check Icon </h2>
     <div class="flex mb-24px">
       <ui-select
-        class="w-296 mr-40px"
+        class="w-296px mr-40px"
         v-model:defaultSelectedValue="state.selectedFruit"
         :optionArr="state.fruits" 
         :required="true"
@@ -69,7 +69,7 @@
     <h2 class="my-32px">Multi Width</h2>
     <div class="flex mb-24px">
       <ui-select
-        class="w-200 mr-40px"
+        class="w-200px mr-40px"
         v-model:defaultSelectedValue="state.selectedFruit"
         :optionArr="state.fruits" 
         :required="true"
@@ -80,7 +80,7 @@
         :placeholder="'I am placeholder'"
       ></ui-select>
       <ui-select
-        class="w-296  mr-40px"
+        class="w-296px  mr-40px"
         v-model:defaultSelectedValue="state.selectedFruit"
         :optionArr="state.fruits" 
         :required="true"
@@ -91,7 +91,7 @@
         :placeholder="'I am placeholder'"
       ></ui-select>
       <ui-select
-        class="w-600 mr-40px"
+        class="w-600px mr-40px"
         v-model:defaultSelectedValue="state.selectedFruit"
         :optionArr="state.fruits" 
         :required="true"

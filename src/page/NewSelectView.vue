@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <h2 class="my-32px">Combo box</h2>
+    <h2 class="my-32px">不要用</h2>
     <hr/>
-    <h2 class="my-32px">Normal </h2>
+    <!-- <h2 class="my-32px">Normal </h2>
     <div class="flex mb-24px justify-start">
       <div class="flex">
         <div class="mr-20px">value : </div>
@@ -13,7 +13,7 @@
       <UINSelect :options="state.op2" v-model:selected="state.selectVal" 
       style="width:400px"></UINSelect>
 
-    </div>
+    </div> -->
 
     <hr/>
 
