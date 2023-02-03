@@ -427,15 +427,20 @@ video {
 .z-20 {
   z-index: 20;
 }
-.m-20 {
-  margin: 5rem;
-}
 .m-auto {
   margin: auto;
 }
 .my-14px {
   margin-top: 14px;
   margin-bottom: 14px;
+}
+.my-30px {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.mx-20px {
+  margin-left: 20px;
+  margin-right: 20px;
 }
 .my-32px {
   margin-top: 32px;
@@ -569,6 +574,15 @@ video {
 }
 .w-20px {
   width: 20px;
+}
+.w-296px {
+  width: 296px;
+}
+.w-200px {
+  width: 200px;
+}
+.w-600px {
+  width: 600px;
 }
 .w-24px {
   width: 24px;
