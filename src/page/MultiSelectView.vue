@@ -11,7 +11,7 @@
     </div>
     <div class="flex mb-24px">
       <UiMultiSelect
-        class="w-296 mr-40px"
+        class="w-296px mr-40px"
         :defaultSelectedValue="state.selectedFruit"
         :optionArr="state.fruits" 
         :required="true"
@@ -22,7 +22,7 @@
         :placeholder="'I am placeholder'"
       ></UiMultiSelect>
       <UiMultiSelect
-        class="w-296 mr-40px"
+        class="w-296px mr-40px"
         :defaultSelectedValue="state.selectedDisableList"
         :isDisable="true"
         :optionArr="state.disableList" 
@@ -34,7 +34,7 @@
         :placeholder="'I am placeholder'"
       ></UiMultiSelect>
       <UiMultiSelect
-        class="w-296 mr-40px"
+        class="w-296px mr-40px"
         :defaultSelectedValue="state.selectedErrorList"
         :optionArr="state.errorList" 
         :required="true"
@@ -59,7 +59,7 @@
     </div>
     <div class="flex mb-24px">
       <UiMultiSelect
-        class="w-296 mr-40px"
+        class="w-296px mr-40px"
         :defaultSelectedValue="state.allListArr"
         :optionArr="state.allList" 
         :required="true"
