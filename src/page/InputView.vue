@@ -14,16 +14,16 @@
       v-model:value="username"  placeholder="Email" type="email"
       @onBlur="onblur" :error="false">
         <template #icon="{onKey}">  
-          <Icon class="h-20px w-20px mr-14px text-grey-ae transition duration-100 ease-in-out" iconClass="user" type="svg"
-          :class="{'text-main' : onKey}"></Icon>
+          <Icon class="h-20px w-20px mr-14px text-main transition duration-100 ease-in-out" iconClass="user" type="svg"
+          :class="{'text-grey-ae' : !onKey}"></Icon>
         </template>
       </Input>
       <Input class="w-342px m-auto mt-40px mb-20px" suffix="icon" 
         v-model:value="yyy"  placeholder="tttttt" 
         @onBlur="onblur" :error="false">
-          <template #icon="{onKey}">  
-            <Icon class="h-20px w-20px mr-14px text-grey-ae transition duration-100 ease-in-out" iconClass="user" type="svg"
-            :class="{'text-main' : onKey}"></Icon>
+          <template #icon>  
+            <Icon class="h-20px w-20px mr-14px  text-main transition duration-100 ease-in-out" iconClass="user" type="svg"
+            :class="{'text-grey-ae ' : !yyy}"></Icon>
           </template>
         </Input>
     </div>
