@@ -5,11 +5,7 @@
   @apply border-grey-b3;
 }
 .checkbox input:disabled ~ span {
-  @apply cursor-default;
   @apply border-grey-b3;
-}
-.checkbox input:disabled ~ span :not([class^=showOnly]) {
-  @apply cursor-not-allowed;
 }
 .checkbox input:checked:disabled ~ .checkmark {
   @apply bg-grey-b3;
@@ -28,8 +24,17 @@
   @apply hidden absolute left-6px top-2px w-6px h-12px border-white border-r-2px border-b-2px rotate-45;
 }
 
+.checkbox .checkmarkLine:after {
+  content: "";
+  @apply absolute left-1/2 top-1/2 w-10px h-2px  border-white border-2px -translate-y-1/2 -translate-x-1/2 rotate-0;
+}
+
 .checkbox .small.checkmark:after {
   @apply border-r-px border-b-px top-px left-2px w-4px h-5px;
+}
+
+.checkbox .small.checkmarkLine:after {
+  @apply w-5px h-px left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 rotate-0;
 }
 
 .checkbox:hover input:not([disabled]):checked ~ .checkmark {

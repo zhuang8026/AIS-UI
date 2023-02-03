@@ -23,6 +23,11 @@ exports["default"] = {
             type: Array,
             required: true
         },
+        theme: {
+            type: String,
+            required: false,
+            "default": ''
+        },
         size: {
             type: String,
             required: false,
@@ -33,6 +38,11 @@ exports["default"] = {
             type: Boolean,
             required: false,
             "default": false
+        },
+        margin: {
+            type: String,
+            required: false,
+            "default": ''
         }
     },
     setup: function (props, _a) {

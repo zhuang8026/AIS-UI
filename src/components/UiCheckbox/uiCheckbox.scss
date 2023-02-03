@@ -3,14 +3,11 @@
   &:checked ~ .checkmark {
     @apply border-main bg-main;
   }
+  
   &:disabled ~ .checkmark {
     @apply border-grey-b3 ;
   }
   &:disabled ~ span {
-    @apply cursor-default;
-    :not([class^="showOnly"]){
-      @apply cursor-not-allowed;
-    }
     @apply border-grey-b3 ;
   }
   &:checked{
@@ -18,6 +15,7 @@
       @apply bg-grey-b3 ;
     }
   }
+  
 }
 
 
@@ -34,9 +32,17 @@
 
 //勾勾
 
-.checkbox .checkmark:after {
+.checkbox .checkmark:after{
   content: "";
   @apply hidden absolute left-6px top-2px w-6px h-12px border-white border-r-2px border-b-2px rotate-45;
+  
+}
+
+
+//線線
+.checkbox .checkmarkLine:after {
+  content: "";
+  @apply  absolute left-1/2 top-1/2 w-10px h-2px  border-white border-2px -translate-y-1/2 -translate-x-1/2 rotate-0;
 }
 
 //小的
@@ -44,6 +50,15 @@
   .small{
     &.checkmark:after{
       @apply border-r-px border-b-px top-px left-2px w-4px h-5px;
+    }
+  }
+}
+
+//線線 小的
+.checkbox {
+  .small{
+    &.checkmarkLine:after{
+      @apply w-5px h-px left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 rotate-0;
     }
   }
 }
