@@ -20,36 +20,70 @@
   <div class="home-phm">
     <h2>AIS-PHM use</h2>
   </div>
-  <div class="flex">
-    <Button class=" w-160px m-20 mb-0" type="" text="Button"></Button>
-    <Button class=" w-160px m-20 mb-0" type="" :disable="true" text="Button" ></Button>
-  </div>
-
-  <div class="flex">
-    <Button class=" w-160px m-20 mb-0" type="full" text="Button" ></Button>
-    <Button class=" w-160px m-20 mb-0" type="full" :disable="true" text="Button" ></Button>
-  </div>
-
-  <div class="flex">
-    <Button class=" w-140px m-20 mb-0" type="empty" text="Button" icon="dropdown"></Button>
-    <Button class=" w-140px m-20 mb-0" type="empty" :disable="true" text="Button" icon="dropdown"></Button>
+  <hr class="bg-grey-97 my-14px">
+  <h2 class="my-14px">方圓角 normal</h2>
+  <div class="flex justify-center my-30px">
+    <Button class=" w-160px mx-20px mb-0" type="" text="Button"></Button>
+    <Button class=" w-160px mx-20px mb-0" type="" :disable="true" text="Button" ></Button>
   </div>
 
 
-  <div class="flex">
-    <Button class=" w-160px m-20 mb-0" type="" text="Button" borderRadius="" height="36"></Button>
-    <Button class=" w-160px m-20 mb-0" type="" :disable="true" text="Button"  borderRadius="" height="36"></Button>
+  <hr class="bg-grey-97 my-14px">
+  <h2 class="my-14px">方圓角 full</h2>  
+  <div class="flex justify-center my-30px">
+    <Button class=" w-160px mx-20px mb-0" type="full" text="Button" ></Button>
+    <Button class=" w-160px mx-20px mb-0" type="full" :disable="true" text="Button" ></Button>
   </div>
 
-  <div class="flex">
-    <Button class=" w-160px m-20 mb-0" type="full" text="Button"  borderRadius="" height="36"></Button>
-    <Button class=" w-160px m-20 mb-0" type="full" :disable="true" text="Button"  borderRadius="" height="36"></Button>
+  <hr class="bg-grey-97 my-14px">
+  <h2 class="my-14px">方圓角 Icon</h2>  
+
+  <div class="flex justify-center my-30px">
+    <Button class=" w-140px mx-20px mb-0" type="empty" text="Button" icon="dropdown"></Button>
+    <Button class=" w-140px mx-20px mb-0" type="empty" :disable="true" text="Button" icon="dropdown"></Button>
   </div>
 
-  <div class="flex">
-    <Button class=" w-140px m-20 mb-0" type="empty" text="Button" icon="dropdown"  borderRadius="" height="36"></Button>
-    <Button class=" w-140px m-20 mb-0" type="empty" :disable="true" text="Button" icon="dropdown"  borderRadius="" height="36"></Button>
+  <hr class="bg-grey-97 my-14px">
+  <h2 class="my-14px">方圓角 link</h2>  
+
+  <div class="flex justify-center my-30px">
+      <Button class=" w-140px mx-20px mb-0" type="link" text="Button" ></Button>
+      <Button class=" w-140px mx-20px mb-0" type="link" :disable="true" text="Button" ></Button>
   </div>
+
+
+  <hr class="bg-grey-97 my-14px">
+  <h2 class="my-14px">圓角 normal</h2>
+
+
+  <div class="flex justify-center my-30px">
+    <Button class=" w-160px mx-20px mb-0" type="" text="Button" borderRadius="" height="36"></Button>
+    <Button class=" w-160px mx-20px mb-0" type="" :disable="true" text="Button"  borderRadius="" height="36"></Button>
+  </div>
+
+  <hr class="bg-grey-97 my-14px">
+  <h2 class="my-14px">圓角 full</h2>  
+
+  <div class="flex justify-center my-30px">
+    <Button class=" w-160px mx-20px mb-0" type="full" text="Button"  borderRadius="" height="36"></Button>
+    <Button class=" w-160px mx-20px mb-0" type="full" :disable="true" text="Button"  borderRadius="" height="36"></Button>
+  </div>
+
+  <hr class="bg-grey-97 my-14px">
+  <h2 class="my-14px">圓角 Icon</h2>  
+  <div class="flex justify-center my-30px">
+    <Button class=" w-140px mx-20px mb-0" type="empty" text="Button" icon="dropdown"  borderRadius="" height="36"></Button>
+    <Button class=" w-140px mx-20px mb-0" type="empty" :disable="true" text="Button" icon="dropdown"  borderRadius="" height="36"></Button>
+  </div>
+  <hr class="bg-grey-97 my-14px">
+  <h2 class="my-14px">圓角 link</h2>  
+
+  <div class="flex justify-center my-30px">
+      <Button class=" w-140px mx-20px mb-0" type="link" text="Button" borderRadius="" height="36"></Button>
+      <Button class=" w-140px mx-20px mb-0" type="link" :disable="true" text="Button" borderRadius="" height="36"></Button>
+  </div>
+
+  <hr class="bg-grey-97 my-30px">
     <!-- <router-view /> -->
 </template>
 

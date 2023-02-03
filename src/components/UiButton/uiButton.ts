@@ -1,5 +1,5 @@
 
-import { reactive, computed, watch } from 'vue';
+import { reactive, computed, watch } from 'vue'
 import Icon from '@/components/Icon/index.vue';
 export default {
   components: {
@@ -16,7 +16,7 @@ export default {
       default: ''
     },
 
-    type: { //下列css的name ， 沒寫 為 default, full 為背景滿版, empty 為空
+    type: { //下列css的name ， 沒寫 為 default, full 為背景滿版, empty 為空, link 為有底線
       type: String,
       default: 'normal',
     },

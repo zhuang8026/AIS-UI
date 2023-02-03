@@ -1,0 +1,67 @@
+button {
+  transition: all 0.1s linear;
+  @apply text-main  border border-main bg-white;
+}
+button:hover {
+  @apply border border-main  bg-root-hoverBlue;
+}
+button:active {
+  @apply border border-main  bg-main text-white;
+}
+button.disable {
+  @apply text-grey-b3  border-grey-b3 bg-white cursor-not-allowed;
+}
+button.disable:hover {
+  @apply text-grey-b3  border-grey-b3 bg-white cursor-not-allowed;
+}
+button.full {
+  @apply border text-white bg-main  border-main;
+}
+button.full:hover {
+  @apply border text-white border-root-dark  bg-root-dark;
+}
+button.full:active {
+  @apply border text-white border-root-deep  bg-root-deep;
+}
+button.full.disable {
+  @apply cursor-not-allowed  border text-white border-grey-b3 bg-grey-b3;
+}
+button.full.disable:hover {
+  @apply cursor-not-allowed  border text-white border-grey-b3 bg-grey-b3;
+}
+button.empty {
+  @apply border text-main bg-transparent  border-transparent;
+}
+button.empty:hover {
+  @apply text-root-dark;
+}
+button.empty:active {
+  @apply text-root-deep;
+}
+button.empty.disable {
+  @apply cursor-not-allowed   text-grey-b3;
+}
+button.empty.disable:hover {
+  @apply text-grey-b3  bg-transparent  border-transparent;
+}
+button.link {
+  @apply border text-main bg-transparent  border-transparent underline  decoration-1 underline-offset-3;
+}
+button.link:hover {
+  @apply text-root-dark;
+}
+button.link:active {
+  @apply text-root-deep;
+}
+button.link.disable {
+  @apply cursor-not-allowed   text-grey-b3;
+}
+button.link.disable:hover {
+  @apply text-grey-b3  bg-transparent  border-transparent;
+}
+button.error {
+  @apply bg-error-FF0000;
+}
+button.warning {
+  @apply bg-green-500;
+}

@@ -32,6 +32,24 @@ button {
   }
   &.empty{
     @apply  border text-main bg-transparent  border-transparent ;
+    
+    &:hover{
+      @apply   text-root-dark  ;
+    }
+    &:active{
+      @apply  text-root-deep  ;
+    }
+    &.disable{
+      @apply cursor-not-allowed   text-grey-b3 ;
+      &:hover{
+        @apply text-grey-b3  bg-transparent  border-transparent;
+      }
+    }
+    
+  }
+
+  &.link{
+    @apply  border text-main bg-transparent  border-transparent underline  decoration-1 underline-offset-3;
     &:hover{
       @apply   text-root-dark  ;
     }
