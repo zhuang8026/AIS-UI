@@ -5,26 +5,26 @@
     <h2 class="my-14px">Normal</h2>
     <div class="flex">
       <Checkbox class="mt-5px" :options="validList" displayColumn="h" 
-        label="" :value="check" @changeValue="isCheck"></Checkbox>
+        label="" v-model:value="check" @changeValue="isCheck"></Checkbox>
         <Checkbox class="mt-30px" :options="validList" 
-        label="" :value="check1" @changeValue="isCheck"></Checkbox>
+        label="" v-model:value="check1" @changeValue="isCheck"></Checkbox>
     </div>
     <hr class="bg-grey-97 my-14px">
     <h2 class="my-14px">Small </h2>
     <div class="flex">
       <Checkbox class="mt-5px" :options="validList" displayColumn="h" 
-        label="" :value="check2" @changeValue="isCheck" size="small"></Checkbox>
+        label="" v-model:value="check2" @changeValue="isCheck" size="small"></Checkbox>
         <Checkbox class="mt-30px" :options="validList" 
-        label="" :value="check3" @changeValue="isCheck" size="small"></Checkbox>
+        label="" v-model:value="check3" @changeValue="isCheck" size="small"></Checkbox>
     </div>
 
     <hr class="bg-grey-97 my-14px">
     <h2  class="my-14px">Show 展示用，不能勾也沒有cursor </h2>
     <div class="flex">
       <Checkbox class="mt-5px" :options="validList" displayColumn="h" 
-        label="" :value="check4" @changeValue="isCheck" show="true"></Checkbox>
+        label="" v-model:value="check4" @changeValue="isCheck" show="true"></Checkbox>
         <Checkbox class="mt-30px" :options="validList" 
-        label="" :value="check5" @changeValue="isCheck" size="small" show="true"></Checkbox>
+        label="" v-model:value="check5" @changeValue="isCheck" size="small" show="true"></Checkbox>
     </div>
 
 
@@ -32,9 +32,9 @@
     <h2  class="my-14px">Disable &  Disable卻被預設勾選</h2>
     <div class="flex">
       <Checkbox class="mt-5px" :options="validList2" displayColumn="h" 
-        label="" :value="check6" @changeValue="isCheck" ></Checkbox>
+        label="" v-model:value="check6" @changeValue="isCheck" ></Checkbox>
         <Checkbox class="mt-30px" :options="validList2" 
-        label="" :value="check7" @changeValue="isCheck" ></Checkbox>
+        label="" v-model:value="check7" @changeValue="isCheck" ></Checkbox>
     </div>
 
 
@@ -42,18 +42,18 @@
     <h2  class="my-14px">樣式 是槓槓</h2>
     <div class="flex">
       <Checkbox class="mt-5px" :options="validList" displayColumn="h" 
-        label="" :value="check8" @changeValue="isCheck"  theme="line"></Checkbox>
+        label="" v-model:value="check8" @changeValue="isCheck"  theme="line"></Checkbox>
         <Checkbox class="mt-30px" :options="validList" 
-        label="" :value="check9" @changeValue="isCheck" theme="line" ></Checkbox>
+        label="" v-model:value="check9" @changeValue="isCheck" theme="line" ></Checkbox>
     </div>
 
     <hr class="bg-grey-97 my-14px">
     <h2  class="my-14px">綜合</h2>
     <div class="flex">
       <Checkbox class="mt-5px" :options="validList2" displayColumn="h" 
-        label="" :value="check8" @changeValue="isCheck"  theme="line" size="small" ></Checkbox>
+        label="" v-model:value="check8" @changeValue="isCheck"  theme="line" size="small" ></Checkbox>
         <Checkbox class="mt-30px" :options="validList2" 
-        label="" :value="check9" @changeValue="isCheck" theme="line" ></Checkbox>
+        label="" v-model:value="check9" @changeValue="isCheck" theme="line" ></Checkbox>
     </div>
   </div>
 </template>
