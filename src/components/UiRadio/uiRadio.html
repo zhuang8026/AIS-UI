@@ -1,0 +1,30 @@
+
+<section class="ui-radio">
+  <div class="pay-radioGroup-container" :class="{'flex': displayColumn === 'h'}">
+    <label v-if="label" class=" mr-16px h-21px block mb-8px">
+      <span>{{label}}</span>
+      <span class="text-red-200 mr-1" v-if="required"> * </span>
+    </label>
+    <div class=" radioBlock justify-start" :class="{'flex': displayColumn != 'h'}">
+      <label  class=" group select-none radioEach relative  pl-20px mr-16px mb-12px"
+      v-for="(item,index) in options" :key="item.val"  :style="{ 'margin': margin}"
+      :class="{'flex': displayColumn === 'h', 'block': optionDisplayColumn ,'inline-block' : !optionDisplayColumn,
+      'pl-6px': size == 'small','mb-4px': size == 'small', 'cursor-pointer' : !item.disabled , 'cursor-default': show ,'cursor-not-allowed': item.disabled }">
+        <input class=" absolute opacity-0 left-0"
+        :value="item.val"  type="radio"  :id="item.val" 
+        v-model="radioValue" :disabled="item.disabled || show" >
+        <span class=" ml-8px pt-2px block" :class="{'text-xxxs': size == 'small'}">{{item.name}}</span>
+        <span class="checkmark border-grey-4c border border-solid h-20px w-20px absolute left-0  transform rounded-50% top-1/2 -translate-y-1/2" 
+        :class="{'border-error-FF0000': error && !item.disabled, 'group-hover:border-root-dark' : !item.disabled, 'group-active:border-root-deep': !item.disabled
+        ,'h-10px' : size == 'small', 'w-10px' : size == 'small', 'small': size == 'small'}">
+        </span>
+      </label>
+    </div>
+    <div class=" error h-21px flex items-center" v-show="error">
+      <div class="text-red-200">{{error}}</div>
+    </div>
+  </div>
+
+</section>
+
+

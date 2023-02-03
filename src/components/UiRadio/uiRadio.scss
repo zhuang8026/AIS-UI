@@ -1,0 +1,103 @@
+
+
+
+//打勾後
+.radioEach input{
+  &:checked ~ .checkmark {
+    @apply border-main ;
+  }
+  &:checked ~ .checkmark:after{
+    @apply bg-main;
+  }
+
+  &:disabled ~ .checkmark:after {
+    @apply bg-white;
+  }
+  
+  &:disabled ~ .checkmark {
+    @apply border-grey-b3 ;
+  }
+  &:disabled ~ span {
+    @apply border-grey-b3 ;
+  }
+  &:checked{
+    &:disabled ~ .checkmark {
+      @apply bg-grey-b3 ;
+    }
+  }
+  
+}
+
+
+//打勾後物件狀態
+.radioEach input:checked ~ .checkmark:after {
+  @apply inline-block;
+}
+
+.radioEach input:checked ~ .checkmark:before {
+  @apply hidden;
+}
+
+
+//勾勾
+
+.radioEach .checkmark:after{
+  content: "";
+  @apply hidden absolute left-1/2 bg-main top-1/2 w-10px h-10px rounded-50% -translate-y-1/2 -translate-x-1/2 ;
+  
+}
+
+
+
+//小的
+.radioEach {
+  .small{
+    &.checkmark:after{
+      @apply  w-5px h-5px;
+    }
+  }
+}
+
+
+//hover
+
+.radioEach:hover{
+  input:not([disabled]) {
+    & ~ .checkmark{ //沒打勾的邊邊變色
+      @apply border-root-dark bg-white;
+    }
+    &:checked ~ .checkmark { //有打勾的背景變色
+    }
+    &:checked ~ .checkmark:after{ //有打勾的勾勾變色
+      @apply bg-root-dark ;
+    }
+  }
+}
+
+//active
+
+.radioEach:active{
+  input:not([disabled]){
+    &:not(:checked) {
+      & ~ .checkmark{
+        @apply bg-root-press border-root-press;
+      }
+      &:checked ~ .checkmark { //有打勾的背景變色
+      }
+      &:checked ~ .checkmark:after{
+        @apply bg-root-press border-root-press;
+      }
+    }
+    & ~ .checkmark{
+      @apply bg-root-deep border-root-deep;
+    }
+    &:checked ~ .checkmark { //有打勾的背景變色
+    }
+    &:checked ~ .checkmark:after{
+      @apply bg-white;
+    }
+  }
+  
+}
+
+
