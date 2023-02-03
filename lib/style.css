@@ -665,6 +665,9 @@ video {
 .rounded {
   border-radius: 0.25rem;
 }
+.rounded-50\% {
+  border-radius: 50%;
+}
 .border {
   border-width: 1px;
 }
