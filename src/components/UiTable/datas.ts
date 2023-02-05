@@ -4,7 +4,9 @@ export let TYPE_HEADER = {
 }
 // table 的資料
 export let tableData = [{
-    isCheck: false,
+    id: '001',
+    isCheck: true,
+    isDisable: false,
     detail: [
       {
         txt: '資料1AAA資料1資料1資料1',
@@ -24,7 +26,9 @@ export let tableData = [{
       }
   ]},
   {
-    isCheck: true,
+    id: '002',
+    isCheck: false,
+    isDisable: false,
     detail: [
       {
         txt: '資料1資料1資料1資料1',
@@ -44,7 +48,9 @@ export let tableData = [{
       }
   ]},
   {
+    id: '003',
     isCheck: false,
+    isDisable: false,
     detail: [
       {
         txt: '資料1資料1資料1資料1',

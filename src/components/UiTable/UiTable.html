@@ -1,12 +1,12 @@
 
 <div class="ui-table">
-  <!-- isCheckedAll: {{isCheckedAll}} //  -->
   <table>
   <!-- table header -->
   <thead>
     <tr>
-      <!-- @checkChange="onCheckAll" -->
-      <th><UiCheckbox  :isCheck="isCheckedAll" type="default" v-model:checked="privateIsCheckAll" :disabled="isDisableAll" ></UiCheckbox></th>
+      <th>
+        <UiCheckbox :options="checkAllSetting.options"  v-model:value="checkAllSetting.value" @changeValue="onChangeCheckAll" ></UiCheckbox>
+      </th> 
       <!-- head data -->
       <th v-for="(item, index) in head">
       <!-- type 1 : normal txtx -->
@@ -26,12 +26,12 @@
     </tr>
   </thead>
   <!-- end of table header -->
-  <tbody>
+  <tbody v-if="privateDatas.length > 0">
     
-    <tr v-for="(data, index) in datas" :key="'datas-'+index+ updateKey">
+    <tr v-for="(data, index) in privateDatas" :key="'datas-'+index+ updateKey">
       <!-- checkbox -->
       <td class="check-content">
-        <UiCheckbox type="default" v-model:checked="data.isCheck" :disabled="false" @updateCheckedVal="updateDataCheck($event, index)"></UiCheckbox>
+        <UiCheckbox :options="data.options" v-model:value="data.checkVal"  @changeValue="onChangeCheckDetail($event, data.id)"></UiCheckbox>
       </td>
 
       <!-- data -->

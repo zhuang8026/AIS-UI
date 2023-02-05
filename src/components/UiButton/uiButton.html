@@ -1,7 +1,7 @@
 <div class=" block " >
   <button :for="forVal" :id="id" class=" m-auto w-full  h-40px  block "  :disabled="state.disable"
   :class="[buttonStatus,{'rounded-5px': borderRadius == 'ehs','rounded-20px':!borderRadius}]" 
-  :style="{ 'height': height +'px'}">
+  :style="{ 'height': height +'px'}" @click.prevent="onClick">
     <div class="flex items-center justify-center ">
       <slot v-if="custom" :name="custom"></slot>
       <Icon class=" h-24px w-24px inline-block mr-10px icon"  v-if="icon" :iconClass="icon" type="svg" ></Icon>

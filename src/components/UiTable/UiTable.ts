@@ -1,5 +1,5 @@
 import UiCheckbox from '@/components/UiCheckbox/index.vue'; 
-import {computed, ref, watch, reactive, getCurrentInstance} from 'vue';
+import {computed, ref, watch, reactive, getCurrentInstance, onMounted} from 'vue';
 import { tableData, tableHeader } from './datas';
 export default {
   name: 'ui-table',
@@ -7,10 +7,6 @@ export default {
     UiCheckbox
   },
   props: {
-    test:{
-      type: Number,
-      default: 1,
-    },
     isHasCheck:{
       type: Boolean, //是否要有checkbox
       default: true,
@@ -24,7 +20,7 @@ export default {
         }]
       }, //end: default
     },
-    isCheckedAll: {
+    isCheckedAll: {    // 全選checkbox
       type: Boolean,
       default: false,
     },
@@ -49,99 +45,147 @@ export default {
 
   },//end: props
   setup(props, { emit }) {
-
     
-    // check all
-    let onCheckAll = () => {
-
-    }//end: onCheckAll
-
-    // 是否全選
-    let privateIsCheckAll = ref(props.isCheckedAll);
-    let privateDatas = reactive([...props.datas]); // 接table data
-
-    //所有data 是否check的array
-    let isCheckList = reactive([]);
-
-    let setDataCheckList = (eve) => {
-      let _eve = eve;
-      console.log('_eve',_eve);
-      isCheckList= [];
-      isCheckList = _eve.map(item => item.isCheck);
-      isCheckList = [...isCheckList];
-      console.log('isCheckList', isCheckList);
-    }//end: setDataCheckList
-
-    setDataCheckList(props.datas);
-
-
-    watch(
-      () => (props.datas),
-      (val) => {
-        console.log('props change',val);
-        privateDatas = [...val]; // 接table data
-        const instance = getCurrentInstance();
-        instance?.proxy?.$forceUpdate();
-        
-      },//end: val
-      {
-        deep:true,
-      },
-    )//end: watch
-
-    watch(
-      () => privateIsCheckAll.value,
-      (val) => {
-        console.log('watch privateIsCheckAll',privateIsCheckAll.value, val)
-        emit('update:isCheckedAll', val);
-        setDataCheckList(props.datas);
-      }//end: val
-    )//end: watch
-
-    
-
-    
-
-    // watch(
-    //   () => props.data,
-    //   (val) => {
-    //     setDataCheckList(val);
-    //   } //end: val
-    // )//end: watch
-
-    watch(
-      () => isCheckList,
-      () => {
-        console.log('isCheckList watch');
-        //emit('update:')
-      },
-      { deep: true }
-    )//end: watch
 
     let updateKey = ref(0);
+    
+    // 是否全選
+    let ALL = 'all';
+    let checkAllSetting = reactive({
+        options: [
+          {
+            name:  '',
+            val: ALL,
+            disabled: false,
+          }],
+        value: [],
+    });
 
-    let updateDataCheck = (val, index) => {
-      console.log('updateDataCheck ->', privateDatas, val, index);
-      let _index = index;
-      let _val = val;
-      privateDatas[_index].isCheck = _val;
-      emit('update:datas', privateDatas);
-      console.log('updateDataCheck update', props.datas);
+    let checkIsCheckAll = () => {
+      checkAllSetting.value = props.isCheckedAll ? [ALL] : [];
+    } //end: checkIsCheckAll
+
+    
+    
+    
+    let privateDatas = reactive([]); // 接table data
+
+
+    //從哪邊改變資料
+    let DATA_UPDATE_TYPE = {
+      INIT: 'init',
+      CHECK_ALL: 'all',
+      CHECK_DETAIL: 'detail',
+    }
+
+    //處理資料
+    let handlData = (status = DATA_UPDATE_TYPE.INIT) => {
+      // privateDatas = props.datas.concat();
+      Object.assign(privateDatas, props.datas);
+      console.log('handlData privateDatas',privateDatas);
+
+      // 檢查是否有checkall
+      let isAll = checkAllSetting.value.length > 0;
+      console.log('handlData isAll', isAll)
+
+      // 處理每列的checkbox
+      privateDatas.forEach(item => {
+        let _option = [{
+          name: '',
+          val: item.id,
+          disable: item.isDisable
+        }]//end: item
+        let _checkVal = [];
+        let _isCheck = false;
+        if (status === DATA_UPDATE_TYPE.INIT){
+          _checkVal = isAll ? [item.id] : item.isCheck ? [item.id] : [];
+          _isCheck = _checkVal.length > 0;
+          console.log('init', _checkVal, isAll)
+        } 
+        else if (status === DATA_UPDATE_TYPE.CHECK_ALL){
+          _checkVal = isAll ? [item.id] : [];
+          _isCheck = _checkVal.length > 0;
+        }
+        // else if(status === DATA_UPDATE_TYPE.CHECK_DETAIL){
+
+        // }//end: if
+        item['options'] = _option.slice(0);
+        item['checkVal'] = _checkVal.slice(0);
+        item['isCheck'] =_isCheck;
+      }) //end: forEach
       updateKey.value +=1;
+      console.log('privateDatas',privateDatas);
+      const instance = getCurrentInstance();
+      instance?.proxy?.$forceUpdate();
+      
+    }//end: handlData
 
-    }//end: updateDataCheck
+    // checkall改變
+    // -- checkall parent改變
+    watch(
+      () => props.isCheckedAll,
+      (val) => {
+        let isAll = val;
+        checkAllSetting.value = isAll ? [ALL] : [];
+        handlData(DATA_UPDATE_TYPE.CHECK_ALL);
+      }
+    )
+    // -- checkall child改變
+
+    let onChangeCheckAll = (val) => {
+        let isAll = val.length > 0;
+        emit('update:isCheckedAll',isAll);
+        handlData(DATA_UPDATE_TYPE.CHECK_ALL);
+    }
+    
+
+    // detail check 改變
+    // --- detail check child改變
+    let onChangeCheckDetail = (val, id) => {
+      console.log('onChangeCheckDetail', val,id);
+      let _id = id;
+      let _checkVal = val;
+      let _data =[...props.datas];
+      _data.filter(item => item.id === _id).map(target => target.isCheck = _checkVal.length > 0);
+      //控制全選
+      let isAll = _data.every( item => item.isCheck);
+      console.log('onChangeCheckDetail isAll',isAll);
+      checkAllSetting.value = isAll ? [ALL] : [];
+      console.log('_data',_data);
+      emit('update:datas', _data);
+    } //end: onChangeCheckDetail
+
+
+    // detail check parent 改變
+    watch(
+      () => props.datas,
+      (val) => {
+        console.log('watch props data change',val);
+        handlData();
+      },
+      {
+        deep: true
+      }
+    ) //end: watch
+
+    onMounted(() => {
+      checkIsCheckAll();
+      handlData(DATA_UPDATE_TYPE.INIT);
+    });
+
+    
 
 
 
 
     return{
-      onCheckAll,
-      isCheckList,
-      // privateIsCheckedAll,
-      // privateIsChecked,
-      privateIsCheckAll,
-      updateDataCheck,
-      updateKey
+      privateDatas,
+      updateKey,
+      ALL,
+      checkAllSetting,
+      onChangeCheckDetail,
+      onChangeCheckAll,
+      
       
     }//end: return
   }, //end: setup

@@ -3,6 +3,7 @@
     <h2>Check Box</h2>
     <hr class="bg-grey-97 my-14px">
     <h2 class="my-14px">Normal</h2>
+    check: {{check}}
     <div class="flex">
       <Checkbox class="mt-5px" :options="validList" displayColumn="h" 
         label="" v-model:value="check" @changeValue="isCheck"></Checkbox>
@@ -90,7 +91,7 @@ export default {
           val: '3',
           disabled: false,
         }
-      ],
+    ],
 
       validList2:  [
         {
