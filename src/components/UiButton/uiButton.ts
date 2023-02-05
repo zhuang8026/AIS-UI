@@ -51,11 +51,6 @@ export default {
       required: false,
       default: '14',
     },
-    customizeH: {
-      type: String,
-      required: false,
-      default: '',
-    }
   },
   setup(props: { disable?: any;  type?: any; icon: any;  }, { emit }: any) {
     // const {  type, disable, wd, icon, h } = props;

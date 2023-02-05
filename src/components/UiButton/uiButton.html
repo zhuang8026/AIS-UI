@@ -1,6 +1,6 @@
 <div class=" block " >
   <button :for="forVal" :id="id" class=" m-auto w-full block "  :disabled="state.disable"
-  :class="[buttonStatus,{'rounded-5px': borderRadius == 'ehs','rounded-20px':!borderRadius}, [customizeH == '' && height == '' ? ' h-40px ' : 'h-'+customizeH]]" 
+  :class="[buttonStatus,{'rounded-5px': borderRadius == 'ehs','rounded-20px':!borderRadius}, [height == '' ? ' h-40px ' : '']]" 
   :style="{ 'height': height +'px'}" @click.prevent="onClick">
     <div class="flex items-center justify-center ">
       <slot v-if="custom" :name="custom"></slot>
