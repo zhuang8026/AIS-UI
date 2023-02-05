@@ -449,12 +449,6 @@ video {
 .mb-0 {
   margin-bottom: 0px;
 }
-.mt-5px {
-  margin-top: 5px;
-}
-.mt-30px {
-  margin-top: 30px;
-}
 .mb-24px {
   margin-bottom: 24px;
 }
@@ -487,6 +481,12 @@ video {
 }
 .mr-40px {
   margin-right: 40px;
+}
+.mt-5px {
+  margin-top: 5px;
+}
+.mt-30px {
+  margin-top: 30px;
 }
 .mr-16px {
   margin-right: 16px;
