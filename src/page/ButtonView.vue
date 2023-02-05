@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <ui-button-future leftIcon="leftIcon">默認大小</ui-button-future>
+    <!-- <ui-button-future leftIcon="leftIcon">默認大小</ui-button-future>
     <ui-button-future type="primary">默認大小</ui-button-future>
     <ui-button-future type="success" size="medium">中等大小</ui-button-future>
     <ui-button-future type="danger" size="medium">中等大小</ui-button-future>
@@ -12,7 +12,7 @@
     <ui-button-future type="custom" customColor="#1ba7dd">自定義顔色</ui-button-future> 
     <hr/>
     <ui-button-future round>默認大小</ui-button-future>
-    <ui-button-future type="primary" round>默認大小</ui-button-future>
+    <ui-button-future type="primary" round>默認大小</ui-button-future> -->
   </div>
   <br>
   <br>

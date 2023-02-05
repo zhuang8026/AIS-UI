@@ -8,9 +8,10 @@
           <h3 class="title-main">{{title}}</h3>
           <h6 class="title-sub">{{subTitle}}</h6>
         </div>
-        <a href="javascript:;" class="icon-block" v-if="isHasClose" @click="onClickCancel">
-          <iCon class="icon-cancel" iconClass="asus_proart_sw_ico_cancel"></iCon>
-        </a>
+        <!-- TBD IF nees cross -->
+        <!-- <a href="javascript:;" class="icon-block" v-if="isHasClose" @click="onClickCancel">
+          <iCon class="icon-cancel" iconClass="click"></iCon>
+        </a> -->
       </div>
       <!-- <div class="img-block" v-if="imgLink">
         <img :src="require(`@/assets/images/${imgLink}`)" alt="">
@@ -28,12 +29,12 @@
       </div>
       <div class="btm-block" v-if=" btnCancel.hasOwnProperty('text') || btnConfirm.hasOwnProperty('text')">
         <div class="btn-block">
-          <ui-button type="basic" round v-if="btnCancel.hasOwnProperty('text') " class="btn-inline" :text="btnCancel.text"
-            :theme="btnCancel.theme" :disable="btnCancel.disable" :colors="btnCancel.color" :type="btnCancel.type"
-            :wd="btnCancel.wd" @click="clickCancel">{{btnCancel.text}}</ui-button>
-          <ui-button type="importance" round v-if="btnConfirm.hasOwnProperty('text') " class="btn-inline" :text="btnConfirm.text"
-            :theme="btnConfirm.theme" :disable="btnConfirm.disable" :colors="btnConfirm.color" :type="btnConfirm.type"
-            :wd="btnConfirm.wd" @click="clickConfirm">{{btnConfirm.text}}</ui-button>
+          <ui-button  v-if="btnCancel.hasOwnProperty('text') " borderRadius=""  class=" btn-inline w-btn-normal "  :class="{'mx-auto': btnNum !=0}" customizeH="btn-h-normal" :text="btnCancel.text"
+            :disable="btnCancel.disable" :type="btnCancel.type"
+             @onClick="clickCancel"></ui-button>
+          <ui-button  v-if="btnConfirm.hasOwnProperty('text') "  borderRadius="" class=" btn-inline w-btn-normal " :class="{'mx-auto': btnNum !=0}" customizeH="btn-h-normal" :text="btnConfirm.text"
+            :disable="btnConfirm.disable" :type="btnConfirm.type"
+             @onClick="clickConfirm"></ui-button>
             <div class="verifyFalse" v-if="isVerify">{{isVerify}}</div>
         </div>
       </div>

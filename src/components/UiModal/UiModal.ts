@@ -1,6 +1,5 @@
-import { computed, watch } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import UiButton from '@/components/UiButton/index.vue';
-import { useStore } from 'vuex';
 export default {
   components: {
     UiButton,
@@ -77,7 +76,7 @@ export default {
           disable: false,
           theme: '2',
           color: 'transprent',
-          type: 'full',
+          type: 'default',
           wd: 'auto'
         }
       }
@@ -121,7 +120,8 @@ export default {
 
     ]) //end: styleCalsee
 
-    const store = useStore();
+    let btnNum = ref(0);
+
 
 
     const privateIsOpen = computed({
@@ -155,9 +155,18 @@ export default {
       }
     })
 
+    onMounted(() => {
+      let isHasBtnCancel = props.btnCancel.hasOwnProperty('text');
+      let isHasBtnConfirm = props.btnConfirm.hasOwnProperty('text');
+
+      if(!(isHasBtnCancel && isHasBtnConfirm)){
+        btnNum.value = 1;
+      }
+    });
+
     const onClickCancel = () => {
       privateIsOpen.value = false;
-      store.commit('setCloseModal');
+      // store.commit('setCloseModal');
       emit('onClickCancel');
     }
 
@@ -167,6 +176,7 @@ export default {
       clickConfirm,
       privateIsOpen,
       onClickCancel,
+      btnNum,
     }
 
   }

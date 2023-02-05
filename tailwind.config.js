@@ -214,12 +214,13 @@ module.exports = {
           'md-s': '20px',
           'md': '24px',
           'lg': '40px',
-          'button' :{
-              'big' : '160px',
-              'md' : '140px',
-              'normal' : '132px',
-              'small' : '96x',
-          },
+          //phm button width 
+          'btn-lg': '160px',
+          'btn-md': '140px',
+          'btn-normal': '132px',
+          'btn-sm': '120px',
+          'btn-h-normal': '36px',
+          //end of phm button width 
           'input' :{
               'lg' : '600x',
               'md' : '296px',
