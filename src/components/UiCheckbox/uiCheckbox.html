@@ -9,7 +9,7 @@
       <label  class=" group select-none checkbox relative  pl-20px mr-16px mb-12px"
       v-for="(item,index) in options" :key="item.val"  :style="{ 'margin': margin}"
       :class="{'flex': displayColumn === 'h', 'block': optionDisplayColumn ,'inline-block' : !optionDisplayColumn,
-      'pl-6px': size == 'small','mb-4px': size == 'small', 'cursor-pointer' : !item.disabled , 'cursor-default': show ,'cursor-not-allowed': item.disabled }">
+      'pl-6px': size == 'small','mb-4px': size == 'small', 'cursor-pointer' : !item.disabled , 'cursor-default': show ,'cursor-not-allowed': item.disabled }, [ item.name == '' ? ' checkbox-style-empty ' : '']">
         <input class=" absolute opacity-0 left-0"
         :value="item.val"  type="checkbox" 
         v-model="checkedValue" :disabled="item.disabled || show" >
