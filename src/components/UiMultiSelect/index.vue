@@ -50,7 +50,6 @@
 </template>
 
 <script>
-import Vue from "vue";
 import vSelect from "vue-select";
 import 'vue-select/dist/vue-select.css';
 import { reactive, computed, watch , onMounted } from 'vue';
@@ -144,6 +143,7 @@ export default {
 
     onMounted(() => {
       state.validClass = props.error ? true : false;
+      Object.assign(state.mainSelect, props.defaultSelectedValue);
     })
 
     const onmousedown = (id) => {
