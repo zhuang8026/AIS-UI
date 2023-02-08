@@ -1,10 +1,12 @@
 import UiCheckbox from '@/components/UiCheckbox/index.vue'; 
+import UiMultiSelect from '@/components/UiMultiSelect/index.vue';
 import {computed, ref, watch, reactive, getCurrentInstance, onMounted} from 'vue';
 import { tableData, tableHeader } from './datas';
 export default {
   name: 'ui-table',
   components:{
-    UiCheckbox
+    UiCheckbox,
+    UiMultiSelect
   },
   props: {
     isHasCheck:{
@@ -81,6 +83,7 @@ export default {
     //處理資料
     let handlData = (status = DATA_UPDATE_TYPE.INIT) => {
       // privateDatas = props.datas.concat();
+     // privateDatas = [...props.datas]
       Object.assign(privateDatas, props.datas);
       console.log('handlData privateDatas',privateDatas);
 
@@ -173,6 +176,53 @@ export default {
       handlData(DATA_UPDATE_TYPE.INIT);
     });
 
+
+    // 處理header muti select
+    
+    // child component update head filter item update to parents
+    let onClickFilter = (eve, id) => {
+      let _id = id; // 第幾個title
+      let _selectedArr = eve;
+      // console.log('itemId',_id);
+      let _selectedVal = _selectedArr.map(item => item.id);
+      // console.log('_selectedVal',_selectedVal)
+      let _tableHead = props.head;
+      _tableHead.filter(item => item.id === _id).map(ele => ele.val = [..._selectedVal]);
+      emit('update:head',_tableHead)
+      
+    } // end: selectAllList
+
+    // head filter selected value
+    let filterSelectedVal = computed(() => {
+      let _filterVal = [];
+      
+      props.head.forEach(item => {
+        let _hasFilterArr = [];
+        if(item.hasOwnProperty('options')){
+          let _valArr = item.val;
+          _valArr.forEach((currentId) => {
+              let _currentOption = item?.options.filter(target => target.id == currentId)[0];
+              // console.log('item?.options.',item?.options);
+              // console.log('_currentOption',_currentOption);
+              _hasFilterArr.push({
+                id: currentId,
+                name: _currentOption.name,
+                disabled: _currentOption.disabled
+              })
+          })//end: forEach
+        }//end: if 
+          _filterVal.push(_hasFilterArr);
+      }) //end: forEach
+      return _filterVal;
+    })//end: computed
+
+    // head style
+    let headTheme = computed(() => {
+      let isHasFilter = props.head.findIndex(item => item.hasOwnProperty('options')) > -1;
+      console.log('isHasFilter', isHasFilter);
+      return isHasFilter ?  ' text-font-2 ' : ' text-grey-90 '
+    })
+
     
 
 
@@ -185,7 +235,9 @@ export default {
       checkAllSetting,
       onChangeCheckDetail,
       onChangeCheckAll,
-      
+      onClickFilter,
+      filterSelectedVal,
+      headTheme,
       
     }//end: return
   }, //end: setup

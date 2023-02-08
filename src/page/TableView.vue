@@ -1,6 +1,13 @@
 <template>
   <div class="home">
     <h2>Table </h2>
+
+    <!-- table 2  -->
+
+    <!-- <UiTable v-model:isCheckedAll="isTableCheckAll" :datas="tableData"></UiTable> -->
+
+
+    <!-- table1 -->
     <br/>
     <p>是否勾選全部：{{isTableCheckAll}}</p>
     <p>所有資料：</p>
@@ -17,14 +24,16 @@
       <Button @onClick="inputNewData()" class=" w-160px mx-20px mb-0" type="full" text="從外面加資料" ></Button>
     </div>
     
-    <!-- <button @click="checkAllControl()">從外面控制checkAll</button> -->
 
-    <!-- <button @click="inputNewData()">從外面加資料</button> -->
     <br>
-
-    <!-- <UiTable v-model:isCheckedAll="isTableCheckAll" :datas="tableData" ></UiTable> -->
-    <!-- <UiTable v-model:isCheckedAll="isTableCheckAll" :datas="tableData" ></UiTable> -->
-    <UiTable v-model:isCheckedAll="isTableCheckAll" :datas="tableData"></UiTable>
+    <h5>tableHead: </h5>
+    <ul>
+      <li v-for="(item, index) in tableHead" :key="index">
+      {{index}} - {{item}}
+      <hr/> <br/>
+      </li>
+    </ul>
+    <UiTable v-model:isCheckedAll="isTableCheckAll" :datas="tableData" :head="tableHead"></UiTable>
 
   </div>
 </template>
@@ -43,6 +52,39 @@ export default {
   },
   setup(){
     let isTableCheckAll = ref(true)
+
+    let tableHead = reactive([
+        {
+          id: 'th0',
+          txt: '標題1標題1標題1標題1'
+      },
+      // filter : 類型
+      {
+          id: 'th1',
+          txt: '篩選篩選',
+          options: [   // filter的選項
+            { "id": "op1", "name": "Option 1", "disabled": false }, 
+            { "id": "op2", "name": "Option 2", "disabled": false },
+          ],
+          val: [   // 被選擇的值的id
+            "op1", "op2"
+          ]
+      },
+      {
+          id: 'th2',
+          txt: '篩選2篩選2',
+          options: [
+            { "id": "op2-1", "name": "Option 1", "disabled": false },
+            { "id": "op2-2", "name": "Option 2", "disabled": false },
+          ],
+          val: [
+            "op2-2"
+          ]
+      },
+      {
+          id: 'th3',
+          txt: '標題3標題3標題3標題3'
+      },])
 
     let tableData = reactive([{
     id: 'AAA',
@@ -149,6 +191,7 @@ export default {
       tableData,
       checkAllControl,
       inputNewData,
+      tableHead,
     }
 
   },//end: setup

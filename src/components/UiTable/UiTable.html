@@ -10,15 +10,24 @@
       <!-- head data -->
       <th v-for="(item, index) in head">
       <!-- type 1 : normal txtx -->
-        <p v-if="typeof item.txt === 'string' || item.txt instanceof String" class="txt">{{item.txt}}</p>
+        <p v-if="!item.hasOwnProperty('options')" class="txt text-xs" :class="headTheme">{{item.txt}}</p>
 
       <!-- end of type1 -->
 
       <!-- type2: select filter  -->
         <ul v-else>
-          <li v-for="option in item.txt">
-            {{option}}
-          </li>
+          <UiMultiSelect
+            class="w-full"
+            :defaultSelectedValue="filterSelectedVal[index]"
+            :optionArr="item.options" 
+            :required="true"
+            :showCheckIcon="true"
+            @onClickCheck="onClickFilter($event, item.id)"
+            :name="'tableH_'+index"
+            :hasAllOption="true"
+            :placeholder="item.txt"
+            customizePlaceholderClass=" text-font-2 text-xs"
+          ></UiMultiSelect> 
         </ul>
 
       <!-- end of type2 -->

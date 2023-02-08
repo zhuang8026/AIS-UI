@@ -1,7 +1,3 @@
-export let TYPE_HEADER = {
-    DEFAULT : 'default',
-    FILTER: 'filter',
-}
 // table 的資料
 export let tableData = [{
     id: '001',
@@ -73,37 +69,34 @@ export let tableData = [{
 
 
 export let tableHeader = [{
-        type: TYPE_HEADER.DEFAULT,
+        id: 'th0',
         txt: '標題1標題1標題1標題1'
     },
+    // filter : 類型
     {
-      type: TYPE_HEADER.DEFAULT,
-      txt: '標題111標題1111標題1111標題111'
-    },
-    // {
-    //     type: TYPE_HEADER.FILTER,
-    //     txt: [{
-    //         selected: true,
-    //         text: '選項1',
-    //         value: '111'
-    //     },
-    //     {
-    //         selected: false,
-    //         text: '選項2',
-    //         value: '222'
-    //     },
-    //     {
-    //         selected: true,
-    //         text: '選項3',
-    //         value: '333'
-    //     }]
-    // },
-    {
-        type: TYPE_HEADER.DEFAULT,
-        txt: '標題2標題2標題2標題2'
+        id: 'th1',
+        txt: '篩選篩選',
+        options: [   // filter的選項
+          { "id": "op1", "name": "Option 1", "disabled": false }, 
+          { "id": "op2", "name": "Option 2", "disabled": false },
+        ],
+        val: [   // 被選擇的值的id
+          "op1", "op2"
+        ]
     },
     {
-        type: TYPE_HEADER.DEFAULT,
+        id: 'th2',
+        txt: '篩選2篩選2',
+        options: [
+          { "id": "op2-1", "name": "Option 1", "disabled": false },
+          { "id": "op2-2", "name": "Option 2", "disabled": false },
+        ],
+        val: [
+          "op2-2"
+        ]
+    },
+    {
+        id: 'th3',
         txt: '標題3標題3標題3標題3'
     },
 ]
