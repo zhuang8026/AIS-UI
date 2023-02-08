@@ -13,8 +13,8 @@
     @update:modelValue="onClickCheck" -->
       <template #search="{events, attributes}">
         <input class="vs__search" v-on="events" v-bind="attributes">
-        <div class=" absolute mt-6px text-14 ml-5px align-middle z-20 text-grey-4c" 
-        :class="{'text-grey-b3' : isDisable}">
+        <div class="absolute mt-6px text-14 ml-5px align-middle z-20 text-grey-4c" 
+        :class="[{'text-grey-b3' : isDisable,}, customizePlaceholderClass]">
             {{placeholder}}
         </div>
       </template>
@@ -117,6 +117,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    customizePlaceholderClass:{ //客製化的class
+      type: String,
+      default: '',
+    }
   },
   setup(props, { emit }) {
     const state = reactive({
