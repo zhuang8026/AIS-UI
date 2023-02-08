@@ -4,11 +4,11 @@
   <!-- table header -->
   <thead>
     <tr>
-      <th>
-        <UiCheckbox :options="checkAllSetting.options"  v-model:value="checkAllSetting.value" @changeValue="onChangeCheckAll" ></UiCheckbox>
+      <th class="w-40px">
+        <UiCheckbox :options="checkAllSetting.options"  v-model:value="checkAllSetting.value" @changeValue="onChangeCheckAll" class="ml-6px mr-6px"></UiCheckbox>
       </th> 
       <!-- head data -->
-      <th v-for="(item, index) in head">
+      <th v-for="(item, index) in head" class="text-left">
       <!-- type 1 : normal txtx -->
         <p v-if="!item.hasOwnProperty('options')" class="txt text-xs" :class="headTheme">{{item.txt}}</p>
 
@@ -39,12 +39,12 @@
     
     <tr v-for="(data, index) in privateDatas" :key="'datas-'+index+ updateKey">
       <!-- checkbox -->
-      <td class="check-content">
-        <UiCheckbox :options="data.options" v-model:value="data.checkVal"  @changeValue="onChangeCheckDetail($event, data.id)"></UiCheckbox>
+      <td class="check-content text-center align-middle">
+        <UiCheckbox class="ml-6px mr-6px" :options="data.options" v-model:value="data.checkVal"  @changeValue="onChangeCheckDetail($event, data.id)" margin="0"></UiCheckbox>
       </td>
 
       <!-- data -->
-      <td v-for="detail in data.detail" :key="'detail-' + index">
+      <td class="align-middle text-center" v-for="detail in data.detail" :key="'detail-' + index">
         <!-- type1 : normal txt -->
         <p  v-if="detail.type == 'default'" class="txt">{{detail.txt}}</p>
         <!-- end of type1  -->
@@ -54,6 +54,11 @@
         <p v-else class="txt style--status" :class="detail.type.split(':')[1] == 1 ? 'normal': 'active'">{{detail.txt}}</p>
         <!-- end of type2 -->
       </td>
+    </tr>
+  </tbody>
+  <tbody v-else>
+    <tr>
+      <td :colspan="isHasCheck ? head.length + 1 : head.length " class="text-center">{{emptyText}}</td>
     </tr>
   </tbody>
   </table>

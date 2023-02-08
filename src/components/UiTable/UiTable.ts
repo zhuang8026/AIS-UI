@@ -42,6 +42,10 @@ export default {
         return tableHeader
       }//end: default
     },
+    emptyText: {
+      type: String,
+      default : 'No Data'
+    }
     
 
 

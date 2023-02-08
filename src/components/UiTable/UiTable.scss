@@ -9,10 +9,10 @@ $dot-y: 3px;
     }
     th, td{
         padding: $space-table-content 5px $space-table-content 5px;
-        text-align: left;
+        // text-align: left;
     }
     th{
-        vertical-align: center;
+        vertical-align: middle;
         .txt{
             
         }
@@ -29,7 +29,6 @@ $dot-y: 3px;
             }
         }
         td{
-            vertical-align: top;
             .txt{
                 text-align: left;
                 margin: 0;
