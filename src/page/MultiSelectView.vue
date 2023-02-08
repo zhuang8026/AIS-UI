@@ -167,7 +167,7 @@ export default {
       selectedDisableList: null,
       selectedFruit: [],
       selectedErrorList : null,
-      allListArr: [],
+      allListArr: [{ "id": "op1", "name": "Option 1", "disabled": false }, { "id": "op2", "name": "Option 2", "disabled": false }, { "id": "op4", "name": "Option 4", "disabled": false }, { "id": "op5", "name": "Option 5", "disabled": false }],
     })
 
 
