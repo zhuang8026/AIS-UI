@@ -45,6 +45,10 @@ export default {
     emptyText: {
       type: String,
       default : 'No Data'
+    },
+    isItemClick: {
+      type: Boolean,
+      default: false,
     }
     
 
@@ -227,6 +231,12 @@ export default {
       return isHasFilter ?  ' text-font-2 ' : ' text-grey-90 '
     })
 
+    let onClickItem = (id) => {
+      console.log('onClickItem',id);
+      let _id = id;
+      emit('onClickItem', _id);
+    }
+
     
 
 
@@ -242,6 +252,7 @@ export default {
       onClickFilter,
       filterSelectedVal,
       headTheme,
+      onClickItem,
       
     }//end: return
   }, //end: setup

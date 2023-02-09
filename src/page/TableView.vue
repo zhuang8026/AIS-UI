@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <p>isI</p>
     <h2>Table </h2>
 
     <!-- table 2  -->
@@ -34,7 +35,7 @@
       </li>
     </ul>
     <!-- :datas="[]" -->
-    <UiTable v-model:isCheckedAll="isTableCheckAll" :datas="tableData" :head="tableHead"></UiTable>
+    <UiTable @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll" :datas="tableData" :head="tableHead"></UiTable>
 
   </div>
 </template>
@@ -187,12 +188,18 @@ export default {
 
     }//end: inputNewData
 
+    let clickTableItem = (id) => {
+      alert('click the id:' + id );
+
+    }
+
     return{
       isTableCheckAll,
       tableData,
       checkAllControl,
       inputNewData,
       tableHead,
+      clickTableItem,
     }
 
   },//end: setup

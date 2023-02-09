@@ -37,14 +37,14 @@
   <!-- end of table header -->
   <tbody v-if="privateDatas.length > 0">
     
-    <tr v-for="(data, index) in privateDatas" :key="'datas-'+index+ updateKey" class=" odd:bg-grey-f4 even:bg-white">
+    <tr  v-for="(data, index) in privateDatas" :key="'datas-'+index+ updateKey" class=" odd:bg-grey-f4 even:bg-white" >
       <!-- checkbox -->
       <td class="check-content text-center align-middle">
         <UiCheckbox class="ml-6px mr-6px" :options="data.options" v-model:value="data.checkVal"  @changeValue="onChangeCheckDetail($event, data.id)" margin="0"></UiCheckbox>
       </td>
 
       <!-- data -->
-      <td class="align-middle text-center" v-for="detail in data.detail" :key="'detail-' + index">
+      <td class="align-middle text-center" v-for="detail in data.detail" :key="'detail-' + index" @click.prevent="onClickItem(data.id)" :class="{'cursor-pointer':isItemClick}">
         <!-- type1 : normal txt -->
         <p  v-if="detail.type == 'default'" class="txt">{{detail.txt}}</p>
         <!-- end of type1  -->
