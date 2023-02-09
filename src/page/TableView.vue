@@ -35,7 +35,7 @@
       </li>
     </ul>
     <!-- :datas="[]" -->
-    <UiTable @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll" :datas="tableData" :head="tableHead"></UiTable>
+    <UiTable @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll" :datas="tableData" :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
 
   </div>
 </template>

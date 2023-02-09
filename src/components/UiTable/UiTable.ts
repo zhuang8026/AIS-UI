@@ -153,14 +153,13 @@ export default {
     // detail check 改變
     // --- detail check child改變
     let onChangeCheckDetail = (val, id) => {
-      console.log('onChangeCheckDetail', val,id);
       let _id = id;
       let _checkVal = val;
       let _data =[...props.datas];
       _data.filter(item => item.id === _id).map(target => target.isCheck = _checkVal.length > 0);
       //控制全選
       let isAll = _data.every( item => item.isCheck);
-      console.log('onChangeCheckDetail isAll',isAll);
+      console.log('onChangeCheckDetail isAll',isAll, val, id);
       checkAllSetting.value = isAll ? [ALL] : [];
       console.log('_data',_data);
       emit('update:datas', _data);
@@ -189,6 +188,7 @@ export default {
     
     // child component update head filter item update to parents
     let onClickFilter = (eve, id) => {
+      console.log('onClickFilter', eve, id);
       let _id = id; // 第幾個title
       let _selectedArr = eve;
       // console.log('itemId',_id);
@@ -197,6 +197,7 @@ export default {
       let _tableHead = props.head;
       _tableHead.filter(item => item.id === _id).map(ele => ele.val = [..._selectedVal]);
       emit('update:head',_tableHead)
+      emit('onClickFilter', _tableHead);
       
     } // end: selectAllList
 
