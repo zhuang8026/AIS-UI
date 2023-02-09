@@ -44,7 +44,7 @@
       </td>
 
       <!-- data -->
-      <td class="align-middle text-center" v-for="detail in data.detail" :key="'detail-' + index" @click.prevent="onClickItem(data.id)" :class="{'cursor-pointer':isItemClick}">
+      <td class="align-middle text-center" v-for="detail in data.detail" :key="'detail-' + index" @click.prevent="onClickItem(data)" :class="{'cursor-pointer':isItemClick}">
         <!-- type1 : normal txt -->
         <p  v-if="detail.type == 'default'" class="txt">{{detail.txt}}</p>
         <!-- end of type1  -->

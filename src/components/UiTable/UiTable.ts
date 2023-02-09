@@ -231,10 +231,10 @@ export default {
       return isHasFilter ?  ' text-font-2 ' : ' text-grey-90 '
     })
 
-    let onClickItem = (id) => {
-      console.log('onClickItem',id);
-      let _id = id;
-      emit('onClickItem', _id);
+    let onClickItem = (data) => {
+      console.log('onClickItem',data);
+      let _data = data;
+      emit('onClickItem', _data);
     }
 
     

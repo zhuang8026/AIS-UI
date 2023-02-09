@@ -188,8 +188,9 @@ export default {
 
     }//end: inputNewData
 
-    let clickTableItem = (id) => {
-      alert('click the id:' + id );
+    let clickTableItem = (item) => {
+      console.log('item', item)
+      alert('click id:'+item.id )
 
     }
 
