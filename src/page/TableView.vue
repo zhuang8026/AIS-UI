@@ -33,7 +33,8 @@
       <hr/> <br/>
       </li>
     </ul>
-    <UiTable v-model:isCheckedAll="isTableCheckAll" :datas="[]" :head="tableHead"></UiTable>
+    <!-- :datas="[]" -->
+    <UiTable v-model:isCheckedAll="isTableCheckAll" :datas="tableData" :head="tableHead"></UiTable>
 
   </div>
 </template>

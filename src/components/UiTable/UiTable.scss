@@ -22,11 +22,11 @@ $dot-y: 3px;
     }//end: th
     tbody{
         tr{
-            &:nth-child(odd){
-                background-color: $color-grey-light;
-                border: none;
+            // &:nth-child(odd){
+            //     background-color: $color-grey-light;
+            //     border: none;
 
-            }
+            // }
         }
         td{
             .txt{
