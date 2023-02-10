@@ -29,10 +29,10 @@
       </div>
       <div class="btm-block" v-if=" btnCancel.hasOwnProperty('text') || btnConfirm.hasOwnProperty('text')">
         <div class="btn-block flex">
-          <ui-button  v-if="btnCancel.hasOwnProperty('text') " borderRadius=""  class=" btn-inline w-btn-normal "  :class="{'mx-auto': btnNum !=0}" height="36" :text="btnCancel.text"
+          <ui-button  v-if="btnCancel.hasOwnProperty('text') " borderRadius="borderRadius"  class=" btn-inline w-btn-normal "  :class="{'mx-auto': btnNum !=0}" height="36" :text="btnCancel.text"
             :disable="btnCancel.disable" :type="btnCancel.type"
              @onClick="clickCancel"></ui-button>
-          <ui-button  v-if="btnConfirm.hasOwnProperty('text') "  borderRadius="" class=" btn-inline w-btn-normal " :class="{'mx-auto': btnNum !=0}" height="36" :text="btnConfirm.text"
+          <ui-button  v-if="btnConfirm.hasOwnProperty('text') "  borderRadius="borderRadius" class=" btn-inline w-btn-normal " :class="{'mx-auto': btnNum !=0}" height="36" :text="btnConfirm.text"
             :disable="btnConfirm.disable" :type="btnConfirm.type"
              @onClick="clickConfirm"></ui-button>
             <div class="verifyFalse" v-if="isVerify">{{isVerify}}</div>

@@ -60,6 +60,10 @@ export default {
       type: String,
       default: 'default',  // default: 24px  none: 0,
     },
+    borderRadius : {  // content上下space
+      type: String,
+      default: 'ehs',  // default: 24px  none: 0,
+    },
     // isHasCancel: {
     //   type: Boolean,
     //   default: true,
