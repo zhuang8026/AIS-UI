@@ -194,6 +194,10 @@ export default {
 
     }
 
+    let onClickFilter = (e) => {
+      console.log('in ui lib onClickFilter',e);
+    }
+
     return{
       isTableCheckAll,
       tableData,
@@ -201,6 +205,7 @@ export default {
       inputNewData,
       tableHead,
       clickTableItem,
+      onClickFilter,
     }
 
   },//end: setup

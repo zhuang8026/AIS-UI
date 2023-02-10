@@ -197,7 +197,10 @@ export default {
       let _tableHead = props.head;
       _tableHead.filter(item => item.id === _id).map(ele => ele.val = [..._selectedVal]);
       emit('update:head',_tableHead)
-      emit('onClickFilter', _tableHead);
+      emit('onClickFilter', {
+        head: _tableHead,
+        id: id
+      });
       
     } // end: selectAllList
 
