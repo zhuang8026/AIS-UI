@@ -40,14 +40,14 @@
 
   <div class="flex justify-center my-30px">
     <Button class=" w-140px mx-20px mb-0" type="empty" text="Button" icon="dropdown"></Button>
-    <Button class=" w-140px mx-20px mb-0" type="empty" :disable="true" text="Button" icon="dropdown"></Button>
+    <Button class=" w-140px mx-20px mb-0" type="empty" :disable="true" text="Button" icon="add"></Button>
   </div>
 
   <hr class="bg-grey-97 my-14px">
   <h2 class="my-14px">方圓角 link</h2>  
 
   <div class="flex justify-center my-30px">
-      <Button class=" w-140px mx-20px mb-0" type="link" text="Button" ></Button>
+      <Button class=" w-140px mx-20px mb-0" type="link" text="Button"  ></Button>
       <Button class=" w-140px mx-20px mb-0" type="link" :disable="true" text="Button" ></Button>
   </div>
 
