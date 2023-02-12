@@ -65,7 +65,7 @@ export default {
           id: 'th1',
           txt: '篩選篩選',
           options: [   // filter的選項
-            { "id": "op1", "name": "Option 1", "disabled": false }, 
+            { "id": "op1", "name": "很長很長很長很長的選項", "disabled": false }, 
             { "id": "op2", "name": "Option 2", "disabled": false },
           ],
           val: [   // 被選擇的值的id

@@ -30,11 +30,11 @@
       <template v-slot:option="option" >
         <div class="  flex justify-start group" 
         @mousedown="onmousedown(option.id ? option.id: option.label)" > 
-          <button class=" mr-8px w-24px h-24px rounded-5px border border-grey-b3 relative" 
+          <button class="shrink-0 mr-8px w-24px h-24px rounded-5px border border-grey-b3 relative" 
           :class="{'border-main': checkStyle(option) ,'bg-main': checkStyle(option) ,'border-grey-4c' : !option.disabled, 'cursor-default': option.disabled,  'group-hover:border-root-light' : !option.disabled}" >
             <span class="w-24px h-24px" :class="{'check': checkStyle(option)}"></span>
           </button>
-          <span>{{option.name ? option.name : option.label}}{{option.label}}</span>
+          <span class="whitespace-normal break-words">{{option.name ? option.name : option.label}}{{option.label}}</span>
         </div>
       </template>
 

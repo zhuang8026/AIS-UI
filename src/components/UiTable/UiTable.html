@@ -10,7 +10,7 @@
       <!-- head data -->
       <th v-for="(item, index) in head" class="text-left">
       <!-- type 1 : normal txtx -->
-        <p v-if="!item.hasOwnProperty('options')" class="txt text-xs" :class="headTheme">{{item.txt}}</p>
+        <p v-if="!item.hasOwnProperty('options')" class="txt text-xs whitespace-normal break-words" :class="headTheme">{{item.txt}}</p>
 
       <!-- end of type1 -->
 
@@ -46,19 +46,19 @@
       <!-- data -->
       <td class="align-middle text-center" v-for="detail in data.detail" :key="'detail-' + index" @click.prevent="onClickItem(data)" :class="{'cursor-pointer':isItemClick}">
         <!-- type1 : normal txt -->
-        <p  v-if="detail.type == 'default'" class="txt">{{detail.txt}}</p>
+        <p  v-if="detail.type == 'default'" class="txt whitespace-normal break-words">{{detail.txt}}</p>
         <!-- end of type1  -->
 
 
         <!-- type2: dot style text -->
-        <p v-else class="txt style--status" :class="detail.type.split(':')[1] == 1 ? 'normal': 'active'">{{detail.txt}}</p>
+        <p v-else class="txt style--status whitespace-normal break-words" :class="detail.type.split(':')[1] == 1 ? 'normal': 'active'">{{detail.txt}}</p>
         <!-- end of type2 -->
       </td>
     </tr>
   </tbody>
   <tbody v-else>
     <tr class="bg-white">
-      <td :colspan="isHasCheck ? head.length + 1 : head.length " class="text-center color-ff">{{emptyText}}</td>
+      <td :colspan="isHasCheck ? head.length + 1 : head.length " class="text-center color-ff whitespace-normal break-words">{{emptyText}}</td>
     </tr>
   </tbody>
   </table>
