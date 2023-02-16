@@ -18,15 +18,22 @@
           </span>
           <Icon class=" text-main vSelectIcon" iconClass="Ico_Check" type="svg" v-if=" showIcon(id)"></Icon>
         </div>
+        
       </template>
 
       <template #no-options="{ search, searching }" v-if="isSearch">
         <em v-if="searching "> Sorry, no {{search}}'s matching options.</em>
       </template>
+      <template #list-footer>
+        <div class="w-full">
+          <slot></slot>
+        </div>
+      </template>
     </v-select>
     <div class=" error flex items-center" v-show="error">
       <small class="text-error-FF0000 pt-3px">{{error}}</small>
     </div>
+    
   </div>
 
 </template>

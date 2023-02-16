@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h2 class="my-32px">Combo box</h2>
+    <h2 class="my-32px">Select</h2>
     <hr/>
     <h2 class="my-32px">Normal </h2>
     <div class="flex mb-24px justify-start">
@@ -102,14 +102,31 @@
         :placeholder="'I am placeholder'"
       ></ui-select>
     </div>
+        
+        
 
+      <h2 class="my-32px">Select Has Slot  </h2>
+       <ui-select
+        class="w-296px mr-40px"
+        v-model:defaultSelectedValue="state.selectedFruit"
+        :isDisable="false"
+        :optionArr="state.fruits" 
+        :showCheckIcon="true"
+        @onChange="selectClick"
+        @onblur="toblur" 
+        name="editSelect"
+        :isEdit="isEdit"
+        :placeholder="'I am placeholder'"
+      >
+        <p>This is Slot Area</p>
+      </ui-select>
     <hr/>
   </div>
 </template>
 
 <script>
 import UiSelect from '@/components/UiSelect/index.vue'; // @ is an alias to /src
-import { reactive, computed, watch, onMounted } from 'vue';
+import { reactive,  onMounted, ref } from 'vue';
 export default {
   components: {
     UiSelect
