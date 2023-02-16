@@ -64,13 +64,13 @@ export default {
     let defaultVal = computed(()=> {
       let _time  = props.value;
       let isRange = props.range;
-      if(isRange){
-
+      let _timestamp = _tranferTimestamp();
+      if(Array.isArray(_timestamp)){
+        return _time ? [new Date(_timestamp[0]), new Date(_timestamp[1])] : 0;
       }
       else{
-        return _time ? new Date(_tranferTimestamp) : 0;
+        return _time ? new Date(_timestamp) : 0;
       }
-      
     }) //end: defaultVal
 
     let test = ref(new Date());
