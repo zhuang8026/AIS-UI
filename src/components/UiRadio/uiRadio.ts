@@ -44,6 +44,11 @@ export default {
       type: String,
       required: false,
       default : ''
+    },
+    custom:{ //客製化選項
+      type: String,
+      required: false,
+      default : ''
     }
   },
   setup(props: { value?: any; text?: any; layout?: any; size?: any; isError?: any; isDisable?: any; isSlot?: any; },  { emit }: any) {
