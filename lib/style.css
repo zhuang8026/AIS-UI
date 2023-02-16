@@ -448,6 +448,9 @@ video {
 .z-20 {
   z-index: 20;
 }
+.z-90 {
+  z-index: 90;
+}
 .m-auto {
   margin: auto;
 }

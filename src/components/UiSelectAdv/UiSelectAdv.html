@@ -7,7 +7,7 @@
     <Icon class="text-black w-24px h-24px grow-0 shrink-0 flex transition duration-300 ease-in-out" :class="{'-rotate-180': isOpen}" iconClass="dropdown" type="svg"  ></Icon>
   </a>
   <!-- end of select view -->
-  <div class="absolute w-full top-full border-grey-8b border border-solid rounded mt-[7px]" :class="[isOpen ? 'block': 'hidden']" >
+  <div class="absolute w-full top-full border-grey-8b border border-solid rounded mt-[7px] bg-white z-90" :class="[isOpen ? 'block': 'hidden']" >
     <ul>
       <li  v-for="(item, index) in opt" :key="index" ref="itemRefs" class="relative px-10px py-10px border-box flex items-center group cursor-pointer hover:bg-root-hoverBlue" >
           <span class="flex-auto flex grow justify-start text-left text-sm " v-if="!item.isEdit">{{item.name}}</span>  
