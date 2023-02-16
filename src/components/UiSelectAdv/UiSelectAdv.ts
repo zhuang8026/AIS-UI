@@ -1,7 +1,21 @@
 
 import Icon from '@/components/Icon/index.vue';
 import { computed, onMounted, reactive, ref, watch } from 'vue';
-import { clickOutside } from '@/components/directive/clickOutside';
+
+const clickOutside = {
+  beforeMount: (el, binding) => {
+      el.clickOutsideEvent = event => {
+          if (!(el == event.target || el.contains(event.target))) {
+              binding.value();
+          }
+      };
+      document.addEventListener("click", el.clickOutsideEvent);
+  },
+  unmounted: el => {
+      document.removeEventListener("click", el.clickOutsideEvent);
+  },
+};
+
 export default {
   name: 'ui-select-adv',
   components: {

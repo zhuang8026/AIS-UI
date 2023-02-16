@@ -21,7 +21,9 @@ fs.readdir(path.join(__dirname, './src/components'), function (err, files) {
   // 處理到處程式碼
   files.forEach(item => {
     // 讀取目錄名稱
-    if(item != 'assets'){
+    console.log('comp',item);
+    if(item != 'assets' && !item.includes('.DS_S')){
+
       content = content + `import ${item} from './components/${item}';`
       // console.log('111', item)
       ex.push(item)
