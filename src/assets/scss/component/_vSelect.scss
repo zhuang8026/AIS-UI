@@ -12,6 +12,7 @@
     // .vs__dropdown-toggle
     .vs__selected-options {
         @apply px-4px
+       
     }
     .vs__search{
         &::placeholder{
@@ -20,26 +21,29 @@
     }
     .vs__dropdown-option{
         @apply px-12px;
+        &:hover{
+            @apply text-black bg-root-hoverBlue;;
+        }
         
     }
     
-    .vs__dropdown-option--selected & .vs__dropdown-option--highlight  {
-        // @apply text-white bg-root-dark;
-    }
+
     .vs__dropdown-option--highlight {
-        @apply text-white bg-root-dark;
+        @apply text-black ;
     }
     .vs__dropdown-option--highlight:active {
-        @apply text-white bg-root-darkMore;
+        @apply text-black ;
     }
     .vs__dropdown-option--disabled {
         @apply  bg-white text-grey-b3;
+        &:hover{
+            @apply bg-white text-grey-b3;
+        }
     }
     .vs__dropdown-option--selected{ //待確認 被選 + hover 效果
         @apply text-main bg-white;
     }
     .vs__dropdown-option--selected & .vs__dropdown-option--highlight  {
-        // @apply text-white bg-root-dark;
         @apply text-main bg-white;
     }
     
@@ -67,8 +71,10 @@
         .vs__selected,
         .vs__open-indicator {
             cursor: not-allowed;
+            pointer-events: none;
         }
     }
+    
     .v-select {
         .vs__dropdown-toggle {
             @apply border-none ;
@@ -85,6 +91,9 @@
         }
         .vs__dropdown-option--disabled {
             @apply  bg-white text-grey-b3;
+            &:hover{    
+                @apply  bg-white text-grey-b3;   
+            }
         }
         .vs__dropdown-option--selected{ //待確認 被選 + hover 效果
             @apply text-main bg-white;
@@ -138,7 +147,7 @@ display: none;
 .v-select {
     @apply  bg-white ;
     &.vs--disabled {
-        @apply  bg-white ;
+        @apply  bg-white pointer-events-none;
         .vs__dropdown-toggle,
         .vs__clear,
         .vs__search,
@@ -165,6 +174,13 @@ display: none;
                 .vs__open-indicator{
                     @apply  text-grey-b3;
                 }
+            }
+            
+        }
+        
+        .vs__dropdown-option{
+            &:hover{
+                @apply bg-white  border-grey-b3;
             }
             
         }
