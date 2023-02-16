@@ -1,21 +1,12 @@
 <template>
   <div class="home">
-    <h2 class="my-32px">不要用</h2>
+    <h2 class="my-32px">進階下拉</h2>
     <hr/>
-    <!-- <h2 class="my-32px">Normal </h2>
-    <div class="flex mb-24px justify-start">
-      <div class="flex">
-        <div class="mr-20px">value : </div>
-        <div>{{state.selectedFruit}}</div>
-      </div>
-    </div>
-    <div class="flex mb-24px">
-      <UINSelect :options="state.op2" v-model:selected="state.selectVal" 
-      style="width:400px"></UINSelect>
+    <p>options: {{opts}}</p>
+    <p>selected {{selected}}</p>
+    <UiSelectAdv v-model:optionArr="opts"  v-model:defaultSelectedValue="selected" v-model:isOpen="isOpen"></UiSelectAdv>
 
-    </div> -->
 
-    <hr/>
 
 
 
@@ -26,11 +17,11 @@
 </template>
 
 <script>
-import UINSelect from '@/components/UINSelect/index.vue'; // @ is an alias to /src
-import { reactive, computed, watch, onMounted } from 'vue';
+import UiSelectAdv from '@/components/UiSelectAdv/index.vue'; // @ is an alias to /src
+import { reactive, ref, onMounted } from 'vue';
 export default {
   components: {
-    UINSelect
+    UiSelectAdv
   },
   props: {
   },
@@ -82,6 +73,31 @@ export default {
       },
     })
 
+    let advOptions = reactive[{
+        label: '選項1選項1選項1選項1選項1選項1選項1選項1選項1選項1',
+        value: 'aa1',
+        readonly: true,
+        psText: `<a href="#" class="ui-options ui-options-btn text--sm--detail"> 0 build / 0 content </a>`
+      }, {
+        label: '選項2選項2',
+        value: 'aa2',
+        readonly: true,
+        psText: `<a href="#" class="ui-options ui-options-btn text--sm--detail"> 10 build / 2 content </a>`
+      },
+      {
+        label: '選項3選項3',
+        value: 'aa3',
+        readonly: true,
+        psText: `<a href="#" class="ui-options ui-options-btn text--sm--detail"> 0 build / 9 content </a>`
+      }];//end:advOptions
+     
+     let isOpenSelect = ref(false);
+
+     let selectedAdv =  reactive({
+        label: '測試測試02',
+        value: '02'
+      });
+
 
     onMounted(() => {
       // init();
@@ -95,7 +111,25 @@ export default {
     const toblur = () => {
     }
 
+    let opts = reactive([{
+          id: 'op1',
+          name: 'option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1',
+        },
+        {
+          id: 'op2',
+          name: 'option2',
+        },
+        {
+          id: 'op4',
+          name: 'option4',
+        }])
 
+    let isOpen = ref(false);
+
+    let selected = reactive({
+          id: 'op1',
+          name: 'option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1',
+        })
 
 
     return {
@@ -103,6 +137,12 @@ export default {
       // privateIsChecked,
       toblur,
       selectClick,
+      advOptions,
+      isOpenSelect,
+      selectedAdv,
+      opts,
+      isOpen,
+      selected,
     }
   }// end: setup
 }

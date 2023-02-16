@@ -84,15 +84,15 @@ export default [
       //   path: '/ais/Space',
       // },
       {
-        'title-cn': 'Select 下拉選單',
-        'title-en': 'Select',
+        'title-cn': 'Adv Select',
+        'title-en': 'Adv Select',
         path: '/ais/newselect',
       },
-      {
-        'title-cn': 'multi Select 下拉選單',
-        'title-en': 'multiSelect',
-        path: '/ais/newmultiselect',
-      },
+      // {
+      //   'title-cn': 'multi Select 下拉選單',
+      //   'title-en': 'multiSelect',
+      //   path: '/ais/newmultiselect',
+      // },
       {
         'title-cn': 'VSelect 下拉選單',
         'title-en': 'Select',
