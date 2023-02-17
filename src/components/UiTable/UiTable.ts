@@ -1,12 +1,14 @@
 import UiCheckbox from '@/components/UiCheckbox/index.vue'; 
 import UiMultiSelect from '@/components/UiMultiSelect/index.vue';
+import Icon from '@/components/Icon/index.vue';
 import {computed, ref, watch, reactive, getCurrentInstance, onMounted} from 'vue';
 import { tableData, tableHeader } from './datas';
 export default {
   name: 'ui-table',
   components:{
     UiCheckbox,
-    UiMultiSelect
+    UiMultiSelect,
+    Icon,
   },
   props: {
     isHasCheck:{
@@ -49,6 +51,20 @@ export default {
     isItemClick: {
       type: Boolean,
       default: false,
+    },
+    moreOption:{
+      type: Array,
+      default: []  
+      /**
+       * {
+        id: 'del',
+        text: 'Permanently Delete'
+      },
+      {
+        id: 'restore',
+        text: 'Restore'
+      }
+       */
     }
     
 
@@ -79,6 +95,8 @@ export default {
     
     
     let privateDatas = reactive([]); // 接table data
+
+    let isMoreOpenArr = reactive([]);
 
 
     //從哪邊改變資料
@@ -123,6 +141,11 @@ export default {
         item['options'] = _option.slice(0);
         item['checkVal'] = _checkVal.slice(0);
         item['isCheck'] =_isCheck;
+        // 處理more
+        isMoreOpenArr.push({
+          id: item.id,
+          isOpen: false
+        }); // more
       }) //end: forEach
       updateKey.value +=1;
       console.log('privateDatas',privateDatas);
@@ -188,7 +211,7 @@ export default {
     
     // child component update head filter item update to parents
     let onClickFilter = (eve, id) => {
-      console.log('onClickFilter', eve, id);
+      // console.log('onClickFilter', eve, id);
       let _id = id; // 第幾個title
       let _selectedArr = eve;
       // console.log('itemId',_id);
@@ -243,6 +266,27 @@ export default {
 
     
 
+    let onClickMore = (rowId) => {
+      // let val = {
+      //   rowId: rowId,
+      // }
+      isMoreOpenArr.filter(item => item.id == rowId).map(ele => ele.isOpen = !ele.isOpen);
+      // console.log('onClickMore',val);
+
+    } // end: onClickMore
+
+    let onClickMoreItem = (rowId, moreId) => {
+      let val = {
+        rowId: rowId,
+        moreId: moreId
+      }
+      isMoreOpenArr.filter(item => item.id == rowId).map(ele => ele.isOpen = !ele.isOpen);
+      // console.log('isMoreOpenArr',val);
+      emit('onClickMoreItem', val);
+
+    }//end: onClickMoreItem
+    
+
 
 
 
@@ -257,6 +301,9 @@ export default {
       filterSelectedVal,
       headTheme,
       onClickItem,
+      onClickMore,
+      onClickMoreItem,
+      isMoreOpenArr,
       
     }//end: return
   }, //end: setup

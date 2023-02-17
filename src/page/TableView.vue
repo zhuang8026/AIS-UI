@@ -35,7 +35,7 @@
       </li>
     </ul>
     <!-- :datas="[]" -->
-    <UiTable @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll" :datas="tableData" :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
+    <UiTable @onClickMoreItem="onClickMoreItem" :moreOption="moreOpt" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll" :datas="tableData" :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
 
   </div>
 </template>
@@ -195,8 +195,20 @@ export default {
     }
 
     let onClickFilter = (e) => {
-      console.log('in ui lib onClickFilter',e);
+      // console.log('in ui lib onClickFilter',e);
     }
+
+    let moreOpt = reactive([{
+        id: 'del',
+        text: 'Permanently Delete'
+      },
+      {
+        id: 'restore',
+        text: 'Restore'
+      }])
+    let onClickMoreItem = (val) => {
+      console.log('onClickMoreItem',val);
+    }//end: onClickMoreItem
 
     return{
       isTableCheckAll,
@@ -206,6 +218,8 @@ export default {
       tableHead,
       clickTableItem,
       onClickFilter,
+      moreOpt,
+      onClickMoreItem,
     }
 
   },//end: setup

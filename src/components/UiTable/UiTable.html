@@ -32,6 +32,7 @@
 
       <!-- end of type2 -->
       </th>
+      <th v-if="moreOption.length > 0"  class="w-[36px]"></th>
     </tr>
   </thead>
   <!-- end of table header -->
@@ -53,6 +54,16 @@
         <!-- type2: dot style text -->
         <p v-else class="txt style--status whitespace-normal break-words" :class="detail.type.split(':')[1] == 1 ? 'normal': 'active'">{{detail.txt}}</p>
         <!-- end of type2 -->
+      </td>
+      <td v-if="moreOption.length > 0" class="text-center relative">
+       
+
+        <Icon class="text-black w-24px h-24px grow-0 shrink-0 flex items-center cursor-pointer pointer-events-auto relative z-20 "  iconClass="icon-more-v" type="svg" @click.prevent="onClickMore(data.id)"></Icon>
+        <ul class="absolute w-[192px] flex flex-wrap right-0 top-[70%] z-30 shadow-lg border-r-[6px]" v-if="isMoreOpenArr[index].isOpen">
+          <li v-for="more in moreOption"  class="w-full bg-white border-box pt-[6px] pr-12px min-h-[32px] z-20 inline-block hover:bg-root-hoverBlue">
+            <a href="javascript:;" @click="onClickMoreItem(data.id,more.id)" class="inline-block align-middle w-full">{{more.text}}</a>
+          </li>
+        </ul>
       </td>
     </tr>
   </tbody>
