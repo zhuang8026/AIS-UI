@@ -4,7 +4,7 @@
     <hr/>
     <h2 class="my-14px">Normal</h2>
     <div class="flex">
-      <Radio class="mt-5px" :options="validList" displayColumn="h" 
+        <Radio class="mt-5px" :options="validList" displayColumn="h" 
         label="" v-model:value="check" @changeValue="isCheck"></Radio>
         <Radio class="mt-30px" :options="validList" 
         label="" v-model:value="check1" @changeValue="isCheck"></Radio>

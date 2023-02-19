@@ -1,5 +1,6 @@
 
-import { reactive, computed, watch } from 'vue'
+import { reactive, computed, watch, onMounted } from 'vue'
+import { uuid } from 'vue-uuid';
 
 export default {
   components: {
@@ -49,15 +50,22 @@ export default {
       type: String,
       required: false,
       default : ''
+    },
+    name: {
+      type: String,
+      required: false,
+      default: '',
     }
   },
-  setup(props: { value?: any; text?: any; layout?: any; size?: any; isError?: any; isDisable?: any; isSlot?: any; },  { emit }: any) {
+  setup(props: { value?: any; text?: any; layout?: any; size?: any; isError?: any; isDisable?: any; isSlot?: any; name?:String },  { emit }: any) {
     // const {  text, layout, size, isError, isDisable, isSlot } = props;
     
     const state = reactive({
       
 
     })
+
+    
     
     
     const radioValue = computed({
@@ -71,10 +79,16 @@ export default {
       }
     });
 
+    let privateName = computed(()=> {
+      return props.name === '' ? uuid.v4() : props.name;
+    })
+
+    
 
     return {
       state,
       radioValue,
+      privateName,
     }
 
   }// end: setup
