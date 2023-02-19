@@ -5,7 +5,7 @@ $wd-config:(
 );
 
 $modal-config:(
-    titleMain: $font-size-h6-5,
+    titleMain: $font-size-h8,
     titleSub: $font-size-h9,
 
 );
@@ -13,7 +13,7 @@ $modal-config:(
 $space-config:(
     none: 0,
     md: 24px,
-    default: 24px,
+    default: 28px,
     xmd: 36px,
 );
 //title min height
@@ -152,7 +152,7 @@ $align-config: left, center, right;
                 // animation:blowUpContent .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
                 overflow-y: auto;
                 box-sizing: border-box;
-                padding: 24px 0;
+                padding: 28px 0 24px 0;
                 background-color: $color-modal-bg;
                 max-width: 100%;
                 display: inline-block;
