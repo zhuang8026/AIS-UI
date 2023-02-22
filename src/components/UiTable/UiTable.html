@@ -1,6 +1,6 @@
 
 <div class="ui-table">
-  <table class="table-fixed">
+  <table class="table-fixed border-separate border-spacing-0">
   <!-- table header -->
   <thead>
     <tr>
@@ -38,14 +38,14 @@
   <!-- end of table header -->
   <tbody v-if="privateDatas.length > 0">
     
-    <tr  v-for="(data, index) in privateDatas" :key="'datas-'+index+ updateKey" class=" odd:bg-grey-f4 even:bg-white" >
+    <tr  v-for="(data, index) in privateDatas" :key="'datas-'+index+ updateKey" class="group  odd:bg-grey-f4 even:bg-white [&>td]:active:bg-root-hoverBlue" :class="activeStyle(data.id)" >
       <!-- checkbox -->
-      <td class="check-content text-center align-middle">
+      <td class="td-style   check-content text-center align-middle">
         <UiCheckbox class="ml-6px mr-6px" :options="data.options" v-model:value="data.checkVal"  @changeValue="onChangeCheckDetail($event, data.id)" margin="0"></UiCheckbox>
       </td>
 
       <!-- data -->
-      <td class="align-middle text-center" v-for="detail in data.detail" :key="'detail-' + index" @click.prevent="onClickItem(data)" :class="{'cursor-pointer':isItemClick}">
+      <td class="td-style  first:group-hover:border-l-12px align-middle text-center" v-for="detail in data.detail" :key="'detail-' + index" @click.prevent="onClickItem(data)" :class="{'cursor-pointer':isItemClick}">
         <!-- type1 : normal txt -->
         <p  v-if="detail.type == 'default'" class="txt whitespace-normal break-words">{{detail.txt}}</p>
         <!-- end of type1  -->
@@ -55,13 +55,13 @@
         <p v-else class="txt style--status whitespace-normal break-words" :class="detail.type.split(':')[1] == 1 ? 'normal': 'active'">{{detail.txt}}</p>
         <!-- end of type2 -->
       </td>
-      <td v-if="moreOption.length > 0" class="text-center relative">
+      <td v-if="moreOption.length > 0" class=" td-style text-center relative">
        
 
         <Icon class="text-black w-24px h-24px grow-0 shrink-0 flex items-center cursor-pointer pointer-events-auto relative z-20 "  iconClass="icon-more-v" type="svg" @click.prevent="onClickMore(data.id)"></Icon>
         <ul class="absolute w-[192px] flex flex-wrap right-0 top-[70%] z-30 shadow-lg border-r-[6px]" v-if="isMoreOpenArr[index].isOpen">
           <li v-for="more in moreOption"  class="w-full bg-white border-box pt-[6px] pr-12px min-h-[32px] z-20 inline-block hover:bg-root-hoverBlue">
-            <a href="javascript:;" @click="onClickMoreItem(data.id,more.id)" class="inline-block align-middle w-full">{{more.text}}</a>
+            <a href="javascript:;" @click.prevent="onClickMoreItem(data.id,more.id)" class="inline-block align-middle w-full">{{more.text}}</a>
           </li>
         </ul>
       </td>

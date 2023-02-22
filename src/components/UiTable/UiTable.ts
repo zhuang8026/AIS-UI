@@ -65,7 +65,22 @@ export default {
         text: 'Restore'
       }
        */
-    }
+    },
+    theme: {
+      type: String,
+      default: '1', // 1 for noraml table : 2 for can click item and keep active style
+    },
+    selected:{     // select list for click and active item id 
+      type: Array,  
+      default(){
+        return [];
+      }
+    },
+    isSelectedOne:{   // selected 的項目，是不是只能一個  false: 多選 , true: 單選
+      type: Boolean,
+      default: false,
+    },
+    
     
 
 
@@ -182,9 +197,9 @@ export default {
       _data.filter(item => item.id === _id).map(target => target.isCheck = _checkVal.length > 0);
       //控制全選
       let isAll = _data.every( item => item.isCheck);
-      console.log('onChangeCheckDetail isAll',isAll, val, id);
+      // console.log('onChangeCheckDetail isAll',isAll, val, id);
       checkAllSetting.value = isAll ? [ALL] : [];
-      console.log('_data',_data);
+      // console.log('_data',_data);
       emit('update:datas', _data);
     } //end: onChangeCheckDetail
 
@@ -259,8 +274,37 @@ export default {
     })
 
     let onClickItem = (data) => {
-      console.log('onClickItem',data);
       let _data = data;
+      let _selected = [...props.selected];
+      
+      // handle click item theme
+      console.log('isSelectedOne',props.isSelectedOne == true)
+      if(props.isSelectedOne){
+        //單選
+        console.log('單選')
+        emit('update:selected', [data.id]);
+      }
+      else{
+        console.log('多選')
+        // 多選
+        // check selected 有選到要移除，沒選到要acitve
+        
+        let index =  _selected.indexOf(data.id);
+        console.log('index',index);
+        if(index != -1){
+          _selected.splice(index,1);
+        }
+        else{
+          _selected.push(data.id)
+        }
+        emit('update:selected', _selected);
+      }
+      
+        
+        console.log('props',props.selected);
+      const instance = getCurrentInstance();
+      instance?.proxy?.$forceUpdate();
+
       emit('onClickItem', _data);
     }
 
@@ -285,6 +329,14 @@ export default {
       emit('onClickMoreItem', val);
 
     }//end: onClickMoreItem
+
+    let activeStyle = (id)=> {
+      let _id = id;
+      let _selected = [...props.selected];
+      // console.log('_id',_id,props.selected);
+      if(_selected.length == 0) return '';
+      return (_selected).indexOf(_id) != -1 ?  '[&>td]:bg-root-hoverBlue first:[&>td]:rounded-tl-[8px] first:[&>td]:rounded-bl-[8px] last:[&>td]:rounded-tr-[8px] last:[&>td]:rounded-br-[8px]': '';
+    }
     
 
 
@@ -304,6 +356,7 @@ export default {
       onClickMore,
       onClickMoreItem,
       isMoreOpenArr,
+      activeStyle,
       
     }//end: return
   }, //end: setup

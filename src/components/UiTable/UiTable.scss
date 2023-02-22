@@ -1,10 +1,19 @@
 $space-table-content: 20px;
 $size-dot: 14px;
 $dot-y: 3px;
+
 .ui-table {
-    width: 100%;
+    
+    .td-style{
+        @apply first:group-hover:border-l-2px;
+    //     @apply first:border-l-2px  first:border-red-200 first:rounded-tl-[8px] first:rounded-bl-[8px];
+    //     @apply first:td-style-hover:border-l-2px  first:hover:border-red-200 first:rounded-tl-[8px] first:rounded-bl-[8px];
+
+    //     // @apply [&>td]:border-b-2px border-black rounded-[8px]
+    //     //@apply [&>td]:first:hover:border-l-2px  [&>td]:first:hover:border-red-200 [&>td]:first-of-type:rounded-[8px];
+    //     // @apply [&>td]:last:border--2px border-black rounded-[8px];
+    }
     table{
-        border-collapse: collapse;
         width: 100%;
     }
     th, td{
@@ -22,6 +31,13 @@ $dot-y: 3px;
     }//end: th
     tbody{
         tr{
+            &:hover{
+                td {
+                    @apply first:border-main first:rounded-tl-[8px] first:rounded-bl-[8px];
+                    @apply last:border-main last:rounded-tr-[8px] last:rounded-br-[8px];
+                    @apply border-main;
+                } //end: td
+            }
             // &:nth-child(odd){
             //     background-color: $color-grey-light;
             //     border: none;
@@ -29,6 +45,9 @@ $dot-y: 3px;
             // }
         }
         td{
+            @apply first:border-l-2px first:border-transparent ;
+            @apply last:border-r-2px last:border-transparent;
+            @apply border-t-2px border-b-2px border-transparent;
             .txt{
                 text-align: left;
                 margin: 0;

@@ -35,7 +35,9 @@
       </li>
     </ul>
     <!-- :datas="[]" -->
-    <UiTable @onClickMoreItem="onClickMoreItem" :moreOption="moreOpt" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll" :datas="tableData" :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
+    <p>v-model: selected: {{selectedArr}}</p>
+    <p>isSelectedOne: {{isSelectedOne}}</p>
+    <UiTable :isSelectedOne="isSelectedOne" v-model:selected="selectedArr" @onClickMoreItem="onClickMoreItem" :moreOption="moreOpt" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll" :datas="tableData" :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
 
   </div>
 </template>
@@ -190,7 +192,7 @@ export default {
 
     let clickTableItem = (item) => {
       console.log('item', item)
-      alert('click id:'+item.id )
+      // alert('click id:'+item.id )
 
     }
 
@@ -210,6 +212,8 @@ export default {
       console.log('onClickMoreItem',val);
     }//end: onClickMoreItem
 
+    let selectedArr = ref(['AAA']);
+
     return{
       isTableCheckAll,
       tableData,
@@ -220,6 +224,8 @@ export default {
       onClickFilter,
       moreOpt,
       onClickMoreItem,
+      selectedArr,
+      isSelectedOne: true,
     }
 
   },//end: setup
