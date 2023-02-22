@@ -561,6 +561,9 @@ video {
 .mt-6px {
   margin-top: 6px;
 }
+.mt-\[6px\] {
+  margin-top: 6px;
+}
 .mt-\[7px\] {
   margin-top: 7px;
 }

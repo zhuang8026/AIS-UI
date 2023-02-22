@@ -47,7 +47,11 @@
       <!-- data -->
       <td class="td-style  first:group-hover:border-l-12px align-middle text-center" v-for="detail in data.detail" :key="'detail-' + index" @click.prevent="onClickItem(data)" :class="{'cursor-pointer':isItemClick}">
         <!-- type1 : normal txt -->
-        <p  v-if="detail.type == 'default'" class="txt whitespace-normal break-words">{{detail.txt}}</p>
+        <template v-if="detail.type == 'default'" >
+          <p class="txt whitespace-normal break-words">{{detail.txt}}</p>
+          <p v-if="detail.hasOwnProperty('sub')" class="mt-[6px] txt whitespace-normal break-words text-font-2 text-xs">{{detail.sub}}</p>
+        </template>
+        
         <!-- end of type1  -->
 
 

@@ -10,7 +10,8 @@ export let tableData = [{
       },
       { 
         txt: '資料2資料2資料2資料2資料2',
-        type: 'default'
+        sub: '小資料2小資料2',
+        type: 'default',
       },
       { 
         txt: '資料3資料3資料3資料3資料3',

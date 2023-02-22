@@ -101,6 +101,7 @@ export default {
       },
       { 
         txt: '資料2資料2資料2資料2資料2',
+        sub: '小資料小資料',
         type: 'default'
       },
       { 
@@ -213,6 +214,8 @@ export default {
     }//end: onClickMoreItem
 
     let selectedArr = ref(['AAA']);
+
+    
 
     return{
       isTableCheckAll,
