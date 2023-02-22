@@ -681,6 +681,14 @@ video {
 .table-fixed {
   table-layout: fixed;
 }
+.border-separate {
+  border-collapse: separate;
+}
+.border-spacing-0 {
+  --tw-border-spacing-x: 0px;
+  --tw-border-spacing-y: 0px;
+  border-spacing: var(--tw-border-spacing-x) var(--tw-border-spacing-y);
+}
 .-translate-y-1\/2 {
   --tw-translate-y: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1089,7 +1097,30 @@ video {
   --tw-border-opacity: 1;
   border-color: rgb(222 229 236 / var(--tw-border-opacity));
 }
+.group:hover .first\:group-hover\:border-l-12px:first-child {
+  border-left-width: 12px;
+}
 .group:active .group-active\:border-root-deep {
   --tw-border-opacity: 1;
   border-color: rgb(0 58 122 / var(--tw-border-opacity));
+}
+.\[\&\>td\]\:bg-root-hoverBlue>td {
+  --tw-bg-opacity: 1;
+  background-color: rgb(231 239 255 / var(--tw-bg-opacity));
+}
+.first\:\[\&\>td\]\:rounded-bl-\[8px\]>td:first-child {
+  border-bottom-left-radius: 8px;
+}
+.first\:\[\&\>td\]\:rounded-tl-\[8px\]>td:first-child {
+  border-top-left-radius: 8px;
+}
+.last\:\[\&\>td\]\:rounded-br-\[8px\]>td:last-child {
+  border-bottom-right-radius: 8px;
+}
+.last\:\[\&\>td\]\:rounded-tr-\[8px\]>td:last-child {
+  border-top-right-radius: 8px;
+}
+.\[\&\>td\]\:active\:bg-root-hoverBlue:active>td {
+  --tw-bg-opacity: 1;
+  background-color: rgb(231 239 255 / var(--tw-bg-opacity));
 }
