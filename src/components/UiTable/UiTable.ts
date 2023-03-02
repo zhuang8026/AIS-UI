@@ -184,11 +184,10 @@ export default {
     let onChangeCheckAll = (val) => {
         let isAll = val.length > 0;
         let _data =[...props.datas];
-        let isAnyCheck = _data.some( item => item.isCheck);
         emit('update:isCheckedAll',isAll);
         emit('onChangeCheck', {
           data: _data,
-          isAnyCheck: isAnyCheck
+          isAnyCheck: isAll
         });
         handlData(DATA_UPDATE_TYPE.CHECK_ALL);
     }
