@@ -197,10 +197,15 @@ export default {
       _data.filter(item => item.id === _id).map(target => target.isCheck = _checkVal.length > 0);
       //控制全選
       let isAll = _data.every( item => item.isCheck);
+      let isAnyCheck = _data.some( item => item.isCheck);
+      console.log('isAnyCheck',isAnyCheck);
       // console.log('onChangeCheckDetail isAll',isAll, val, id);
       checkAllSetting.value = isAll ? [ALL] : [];
       // console.log('_data',_data);
-      emit('onChangeCheck', _data);
+      emit('onChangeCheck', {
+        data: _data,
+        isAnyCheck: isAnyCheck
+      });
       emit('update:datas', _data);
     } //end: onChangeCheckDetail
 
