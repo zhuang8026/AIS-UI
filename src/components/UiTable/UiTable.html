@@ -41,6 +41,8 @@
     <tr  v-for="(data, index) in privateDatas" :key="'datas-'+index+ updateKey" class="group  odd:bg-grey-f4 even:bg-white [&>td]:active:bg-root-hoverBlue" :class="activeStyle(data.id)" >
       <!-- checkbox -->
       <td class="td-style   check-content text-center align-middle">
+        checkVal= {{data.checkVal}}
+        options = {{data.options}}
         <UiCheckbox class="ml-6px mr-6px" :options="data.options" v-model:value="data.checkVal"  @changeValue="onChangeCheckDetail($event, data.id)" margin="0"></UiCheckbox>
       </td>
 
