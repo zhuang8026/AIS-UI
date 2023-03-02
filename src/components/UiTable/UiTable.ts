@@ -126,11 +126,11 @@ export default {
       // privateDatas = props.datas.concat();
      // privateDatas = [...props.datas]
       Object.assign(privateDatas, props.datas);
-      console.log('handlData privateDatas',privateDatas);
+      // console.log('handlData privateDatas',privateDatas);
 
       // 檢查是否有checkall
       let isAll = checkAllSetting.value.length > 0;
-      console.log('handlData isAll', isAll)
+      // console.log('handlData isAll', isAll)
 
       // 處理每列的checkbox
       privateDatas.forEach(item => {
@@ -144,7 +144,7 @@ export default {
         if (status === DATA_UPDATE_TYPE.INIT){
           _checkVal = isAll ? [item.id] : item.isCheck ? [item.id] : [];
           _isCheck = _checkVal.length > 0;
-          console.log('init', _checkVal, isAll)
+          // console.log('init', _checkVal, isAll)
         } 
         else if (status === DATA_UPDATE_TYPE.CHECK_ALL){
           _checkVal = isAll ? [item.id] : [];
@@ -163,7 +163,7 @@ export default {
         }); // more
       }) //end: forEach
       updateKey.value +=1;
-      console.log('privateDatas',privateDatas);
+      // console.log('privateDatas',privateDatas);
       const instance = getCurrentInstance();
       instance?.proxy?.$forceUpdate();
       
@@ -200,6 +200,7 @@ export default {
       // console.log('onChangeCheckDetail isAll',isAll, val, id);
       checkAllSetting.value = isAll ? [ALL] : [];
       // console.log('_data',_data);
+      emit('onChangeCheck', _data);
       emit('update:datas', _data);
     } //end: onChangeCheckDetail
 
@@ -208,7 +209,8 @@ export default {
     watch(
       () => props.datas,
       (val) => {
-        console.log('watch props data change',val);
+        // console.log('watch props data change',val);
+        // todo: 優化 call很多次問題 - Lynn
         handlData();
       },
       {

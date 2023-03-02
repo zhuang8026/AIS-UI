@@ -37,7 +37,7 @@
     <!-- :datas="[]" -->
     <p>v-model: selected: {{selectedArr}}</p>
     <p>isSelectedOne: {{isSelectedOne}}</p>
-    <UiTable :isSelectedOne="isSelectedOne" v-model:selected="selectedArr" @onClickMoreItem="onClickMoreItem" :moreOption="moreOpt" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll" :datas="tableData" :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
+    <UiTable @onChangeCheck="onChangeCheck" :isSelectedOne="isSelectedOne" v-model:selected="selectedArr" @onClickMoreItem="onClickMoreItem" :moreOption="moreOpt" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll" :datas="tableData" :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
 
   </div>
 </template>
@@ -215,6 +215,10 @@ export default {
 
     let selectedArr = ref(['AAA']);
 
+    let onChangeCheck = (data) => {
+      console.log('onChangeCheck', data);
+    }
+
     
 
     return{
@@ -229,6 +233,7 @@ export default {
       onClickMoreItem,
       selectedArr,
       isSelectedOne: true,
+      onChangeCheck,
     }
 
   },//end: setup
