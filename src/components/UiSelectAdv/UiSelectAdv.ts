@@ -115,7 +115,9 @@ export default {
       console.log('id', id)
       if(isSelectedItemUpdate){
         emit('update:defaultSelectedValue', opt[_index]);
+        emit('onClickCheck', opt[_index])
       }  
+      
     } //end: onClickCheck
 
     

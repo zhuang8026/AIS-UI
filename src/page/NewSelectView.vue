@@ -4,7 +4,7 @@
     <hr/>
     <p>options: {{opts}}</p>
     <p>selected {{selected}}</p>
-    <UiSelectAdv v-model:optionArr="opts"  v-model:defaultSelectedValue="selected" v-model:isOpen="isOpen"></UiSelectAdv>
+    <UiSelectAdv @onClickCheck="onClickCheck" v-model:optionArr="opts"  v-model:defaultSelectedValue="selected" v-model:isOpen="isOpen"></UiSelectAdv>
 
 
 
@@ -131,6 +131,9 @@ export default {
           name: 'option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1',
         })
 
+    let onClickCheck = (val) => {
+      console.log('onClickCheck',val)
+    }
 
     return {
       state,
@@ -143,6 +146,7 @@ export default {
       opts,
       isOpen,
       selected,
+      onClickCheck,
     }
   }// end: setup
 }
