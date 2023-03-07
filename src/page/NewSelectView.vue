@@ -4,7 +4,7 @@
     <hr/>
     <p v-if="false">options: {{opts}}</p>
     <p>selected {{selected}}</p>
-    <UiSelectAdv v-if="opts.length" @onClickCheck="onClickCheck" :key="count" v-model:optionArr="opts"  v-model:defaultSelectedValue="selected" v-model:isOpen="isOpen"></UiSelectAdv>
+    <UiSelectAdv @onClickItem="onClickItem" v-if="opts.length" @onClickCheck="onClickCheck" :key="count" v-model:optionArr="opts"  v-model:defaultSelectedValue="selected" v-model:isOpen="isOpen"></UiSelectAdv>
 
 
 
@@ -140,6 +140,10 @@ export default {
       
     }
 
+    let onClickItem = (val) => {
+      console.log('onClickItem',val);
+    }
+
     return {
       state,
       // privateIsChecked,
@@ -153,6 +157,7 @@ export default {
       selected,
       onClickCheck,
       count,
+      onClickItem,
     }
   }// end: setup
 }
