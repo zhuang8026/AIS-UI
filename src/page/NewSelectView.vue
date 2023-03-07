@@ -2,9 +2,9 @@
   <div class="home">
     <h2 class="my-32px">進階下拉</h2>
     <hr/>
-    <p>options: {{opts}}</p>
+    <p v-if="false">options: {{opts}}</p>
     <p>selected {{selected}}</p>
-    <UiSelectAdv @onClickCheck="onClickCheck" v-model:optionArr="opts"  v-model:defaultSelectedValue="selected" v-model:isOpen="isOpen"></UiSelectAdv>
+    <UiSelectAdv v-if="opts.length" @onClickCheck="onClickCheck" :key="count" v-model:optionArr="opts"  v-model:defaultSelectedValue="selected" v-model:isOpen="isOpen"></UiSelectAdv>
 
 
 
@@ -111,6 +111,8 @@ export default {
     const toblur = () => {
     }
 
+    let  count = ref(0);
+
     let opts = reactive([{
           id: 'op1',
           name: 'option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1 option1',
@@ -133,6 +135,9 @@ export default {
 
     let onClickCheck = (val) => {
       console.log('onClickCheck',val)
+      //這行重要，強制render 重新渲染
+      count.value++;
+      
     }
 
     return {
@@ -147,6 +152,7 @@ export default {
       isOpen,
       selected,
       onClickCheck,
+      count,
     }
   }// end: setup
 }

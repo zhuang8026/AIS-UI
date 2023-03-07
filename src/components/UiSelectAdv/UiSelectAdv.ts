@@ -123,6 +123,13 @@ export default {
     
     let onClickItem = (item) => {
       emit('update:defaultSelectedValue', item);
+      let isChangeOption = props.defaultSelectedValue['id'] !== item['id'];
+      let output = {
+        item,
+        isChangeOption,
+      }
+      // console.log('output',output);
+      emit('onClickItem', output);
       privateIsOpen.value = false;
     } //end: onClickItem
 
