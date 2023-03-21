@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 36">
+<svg xmlns="http://www.w3.org/2000/svg" width="35" height="36" viewBox="0 0 35 36">
     <g transform="translate(-637 -711)">
-        <path data-name="Path 12754" d="m4052.065 727.874-7.308 4.27 7.308 3.9" transform="translate(-3393.194 -2.603)" style="fill:none;stroke:#000;stroke-width:1.2px"/>
+        <rect data-name="Rectangle 10098" width="35" height="36" rx="1" transform="translate(637 711)" style="fill:none"/>
+        <path data-name="Path 12754" d="m658.589 733.966-8.256-4.4 8.236-4.812.605 1.036-6.38 3.728 6.36 3.39z"/>
     </g>
 </svg>

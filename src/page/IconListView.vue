@@ -13,6 +13,9 @@
     <hr class="mt-32px"/>
     <h2 class="my-32px">Performance</h2>
     <div class=" flex flex-row flex-wrap justify-start" >
+      <div class="bg-main">
+        <Icon class="h-40px w-40px ml-20px text-red-500" iconClass="ehs-log-1" type="svg"  ></Icon>
+      </div>
       <div class="shadow-md rounded-sm card p-20px mr-10px mb-10px flex justify-center items-center">
         <div class="sub" >multi color
         </div>
@@ -21,6 +24,9 @@
         <Icon class="h-40px w-40px ml-20px text-green-500" iconClass="dropdown" type="svg"></Icon>
         <Icon class="h-40px w-40px ml-20px text-yellow-600" iconClass="dropdown" type="svg"></Icon>
         <Icon class="h-40px w-40px ml-20px text-root-dark" iconClass="dropdown" type="svg"></Icon>
+        <Icon class="h-40px w-40px ml-20px text-main" iconClass="arrow-double-l" type="svg"  ></Icon>
+        
+
       </div>
       <div class="shadow-md rounded-sm card p-20px mr-10px mb-10px flex justify-center items-center">
         <div class="sub" >rotate indefinite
@@ -41,13 +47,21 @@
 
       <div class="shadow-md rounded-sm card p-20px mr-10px mb-10px flex justify-center items-center">
         <div class="sub" >arrow-double-l
+          <Icon class="h-40px w-40px ml-20px text-main bg-text-red-500" iconClass="arrow-double-l" type="svg"  ></Icon>
         </div>
-          <Icon class="h-40px w-40px  ml-20px text-main" iconClass="arrow-double-l" type="svg"  ></Icon>
+        <div class="sub" >arrow-double-r
+          <Icon class="h-40px w-40px ml-20px text-main bg-text-red-500" iconClass="arrow-double-r" type="svg"  ></Icon>
+        </div>
+        <div class="sub" >arrow-l
+          <Icon class="h-40px w-40px ml-20px text-main bg-text-red-500" iconClass="arrow-l" type="svg"  ></Icon>
+        </div>
+        <div class="sub" >arrow-r
+          <Icon class="h-40px w-40px ml-20px text-main bg-text-red-500" iconClass="arrow-r" type="svg"  ></Icon>
+        </div>
       </div>
     </div>
   </div>
 </template>
-
 <script>
 
 import Icon from '@/components/Icon/index.vue';
