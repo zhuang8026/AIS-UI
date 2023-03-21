@@ -148,10 +148,14 @@ display: none;
     @apply  bg-white ;
     &.vs--disabled {
         @apply  bg-white pointer-events-none;
+        .vs__selected{
+            @apply text-grey-b3;
+        }
         .vs__dropdown-toggle,
         .vs__clear,
         .vs__search,
         .vs__selected,
+        // todo 
         .vs__open-indicator {
             @apply  bg-white ;
         }

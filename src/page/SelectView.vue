@@ -177,7 +177,10 @@ export default {
           disabled: false,
         },
       ],
-      selectedDisableList: null,
+      selectedDisableList: {id: 'op1',
+          name: 'Option 1',
+          disabled: false,
+        },
       selectedFruit: null,
       selectedErrorList : null,
     })
