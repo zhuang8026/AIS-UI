@@ -4,6 +4,7 @@
     <hr/>
     <p v-if="false">options: {{opts}}</p>
     <p>selected {{selected}}</p>
+    <button @click="changeSelected">change selected</button>
     <UiSelectAdv @onClickItem="onClickItem" v-if="opts.length" @onClickCheck="onClickCheck" :key="count" v-model:optionArr="opts"  v-model:defaultSelectedValue="selected" v-model:isOpen="isOpen"></UiSelectAdv>
 
 
@@ -144,6 +145,14 @@ export default {
       console.log('onClickItem',val);
     }
 
+    let changeSelected = () => {
+      console.log('changeSelected')
+      Object.assign(selected,{
+        id: 'op2' ,
+        name: 'option2' + Math.random(),
+      })
+    }
+
     return {
       state,
       // privateIsChecked,
@@ -158,6 +167,7 @@ export default {
       onClickCheck,
       count,
       onClickItem,
+      changeSelected
     }
   }// end: setup
 }

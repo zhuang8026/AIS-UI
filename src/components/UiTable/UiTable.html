@@ -4,7 +4,7 @@
   <!-- table header -->
   <thead>
     <tr>
-      <th class="w-40px">
+      <th class="w-40px" v-if="isHasCheck">
         <UiCheckbox :options="checkAllSetting.options"  v-model:value="checkAllSetting.value" @changeValue="onChangeCheckAll" class="ml-6px mr-6px"></UiCheckbox>
       </th> 
       <!-- head data -->

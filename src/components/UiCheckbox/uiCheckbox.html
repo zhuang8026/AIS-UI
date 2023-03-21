@@ -2,22 +2,22 @@
 <section class="ui-checkbox">
   <div class="pay-checkboxGroup-container" :class="{'flex': displayColumn === 'h'}">
     <label v-if="label" class=" mr-16px h-21px block mb-8px">
-      <span>{{label}}</span>
+      <span>{{label}}  </span>
       <span class="text-red-200 mr-1" v-if="required"> * </span>
     </label>
     <div class=" checkboxGroup justify-start" :class="{'flex': displayColumn != 'h'}">
       <label  class=" group select-none checkbox relative  pl-20px mr-16px mb-12px"
       v-for="(item,index) in options" :key="item.val"  :style="{ 'margin': margin}"
       :class="{'flex': displayColumn === 'h', 'block': optionDisplayColumn ,'inline-block' : !optionDisplayColumn,
-      'pl-6px': size == 'small','mb-4px': size == 'small', 'cursor-pointer' : !item.disabled , 'cursor-default': show ,'cursor-not-allowed': item.disabled }, [ item.name == '' ? ' checkbox-style-empty ' : '']">
+      'pl-6px': size == 'small','mb-4px': size == 'small', 'cursor-pointer' : !item.disabled & !show , 'cursor-default': show ,'cursor-not-allowed': item.disabled }, [ item.name == '' ? ' checkbox-style-empty ' : '']">
         <input class=" absolute opacity-0 left-0"
         :value="item.val"  type="checkbox" 
-        v-model="checkedValue" :disabled="item.disabled || show" >
-        <span class=" ml-8px pt-2px block" :class="{'text-xxxs': size == 'small'}">{{item.name}}</span>
+        v-model="checkedValue" :disabled="item.disabled || show" :class="{'style--show' : show }" >
+        <span class=" ml-8px pt-2px block" :class="{'text-xxxs': size == 'small', 'text-main':show && value.indexOf(item.val) > -1, 'text-grey-c7':show && value.indexOf(item.val) == -1 }">{{item.name}}</span>
         <span class="checkmark border-grey-4c border border-solid h-20px w-20px absolute left-0  transform rounded-3px top-1/2 -translate-y-1/2" 
-        :class="{'border-error-FF0000': error && !item.disabled, 'group-hover:border-root-dark' : !item.disabled, 'group-active:border-root-deep': !item.disabled
+        :class="{ 'border-error-FF0000': error && !item.disabled, 'group-hover:border-root-dark' : !item.disabled && !show, 'group-active:border-root-deep': !item.disabled && !show
         ,'h-10px' : size == 'small', 'w-10px' : size == 'small', 'small': size == 'small'
-        ,'rounded-2px': size == 'small', 'checkmarkLine' : theme == 'line'}">
+        ,'rounded-2px': size == 'small', 'checkmarkLine' : theme == 'line','border-root-dark': show  && value.indexOf(item.val) > -1, 'border-grey-c7':show && value.indexOf(item.val) == -1}">
         </span>
       </label>
     </div>
