@@ -609,6 +609,9 @@ video {
 .h-40px {
   height: 40px;
 }
+.h-\[180px\] {
+  height: 180px;
+}
 .h-\[26px\] {
   height: 26px;
 }
@@ -669,6 +672,9 @@ video {
 .w-full {
   width: 100%;
 }
+.flex-1 {
+  flex: 1 1 0%;
+}
 .flex-auto {
   flex: 1 1 auto;
 }
@@ -720,6 +726,9 @@ video {
 .flex-row {
   flex-direction: row;
 }
+.flex-col {
+  flex-direction: column;
+}
 .flex-wrap {
   flex-wrap: wrap;
 }
@@ -740,6 +749,9 @@ video {
 }
 .overflow-hidden {
   overflow: hidden;
+}
+.overflow-y-auto {
+  overflow-y: auto;
 }
 .text-ellipsis {
   text-overflow: ellipsis;
