@@ -35,10 +35,12 @@
       </li>
     </ul>
     <!-- :datas="[]" -->
-    <p>v-model: selected: {{selectedArr}}</p>
-    <p>isSelectedOne: {{isSelectedOne}}</p>
-    <UiTable :isHasCheck="true" @onChangeCheck="onChangeCheck" :isSelectedOne="isSelectedOne" v-model:selected="selectedArr" @onClickMoreItem="onClickMoreItem" :moreOption="moreOpt" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll" :datas="tableData" :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
-
+    <!-- <p>v-model: selected: {{selectedArr}}</p>
+    <p>isSelectedOne: {{isSelectedOne}}</p> -->
+    <!-- :moreOption="moreOpt"  -->
+    <div >
+      <UiTable  class="h-[180px]" :isHasCheck="true" @onChangeCheck="onChangeCheck" :isSelectedOne="isSelectedOne" v-model:selected="selectedArr" @onClickMoreItem="onClickMoreItem" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll" :datas="tableData" :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
+    </div>
   </div>
 </template>
 

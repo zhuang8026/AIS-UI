@@ -4,17 +4,16 @@ $dot-y: 3px;
 
 .ui-table {
     
+    
     .td-style{
         @apply first:group-hover:border-l-2px;
-    //     @apply first:border-l-2px  first:border-red-200 first:rounded-tl-[8px] first:rounded-bl-[8px];
-    //     @apply first:td-style-hover:border-l-2px  first:hover:border-red-200 first:rounded-tl-[8px] first:rounded-bl-[8px];
-
-    //     // @apply [&>td]:border-b-2px border-black rounded-[8px]
-    //     //@apply [&>td]:first:hover:border-l-2px  [&>td]:first:hover:border-red-200 [&>td]:first-of-type:rounded-[8px];
-    //     // @apply [&>td]:last:border--2px border-black rounded-[8px];
+    
     }
     table{
         width: 100%;
+        thead, tbody tr{
+            @apply table table-fixed
+        }
     }
     th, td{
         padding: $space-table-content 5px $space-table-content 5px;
@@ -22,6 +21,7 @@ $dot-y: 3px;
     }
     th{
         vertical-align: middle;
+        @apply sticky;
         .txt{
             
         }
@@ -31,6 +31,7 @@ $dot-y: 3px;
     }//end: th
     tbody{
         tr{
+            @apply w-full;
             &:hover{
                 td {
                     @apply first:border-main first:rounded-tl-[8px] first:rounded-bl-[8px];
