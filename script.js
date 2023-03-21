@@ -23,11 +23,13 @@ fs.readdir(path.join(__dirname, './src/components'), function (err, files) {
     // 讀取目錄名稱
     console.log('comp',item);
     if(item != 'assets' && !item.includes('.DS_S')){
+      //console.log('comp go',item)
 
       content = content + `import ${item} from './components/${item}';`
       // console.log('111', item)
       ex.push(item)
     }
+    //console.log('ex',ex);
     // else if (item == 'assets'){
     //   fs.readdir(path.join(__dirname, `./src/components/${item}`), 
     //     function (err, picForders) {
@@ -50,6 +52,7 @@ fs.readdir(path.join(__dirname, './src/components'), function (err, files) {
 
   })
   ex = ex.join(",")
+  console.log('after join',ex);
 
   packPic(ex)
 })
@@ -65,11 +68,11 @@ function packPic(ex) {
     }
     files.forEach(eachPic => {
       let iconName = eachPic.split('.svg')[0];
-      iconName = camelize(iconName)
-      picString  = picString + ','+iconName
-      // console.log('呱吉2聒聒',iconName)
-      content = content + `import ${iconName} from './components/assets/icon/${eachPic}';`
-
+      if(!iconName.includes('DS_Store')){
+        iconName = camelize(iconName)
+        picString  = picString + ','+iconName
+        content = content + `import ${iconName} from './components/assets/icon/${eachPic}';`
+      }
     })
     let tempEx = `${ex}${picString}`
     // content = content + `export { ${ex}${picString}  }; `
