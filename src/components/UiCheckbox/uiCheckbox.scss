@@ -5,11 +5,18 @@
   }
   &.style--show{
     ~ .checkmark {
-      @apply rounded-full;
+      @apply rounded-full bg-grey-c7;
+      &:after{
+        content: "";
+        @apply inline-block absolute left-6px top-2px w-6px h-12px border-white border-r-2px border-b-2px rotate-45;
+      }
     }
     &:checked ~ .checkmark {
       @apply border-main bg-main;
-    }
+      &:after{
+        @apply border-white;
+      }
+    } //end: check
   }
   &:not(.style--show){
     &:disabled ~ .checkmark {

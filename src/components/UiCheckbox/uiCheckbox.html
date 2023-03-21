@@ -15,7 +15,7 @@
         v-model="checkedValue" :disabled="item.disabled || show" :class="{'style--show' : show }" >
         <span class=" ml-8px pt-2px block" :class="{'text-xxxs': size == 'small', 'text-main':show && value.indexOf(item.val) > -1, 'text-grey-c7':show && value.indexOf(item.val) == -1 }">{{item.name}}</span>
         <span class="checkmark border-grey-4c border border-solid h-20px w-20px absolute left-0  transform rounded-3px top-1/2 -translate-y-1/2" 
-        :class="{ 'border-error-FF0000': error && !item.disabled, 'group-hover:border-root-dark' : !item.disabled && !show, 'group-active:border-root-deep': !item.disabled && !show
+        :class="{'style--show': show , 'border-error-FF0000': error && !item.disabled, 'group-hover:border-root-dark' : !item.disabled && !show, 'group-active:border-root-deep': !item.disabled && !show
         ,'h-10px' : size == 'small', 'w-10px' : size == 'small', 'small': size == 'small'
         ,'rounded-2px': size == 'small', 'checkmarkLine' : theme == 'line','border-root-dark': show  && value.indexOf(item.val) > -1, 'border-grey-c7':show && value.indexOf(item.val) == -1}">
         </span>
