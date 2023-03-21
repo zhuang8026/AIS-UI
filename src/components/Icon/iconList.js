@@ -33,6 +33,10 @@ let iconList = [
   { className: 'trash' },
   { className: 'icon-eye-on' },
   { className: 'icon-eye-off' },
+  { className: 'arrow-double-l' },
+  { className: 'arrow-double-r' },
+  { className: 'arrow-l' },
+  { className: 'arrow-r' },
 ];
 
 export default iconList;

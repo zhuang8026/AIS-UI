@@ -38,6 +38,12 @@
         </div>
           <Icon class="h-40px w-40px  ml-20px text-main hover:-rotate-180 transition duration-300 ease-in-out" iconClass="dropdown" type="svg"  ></Icon>
       </div>
+
+      <div class="shadow-md rounded-sm card p-20px mr-10px mb-10px flex justify-center items-center">
+        <div class="sub" >arrow-double-l
+        </div>
+          <Icon class="h-40px w-40px  ml-20px text-main" iconClass="arrow-double-l" type="svg"  ></Icon>
+      </div>
     </div>
   </div>
 </template>
