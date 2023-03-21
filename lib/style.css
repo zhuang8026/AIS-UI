@@ -1104,6 +1104,9 @@ video {
 .group:hover .group-hover\:invisible {
   visibility: hidden;
 }
+.group:hover .group-hover\:border-l-12px {
+  border-left-width: 12px;
+}
 .group:hover .group-hover\:border-root-dark {
   --tw-border-opacity: 1;
   border-color: rgb(0 81 168 / var(--tw-border-opacity));
