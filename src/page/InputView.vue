@@ -26,8 +26,15 @@
             :class="{'text-grey-ae ' : !yyy}"></Icon>
           </template>
         </Input>
-    </div>
 
+        
+    </div>
+    <div>
+      <Input class="w-342px m-auto mt-40px mb-20px"
+    v-model:value="yyy" type="password" placeholder="password" 
+    @onBlur="onblur" :error="false">
+    </Input>
+  </div>
     
   </div>
 </template>

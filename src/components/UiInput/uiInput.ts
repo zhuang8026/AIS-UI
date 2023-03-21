@@ -1,8 +1,11 @@
 
-import { computed, nextTick, } from 'vue';
+import { computed, nextTick, onMounted, ref, } from 'vue';
 // import { uuid } from 'vue-uuid';
+import Icon from '@/components/Icon/index.vue';
 export default {
-  components: {},
+  components: {
+    Icon,
+  },
   props: {
     type: {
       type: String,
@@ -58,6 +61,22 @@ export default {
     const { value, id, } = props;
     let _posCursourStart =0;
     let target = null;
+    let privateType = ref(''); // first type
+    let activeShow = ref(false); // true: show pwd , false: hide pwd
+
+
+    onMounted(() => {
+      privateType.value = props.type;
+      
+    });
+
+    // click icon show
+    let onClickShow =  () => {
+      console.log('onClickShow');
+      activeShow.value = ! activeShow.value;
+      privateType.value = activeShow.value ? 'text' : 'password';
+      // emit('update:type', currentType);
+    } //end: onClickShow
 
 
     const privateValue = computed({
@@ -169,7 +188,10 @@ export default {
       placeholderLocal,
       onkeyup,
       valueChange,
-      blur
+      blur,
+      onClickShow,
+      activeShow,
+      privateType,
     }
 
   },//end: setup

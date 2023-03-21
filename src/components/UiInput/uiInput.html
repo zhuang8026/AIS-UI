@@ -1,7 +1,7 @@
 
 <div class="ui-input relative">
   <input 
-  :type="type" 
+  :type="privateType" 
   :name="privateId" 
   :id="privateId" 
   :style="{ 'height': height +'px'}"
@@ -25,6 +25,11 @@
   <div class="absolute top-1/2 right-10px transform rounded -translate-y-1/2">
     <slot :name="suffix"  v-if="suffix"></slot>
   </div>
+  <!-- pwd icon-->
+  <a href="javascript:;" v-if="type == 'password'" class="absolute top-1/2 right-10px transform rounded -translate-y-1/2 cursor-pointer" @click.prevent="onClickShow">
+    <Icon class="h-24px w-24px ml-20px text-grey-90" :iconClass="activeShow ? 'icon-eye-on' : 'icon-eye-off'" type="svg" ></Icon>
+  </a>
+  <!-- end of pwd icon -->
   <div class=" text-error-FF0000 pt-3px" v-if="error && typeof error != 'boolean'"> {{error}}</div>
 </div>
 

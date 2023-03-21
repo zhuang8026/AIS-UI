@@ -31,6 +31,8 @@ let iconList = [
   { className: 'exit' },
   { className: 'restore' },
   { className: 'trash' },
+  { className: 'icon-eye-on' },
+  { className: 'icon-eye-off' },
 ];
 
 export default iconList;
