@@ -1,19 +1,19 @@
 
-<section class="ui-radio">
+<section class="ui-radio" >
   <div class="pay-radioGroup-container" >
-    <label v-if="label" class=" mr-16px h-21px block mb-8px">
+    <label v-if="label" class=" mr-16px h-21px block mb-8px" >
       <span>{{label}}</span>
       <span class="text-red-200 mr-1" v-if="required"> * </span>
     </label>
-    <div class=" radioBlock justify-start" :class="{'flex': displayColumn != 'h'}">
-      <label  class=" group select-none radioEach relative  pl-20px mr-16px mb-12px"
+    <div class=" radioBlock justify-start" :class="[{'flex': displayColumn != 'h'}, 'theme--'+theme]">
+      <label  class="label-block group select-none radioEach relative  pl-20px mr-16px mb-12px"
       v-for="(item,index) in options" :key="item.val"  :style="{ 'margin': margin}"
       :class="{'flex': displayColumn === 'h', 'block': optionDisplayColumn ,'inline-block' : !optionDisplayColumn,
       'pl-6px': size == 'small','mb-4px': size == 'small', 'cursor-pointer' : !item.disabled , 'cursor-default': show ,'cursor-not-allowed': item.disabled }">
         <input :name="privateName" class=" absolute opacity-0 left-0"
         :value="item.val"  type="radio"  :id="item.val" 
         v-model="radioValue" :disabled="item.disabled || show" >
-        <span class=" ml-8px pt-2px h-full flex items-center" :class="{'text-xxxs': size == 'small'}" v-if="item.name">{{item.name}}</span>
+        <span class="text ml-8px pt-2px h-full flex items-center text-left" :class="{'text-xxxs': size == 'small'}" v-if="item.name">{{item.name}}</span>
         <!-- 客製化資料 slot -->
         <slot :name="custom+index" v-if="!item.name" ></slot>
         <!-- 客製化資料 slot end -->

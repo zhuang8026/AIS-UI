@@ -55,6 +55,11 @@ export default {
       type: String,
       required: false,
       default: '',
+    },
+    theme: {
+      type: String,
+      required: false,
+      default: 'default', // default, 1-> for border
     }
   },
   setup(props: { value?: any; text?: any; layout?: any; size?: any; isError?: any; isDisable?: any; isSlot?: any; name?:String },  { emit }: any) {

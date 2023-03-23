@@ -100,4 +100,19 @@
   
 }
 
+.radioBlock{
+  &.theme--1{
+    
+    .label-block{
+      @apply min-h-[88px] items-center w-full flex grow border-[1px] border-grey-b3 box-border pr-[20px] rounded-[6px];
+      .text{
+        @apply ml-0 box-border pr-[30px]
+      }
+      .checkmark{
+        @apply left-auto right-[20px] ;
+      }
+    }
+  }//end:1
+}//end: radioBlock
+
 

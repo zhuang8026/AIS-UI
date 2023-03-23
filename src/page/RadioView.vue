@@ -2,6 +2,14 @@
   <div class="home">
     <h2>Radio btn</h2>
     <hr/>
+
+    <div class="flex">
+      <Radio class="mt-5px" :options="validList" displayColumn="h" 
+      label="" v-model:value="check" name="AA" theme="1" @changeValue="isCheck"></Radio>
+    </div>
+    <!-- <Radio class="mt-5px" :options="validList" displayColumn="h" 
+      label="" v-model:value="check" name="AA"  @changeValue="isCheck"></Radio> -->
+    <hr class="bg-grey-97 my-14px">
     <h2 class="my-14px">Normal</h2>
     <div class="flex">
         <Radio class="mt-5px" :options="validList" displayColumn="h" 
