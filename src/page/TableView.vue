@@ -89,7 +89,14 @@ export default {
       },
       {
           id: 'th3',
-          txt: '標題3標題3標題3標題3'
+          txt: '標題3標題3標題3標題3',
+          options: [
+            { "id": "op2-1", "name": "Option 1", "disabled": false },
+            { "id": "op2-2", "name": "Option 2", "disabled": false },
+          ],
+          val: [
+            "op2-2"
+          ]
       },])
 
     let tableData = reactive([{

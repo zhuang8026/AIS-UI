@@ -21,7 +21,7 @@ $dot-y: 3px;
     }
     th{
         vertical-align: middle;
-        @apply sticky;
+        // @apply sticky;
         .txt{
             
         }
@@ -53,9 +53,10 @@ $dot-y: 3px;
                 text-align: left;
                 margin: 0;
                 padding: 0;
-                position: relative;
+                // position: relative;
                 &.style--status{
                     padding-left: $size-dot + 8px;
+                    position: relative;
                     &::before, &::after{
                         content: '';
                         display: inline-block;

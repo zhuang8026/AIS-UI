@@ -64,6 +64,7 @@
 
 //checkbox的custom樣式
 .multiSelect {
+    @apply z-30;
     .vs--disabled {
         .vs__dropdown-toggle,
         .vs__clear,
@@ -116,7 +117,7 @@
             }
         }
         .vs__dropdown-menu{
-            @apply border-none ;
+            @apply border-none bg-white z-300;
             @apply top-[41px]
         }
     }
