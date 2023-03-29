@@ -30,7 +30,7 @@
         </div>
       </template>
     </v-select>
-    <div class=" error flex items-center" v-show="error">
+    <div class=" error flex items-center justify-end" v-show="error">
       <small class="text-error-FF0000 pt-3px">{{error}}</small>
     </div>
     

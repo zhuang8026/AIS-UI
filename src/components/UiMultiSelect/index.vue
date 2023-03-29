@@ -42,8 +42,8 @@
         <em v-if="searching "> Sorry, no {{search}}'s matching options.</em>
       </template>
     </v-select>
-    <div class=" error flex items-center" v-show="error">
-      <small class=" text-error-0 pt-3px">{{error}}</small>
+    <div class="error flex items-center justify-end" v-show="error">
+      <small class="text-error-FF0000 pt-3px">{{error}}</small>
     </div>
   </div>
 

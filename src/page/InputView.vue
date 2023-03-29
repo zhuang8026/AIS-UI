@@ -3,7 +3,7 @@
     <div class="flex">
       <Input class="w-342px m-auto mt-40px mb-20px" 
         v-model:value="ttt"  placeholder="text" type="text"
-        @onBlur="onblur" :error="false" ></Input>
+        @onBlur="onblur" error="There is an error. There is an error. There is an error. There is an error. There is an error." ></Input>
 
       <Input class="w-342px m-auto mt-40px mb-20px" 
         v-model:value="aaa"  placeholder="text" type="text"
