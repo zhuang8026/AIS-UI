@@ -32,7 +32,7 @@
     <div>
       <Input class="w-342px m-auto mt-40px mb-20px"
     v-model:value="yyy" type="password" placeholder="password" 
-    @onBlur="onblur" :error="false">
+    @onBlur="onblur" error="There is an error. There is an error.">
     </Input>
   </div>
     

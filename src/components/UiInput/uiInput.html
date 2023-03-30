@@ -18,7 +18,7 @@
   class="w-full border border-grey-df rounded-4px h-32 px-10px leading-100 focus:border-main 
   outline-none hover:border-root-dark disabled:cursor-not-allowed disabled:text-grey-b3 
   disabled:border-grey-b3 "
-  :class="{'border-sub-tomato': error, 'px-6px': prefix || suffix, 'pl-40px' : prefix}" >
+  :class="{'border-sub-tomato': error, 'px-6px': prefix || suffix, 'pl-[40px]' : prefix, 'pr-[32px]': type === 'password'}" >
   <div class="absolute top-1/2 left-3 transform rounded -translate-y-1/2">
     <slot :name="prefix"  v-if="prefix" :onKey="value"></slot>
   </div>
@@ -26,7 +26,7 @@
     <slot :name="suffix"  v-if="suffix"></slot>
   </div>
   <!-- pwd icon-->
-  <a href="javascript:;" v-if="type == 'password'" class="absolute top-1/2 right-10px transform rounded -translate-y-1/2 cursor-pointer" @click.prevent="onClickShow">
+  <a href="javascript:;" v-if="type == 'password'" class="absolute top-[16px] right-10px transform rounded -translate-y-1/2 cursor-pointer" @click.prevent="onClickShow">
     <Icon class="h-24px w-24px ml-20px text-grey-90" :iconClass="activeShow ? 'icon-eye-on' : 'icon-eye-off'" type="svg" ></Icon>
   </a>
   <!-- end of pwd icon -->
