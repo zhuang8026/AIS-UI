@@ -37,6 +37,9 @@ let iconList = [
   { className: 'arrow-double-r' },
   { className: 'arrow-l' },
   { className: 'arrow-r' },
+  { className: 'arrow-r' },
+  { className: 'icon-check-bg' },
+  { className: 'icon-pen' },
 ];
 
 export default iconList;
