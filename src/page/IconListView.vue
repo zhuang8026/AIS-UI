@@ -140,7 +140,7 @@ export default {
         { className: 'asus_proart_sw_ico_lock' },
         { className: 'user' },
         { className: 'icon-check-bg' },
-        { className: 'icon-pen' },
+        { className: 'icon-pen-bg' },
 
       ]
     })
