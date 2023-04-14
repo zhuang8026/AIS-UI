@@ -612,11 +612,11 @@ video {
 .h-40px {
   height: 40px;
 }
-.h-\[180px\] {
-  height: 180px;
-}
 .h-\[26px\] {
   height: 26px;
+}
+.h-\[300px\] {
+  height: 300px;
 }
 .h-full {
   height: 100%;
@@ -920,6 +920,9 @@ video {
 }
 .pr-4px {
   padding-right: 4px;
+}
+.pr-\[12px\] {
+  padding-right: 12px;
 }
 .pr-\[32px\] {
   padding-right: 32px;
