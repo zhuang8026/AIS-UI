@@ -6,7 +6,7 @@ $dot-y: 3px;
     
     
     .td-style{
-        @apply first:group-hover:border-l-2px;
+        @apply first:group-hover:border-l-2px box-border;
     
     }
     table{

@@ -1,81 +1,93 @@
-
 <div class="ui-table">
   <table class="table-fixed border-separate border-spacing-0 flex flex-col h-full w-full">
-  <!-- table header -->
-  <thead class="flex-0 w-full">
-    <tr class="">
-      <th class="w-40px" v-if="isHasCheck">
-        <UiCheckbox :options="checkAllSetting.options"  v-model:value="checkAllSetting.value" @changeValue="onChangeCheckAll" class="ml-6px mr-6px"></UiCheckbox>
-      </th> 
-      <!-- head data -->
-      <th v-for="(item, index) in head" class="text-left">
-      <!-- type 1 : normal txtx -->
-        <p v-if="!item.hasOwnProperty('options')" class="txt text-xs whitespace-normal break-words" :class="headTheme">{{item.txt}}</p>
+    <!-- table header -->
+    <thead class="flex-0 w-full">
+      <tr class="">
+        <th class="w-40px" v-if="isHasCheck">
+          <UiCheckbox :options="checkAllSetting.options" v-model:value="checkAllSetting.value"
+            @changeValue="onChangeCheckAll" class="ml-6px mr-6px"></UiCheckbox>
+        </th>
+        <!-- head data -->
+        <th v-for="(item, index) in head" class="text-left">
+          <!-- type 1 : normal txtx -->
+          <p v-if="!item.hasOwnProperty('options')" class="txt text-xs whitespace-normal break-words"
+            :class="headTheme">{{item.txt}}</p>
 
-      <!-- end of type1 -->
+          <!-- end of type1 -->
 
-      <!-- type2: select filter  -->
-        <ul v-else>
-          <UiMultiSelect
-            class="w-full"
-            :defaultSelectedValue="filterSelectedVal[index]"
-            :optionArr="item.options" 
-            :required="true"
-            :showCheckIcon="true"
-            @onClickCheck="onClickFilter($event, item.id)"
-            :name="'tableH_'+index"
-            :hasAllOption="true"
-            :placeholder="item.txt"
-            customizePlaceholderClass=" text-font-2 text-xs"
-          ></UiMultiSelect> 
-        </ul>
+          <!-- type2: select filter  -->
+          <ul v-else>
+            <UiMultiSelect class="w-full" :defaultSelectedValue="filterSelectedVal[index]" :optionArr="item.options"
+              :required="true" :showCheckIcon="true" @onClickCheck="onClickFilter($event, item.id)"
+              :name="'tableH_'+index" :hasAllOption="true" :placeholder="item.txt"
+              customizePlaceholderClass=" text-font-2 text-xs"></UiMultiSelect>
+          </ul>
 
-      <!-- end of type2 -->
-      </th>
-      <th v-if="moreOption.length > 0"  class="w-[36px]"></th>
-    </tr>
-  </thead>
-  <!-- end of table header -->
-  <tbody v-if="privateDatas.length > 0" class="overflow-y-auto w-full h-full flex-1 block">
-    
-    <tr  v-for="(data, index) in privateDatas" :key="'datas-'+index+ updateKey" class="group  odd:bg-grey-f4 even:bg-white [&>td]:active:bg-root-hoverBlue" :class="activeStyle(data.id)" >
-      <!-- checkbox -->
-      <td v-if="isHasCheck" class="td-style w-40px check-content text-center align-middle">
-        <UiCheckbox class="ml-6px mr-6px" :options="data.options" v-model:value="data.checkVal"  @changeValue="onChangeCheckDetail($event, data.id)" margin="0"></UiCheckbox>
-      </td>
+          <!-- end of type2 -->
+        </th>
+        <th v-if="moreOption.length > 0" class="w-[36px]"></th>
+      </tr>
+    </thead>
+    <!-- end of table header -->
+    <tbody v-if="privateDatas.length > 0" class="overflow-y-auto w-full h-full flex-1 block">
 
-      <!-- data -->
-      <td class="td-style align-middle text-center"  v-for="detail in data.detail" :key="'detail-' + index" @click.prevent="onClickItem(data)" :class="[{'cursor-pointer':isItemClick} , {'first:group-hover:border-l-12px': isHasCheck}]">
-        <!-- type1 : normal txt -->
-        <template v-if="detail.type == 'default'" >
-          <p class="txt whitespace-normal break-words">{{detail.txt}}</p>
-          <p v-if="detail.hasOwnProperty('sub')" class="mt-[6px] txt whitespace-normal break-words text-font-2 text-xs">{{detail.sub}}</p>
-        </template>
-        
-        <!-- end of type1  -->
+      <tr v-for="(data, index) in privateDatas" :key="'datas-'+index+ updateKey"
+        class="group  odd:bg-grey-f4 even:bg-white [&>td]:active:bg-root-hoverBlue" :class="activeStyle(data.id)">
+        <!-- checkbox -->
+        <td v-if="isHasCheck" class="td-style w-40px check-content text-center align-middle">
+          <UiCheckbox class="ml-6px mr-6px" :options="data.options" v-model:value="data.checkVal"
+            @changeValue="onChangeCheckDetail($event, data.id)" margin="0"></UiCheckbox>
+        </td>
 
+        <!-- data -->
+        <td class="td-style align-middle text-center" v-for="(detail, dIndex) in data.detail" :key="'detail-' + index"
+          @click.prevent="onClickItem(data)"
+          :class="[{'cursor-pointer':isItemClick} , {'first:group-hover:border-l-12px': isHasCheck}]">
+          <template v-if="isEdit && detail.hasOwnProperty('edit')">
+            <template v-if="detail.edit === 'input' ">
+              <ui-input class="pr-[12px]" type="text" v-model:value="detail.txt"></ui-input>
+            </template>
+            <template v-if="detail.edit === 'select' ">
+              <ui-select class="w-full pr-[12px]" v-model:defaultSelectedValue="detail.selectId"
+                :optionArr="dataOptions[dIndex]" :showCheckIcon="true" @onValChange="onSelectItem(detail)"
+                ></ui-select>
+            </template>
+          </template>
+          <template v-else>
+            <!-- type1 : normal txt -->
+            <template v-if="detail.type == 'default'">
+              <p class="txt whitespace-normal break-words">{{detail.txt}}</p>
+              <p v-if="detail.hasOwnProperty('sub')"
+                class="mt-[6px] txt whitespace-normal break-words text-font-2 text-xs">{{detail.sub}}</p>
+            </template>
+            <!-- end of type1  -->
+            <!-- type2: dot style text -->
+            <p v-else class="txt style--status whitespace-normal break-words"
+              :class="detail.type.split(':')[1] == 1 ? 'normal': 'active'">{{detail.txt}}</p>
+            <!-- end of type2 -->
+          </template>
 
-        <!-- type2: dot style text -->
-        <p v-else class="txt style--status whitespace-normal break-words" :class="detail.type.split(':')[1] == 1 ? 'normal': 'active'">{{detail.txt}}</p>
-        <!-- end of type2 -->
-      </td>
-      <td v-if="moreOption.length > 0" class=" td-style text-center relative">
-       
-
-        <Icon class="text-black w-24px h-24px grow-0 shrink-0 flex items-center cursor-pointer pointer-events-auto relative z-20 "  iconClass="icon-more-v" type="svg" @click.prevent="onClickMore(data.id)"></Icon>
-        <ul class="absolute w-[192px] flex flex-wrap right-0 top-[70%] z-30 shadow-lg border-r-[6px]" v-if="isMoreOpenArr[index].isOpen">
-          <li v-for="more in moreOption"  class="w-full bg-white border-box pt-[6px] pr-12px min-h-[32px] z-20 inline-block hover:bg-root-hoverBlue">
-            <a href="javascript:;" @click.prevent="onClickMoreItem(data.id,more.id)" class="inline-block align-middle w-full">{{more.text}}</a>
-          </li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-  <tbody v-else>
-    <tr class="bg-white">
-      <td :colspan="isHasCheck ? head.length + 1 : head.length " class="text-center color-ff whitespace-normal break-words">{{emptyText}}</td>
-    </tr>
-  </tbody>
+        </td>
+        <td v-if="moreOption.length > 0" class=" td-style text-center relative">
+          <Icon
+            class="text-black w-24px h-24px grow-0 shrink-0 flex items-center cursor-pointer pointer-events-auto relative z-20 "
+            iconClass="icon-more-v" type="svg" @click.prevent="onClickMore(data.id)"></Icon>
+          <ul class="absolute w-[192px] flex flex-wrap right-0 top-[70%] z-30 shadow-lg border-r-[6px]"
+            v-if="isMoreOpenArr[index].isOpen">
+            <li v-for="more in moreOption"
+              class="w-full bg-white border-box pt-[6px] pr-12px min-h-[32px] z-20 inline-block hover:bg-root-hoverBlue">
+              <a href="javascript:;" @click.prevent="onClickMoreItem(data.id,more.id)"
+                class="inline-block align-middle w-full">{{more.text}}</a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+    <tbody v-else>
+      <tr class="bg-white">
+        <td :colspan="isHasCheck ? head.length + 1 : head.length "
+          class="text-center color-ff whitespace-normal break-words">{{emptyText}}</td>
+      </tr>
+    </tbody>
   </table>
 </div>
-

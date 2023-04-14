@@ -146,6 +146,8 @@ export default {
 
 
     const onChange = () => {
+      console.log('onChange')
+     
     }
 
     const onBlur = () => {
@@ -168,6 +170,8 @@ export default {
       set: (val) => {
         state.temp = val
         emit('update:defaultSelectedValue', val);
+        console.log('val',val)
+        emit('onValChange',state.temp)
       }
     })
 

@@ -10,19 +10,20 @@
 
     <!-- table1 -->
     <br/>
-    <p>是否勾選全部：{{isTableCheckAll}}</p>
+    <!-- <p>是否勾選全部：{{isTableCheckAll}}</p>
     <p>所有資料：</p>
     <ul>
       <li v-for="(item, index) in tableData" :key="index">
       {{index}} - {{item}}
       <hr/> <br/>
       </li>
-    </ul>
+    </ul> -->
     <!-- <p class="text-color-main">isTableCheckAll: {{isTableCheckAll}}</p> -->
     <br/>
     <div class="flex">
       <Button @onClick="checkAllControl" class=" w-160px mx-20px mb-0" type="full" text="從外面控制checkAll" ></Button>
       <Button @onClick="inputNewData()" class=" w-160px mx-20px mb-0" type="full" text="從外面加資料" ></Button>
+      <Button @onClick="onClickEditOrNot" class=" w-160px mx-20px mb-0" type="full" text="編輯/瀏覽" ></Button>
     </div>
     
 
@@ -38,8 +39,9 @@
     <!-- <p>v-model: selected: {{selectedArr}}</p>
     <p>isSelectedOne: {{isSelectedOne}}</p> -->
     <!-- :moreOption="moreOpt"  -->
+    <!-- :datas="tableData" -->
     <div >
-      <UiTable  class="h-[180px]" :isHasCheck="true" @onChangeCheck="onChangeCheck" :isSelectedOne="isSelectedOne" v-model:selected="selectedArr" @onClickMoreItem="onClickMoreItem" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll" :datas="tableData" :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
+      <UiTable @onSelectItem="onSelectItem" :isEdit="isEditTable" class="h-[300px]" :isHasCheck="true" @onChangeCheck="onChangeCheck" :isSelectedOne="isSelectedOne" v-model:selected="selectedArr" @onClickMoreItem="onClickMoreItem" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll"  :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
     </div>
   </div>
 </template>
@@ -228,6 +230,16 @@ export default {
       console.log('onChangeCheck', data);
     }
 
+    let isEditTable = ref(false);
+
+    let onClickEditOrNot = () => {
+      isEditTable.value = !isEditTable.value;
+    } //end: onClickEditOrNot
+
+    let onSelectItem = (val) => {
+      console.log('onSelectItem',val);
+    }
+
     
 
     return{
@@ -243,6 +255,9 @@ export default {
       selectedArr,
       isSelectedOne: true,
       onChangeCheck,
+      onClickEditOrNot,
+      isEditTable,
+      onSelectItem,
     }
 
   },//end: setup

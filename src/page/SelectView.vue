@@ -136,7 +136,7 @@ export default {
   setup(props, { emit }) {
     const state = reactive({
       fruits: [
-        {id: 'op1',
+        { id: 'op1',
           name: 'Option 1',
           disabled: false,
         },

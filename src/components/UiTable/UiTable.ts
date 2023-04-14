@@ -1,14 +1,18 @@
 import UiCheckbox from '@/components/UiCheckbox/index.vue'; 
 import UiMultiSelect from '@/components/UiMultiSelect/index.vue';
 import Icon from '@/components/Icon/index.vue';
+import UiInput from '@/components/UiInput/index.vue';
 import {computed, ref, watch, reactive, getCurrentInstance, onMounted} from 'vue';
 import { tableData, tableHeader } from './datas';
+import UiSelect from '@/components/UiSelect/index.vue'; //
 export default {
   name: 'ui-table',
   components:{
     UiCheckbox,
     UiMultiSelect,
     Icon,
+    UiInput,
+    UiSelect,
   },
   props: {
     isHasCheck:{
@@ -80,6 +84,25 @@ export default {
       type: Boolean,
       default: false,
     },
+    isEdit: {
+      type: Boolean,
+      default: false,
+    },
+    dataOptions: {
+      type: Object,
+      default(){
+        return{
+          2: [{ id: 'id-1',
+                name: 'Option 1',
+                disabled: false,
+              },
+              { id: 'id-3',
+                name: 'ID3 ID3',
+                disabled: false,
+              }],
+        }
+      }
+    }
     
     
 
@@ -349,6 +372,11 @@ export default {
       if(_selected.length == 0) return '';
       return (_selected).indexOf(_id) != -1 ?  '[&>td]:bg-root-hoverBlue first:[&>td]:rounded-tl-[8px] first:[&>td]:rounded-bl-[8px] last:[&>td]:rounded-tr-[8px] last:[&>td]:rounded-br-[8px]': '';
     }
+
+    let onSelectItem = (detail) => {
+      emit('onSelectItem', detail);
+
+    } //end: onSelectItem
     
 
 
@@ -369,6 +397,7 @@ export default {
       onClickMoreItem,
       isMoreOpenArr,
       activeStyle,
+      onSelectItem,
       
     }//end: return
   }, //end: setup
