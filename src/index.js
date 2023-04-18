@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import Icon from './components/Icon';
 import UINSelect from "./components/UINSelect";
 import UiButton from "./components/UiButton";
 import UiButtonFuture from "./components/UiButtonFuture";
