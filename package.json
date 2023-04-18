@@ -3,7 +3,13 @@
   "version": "0.1.6",
   "private": false,
   "main": "lib/ui.umd.min.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
+    "build:lib": "vue-cli-service build --target lib --name ais-ui --dest lib src/index.js",
+    "build:style": "postcss src/index.css -o lib/style.css",
+    "update:version": "npm version patch && git add . && git commit -m 'update version' && git push && git push --tags",
     "lib": "npm run build:lib",
     "serve": "vue-cli-service serve",
     "push": "node script.js && npm run lib && git add .",
@@ -11,16 +17,10 @@
     "quick": "node script.js && npm run lib && git add . && git commit -m 'commit' && git push",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "build:lib": "vue-cli-service build --target lib --name ais-ui --dest lib src/index.js",
-    "build:style": "postcss src/index.css -o lib/style.css",
     "build:script": "node script.js",
-    "update:version": "npm version patch",
-    "updateAll": "npm run update:version && npm run build:lib && npm run build:style"
+    "updateAll": "npm run build:lib && npm run build:style"
   },
-  "files": [
-    "lib",
-    "src"
-  ],
+  
   "dependencies": {
     "core-js": "^3.6.5",
     "moment": "^2.29.4",
