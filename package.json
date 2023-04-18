@@ -1,8 +1,6 @@
 {
   "name": "ais-ui",
   "version": "0.1.3",
-  "private": false,
-  "main": "lib/ais-ui.umd.min.js",
   "scripts": {
     "lib": "npm run build:lib",
     "serve": "vue-cli-service serve",
@@ -13,7 +11,9 @@
     "lint": "vue-cli-service lint",
     "build:lib": "vue-cli-service build --target lib --name ais-ui --dest lib src/index.js",
     "build:style": "postcss src/index.css -o lib/style.css",
-    "build:script": "node script.js"
+    "build:script": "node script.js",
+    "update:version": "npm version patch",
+    "updateAll": "npm run update:version && npm run lib && npm run build:style"
   },
   "files": [
     "lib"
