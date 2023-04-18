@@ -83,7 +83,7 @@ import user from "./components/assets/icon/user.svg";
 import styleGlobal from "./assets/scss/style-global.scss";
 import styleImport from "./assets/scss/style-import.scss";
 
-const Components = {
+export {
     Icon,
     UINSelect,
     UiButton,
@@ -178,4 +178,4 @@ const Components = {
 //         Vue.component(component.name, component)
 //     })
 // }
-export default Components
+
