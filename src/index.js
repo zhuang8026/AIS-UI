@@ -169,15 +169,13 @@ const Components = {
     styleImport,
 }
 
-Object.keys(Components).forEach(name => {
-    Vue.component(name, Components[name])
-})
+// Object.keys(Components).forEach(name => {
+//     Vue.component(name, Components[name])
+// })
 
-const install = function (Vue, opts = {}) {
-    Components.forEach(component => {
-        Vue.component(component.name, component)
-    })
-}
-export default {
-    install
-}
+// const install = function (Vue, opts = {}) {
+//     Components.forEach(component => {
+//         Vue.component(component.name, component)
+//     })
+// }
+export default Components
