@@ -3,6 +3,13 @@ $size-dot: 14px;
 $dot-y: 3px;
 
 .ui-table {
+    &.style--has-check{
+        th{
+            &:first-of-type{
+                text-align: center;
+            }
+        }//end: th
+    } //end: style--has-check
     
     
     .td-style{
@@ -24,9 +31,6 @@ $dot-y: 3px;
         // @apply sticky;
         .txt{
             
-        }
-        &:first-of-type{
-            text-align: center;
         }
     }//end: th
     tbody{
