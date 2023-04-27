@@ -2,7 +2,7 @@ import UiCheckbox from '@/components/UiCheckbox/index.vue';
 import UiMultiSelect from '@/components/UiMultiSelect/index.vue';
 import Icon from '@/components/Icon/index.vue';
 import UiInput from '@/components/UiInput/index.vue';
-import {computed, ref, watch, reactive, getCurrentInstance, onMounted} from 'vue';
+import {computed, ref, watch, reactive, getCurrentInstance, onMounted, watchEffect} from 'vue';
 import { tableData, tableHeader } from './datas';
 import UiSelect from '@/components/UiSelect/index.vue'; //
 export default {
@@ -251,8 +251,59 @@ export default {
       }
     ) //end: watch
 
+    //#region handle Edit on or off 
+    // for record whitch row and col is edited
+    let editedList = [];
+    let editedListRowIndex = []; 
+
+    // record if any change
+    let recordEditList = (row, col, id) => {
+      console.log('recordEditList', row, col, id)
+      if(row === undefined) return;
+      let isRecorded = editedListRowIndex.some(item => item === row);
+      if(isRecorded) return;
+      editedListRowIndex.push(row);
+      let _info = {
+        rowIndex: row,
+        colIndex: col,
+        id: id,
+      }
+      editedList.push(_info);
+    }
+
+    // input has any change
+    let onChangeInput = (val, row, col, id) => {
+       recordEditList(row, col, id);
+    }  //end: onChangeInput
+
+    // select has any change
+    let onSelectItem = (detail, row, col, id) => {
+      recordEditList(row, col, id);
+      emit('onSelectItem', detail);
+    } //end: onSelectItem
+
+    
+
+    // watch onEditFinish
+    watch(
+      () => props.isEdit,
+      (val) => {
+        if(!val){
+          let _data = [...editedList];
+          emit('onEditFinish', _data)
+        }
+        else{
+          editedList = [];
+          editedListRowIndex = []; 
+        }
+      }
+    ) //end: watch props.isEdit
+
+
+
     onMounted(() => {
       checkIsCheckAll();
+      filterSelectedVal();
       handlData(DATA_UPDATE_TYPE.INIT);
     });
 
@@ -278,11 +329,15 @@ export default {
     } // end: selectAllList
 
     // head filter selected value
-    let filterSelectedVal = computed(() => {
+    //#region filterSelectedVal
+    let headFilterVal  = ref([]);
+    let filterSelectedVal = () => {
       let _filterVal = [];
+      headFilterVal.value = [];
       
       props.head.forEach(item => {
         let _hasFilterArr = [];
+        console.log('_hasFilterArr',_hasFilterArr,item)
         if(item.hasOwnProperty('options')){
           let _valArr = item.val;
           _valArr.forEach((currentId) => {
@@ -298,8 +353,17 @@ export default {
         }//end: if 
           _filterVal.push(_hasFilterArr);
       }) //end: forEach
-      return _filterVal;
-    })//end: computed
+      console.log('_filterVal',_filterVal)
+      headFilterVal.value = [..._filterVal]
+      // return _filterVal;
+
+      return [{
+        id: '1',
+        name: '已完成',
+        disable: false,
+      }]
+    }//end: computed
+    //#endregion filterSelectedVal
 
     // head style
     let headTheme = computed(() => {
@@ -373,10 +437,11 @@ export default {
       return (_selected).indexOf(_id) != -1 ?  '[&>td]:bg-root-hoverBlue first:[&>td]:rounded-tl-[8px] first:[&>td]:rounded-bl-[8px] last:[&>td]:rounded-tr-[8px] last:[&>td]:rounded-br-[8px]': '';
     }
 
-    let onSelectItem = (detail) => {
-      emit('onSelectItem', detail);
+   
 
-    } //end: onSelectItem
+   
+
+    
     
 
 
@@ -398,6 +463,8 @@ export default {
       isMoreOpenArr,
       activeStyle,
       onSelectItem,
+      headFilterVal,
+      onChangeInput,
       
     }//end: return
   }, //end: setup

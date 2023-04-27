@@ -41,11 +41,11 @@
     <!-- :moreOption="moreOpt"  -->
     <!-- :datas="tableData" -->
     <div >
-      <UiTable @onSelectItem="onSelectItem" :isEdit="isEditTable" class="h-[200px]" :isHasCheck="false" @onChangeCheck="onChangeCheck" :isSelectedOne="isSelectedOne" v-model:selected="selectedArr" @onClickMoreItem="onClickMoreItem" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll"  :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
+      <UiTable @onEditFinish="onEditFinish" @onSelectItem="onSelectItem" :isEdit="isEditTable" class="h-[200px]" :isHasCheck="false" @onChangeCheck="onChangeCheck" :isSelectedOne="isSelectedOne" v-model:selected="selectedArr" @onClickMoreItem="onClickMoreItem" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll"  :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
     </div>
 
     <div >
-      <UiTable @onSelectItem="onSelectItem" :isEdit="isEditTable" class="h-[200px]" :isHasCheck="true" @onChangeCheck="onChangeCheck" :isSelectedOne="isSelectedOne" v-model:selected="selectedArr" @onClickMoreItem="onClickMoreItem" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll"  :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
+      <UiTable @onSelectItem="onSelectItem" :isEdit="true" class="h-[200px]" :isHasCheck="true" @onChangeCheck="onChangeCheck" :isSelectedOne="isSelectedOne" v-model:selected="selectedArr" @onClickMoreItem="onClickMoreItem" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll"  :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
     </div>
   </div>
 </template>
@@ -244,6 +244,10 @@ export default {
       console.log('onSelectItem',val);
     }
 
+    let onEditFinish = (val) => {
+      console.log('onEditFinish',val)
+    }
+
     
 
     return{
@@ -262,6 +266,7 @@ export default {
       onClickEditOrNot,
       isEditTable,
       onSelectItem,
+      onEditFinish,
     }
 
   },//end: setup

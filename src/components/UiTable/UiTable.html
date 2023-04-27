@@ -17,7 +17,7 @@
 
           <!-- type2: select filter  -->
           <ul v-else>
-            <UiMultiSelect class="w-full" :defaultSelectedValue="filterSelectedVal[index]" :optionArr="item.options"
+            <UiMultiSelect class="w-full" :defaultSelectedValue="headFilterVal[index]" :optionArr="item.options"
               :required="true" :showCheckIcon="true" @onClickCheck="onClickFilter($event, item.id)"
               :name="'tableH_'+index" :hasAllOption="true" :placeholder="item.txt"
               customizePlaceholderClass=" text-font-2 text-xs"></UiMultiSelect>
@@ -45,11 +45,11 @@
           :class="[{'cursor-pointer':isItemClick} , {'first:group-hover:border-l-12px': isHasCheck}]">
           <template v-if="isEdit && detail.hasOwnProperty('edit')">
             <template v-if="detail.edit === 'input' ">
-              <ui-input class="pr-[12px]" type="text" v-model:value="detail.txt"></ui-input>
+              <ui-input @onChange="onChangeInput($event, index, dIndex, data.id)" class="pr-[12px]" type="text" v-model:value="detail.txt"></ui-input>
             </template>
             <template v-if="detail.edit === 'select' ">
               <ui-select class="w-full pr-[12px]" v-model:defaultSelectedValue="detail.selectId"
-                :optionArr="dataOptions[dIndex]" :showCheckIcon="true" @onValChange="onSelectItem(detail)"
+                :optionArr="dataOptions[dIndex]" :showCheckIcon="true" @onValChange="onSelectItem(detail, index, dIndex, data.id)"
                 ></ui-select>
             </template>
           </template>

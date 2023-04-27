@@ -37,20 +37,30 @@ export let tableData = [{
     isDisable: false,
     detail: [
       {
-        txt: '資料1資料1資料1資料1',
-        type: 'default'  // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
+        txt: '資料1AAA資料1資料1資料1',
+        type: 'default',  // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
+        edit: 'input', // none, input, select
       },
       { 
         txt: '資料2資料2資料2資料2資料2',
-        type: 'default'
+        sub: '小資料2小資料2',
+        type: 'default',
+        // edit: 'none', // none, input, select
       },
       { 
         txt: '資料3資料3資料3資料3資料3',
-        type: 'default'
+        type: 'default',
+        edit: 'select', // none, input, select
+        selectId : { 
+          id: 'id-3',
+          name: 'ID3 ID3',
+          disabled: false,
+        }, // select 的選項
       },
       { 
         txt: '資料3資料3資料3資料3資料3',
-        type: 'status:1'
+        type: 'status:1',
+        // edit: 'none', // none, input, select
       }
   ]},
   {
