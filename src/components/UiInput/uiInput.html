@@ -12,7 +12,7 @@
   :disabled="isDisable" 
   :min="min" 
   required
-  pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+  :pattern="pattern"
   @keydown="onkeydown($event)"  @keyup="onkeyup($event)"
   @blur.lazy="blur($event)"
   class="w-full border border-grey-66 rounded-4px h-32 px-10px leading-100 focus:border-main 

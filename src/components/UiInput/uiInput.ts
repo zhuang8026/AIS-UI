@@ -52,6 +52,10 @@ export default {
       type:  String,
       default: undefined
     },
+    pattern: {
+      type: String,
+      default: '',
+    },
     prefix: String,
     suffix: String,
 
