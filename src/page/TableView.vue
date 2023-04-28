@@ -43,9 +43,9 @@
     <div >
       <UiTable @onEditFinish="onEditFinish" @onSelectItem="onSelectItem" :isEdit="isEditTable" class="h-[200px]" :isHasCheck="false" @onChangeCheck="onChangeCheck" :isSelectedOne="isSelectedOne" v-model:selected="selectedArr" @onClickMoreItem="onClickMoreItem" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll"  :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
     </div>
-
+    <h1></h1>
     <div >
-      <UiTable @onSelectItem="onSelectItem" :isEdit="true" class="h-[200px]" :isHasCheck="true" @onChangeCheck="onChangeCheck" :isSelectedOne="isSelectedOne" v-model:selected="selectedArr" @onClickMoreItem="onClickMoreItem" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll"  :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
+      <UiTable :isHasCheckAll="false" @onSelectItem="onSelectItem" :isEdit="true" class="h-[200px]" :isHasCheck="true" @onChangeCheck="onChangeCheck" :isSelectedOne="isSelectedOne" v-model:selected="selectedArr" @onClickMoreItem="onClickMoreItem" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll"  :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
     </div>
   </div>
 </template>

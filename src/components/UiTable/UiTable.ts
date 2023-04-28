@@ -19,6 +19,10 @@ export default {
       type: Boolean, //是否要有checkbox
       default: true,
     },
+    isHasCheckAll:{
+      type: Boolean, //是否要有全選的checkbox
+      default: true,
+    },
     dataHead: {
       type: Array,
       default(){
