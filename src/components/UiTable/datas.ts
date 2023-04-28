@@ -2,10 +2,10 @@
 export let tableData = [{
     id: '001',
     isCheck: true,
-    isDisable: false,
+    isDisable: true,
     detail: [
       {
-        txt: '資料1AAA資料1資料1資料1',
+        txt: 'AAA',
         type: 'default',  // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
         edit: 'input', // none, input, select
       },

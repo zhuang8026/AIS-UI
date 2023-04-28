@@ -58,9 +58,9 @@ export default {
     },
     moreOption:{
       type: Array,
-      default: []  
-      /**
-       * {
+      default: [
+       
+        {
         id: 'del',
         text: 'Permanently Delete'
       },
@@ -68,7 +68,9 @@ export default {
         id: 'restore',
         text: 'Restore'
       }
-       */
+      
+      ]  
+      
     },
     theme: {
       type: String,
@@ -160,7 +162,7 @@ export default {
         let _option = [{
           name: '',
           val: item.id,
-          disable: item.isDisable
+          disabled: item.isDisable
         }]//end: item
         let _checkVal = [];
         let _isCheck = false;
