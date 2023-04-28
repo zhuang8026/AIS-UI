@@ -64,14 +64,14 @@ export default {
       type: Array,
       default: [
        
-        {
-        id: 'del',
-        text: 'Permanently Delete'
-      },
-      {
-        id: 'restore',
-        text: 'Restore'
-      }
+      //   {
+      //   id: 'del',
+      //   text: 'Permanently Delete'
+      // },
+      // {
+      //   id: 'restore',
+      //   text: 'Restore'
+      // }
       
       ]  
       
