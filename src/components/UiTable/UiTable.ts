@@ -115,6 +115,7 @@ export default {
 
   },//end: props
   setup(props, { emit }) {
+
     
 
     let updateKey = ref(0);
@@ -443,6 +444,15 @@ export default {
       return (_selected).indexOf(_id) != -1 ?  '[&>td]:bg-root-hoverBlue first:[&>td]:rounded-tl-[8px] first:[&>td]:rounded-bl-[8px] last:[&>td]:rounded-tr-[8px] last:[&>td]:rounded-br-[8px]': '';
     }
 
+    let highlightStyle = (data) => {
+
+      let isNeedHeighlight = privateDatas[0].hasOwnProperty('isHighLight');
+      if(!isNeedHeighlight) return '';
+      // console.log('data.isHighLight',data)
+      return data.isHighLight ? '[&>td]:bg-sub-pinkBg first:[&>td]:rounded-tl-[8px] first:[&>td]:rounded-bl-[8px] last:[&>td]:rounded-tr-[8px] last:[&>td]:rounded-br-[8px]' : '';
+
+    } //end: highlightIndex
+
    
 
    
@@ -471,6 +481,7 @@ export default {
       onSelectItem,
       headFilterVal,
       onChangeInput,
+      highlightStyle,
       
     }//end: return
   }, //end: setup

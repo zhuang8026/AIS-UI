@@ -57,6 +57,9 @@ $dot-y: 3px;
                 text-align: left;
                 margin: 0;
                 padding: 0;
+                + .txt{
+                    margin-top: 4px;
+                }
                 // position: relative;
                 &.style--status{
                     padding-left: $size-dot + 8px;

@@ -5,7 +5,7 @@
 
     <!-- table 2  -->
 
-    <!-- <UiTable v-model:isCheckedAll="isTableCheckAll" :datas="tableData"></UiTable> -->
+    <UiTable  v-model:isCheckedAll="isTableCheckAll" :datas="tableData"></UiTable>
 
 
     <!-- table1 -->
@@ -64,8 +64,9 @@ export default {
   },
   setup(){
     let isTableCheckAll = ref(true)
+    let tableHead = reactive([])
 
-    let tableHead = reactive([
+    let tableHeadData = reactive([
         {
           id: 'th0',
           txt: '標題1標題1標題1標題1'
@@ -87,10 +88,10 @@ export default {
           txt: '篩選2篩選2',
           options: [
             { "id": "op2-1", "name": "Option 1", "disabled": false },
-            { "id": "op2-2", "name": "Option 2", "disabled": false },
+            { "id": "op2-4", "name": "AAA 204", "disabled": false },
           ],
           val: [
-            "op2-2"
+            "op2-4"
           ]
       },
       {
@@ -105,10 +106,13 @@ export default {
           ]
       },])
 
-    let tableData = reactive([{
+      tableHead = [...tableHeadData]
+      // Object.assign(tableHead, tableHeadData);
+      let tableData = reactive([{
     id: 'AAA',
     isCheck: true,
     isDisable: false,
+    isHighLight: true,
     detail: [
       {
         txt: '資料1AAA資料1資料1資料1',
@@ -117,21 +121,22 @@ export default {
       { 
         txt: '資料2資料2資料2資料2資料2',
         sub: '小資料小資料',
+        type: 'default',
+      },
+      { 
+        txt: ['AAA DDD JEE HPJEPRWPRJPEJRPW EJOPEWPRJ EP EJ ','BBB','CCC'],
         type: 'default'
       },
       { 
-        txt: '資料3資料3資料3資料3資料3',
-        type: 'default'
-      },
-      { 
-        txt: '資料3資料3資料3資料3資料3',
-        type: 'status:1'
+        txt: ['資料3資料3資料3資料3資料3','AAA', 'CCC'],
+        type: 'status:1:0:1'
       }
   ]},
   {
     id: '002',
     isCheck: false,
     isDisable: false,
+    isHighLight: false,
     detail: [
       {
         txt: '資料1資料1資料1資料1',
@@ -154,6 +159,8 @@ export default {
     id: '003',
     isCheck: false,
     isDisable: false,
+    isHighLight: false,
+    // isHighLight: true,
     detail: [
       {
         txt: '資料1資料1資料1資料1',
@@ -184,6 +191,7 @@ export default {
         id: Math.random().toString(),
         isCheck: true,
         isDisable: false,
+        isHighLight: true,
         detail: [
           {
             txt: 'Test1Test333',
