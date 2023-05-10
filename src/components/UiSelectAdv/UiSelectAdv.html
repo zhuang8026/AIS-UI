@@ -11,12 +11,12 @@
     <ul>
       <li  v-for="(item, index) in opt" :key="index" ref="itemRefs" class="relative px-10px py-10px border-box flex items-center group cursor-pointer hover:bg-root-hoverBlue" >
           <span class="flex-auto flex grow justify-start text-left text-sm " v-if="!item.isEdit">{{item.name}}</span>  
-          <span class="flex-auto flex grow justify-start text-left relative z-20" v-else>
-            <input class="w-full text-sm flex h-[26px] py-4px px-6px border-box border-main border rounded-sm focue:border" type="text" :value="item.name" @keyup.enter="onClickCheck(index, item.id)">
+          <span class="flex-auto flex grow justify-start text-left relative z-20 min-h-24px" v-else>
+            <input class="w-full text-sm flex h-[32px] py-4px px-6px border-box border-main border rounded-sm focue:border" type="text" :value="item.name" @keyup.enter="onClickCheck(index, item.id)">
           </span>
           <!-- icon -->
           <Icon class="text-black w-24px h-24px grow-0 shrink-0 flex items-center cursor-pointer invisible pointer-events-none group-hover:pointer-events-auto group-hover:visible relative z-20" :class="{'group-hover:invisible  group-hover:pointer-events-none ': item.isEdit}" iconClass="icon-edit" type="svg" @click.prevent="onClickEdit(index)"></Icon>
-          <Icon class="text-main w-24px h-24px grow-0 shrink-0 flex items-center cursor-pointer mr-8px relative top-4px z-20" iconClass="Ico_Check" type="svg" :class="[item.isEdit ? 'visible ' : 'invisible ']" @click.prevent="onClickCheck(index, item.id)"></Icon>
+          <Icon class="text-main w-24px text-font-2h-24px grow-0 shrink-0 flex items-center cursor-pointer mr-8px relative top-4px z-20 =" iconClass="Ico_Check" type="svg" :class="[item.isEdit ? 'visible ' : 'invisible ']" @click.prevent="onClickCheck(index, item.id)"></Icon>
           <!-- trigger area -->
           <div class="absolute left-0 top-0 w-full h-full z-10" @click.prevent="onClickItem(item)"></div>
           <!-- end of trigger area -->

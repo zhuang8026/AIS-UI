@@ -1,5 +1,8 @@
 //select style init
 .v-select {
+    .style--txt{
+        line-height: 1.1;
+    }
     .vs__dropdown-toggle {
         @apply border-grey-66 border bg-white overflow-hidden ;
         &:hover{
@@ -15,9 +18,11 @@
        
     }
     .vs__search{
+        line-height: 1.1;
         &::placeholder{
             @apply text-grey-4c;
         }
+        
     }
     .vs__dropdown-option{
         @apply px-12px;

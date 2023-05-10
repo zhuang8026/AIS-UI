@@ -71,12 +71,12 @@ export default {
     let tableHeadData = reactive([
         {
           id: 'th0',
-          txt: '標題1標題1標題1標題1'
+          txt: 'Equipment Name / Model'
       },
       // filter : 類型
       {
           id: 'th1',
-          txt: '篩選篩選',
+          txt: 'Equipment Name / Model',
           options: [   // filter的選項
             { "id": "op1", "name": "很長很長很長很長的選項", "disabled": false }, 
             { "id": "op2", "name": "Option 2", "disabled": false },
