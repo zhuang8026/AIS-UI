@@ -22,6 +22,8 @@
     <br/>
     <div class="flex">
       <Button @onClick="checkAllControl" class=" w-160px mx-20px mb-0" type="full" text="從外面控制checkAll" ></Button>
+      <Button @onClick="changeData()" class=" w-160px mx-20px mb-0" type="full" text="從外面改資料" ></Button>
+      
       <Button @onClick="inputNewData()" class=" w-160px mx-20px mb-0" type="full" text="從外面加資料" ></Button>
       <Button @onClick="onClickEditOrNot" class=" w-160px mx-20px mb-0" type="full" text="編輯/瀏覽" ></Button>
     </div>
@@ -108,7 +110,7 @@ export default {
 
       tableHead = [...tableHeadData]
       // Object.assign(tableHead, tableHeadData);
-      let tableData = reactive([{
+      let tableData = ref([{
     id: 'AAA',
     isCheck: true,
     isDisable: false,
@@ -186,6 +188,12 @@ export default {
 
     }//end: checkAllControl
 
+    let changeData = () => {
+      tableData.value = [];
+      console.log('changeData', tableData)
+      
+    }
+
     let inputNewData = () => {
       let _data = {
         id: Math.random().toString(),
@@ -210,7 +218,7 @@ export default {
             type: 'status:2'
           }
       ]}
-      tableData.push(_data);
+      tableData.value.push(_data);
 
     }//end: inputNewData
 
@@ -275,6 +283,7 @@ export default {
       isEditTable,
       onSelectItem,
       onEditFinish,
+      changeData,
     }
 
   },//end: setup

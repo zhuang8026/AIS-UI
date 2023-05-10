@@ -186,11 +186,11 @@ export default {
         item['options'] = _option.slice(0);
         item['checkVal'] = _checkVal.slice(0);
         item['isCheck'] =_isCheck;
-        // 處理more
-        isMoreOpenArr.push({
-          id: item.id,
-          isOpen: false
-        }); // more
+        // // 處理more
+        // isMoreOpenArr.push({
+        //   id: item.id,
+        //   isOpen: false
+        // }); // more
       }) //end: forEach
       updateKey.value +=1;
       // console.log('privateDatas',privateDatas);
@@ -445,8 +445,8 @@ export default {
     }
 
     let highlightStyle = (data) => {
-
-      let isNeedHeighlight = privateDatas[0].hasOwnProperty('isHighLight');
+      if( props.datas.length == 0) return '';
+      let isNeedHeighlight = props.datas[0].hasOwnProperty('isHighLight');
       if(!isNeedHeighlight) return '';
       // console.log('data.isHighLight',data)
       return data.isHighLight ? '[&>td]:bg-sub-pinkBg first:[&>td]:rounded-tl-[8px] first:[&>td]:rounded-bl-[8px] last:[&>td]:rounded-tr-[8px] last:[&>td]:rounded-br-[8px]' : '';
