@@ -1,0 +1,26 @@
+<div
+  class="ui-hint"
+  @mouseenter="hoverTriggerEnterHandler"
+  @mouseleave="hoverTriggerLeaveHandler"
+>
+  <transition
+    :name="transition"
+    @after-enter="handleAfterEnter"
+    @after-leave="handleAfterLeave"
+  >
+    <div
+      v-show="showPopover"
+      :class="['hint-outbox', placement, popperClass]"
+      :aria-hidden="!showPopover ? 'true' : 'false'"
+    >
+      <div class="hint-arrow" ref="popoverArrow"></div>
+      <div  class="max-h-16 overflow-y-auto" :class="['hint-box-content']">
+        <div v-if="title" v-text="title" class="hint-title"></div>
+        <slot>{{ content }}</slot>
+      </div>
+    </div>
+  </transition>
+  <div ref="reference" class="reference-content" @click="clickTriggerHandler">
+    <slot name="reference"></slot>
+  </div>
+</div>

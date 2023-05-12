@@ -40,6 +40,8 @@ let iconList = [
   { className: 'arrow-r' },
   { className: 'icon-check-bg' },
   { className: 'icon-pen' },
+  { className: 'hint-normal' },
+  { className: 'hint-hover' },
 ];
 
 export default iconList;

@@ -1,37 +1,37 @@
 export default [
-  {
-    'title-cn': '快速上手',
-    'title-en': 'Quick start',
-    list: [
-      // {'title-cn':'使用须知','title-en':'Usage notice','path':'/ais'},
-      // {
-      //   'title-cn': '参与贡献',
-      //   'title-en': 'Participation and contribution',
-      //   path: '/ais'
-      // },
-      {
-        'title-cn': '更新日志',
-        'title-en': 'Participation and contribution',
-        path: '/ais/updatelog',
-      },
-      {
-        'title-cn': '安裝使用',
-        'title-en': 'Install and use',
-        path: '/ais/install',
-      },
-    ],
-  },
-  {
-    'title-cn': '模組範例',
-    'title-en': 'demo',
-    list: [
-      {
-        'title-cn': 'demo 範例',
-        'title-en': 'demo',
-        path: '/ais/demo',
-      },
-    ],
-  },
+  // {
+  //   'title-cn': '快速上手',
+  //   'title-en': 'Quick start',
+  //   list: [
+  //     {'title-cn':'使用须知','title-en':'Usage notice','path':'/ais'},
+  //     {
+  //       'title-cn': '参与贡献',
+  //       'title-en': 'Participation and contribution',
+  //       path: '/ais'
+  //     },
+  //     {
+  //       'title-cn': '更新日志',
+  //       'title-en': 'Participation and contribution',
+  //       path: '/ais/updatelog',
+  //     },
+  //     {
+  //       'title-cn': '安裝使用',
+  //       'title-en': 'Install and use',
+  //       path: '/ais/install',
+  //     },
+  //   ],
+  // },
+  // {
+  //   'title-cn': '模組範例',
+  //   'title-en': 'demo',
+  //   list: [
+  //     {
+  //       'title-cn': 'demo 範例',
+  //       'title-en': 'demo',
+  //       path: '/ais/demo',
+  //     },
+  //   ],
+  // },
   {
     'title-cn': '常規',
     'title-en': 'Conventional',
@@ -69,7 +69,7 @@ export default [
         path: '/ais/input',
       },
       {
-        'title-cn': 'Modal',
+        'title-cn': 'Modal彈跳視窗',
         'title-en': 'Modal',
         path: '/ais/modal',
       },
@@ -84,7 +84,7 @@ export default [
       //   path: '/ais/Space',
       // },
       {
-        'title-cn': 'Adv Select',
+        'title-cn': 'Adv Select 下拉選單(可編輯)',
         'title-en': 'Adv Select',
         path: '/ais/newselect',
       },
@@ -104,7 +104,7 @@ export default [
         path: '/ais/multiselect',
       },
       {
-        'title-cn': 'DatePicker',
+        'title-cn': 'DatePicker 日期選擇',
         'title-en': 'DatePicker',
         path: '/ais/datePicker',
       },
@@ -122,6 +122,11 @@ export default [
         'title-cn': 'Checkbox 多選',
         'title-en': 'Radios',
         path: '/ais/checkbox',
+      },
+      {
+        'title-cn': 'hint 提示',
+        'title-en': 'hint',
+        path: '/ais/hint',
       },
       // {
       //   'title-cn': 'Switch 開關',
@@ -189,60 +194,60 @@ export default [
       // },
     ],
   },
-  {
-    'title-cn': '交互',
-    'title-en': 'interactive',
-    list: [
-      // william - no_use
-      // {
-      //   'title-cn': 'Popover 弹窗框',
-      //   'title-en': 'Popover',
-      //   path: '/ais/popover',
-      // },
-      // william - use
-      {
-        'title-cn': 'Message 消息提示',
-        'title-en': 'Message',
-        path: '/ais/message',
-      },
-      // {
-      //   'title-cn': 'Confirm 消息確認',
-      //   'title-en': 'confirm',
-      //   path: '/ais/confirm',
-      // },
-      // {
-      //   'title-cn': 'Modal 弹窗',
-      //   'title-en': 'modal',
-      //   path: '/ais/modal',
-      // },
-      // {
-      //   'title-cn': 'Drawer 抽屜',
-      //   'title-en': 'drawer',
-      //   path: '/ais/drawer',
-      // },
-      // {
-      //   'title-cn': 'Loading 載入中',
-      //   'title-en': 'Loading',
-      //   path: '/ais/loading',
-      // },
-      // {
-      //   'title-cn': 'Backtop 回到頂部',
-      //   'title-en': 'Loading',
-      //   path: '/ais/backtop',
-      // },
-    ],
-  },
-  {
-    'title-cn': '其他',
-    'title-en': 'other',
-    list: [
-      {
-        'title-cn': 'Divider 分割缐',
-        'title-en': 'Divider',
-        path: '/ais/divider',
-      },
-    ],
-  },
+  // {
+  //   'title-cn': '交互',
+  //   'title-en': 'interactive',
+  //   list: [
+  //     // william - no_use
+  //     // {
+  //     //   'title-cn': 'Popover 弹窗框',
+  //     //   'title-en': 'Popover',
+  //     //   path: '/ais/popover',
+  //     // },
+  //     // william - use
+  //     {
+  //       'title-cn': 'Message 消息提示',
+  //       'title-en': 'Message',
+  //       path: '/ais/message',
+  //     },
+  //     // {
+  //     //   'title-cn': 'Confirm 消息確認',
+  //     //   'title-en': 'confirm',
+  //     //   path: '/ais/confirm',
+  //     // },
+  //     // {
+  //     //   'title-cn': 'Modal 弹窗',
+  //     //   'title-en': 'modal',
+  //     //   path: '/ais/modal',
+  //     // },
+  //     // {
+  //     //   'title-cn': 'Drawer 抽屜',
+  //     //   'title-en': 'drawer',
+  //     //   path: '/ais/drawer',
+  //     // },
+  //     // {
+  //     //   'title-cn': 'Loading 載入中',
+  //     //   'title-en': 'Loading',
+  //     //   path: '/ais/loading',
+  //     // },
+  //     // {
+  //     //   'title-cn': 'Backtop 回到頂部',
+  //     //   'title-en': 'Loading',
+  //     //   path: '/ais/backtop',
+  //     // },
+  //   ],
+  // },
+  // {
+  //   'title-cn': '其他',
+  //   'title-en': 'other',
+  //   list: [
+  //     {
+  //       'title-cn': 'Divider 分割缐',
+  //       'title-en': 'Divider',
+  //       path: '/ais/divider',
+  //     },
+  //   ],
+  // },
   // {
   //   'title-cn': '方法',
   //   'title-en': 'function',

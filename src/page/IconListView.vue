@@ -59,6 +59,15 @@
           <Icon class="h-40px w-40px ml-20px text-main bg-text-red-500" iconClass="arrow-r" type="svg"  ></Icon>
         </div>
       </div>
+      <div class="shadow-md rounded-sm card p-20px mr-10px mb-10px flex justify-center items-center">
+        <div class="sub" >hint
+          <Icon class="h-40px w-40px ml-20px text-main bg-text-red-500" iconClass="hint-normal" type="svg"></Icon>
+        </div>
+        <div class="sub" >hint
+          <Icon class="h-40px w-40px ml-20px text-main bg-text-red-500" iconClass="hint-hover" type="svg"></Icon>
+        </div>
+       
+      </div>
     </div>
   </div>
 </template>

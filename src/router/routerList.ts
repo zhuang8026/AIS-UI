@@ -117,6 +117,11 @@ const routerList: Array<RouteRecordRaw> = [
         component: () => import('@/page/checkboxView.vue'),
       },
       {
+        path: 'hint',
+        name: 'hint 提示',
+        component: () => import('@/page/hintView.vue'),
+      },
+      {
         path: 'table',
         name: 'Table 表格',
         component: () => import('@/page/TableView.vue'),
