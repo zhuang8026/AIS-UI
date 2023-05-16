@@ -25,7 +25,7 @@
 
           <!-- end of type2 -->
         </th>
-        <th v-if="moreOption.length > 0" class="w-[36px]"></th>
+        <!-- <th v-if="moreOption.length > 0" class="w-[36px]"></th> -->
       </tr>
     </thead>
     <!-- end of table header -->
@@ -35,7 +35,8 @@
         class="group  odd:bg-grey-f4 even:bg-white [&>td]:active:bg-root-hoverBlue cursor-pointer" :class="[activeStyle(data.id),  highlightStyle(data)]">
         <!-- checkbox -->
         <td v-if="isHasCheck" class="td-style w-40px check-content text-center align-middle">
-          <UiCheckbox class="ml-5px mr-6px" :options="data.options" v-model:value="data.checkVal"
+          <!-- todo error -->
+          <UiCheckbox v-if="data.options" class="ml-5px mr-6px" :options="data.options" v-model:value="data.checkVal"
             @changeValue="onChangeCheckDetail($event, data.id)" margin="0"></UiCheckbox>
         </td>
 

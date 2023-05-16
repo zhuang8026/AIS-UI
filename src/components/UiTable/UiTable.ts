@@ -156,8 +156,8 @@ export default {
     //處理資料
     let handlData = (status = DATA_UPDATE_TYPE.INIT) => {
       // privateDatas = props.datas.concat();
-     // privateDatas = [...props.datas]
-      Object.assign(privateDatas, props.datas);
+      privateDatas = [...props.datas]
+      // Object.assign(privateDatas, props.datas);
       // console.log('handlData privateDatas',privateDatas);
 
       // 檢查是否有checkall
@@ -165,7 +165,7 @@ export default {
       // console.log('handlData isAll', isAll)
 
       // 處理每列的checkbox
-      privateDatas.forEach(item => {
+      privateDatas.forEach((item, index) => {
         let _option = [{
           name: '',
           val: item.id,
@@ -185,19 +185,20 @@ export default {
         // else if(status === DATA_UPDATE_TYPE.CHECK_DETAIL){
 
         // }//end: if
+        
         item['options'] = _option.slice(0);
         item['checkVal'] = _checkVal.slice(0);
         item['isCheck'] =_isCheck;
-        // // 處理more
-        // isMoreOpenArr.push({
-        //   id: item.id,
-        //   isOpen: false
-        // }); // more
+        // // // 處理more
+        // // isMoreOpenArr.push({
+        // //   id: item.id,
+        // //   isOpen: false
+        // // }); // more
       }) //end: forEach
       updateKey.value +=1;
       // console.log('privateDatas',privateDatas);
-      const instance = getCurrentInstance();
-      instance?.proxy?.$forceUpdate();
+      // const instance = getCurrentInstance();
+      // instance?.proxy?.$forceUpdate();
       
     }//end: handlData
 
@@ -208,7 +209,7 @@ export default {
       (val) => {
         let isAll = val;
         checkAllSetting.value = isAll ? [ALL] : [];
-        handlData(DATA_UPDATE_TYPE.CHECK_ALL);
+      //  handlData(DATA_UPDATE_TYPE.CHECK_ALL); // // todo canecl
       }
     )
     // -- checkall child改變
@@ -253,7 +254,7 @@ export default {
       (val) => {
         // console.log('watch props data change',val);
         // todo: 優化 call很多次問題 - Lynn
-        handlData();
+        // handlData(); // todo canecl
       },
       {
         deep: true

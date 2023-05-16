@@ -406,6 +406,9 @@ video {
 .pointer-events-auto {
   pointer-events: auto;
 }
+.\!visible {
+  visibility: visible !important;
+}
 .visible {
   visibility: visible;
 }
@@ -525,6 +528,9 @@ video {
 .ml-8px {
   margin-left: 8px;
 }
+.ml-\[3px\] {
+  margin-left: 3px;
+}
 .mr-1 {
   margin-right: 0.25rem;
 }
@@ -594,6 +600,9 @@ video {
 .h-12px {
   height: 12px;
 }
+.h-18px {
+  height: 18px;
+}
 .h-20px {
   height: 20px;
 }
@@ -621,6 +630,9 @@ video {
 .h-full {
   height: 100%;
 }
+.max-h-16 {
+  max-height: 4rem;
+}
 .min-h-24px {
   min-height: 24px;
 }
@@ -638,6 +650,9 @@ video {
 }
 .w-160px {
   width: 160px;
+}
+.w-18px {
+  width: 18px;
 }
 .w-200px {
   width: 200px;
