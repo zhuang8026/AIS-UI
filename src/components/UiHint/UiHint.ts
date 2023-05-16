@@ -53,13 +53,13 @@ export default {
     transition?: any;
     disabled?: any;
     trigger?: any;
-  }) {
+  }, {emit}) {
     const timer = ref(null);
     const visible = ref(false);
     //计算arrow的位置
     const reference = ref(null);
     const popoverArrow = ref(null);
-    const emit = defineEmits(['after-enter', 'after-leave']);
+    // const emit = defineEmits(['after-enter', 'after-leave']);
 
     const showPopover = computed(() => {
       if (props.trigger !== 'manual') {
