@@ -5,6 +5,7 @@ import UiInput from '@/components/UiInput/index.vue';
 import {computed, ref, watch, reactive, getCurrentInstance, onMounted, watchEffect} from 'vue';
 import { tableData, tableHeader } from './datas';
 import UiSelect from '@/components/UiSelect/index.vue'; //
+import UiHint from '@/components/UiHint/index.vue'; // @ is an alias to /src
 export default {
   name: 'ui-table',
   components:{
@@ -13,6 +14,7 @@ export default {
     Icon,
     UiInput,
     UiSelect,
+    UiHint,
   },
   props: {
     isHasCheck:{

@@ -73,6 +73,10 @@ export default {
           id: 'th0',
           txt: 'Equipment Name / Model'
       },
+      {
+          id: 'th444',
+          txt: 'hint demo'
+      },
       // filter : 類型
       {
           id: 'th1',
@@ -120,6 +124,11 @@ export default {
         txt: '資料1AAA資料1資料1資料1',
         type: 'default'  // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
       },
+      {
+        txt: 'HintDemo',
+        type: 'default', // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
+        hint: 'test test'
+      },
       { 
         txt: '資料2資料2資料2資料2資料2',
         sub: '小資料小資料',
@@ -144,6 +153,11 @@ export default {
         txt: '資料1資料1資料1資料1',
         type: 'default'  // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
       },
+      {
+        txt: 'HintDemo2',
+        type: 'default', // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
+        hint: 'test22 test'
+      },
       { 
         txt: '資料2資料2資料2資料2資料2',
         type: 'default'
@@ -167,6 +181,11 @@ export default {
       {
         txt: '資料1資料1資料1資料1',
         type: 'default'
+      },
+      {
+        txt: 'HintDemo3',
+        type: 'default', // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
+        hint: 'test test'
       },
       { 
         txt: '資料2資料2資料2資料2資料2',
