@@ -4,8 +4,9 @@
     <h2>Table </h2>
 
     <!-- table 2  -->
+    <p>tableData: {{tableData}}</p>
 
-    <UiTable  v-model:isCheckedAll="isTableCheckAll" :datas="tableData"></UiTable>
+    <UiTable :isEdit="isEditTable"  v-model:isCheckedAll="isTableCheckAll" v-model:datas="tableData"></UiTable>
 
 
     <!-- table1 -->
@@ -47,7 +48,7 @@
     </div>
     <h1></h1>
     <div >
-      <UiTable :g="false" @onSelectItem="onSelectItem" :isEdit="true" class="h-[200px]" :isHasCheck="true" @onChangeCheck="onChangeCheck" :isSelectedOne="isSelectedOne" v-model:selected="selectedArr" @onClickMoreItem="onClickMoreItem" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll"  :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
+      <UiTable  v-model:datas="editTableData" @onSelectItem="onSelectItem" :isEdit="true" class="h-[200px]" :isHasCheck="true" @onChangeCheck="onChangeCheck" :isSelectedOne="isSelectedOne" v-model:selected="selectedArr" @onClickMoreItem="onClickMoreItem" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll"  :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
     </div>
   </div>
 </template>
@@ -56,7 +57,7 @@
 // import { defineComponent } from 'vue';
 import UiTable from '@/components/UiTable/index.vue'; // @ is an alias to /src
 import Button from '@/components/UiButton/index.vue';
-import { reactive, ref } from 'vue';
+import { onMounted, reactive, ref } from 'vue';
 
 export default {
   name: 'TableView',
@@ -65,7 +66,7 @@ export default {
     Button,
   },
   setup(){
-    let isTableCheckAll = ref(true)
+    let isTableCheckAll = ref(false)
     let tableHead = reactive([])
 
     let tableHeadData = reactive([
@@ -114,92 +115,8 @@ export default {
 
       tableHead = [...tableHeadData]
       // Object.assign(tableHead, tableHeadData);
-      let tableData = ref([{
-    id: 'AAA',
-    isCheck: true,
-    isDisable: false,
-    isHighLight: true,
-    detail: [
-      {
-        txt: '資料1AAA資料1資料1資料1',
-        type: 'default'  // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
-      },
-      {
-        txt: 'HintDemo',
-        type: 'default', // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
-        hint: 'test test'
-      },
-      { 
-        txt: '資料2資料2資料2資料2資料2',
-        sub: '小資料小資料',
-        type: 'default',
-      },
-      { 
-        txt: ['AAA DDD JEE HPJEPRWPRJPEJRPW EJOPEWPRJ EP EJ ','BBB','CCC'],
-        type: 'default'
-      },
-      { 
-        txt: ['資料3資料3資料3資料3資料3','AAA', 'CCC'],
-        type: 'status:1:0:1'
-      }
-  ]},
-  {
-    id: '002',
-    isCheck: false,
-    isDisable: false,
-    isHighLight: false,
-    detail: [
-      {
-        txt: '資料1資料1資料1資料1',
-        type: 'default'  // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
-      },
-      {
-        txt: 'HintDemo2',
-        type: 'default', // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
-        hint: 'test22 test'
-      },
-      { 
-        txt: '資料2資料2資料2資料2資料2',
-        type: 'default'
-      },
-      { 
-        txt: '資料3資料3資料3資料3資料3',
-        type: 'default'
-      },
-      { 
-        txt: '資料3資料3資料3資料3資料3',
-        type: 'status:1'
-      }
-  ]},
-  {
-    id: '003',
-    isCheck: false,
-    isDisable: false,
-    isHighLight: false,
-    // isHighLight: true,
-    detail: [
-      {
-        txt: '資料1資料1資料1資料1',
-        type: 'default'
-      },
-      {
-        txt: 'HintDemo3',
-        type: 'default', // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
-        hint: 'test test'
-      },
-      { 
-        txt: '資料2資料2資料2資料2資料2',
-        type: 'default'
-      },
-      { 
-        txt: '資料3資料3資料3資料3資料3',
-        type: 'default'
-      },
-      { 
-        txt: '資料3資料3資料3資料3資料3',
-        type: 'status:2'
-      }
-  ]},]) //end: tableData
+      let tableData = ref([]);
+    
 
     let checkAllControl = () => {
       console.log('all')
@@ -283,6 +200,194 @@ export default {
       console.log('onEditFinish',val)
     }
 
+    let handleData = () => {
+      tableData.value = [{
+    id: 'AAA',
+    isCheck: false,
+    isDisable: false,
+    isHighLight: true,
+    detail: [
+      {
+        txt: '資料1AAA資料1資料1資料1',
+        type: 'default'  // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
+      },
+      {
+        txt: 'HintDemo',
+        type: 'default', // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
+        hint: 'test test'
+      },
+      { 
+        txt: '資料2資料2資料2資料2資料2',
+        sub: '小資料小資料',
+        type: 'default',
+      },
+      { 
+        txt: ['AAA DDD JEE HPJEPRWPRJPEJRPW EJOPEWPRJ EP EJ ','BBB','CCC'],
+        type: 'default'
+      },
+      { 
+        txt: ['資料3資料3資料3資料3資料3','AAA', 'CCC'],
+        type: 'status:1:0:1'
+      }
+  ]},
+  {
+    id: '002',
+    isCheck: false,
+    isDisable: false,
+    isHighLight: false,
+    detail: [
+      {
+        txt: '資料1資料1資料1資料1',
+        type: 'default'  // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
+      },
+      {
+        txt: 'HintDemo2',
+        type: 'default', // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
+        hint: 'test22 test'
+      },
+      { 
+        txt: '資料2資料2資料2資料2資料2',
+        type: 'default'
+      },
+      { 
+        txt: '資料3資料3資料3資料3資料3',
+        type: 'default',
+        edit: 'select', // none, input, select
+        selectId : { 
+          id: 'id-3',
+          name: 'ID3 ID3',
+          disabled: false,
+        }, // select 的選項
+      },
+      { 
+        txt: '資料3資料3資料3資料3資料3',
+        type: 'status:1'
+      }
+  ]},
+  {
+    id: '003',
+    isCheck: false,
+    isDisable: false,
+    isHighLight: false,
+    // isHighLight: true,
+    detail: [
+      {
+        txt: '資料1資料1資料1資料1',
+        type: 'default'
+      },
+      {
+        txt: 'HintDemo3',
+        type: 'default', // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
+        hint: 'test test'
+      },
+      { 
+        txt: '資料2資料2資料2資料2資料2',
+        type: 'default'
+      },
+      { 
+        txt: '資料3資料3資料3資料3資料3',
+        type: 'default'
+      },
+      { 
+        txt: '資料3資料3資料3資料3資料3',
+        type: 'status:2'
+      }
+  ]},]//end: tableData
+    }
+
+    let editTableData = ref([])
+    editTableData.value = [{
+    id: '001',
+    isCheck: true,
+    isDisable: true,
+    detail: [
+      {
+        txt: 'BBB',
+        type: 'default',  // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
+        edit: 'input', // none, input, select
+      },
+      { 
+        txt: '資料2資料2資料2資料2資料2',
+        sub: '小資料2小資料2',
+        type: 'default',
+        // edit: 'none', // none, input, select
+      },
+      { 
+        txt: '資料3資料3資料3資料3資料3',
+        type: 'default',
+        edit: 'select', // none, input, select
+        selectId : { 
+          id: 'id-3',
+          name: 'ID3 ID3',
+          disabled: false,
+        }, // select 的選項
+      },
+      { 
+        txt: '資料3資料3資料3資料3資料3',
+        type: 'status:1',
+        // edit: 'none', // none, input, select
+      }
+  ]},
+  {
+    id: '002',
+    isCheck: false,
+    isDisable: false,
+    detail: [
+      {
+        txt: '資料1AAA資料1資料1資料1',
+        type: 'default',  // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
+        edit: 'input', // none, input, select
+      },
+      { 
+        txt: '資料2資料2資料2資料2資料2',
+        sub: '小資料2小資料2',
+        type: 'default',
+        // edit: 'none', // none, input, select
+      },
+      { 
+        txt: '資料3資料3資料3資料3資料3',
+        type: 'default',
+        edit: 'select', // none, input, select
+        selectId : { 
+          id: 'id-3',
+          name: 'ID3 ID3',
+          disabled: false,
+        }, // select 的選項
+      },
+      { 
+        txt: '資料3資料3資料3資料3資料3',
+        type: 'status:1',
+        // edit: 'none', // none, input, select
+      }
+  ]},
+  {
+    id: '003',
+    isCheck: false,
+    isDisable: false,
+    detail: [
+      {
+        txt: '資料1資料1資料1資料1',
+        type: 'default'
+      },
+      { 
+        txt: '資料2資料2資料2資料2資料2',
+        type: 'default'
+      },
+      { 
+        txt: '資料3資料3資料3資料3資料3',
+        type: 'default'
+      },
+      { 
+        txt: '資料3資料3資料3資料3資料3',
+        type: 'status:2'
+      }
+  ]},
+] //end: tableData
+
+    onMounted(()=> {
+      handleData();
+    })
+
     
 
     return{
@@ -303,6 +408,7 @@ export default {
       onSelectItem,
       onEditFinish,
       changeData,
+      editTableData,
     }
 
   },//end: setup

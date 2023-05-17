@@ -156,7 +156,8 @@ export default {
     //處理資料
     let handlData = (status = DATA_UPDATE_TYPE.INIT) => {
       // privateDatas = props.datas.concat();
-      privateDatas = [...props.datas]
+      // privateDatas = JSON.parse(JSON.stringify(props.datas));
+      privateDatas = [... props.datas]
       // Object.assign(privateDatas, props.datas);
       // console.log('handlData privateDatas',privateDatas);
 
@@ -189,16 +190,21 @@ export default {
         item['options'] = _option.slice(0);
         item['checkVal'] = _checkVal.slice(0);
         item['isCheck'] =_isCheck;
+        // console.log('options',item );
         // // // 處理more
         // // isMoreOpenArr.push({
         // //   id: item.id,
         // //   isOpen: false
         // // }); // more
       }) //end: forEach
-      updateKey.value +=1;
-      // console.log('privateDatas',privateDatas);
-      // const instance = getCurrentInstance();
-      // instance?.proxy?.$forceUpdate();
+     
+      console.log('update key', updateKey.value);
+      // console.log('new', privateDatas.map(item => item.options))
+      emit('update:datas', privateDatas);
+      updateKey.value = Math.random()*100;
+      // console.log('gogogo',privateDatas, updateKey.value);
+      const instance = getCurrentInstance();
+      instance?.proxy?.$forceUpdate();
       
     }//end: handlData
 
@@ -251,13 +257,14 @@ export default {
     // detail check parent 改變
     watch(
       () => props.datas,
-      (val) => {
-        // console.log('watch props data change',val);
-        // todo: 優化 call很多次問題 - Lynn
-        // handlData(); // todo canecl
+      (val, old) => {
+        // todo: 優化 後近資料
+        if(Object.keys(old).length == 0){
+          handlData();
+        }
       },
       {
-        deep: true
+        deep: true,
       }
     ) //end: watch
 
@@ -314,6 +321,7 @@ export default {
     onMounted(() => {
       checkIsCheckAll();
       filterSelectedVal();
+      // console.log('onMounted-===')
       handlData(DATA_UPDATE_TYPE.INIT);
     });
 
