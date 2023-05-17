@@ -121,7 +121,6 @@ export default {
     
 
     let updateKey = ref(0);
-    let initUpdate = ref(false);
     
     // 是否全選
     let ALL = 'all';
@@ -201,7 +200,7 @@ export default {
      
       console.log('update key', updateKey.value);
       // console.log('new', privateDatas.map(item => item.options))
-      emit('update:datas', privateDatas);
+      // emit('update:datas', privateDatas);
       updateKey.value = Math.random()*100;
       // console.log('gogogo',privateDatas, updateKey.value);
       const instance = getCurrentInstance();
@@ -260,9 +259,9 @@ export default {
       () => props.datas,
       (val, old) => {
         // todo: 優化 後近資料
-        if(!initUpdate.value){
+        if(val.length != old.length){
+          console.log('watch', val)
           handlData();
-          initUpdate.value = true
         }
       },
       {
@@ -325,7 +324,6 @@ export default {
       filterSelectedVal();
       // console.log('onMounted-===')
       handlData(DATA_UPDATE_TYPE.INIT);
-      initUpdate.value = false
     });
 
 
