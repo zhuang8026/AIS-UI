@@ -121,6 +121,7 @@ export default {
     
 
     let updateKey = ref(0);
+    let initUpdate = ref(false);
     
     // 是否全選
     let ALL = 'all';
@@ -259,8 +260,9 @@ export default {
       () => props.datas,
       (val, old) => {
         // todo: 優化 後近資料
-        if(Object.keys(old).length == 0){
+        if(!initUpdate.value){
           handlData();
+          initUpdate.value = true
         }
       },
       {
@@ -323,6 +325,7 @@ export default {
       filterSelectedVal();
       // console.log('onMounted-===')
       handlData(DATA_UPDATE_TYPE.INIT);
+      initUpdate.value = false
     });
 
 
