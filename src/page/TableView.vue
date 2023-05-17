@@ -24,6 +24,7 @@
     <div class="flex">
       <Button @onClick="checkAllControl" class=" w-160px mx-20px mb-0" type="full" text="從外面控制checkAll" ></Button>
       <Button @onClick="changeData()" class=" w-160px mx-20px mb-0" type="full" text="從外面改資料" ></Button>
+      <Button @onClick="refresh()" class=" w-160px mx-20px mb-0" type="full" text="refresh" ></Button>
       
       <Button @onClick="inputNewData()" class=" w-160px mx-20px mb-0" type="full" text="從外面加資料" ></Button>
       <Button @onClick="onClickEditOrNot" class=" w-160px mx-20px mb-0" type="full" text="編輯/瀏覽" ></Button>
@@ -388,6 +389,105 @@ export default {
       handleData();
     })
 
+    let refresh = () => {
+     
+      tableData.value = [{
+    id: 'AAA',
+    isCheck: false,
+    isDisable: false,
+    isHighLight: true,
+    detail: [
+      {
+        txt: '資料1AAA資料1資料1資料1',
+        type: 'default'  // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
+      },
+      {
+        txt: 'HintDemo',
+        type: 'default', // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
+        hint: 'test test'
+      },
+      { 
+        txt: '資料2資料2資料2資料2資料2',
+        sub: '小資料小資料',
+        type: 'default',
+      },
+      { 
+        txt: ['AAA DDD JEE HPJEPRWPRJPEJRPW EJOPEWPRJ EP EJ ','BBB','CCC'],
+        type: 'default'
+      },
+      { 
+        txt: ['資料3資料3資料3資料3資料3','AAA', 'CCC'],
+        type: 'status:1:0:1'
+      }
+  ]},
+  {
+    id: '002',
+    isCheck: false,
+    isDisable: false,
+    isHighLight: false,
+    detail: [
+      {
+        txt: '資料1資料1資料1資料1',
+        type: 'default'  // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
+      },
+      {
+        txt: 'HintDemo2',
+        type: 'default', // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
+        hint: 'test22 test'
+      },
+      { 
+        txt: '資料2資料2資料2資料2資料2',
+        type: 'default'
+      },
+      { 
+        txt: '資料3資料3資料3資料3資料3',
+        type: 'default',
+        edit: 'select', // none, input, select
+        selectId : { 
+          id: 'id-3',
+          name: 'ID3 ID3',
+          disabled: false,
+        }, // select 的選項
+      },
+      { 
+        txt: '資料3資料3資料3資料3資料3',
+        type: 'status:1'
+      }
+  ]},
+  {
+    id: '003',
+    isCheck: false,
+    isDisable: false,
+    isHighLight: false,
+    // isHighLight: true,
+    detail: [
+      {
+        txt: (Math.random() * 100).toString(),
+        type: 'default'
+      },
+      {
+        txt: 'HintDemo3',
+        type: 'default', // type: 'default' -> normal text, 'status:1' -> green, 'status:2': red
+        hint: 'test test'
+      },
+      { 
+        txt: '資料2資料2資料2資料2資料2',
+        type: 'default'
+      },
+      { 
+        txt: '資料3資料3資料3資料3資料3',
+        type: 'default'
+      },
+      { 
+        txt: '資料3資料3資料3資料3資料3',
+        type: 'status:2'
+      }
+  ]},]//end: tableData
+
+  console.log('refresh', tableData.value)
+
+    } //end: refresh
+
     
 
     return{
@@ -409,6 +509,7 @@ export default {
       onEditFinish,
       changeData,
       editTableData,
+      refresh,
     }
 
   },//end: setup

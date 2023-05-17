@@ -253,20 +253,21 @@ export default {
       emit('update:datas', _data);
     } //end: onChangeCheckDetail
 
+    
+
 
     // detail check parent 改變
+    let checkToWatch = computed(() => props.datas.map(item => item.isCheck))
     watch(
-      () => props.datas,
+      () => checkToWatch,
       (val, old) => {
-        // todo: 優化 後近資料
-        if(val.length != old.length){
-          console.log('watch', val)
           handlData();
-        }
       },
       {
+        // immediate: true,
         deep: true,
-      }
+      },
+      
     ) //end: watch
 
     //#region handle Edit on or off 
