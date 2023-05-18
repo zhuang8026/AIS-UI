@@ -57,30 +57,38 @@
           <template v-else>
             <!-- type1 : normal txt -->
             <template v-if="detail.type == 'default'">
-              <p class="txt whitespace-normal break-words flex items-center" v-if="typeof detail.txt == 'string'">
-                {{detail.txt}}
-                <span v-if="detail.hasOwnProperty('hint')"
-                class="mt-[6px] txt whitespace-normal break-words text-font-2 text-xs">
-                    <UiHint
-                    class="space ml-[3px]"
-                    trigger="hover"
-                    placement="bottom"
-                    :content="detail.hint">
-                    <template #reference
-                      ><Icon
-                        class="h-18px w-18px text-main bg-text-red-500"
-                        iconClass="hint-hover"
-                        type="svg"
-                      ></Icon
-                    ></template>
-                    </UiHint>
-                </span>
-              </p>
-              <template v-else>
-                <p class="txt truncate" v-for="(txtItem, index) in detail.txt" :key="index">{{txtItem}}</p>
+              <template v-if="typeof detail.txt == 'string'">
+                <p class="txt whitespace-normal break-words flex items-center" >
+                  {{detail.txt}}
+                  <span v-if="detail.hasOwnProperty('hint')"
+                  class="mt-[6px] txt whitespace-normal break-words text-font-2 text-xs">
+                      <UiHint
+                      class="space ml-[3px]"
+                      trigger="hover"
+                      placement="bottom"
+                      :content="detail.hint">
+                      <template #reference
+                        ><Icon
+                          class="h-18px w-18px text-main bg-text-red-500"
+                          iconClass="hint-hover"
+                          type="svg"
+                        ></Icon
+                      ></template>
+                      </UiHint>
+                  </span>
+                </p>
+                <p v-if="detail.hasOwnProperty('sub')"
+                  class="mt-[6px] txt whitespace-normal break-words text-font-2 text-xs">{{detail.sub}}</p>
               </template>
-              <p v-if="detail.hasOwnProperty('sub')"
-                class="mt-[6px] txt whitespace-normal break-words text-font-2 text-xs">{{detail.sub}}</p>
+              <template v-else>
+                <template  v-for="(txtItem, index) in detail.txt" :key="index">
+                  <p class="txt truncate" >{{txtItem}}</p>
+                  <template v-if="detail.hasOwnProperty('sub')" >
+                    <p  class="mt-[2px] txt  truncate text-font-2 text-xs">{{detail.sub[index]}}</p>
+                  </template>
+                </template>
+              </template>
+              
                
             </template>
             <!-- end of type1  -->

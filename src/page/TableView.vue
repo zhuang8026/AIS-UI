@@ -224,6 +224,7 @@ export default {
       },
       { 
         txt: ['AAA DDD JEE HPJEPRWPRJPEJRPW EJOPEWPRJ EP EJ ','BBB','CCC'],
+        sub: ['aaa ddd JEE HPJEPRWPRJPEJRPW EJOPEWPRJ EP EJ ','gg','hh'],
         type: 'default'
       },
       { 
