@@ -22,10 +22,10 @@
         <p>AAA</p>
       </div>
     </ui-modal>
-  <h2>Modal - wd: lg  </h2>
+  <h2>Modal - wd: lg  &  hasSlot & alignBtn: right </h2>
     <ui-button  class=" w-140px mx-20px mb-0"  type="full" borderRadius=""  @onClick="onClickModal2" text="OpenModal2"></ui-button>
 
-    <UiModal :btnConfirm="{}" content="" title="AAA" wd="lg" v-model:isOpen="isOpenNormalUiModal2"  @onClickCancel="onClickCancel">
+    <UiModal alignBtn="right" :btnConfirm="{}" content="" title="AAA" wd="lg" v-model:isOpen="isOpenNormalUiModal2"  @onClickCancel="onClickCancel">
       <div class="detail-block">
         <p>AAA</p>
         <p>AAA</p>
@@ -43,8 +43,32 @@
         <p>AAA</p>
         <p>AAA</p>
       </div>
+      <template #btn>Test</template>
     </UiModal>
   </div>
+
+  <h2>Modal - wd: lg &  hasSlot & alignBtn: left </h2>
+  <ui-button  class=" w-140px mx-20px mb-0"  type="full" borderRadius=""  @onClick="onClickModal3" text="onClickModal3"></ui-button>
+  <UiModal alignBtn="left" :btnConfirm="{}" content="" title="AAA" wd="lg" v-model:isOpen="isOpenNormalUiModal3"  @onClickCancel="onClickCancel">
+    <div class="detail-block">
+      <p>AAA</p>
+      <p>AAA</p>
+      <p>AAA</p>
+      <p>AAA</p>
+      <p>AAA</p>
+      <p>AAA</p>
+      <p>AAA</p>
+      <p>AAA</p>
+      <p>AAA</p>
+      <p>AAA</p>
+      <p>AAA</p>
+      <p>AAA</p>
+      <p>AAA</p>
+      <p>AAA</p>
+      <p>AAA</p>
+    </div>
+    <template #btn>Test</template>
+  </UiModal>
 </template>
 
 <script lang="ts">
@@ -62,12 +86,17 @@ export default {
   setup(){
     let isOpenNormalUiModal = ref(false);
     let isOpenNormalUiModal2 = ref(false);
+    let isOpenNormalUiModal3 = ref(false);
     let onClickModal = () => {
       isOpenNormalUiModal.value = true;
     }//end: onClickModal
 
     let onClickModal2 = () => {
       isOpenNormalUiModal2.value = true;
+    }//end: onClickModal
+
+    let onClickModal3 = () => {
+      isOpenNormalUiModal3.value = true;
     }//end: onClickModal
 
     let onClickCancel = () => {
@@ -83,8 +112,11 @@ export default {
       onClickModal,
       isOpenNormalUiModal,
       isOpenNormalUiModal2,
+      isOpenNormalUiModal3,
+      onClickModal3,
       onClickCancel,
       onClickModal2,
+
       onClickConfirm,
     }
 

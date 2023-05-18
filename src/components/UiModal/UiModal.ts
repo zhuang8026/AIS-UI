@@ -1,4 +1,4 @@
-import { computed, onMounted, ref, watch } from 'vue';
+import { computed, onMounted, ref, useSlots, watch } from 'vue';
 import UiButton from '@/components/UiButton/index.vue';
 export default {
   components: {
@@ -110,21 +110,24 @@ export default {
 
   },
   setup(props, { emit }) {
+    const slot = useSlots()
     const { wd, title, subTitle, alignTitle, alignBtn, isOpen, isConfirmClose, contentSpace, btnArrange, contentTDSpace, titleH } = props;
     const styleClass = computed(() => [
       'wd--' + wd,
       { 'style--no-title': title === '' && subTitle == '' },
       'title--align-' + alignTitle,
-      'btn--align-' + alignBtn,
+      'btn--align-' + alignBtn,  //todo
       'space--content-' + contentSpace,
       'space--content-td-' + contentTDSpace,
       'h--title-' + titleH,
       'btn--arrange-' + btnArrange,
       'min-h--' + props.minH,
-
-    ]) //end: styleCalsee
+    {'style--has-slot-btn': slot.btn !== undefined},
+    ], 
+    ) //end: styleCalsee
 
     let btnNum = ref(0);
+    
 
 
 
@@ -166,6 +169,8 @@ export default {
       if(!(isHasBtnCancel && isHasBtnConfirm)){
         btnNum.value = 1;
       }
+
+      console.log('slot.btn',slot.btn, slot)
     });
 
     const onClickCancel = () => {
@@ -181,6 +186,7 @@ export default {
       privateIsOpen,
       onClickCancel,
       btnNum,
+      slot,
     }
 
   }

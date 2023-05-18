@@ -222,8 +222,32 @@ $align-config: left, center, right;
             &.btn--align-#{$val}{
                 .btn-block{
                     text-align: $val;
+
                 }
                 
+                
+            }
+            &.btn--align-right{
+              .btn-block{
+                justify-content: flex-end;
+              }
+              &.style--has-slot-btn{
+                .btn-block{
+                  justify-content: space-between
+                }
+
+              }
+            }
+            &.btn--align-left{
+              .btn-block{
+                justify-content: flex-start;
+              }
+              &.style--has-slot-btn{
+                .btn-block{
+                  flex-direction: row-reverse;
+                  justify-content: space-between;
+                }
+              }
             }
             &.title--align-#{$val}{
                 .title-block{
