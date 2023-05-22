@@ -1,5 +1,5 @@
 
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import DatePicker from 'vue-datepicker-next';
 import 'vue-datepicker-next/index.css';
 export default {
@@ -27,11 +27,6 @@ export default {
       type: String,
       default: 'timestamp'  //date, timestamp, format,
     },
-    defaultValue: {
-      type: Number,
-      default: null,
-      require: false
-    }
   },
   setup(props, {emit}){
     let val: any = ref('');
@@ -74,7 +69,14 @@ export default {
       }
     }) //end: defaultVal
 
-    let test = ref(new Date());
+    watch(
+      () => props.value, 
+      () => {
+        val.value =_tranferTimestamp();
+      },
+      {deep: true}
+    )
+
 
 
   
@@ -83,7 +85,6 @@ export default {
       val,
       onValueUpdate,
       defaultVal,
-      test,
     }
 
   }

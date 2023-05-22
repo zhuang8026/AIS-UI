@@ -8,6 +8,7 @@
         <div class="mr-20px">value : {{time}}</div>
       </div>
     </div>
+    <button @click="defualtTime()">Click Set Default Time</button>
     <div class="flex mb-24px">
       <ui-date-picker v-model:value="time" class="w-full" ></ui-date-picker>
     </div>
@@ -37,8 +38,13 @@ export default {
     })
 
     let time = ref(1676453263);
+    let timeRange = ref([]);
 
-    let timeRange = ref([1676453263,1676453263]);
+    let defualtTime = () => {
+      console.log('defualtTime')
+      timeRange.value = [1684140891,1684745691];
+    }
+
 
     const changeDatePicker = () =>{
 
@@ -56,6 +62,7 @@ export default {
       time,
       timeRange,
       chageTime,
+      defualtTime,
     }
   }// end: setup
 }
