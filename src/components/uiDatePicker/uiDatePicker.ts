@@ -58,6 +58,7 @@ export default {
 
     let onValueUpdate = (e) => {
       console.log('onValueUpdate',e);
+      emit('onChange', e);
       emit('update:value', e);
     }
 
