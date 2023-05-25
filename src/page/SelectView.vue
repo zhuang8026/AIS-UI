@@ -43,6 +43,7 @@
         @onblur="toblur" 
         :error="'this is error message'"
         name="demoSelect"
+        direction="right"
         :placeholder="'I am placeholder'"
       ></ui-select>
     </div>

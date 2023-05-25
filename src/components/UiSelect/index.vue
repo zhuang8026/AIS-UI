@@ -30,7 +30,7 @@
         </div>
       </template>
     </v-select>
-    <div class=" error flex items-center justify-end" v-show="error">
+    <div class="error" :class="`text-${direction}`" v-show="error" >
       <small class="text-error-FF0000 pt-3px">{{error}}</small>
     </div>
     
@@ -72,6 +72,10 @@ export default {
       type: Boolean,
       required: false,
       default: false,
+    },
+    direction: {
+      type: String,
+      default: 'left', // text-right
     },
     isSearch:{
       type: Boolean,
