@@ -23,6 +23,10 @@ export default {
       type: String || Number,
       default: '',
     },
+    direction: {
+      type: String,
+      default: 'left', // text-right
+    },
     isDisable: {
       type: Boolean,
       default: false,
