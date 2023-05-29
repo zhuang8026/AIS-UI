@@ -5,8 +5,9 @@
 
     <!-- table 2  -->
     <p>tableData: {{tableData}}</p>
+    <p>isItemClick: {{false}}</p>
 
-    <UiTable :isEdit="isEditTable"  v-model:isCheckedAll="isTableCheckAll" v-model:datas="tableData"></UiTable>
+    <UiTable :isEdit="isEditTable"  :isItemClick="false" v-model:isCheckedAll="isTableCheckAll" v-model:datas="tableData"></UiTable>
 
 
     <!-- table1 -->

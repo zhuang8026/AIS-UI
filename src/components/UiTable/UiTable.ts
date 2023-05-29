@@ -393,6 +393,7 @@ export default {
     })
 
     let onClickItem = (data) => {
+      if(!props.isItemClick) return false;
       let _data = data;
       let _selected = [...props.selected];
       
