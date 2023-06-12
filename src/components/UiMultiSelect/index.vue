@@ -4,7 +4,7 @@
     <!-- <div class="w-600">{{state.mainSelect}}</div> flex justify-between w-full-->
     <v-select :disabled="isDisable"  :reduce=" localArr => localArr" 
     v-model="state.mainSelect" :options='localArr' :selectable="option => !option.disabled" 
-    @option:selecting="beforeSelect()"  multiple  
+    @option:selecting="beforeSelect()" multiple  
     @close="close" @open="open" @search:blur="onBlur" ref="select" 
     :append-to-body="position" :label="localArr.id ? 'id': 'name'" :searchable="isSearch" 
     :close-on-select="false" :class="{'validError': state.validClass ,'border-root-light' : !state.validClass}"
@@ -173,6 +173,10 @@ export default {
       emit("onClose");
     }
 
+    // const onChangeSelect = () => {
+    //   emit("onClickCheck", state.mainSelect);
+    // }
+
 
 
     const beforeSelect = () => { //反轉checkbox已選擇選項
@@ -297,7 +301,8 @@ export default {
       beforeSelect,
       checkStyle,
       allCheck,
-      localArr
+      localArr,
+      // onChangeSelect
 
     }
   }

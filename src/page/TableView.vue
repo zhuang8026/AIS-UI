@@ -71,51 +71,10 @@ export default {
     let isTableCheckAll = ref(false)
     let tableHead = reactive([])
 
-    let tableHeadData = reactive([
-        {
-          id: 'th0',
-          txt: 'Equipment Name / Model'
-      },
-      {
-          id: 'th444',
-          txt: 'hint demo'
-      },
-      // filter : 類型
-      {
-          id: 'th1',
-          txt: 'Equipment Name / Model',
-          options: [   // filter的選項
-            { "id": "op1", "name": "很長很長很長很長的選項", "disabled": false }, 
-            { "id": "op2", "name": "Option 2", "disabled": false },
-          ],
-          val: [   // 被選擇的值的id
-            "op1", "op2"
-          ]
-      },
-      {
-          id: 'th2',
-          txt: '篩選2篩選2',
-          options: [
-            { "id": "op2-1", "name": "Option 1", "disabled": false },
-            { "id": "op2-4", "name": "AAA 204", "disabled": false },
-          ],
-          val: [
-            "op2-4"
-          ]
-      },
-      {
-          id: 'th3',
-          txt: '標題3標題3標題3標題3',
-          options: [
-            { "id": "op2-1", "name": "Option 1", "disabled": false },
-            { "id": "op2-2", "name": "Option 2", "disabled": false },
-          ],
-          val: [
-            "op2-2"
-          ]
-      },])
+    let tableHeadData = reactive([])
+       
 
-      tableHead = [...tableHeadData]
+      
       // Object.assign(tableHead, tableHeadData);
       let tableData = ref([]);
     
@@ -203,6 +162,52 @@ export default {
     }
 
     let handleData = () => {
+      let head = [{
+          id: 'th0',
+          txt: 'Equipment Name / Model'
+      },
+      {
+          id: 'th444',
+          txt: 'hint demo'
+      },
+      // filter : 類型
+      {
+          id: 'th1',
+          txt: 'Equipment Name / Model',
+          options: [   // filter的選項
+            { "id": "op1", "name": "很長很長很長很長的選項", "disabled": false }, 
+            { "id": "op2", "name": "Option 2", "disabled": false },
+          ],
+          val: [   // 被選擇的值的id
+            "op1", "op2"
+          ]
+      },
+      {
+          id: 'th2',
+          txt: '篩選2篩選2',
+          options: [
+            { "id": "op2-1", "name": "Option 1", "disabled": false },
+            { "id": "op2-4", "name": "AAA 204", "disabled": false },
+          ],
+          val: [
+            "op2-4"
+          ]
+      },
+      {
+          id: 'th3',
+          txt: '標題3標題3標題3標題3',
+          options: [
+            { "id": "op2-1", "name": "Option 1", "disabled": false },
+            { "id": "op2-2", "name": "Option 2", "disabled": false },
+          ],
+          val: [
+            "op2-2"
+          ]
+      },]
+
+      tableHead = [...head]
+
+
       tableData.value = [{
     id: 'AAA',
     isCheck: false,
@@ -388,7 +393,10 @@ export default {
 ] //end: tableData
 
     onMounted(()=> {
-      handleData();
+      setTimeout(()=>{
+        handleData();
+      },1200)
+      
     })
 
     let refresh = () => {

@@ -17,7 +17,7 @@
 
           <!-- type2: select filter  -->
           <ul v-else>
-            <UiMultiSelect class="w-full" :defaultSelectedValue="headFilterVal[index]" :optionArr="item.options"
+            <UiMultiSelect v-if="item.options.length" class="w-full" :defaultSelectedValue="headFilterVal[index]" :optionArr="item.options"
               :required="true" :showCheckIcon="true" @onClickCheck="onClickFilter($event, item.id)"
               :name="'tableH_'+index" :hasAllOption="true" :placeholder="item.txt"
               customizePlaceholderClass=" text-font-2 text-xs"></UiMultiSelect>

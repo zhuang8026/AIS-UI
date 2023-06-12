@@ -150,6 +150,7 @@ export default {
 
 
     const onChange = () => {
+      emit('onChange',)
       console.log('onChange')
      
     }

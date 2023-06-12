@@ -81,7 +81,7 @@ export default {
     let updatePropsOption = () => {
       let _updateOptionArr = [...opt];
       delete _updateOptionArr['isEdit'];
-      console.log('_updateOptionArr',_updateOptionArr);
+      // console.log('_updateOptionArr',_updateOptionArr);
       emit('update:optionArr', _updateOptionArr);
 
     }
