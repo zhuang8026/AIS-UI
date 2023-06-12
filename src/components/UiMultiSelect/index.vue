@@ -150,6 +150,21 @@ export default {
       Object.assign(state.mainSelect, props.defaultSelectedValue);
     })
 
+    // debounce.js v-debounce 自己写防抖函数
+    function debounce(fn, wait) {
+      let timer = null;
+      return function (...args) {
+        let context = this;
+        if (timer) {
+          clearInterval(timer);
+          timer = null;
+        }
+        timer = setTimeout(() => {
+          return fn.apply(context, args);
+        }, wait);
+      };
+    }
+
     const onmousedown = (id) => {
       // console.log('idid',id)
       state.temp = id;
@@ -274,7 +289,7 @@ export default {
         let enable  = localArr.value.filter(e => !e.disabled );
         let checkArr = state.mainSelect.filter(e => !e.disabled );
         state.allChecked = enable.length === checkArr.length ? true :false;
-        emit("onClickCheck", state.mainSelect);
+        debounce(emit("onClickCheck", state.mainSelect), 500);
       },
       {deep: true},
     )
