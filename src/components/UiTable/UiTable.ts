@@ -110,7 +110,12 @@ export default {
               }],
         }
       }
+    },
+    isInitSelectedIndex: {  // 預設被選擇的index 
+      type: Number,
+      default: 0,
     }
+
     
     
 

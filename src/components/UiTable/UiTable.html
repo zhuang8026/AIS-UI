@@ -32,7 +32,8 @@
     <tbody v-if="datas.length > 0" class="overflow-y-auto w-full h-full flex-1 block">
 
       <tr v-for="(data, index) in datas" :key="'datas-'+index+ updateKey"
-        class="group  odd:bg-grey-f4 even:bg-white " :class="[activeStyle(data.id),  highlightStyle(data),  {'cursor-pointer':isItemClick}, {'[&>td]:active:bg-root-hoverBlue': isItemClick}]">
+        class="group  odd:bg-grey-f4 even:bg-white " 
+        :class="[activeStyle(data.id),  highlightStyle(data),  {'cursor-pointer':isItemClick}, {'[&>td]:active:bg-root-hoverBlue': isItemClick},  {'[&>td]:bg-root-hoverBlue': (isInitSelectedIndex == index) && isItemClick}]">
         <!-- checkbox -->
         <td v-if="isHasCheck" class="td-style w-40px check-content text-center align-middle">
           <!-- todo error -->
