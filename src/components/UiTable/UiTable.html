@@ -8,7 +8,8 @@
             @changeValue="onChangeCheckAll" class="ml-6px mr-6px"></UiCheckbox>
         </th>
         <!-- head data -->
-        <th v-for="(item, index) in head" class="text-left">
+        <th v-for="(item, index) in head" class="text-left"
+        :style="colWd != 'auto' ? tdWdStyle(index) : ''">
           <!-- type 1 : normal txtx -->
           <p v-if="!item.hasOwnProperty('options')" class="txt text-xs whitespace-normal break-words"
             :class="headTheme">{{item.txt}}</p>
@@ -18,6 +19,7 @@
           <!-- type2: select filter  -->
           <ul v-else>
             <UiMultiSelect v-if="item.options.length" class="w-full" :defaultSelectedValue="headFilterVal[index]" :optionArr="item.options"
+              
               :required="true" :showCheckIcon="true" @onClickCheck="onClickFilter($event, item.id)"
               :name="'tableH_'+index" :hasAllOption="true" :placeholder="item.txt"
               customizePlaceholderClass=" text-font-2 text-xs"></UiMultiSelect>
@@ -35,7 +37,7 @@
         class="group  odd:bg-grey-f4 even:bg-white " 
         :class="[activeStyle(data.id),  highlightStyle(data),  {'cursor-pointer':isItemClick}, {'[&>td]:active:bg-root-hoverBlue': isItemClick},  {'[&>td]:bg-root-hoverBlue': (isInitSelectedIndex == index) && isItemClick}]">
         <!-- checkbox -->
-        <td v-if="isHasCheck" class="td-style w-40px check-content text-center align-middle">
+        <td v-if="isHasCheck" class="td-style w-40px check-content text-center align-middle" >
           <!-- todo error -->
           <UiCheckbox v-if="data.options" class="ml-5px mr-6px" :options="data.options" v-model:value="data.checkVal"
             @changeValue="onChangeCheckDetail($event, data.id)" margin="0"></UiCheckbox>
@@ -44,13 +46,15 @@
         <!-- data -->
         <td class="td-style align-middle text-center" v-for="(detail, dIndex) in data.detail" :key="'detail-' + index"
           @click.prevent="onClickItem(data)"
-          :class="[{'cursor-pointer':isItemClick} , {'pointer-events-none':!isItemClick}, {'first:group-hover:border-l-12px': isHasCheck}]">
+          :class="[{'cursor-pointer':isItemClick} , {'pointer-events-none':!isItemClick}, {'first:group-hover:border-l-12px': isHasCheck}]"
+          :style="colWd != 'auto' ? tdWdStyle(dIndex) : ''">
           <template v-if="isEdit && detail.hasOwnProperty('edit')">
             <template v-if="detail.edit === 'input' ">
               <ui-input @onChange="onChangeInput($event, index, dIndex, data.id)" class="pr-[12px]" type="text" v-model:value="detail.txt"></ui-input>
             </template>
             <template v-if="detail.edit === 'select' ">
               <ui-select class="w-full pr-[12px]" v-model:defaultSelectedValue="detail.selectId"
+                :style="optionWd != 'auto' ? optionWdStyle(dIndex) : ''"
                 :optionArr="dataOptions[dIndex]" :showCheckIcon="true" @onValChange="onSelectItem(detail, index, dIndex, data.id)"
                 ></ui-select>
             </template>

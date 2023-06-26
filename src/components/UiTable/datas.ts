@@ -21,9 +21,10 @@ export let tableData = [{
         edit: 'select', // none, input, select
         selectId : { 
           id: 'id-3',
-          name: 'ID3 ID3',
+          name: 'ID3 ID3dd',
           disabled: false,
         }, // select 的選項
+        wd: '100px',
       },
       { 
         txt: '資料3資料3資料3資料3資料3',

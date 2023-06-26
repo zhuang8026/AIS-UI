@@ -33,24 +33,27 @@
     
 
     <br>
-    <h5>tableHead: </h5>
+    <!-- <h5>tableHead: </h5>
     <ul>
       <li v-for="(item, index) in tableHead" :key="index">
       {{index}} - {{item}}
       <hr/> <br/>
       </li>
-    </ul>
+    </ul> -->
     <!-- :datas="[]" -->
     <!-- <p>v-model: selected: {{selectedArr}}</p>
     <p>isSelectedOne: {{isSelectedOne}}</p> -->
     <!-- :moreOption="moreOpt"  -->
     <!-- :datas="tableData" -->
     <div >
-      <UiTable @onEditFinish="onEditFinish" @onSelectItem="onSelectItem" :isEdit="isEditTable" class="h-[200px]" :isHasCheck="false" @onChangeCheck="onChangeCheck" :isSelectedOne="isSelectedOne" v-model:selected="selectedArr" @onClickMoreItem="onClickMoreItem" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll"  :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
+      <p>有給寬度 ==> :colWd= {{colWd}}</p>
+      
+      <UiTable :colWd="colWd" @onEditFinish="onEditFinish" @onSelectItem="onSelectItem" :isEdit="isEditTable" class="h-[200px]" :isHasCheck="false" @onChangeCheck="onChangeCheck" :isSelectedOne="isSelectedOne" v-model:selected="selectedArr" @onClickMoreItem="onClickMoreItem" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll"  :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
     </div>
-    <h1></h1>
+    <h1>Demo 有編輯畫面的Table</h1>
+    <p>optionWd (下拉選單的寬度) {{optionWd}}</p>
     <div >
-      <UiTable  v-model:datas="editTableData" @onSelectItem="onSelectItem" :isEdit="true" class="h-[200px]" :isHasCheck="true" @onChangeCheck="onChangeCheck" :isSelectedOne="isSelectedOne" v-model:selected="selectedArr" @onClickMoreItem="onClickMoreItem" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll"  :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
+      <UiTable :optionWd="optionWd" v-model:datas="editTableData" @onSelectItem="onSelectItem" :isEdit="true" class="h-[200px]" :isHasCheck="true" @onChangeCheck="onChangeCheck" :isSelectedOne="isSelectedOne" v-model:selected="selectedArr" @onClickMoreItem="onClickMoreItem" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll"  :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
     </div>
   </div>
 </template>
@@ -59,7 +62,7 @@
 // import { defineComponent } from 'vue';
 import UiTable from '@/components/UiTable/index.vue'; // @ is an alias to /src
 import Button from '@/components/UiButton/index.vue';
-import { onMounted, reactive, ref } from 'vue';
+import { computed, onMounted, reactive, ref } from 'vue';
 
 export default {
   name: 'TableView',
@@ -69,7 +72,7 @@ export default {
   },
   setup(){
     let isTableCheckAll = ref(false)
-    let tableHead = reactive([])
+    let tableHead = ref([])
 
     let tableHeadData = reactive([])
        
@@ -166,10 +169,10 @@ export default {
           id: 'th0',
           txt: 'Equipment Name / Model'
       },
-      {
-          id: 'th444',
-          txt: 'hint demo'
-      },
+      // {
+      //     id: 'th444',
+      //     txt: 'hint demo'
+      // },
       // filter : 類型
       {
           id: 'th1',
@@ -205,7 +208,7 @@ export default {
           ]
       },]
 
-      tableHead = [...head]
+      tableHead.value = [...head]
 
 
       tableData.value = [{
@@ -498,6 +501,19 @@ export default {
 
     } //end: refresh
 
+    const colWd = computed(() => {
+      
+      return [
+        '200px', '20%', '', '', '20%'
+      ];
+    })
+
+    const optionWd = computed(() => {
+      return {
+        2: '80px',
+      }
+    });
+
     
 
     return{
@@ -520,6 +536,8 @@ export default {
       changeData,
       editTableData,
       refresh,
+      colWd,
+      optionWd,
     }
 
   },//end: setup

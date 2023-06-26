@@ -114,6 +114,18 @@ export default {
     isInitSelectedIndex: {  // 預設被選擇的index 
       type: Number,
       default: 0,
+    },
+    colWd: { // td width default: auto or ex: [80px, 100px] => index 0 width is 80px, index 1 width is 100px
+      type: Array || String,  // auto for default , or array for each col width
+      default(){
+        return 'auto'
+      }
+    },
+    optionWd: {  // td select width default: auto or ex: 2: {80px} => index 2 width is 80px
+      type: Object || String,  // auto for default , or array for each select width
+      default(){
+        return 'auto'
+      }
     }
 
     
@@ -473,9 +485,23 @@ export default {
     } //end: highlightIndex
 
    
+    //#region  tdWdStyle
+    const tdWdStyle = (index) => {
+      let num = props.colWd[index];
+      let styleString = num != '' ?  `width: ${num};` : '';
+      console.log('styleString',styleString)
+      return styleString
+    }
+    //#endregion tdWdStyle
 
-   
-
+     //#region  optionWdStyle
+    const optionWdStyle = (index) => {
+      let num = props.optionWd[index];
+      let styleString = num != '' ?  `max-width: ${num};` : '';
+      console.log('styleString',styleString)
+      return styleString
+    }
+    //#endregion optionWdStyle
     
     
 
@@ -501,6 +527,8 @@ export default {
       headFilterVal,
       onChangeInput,
       highlightStyle,
+      tdWdStyle,
+      optionWdStyle,
       
     }//end: return
   }, //end: setup
