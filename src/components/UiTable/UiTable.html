@@ -1,4 +1,5 @@
 <div class="ui-table" :class="[{'style--has-check': isHasCheck}]">
+  <p>selected:: {{selected}} {{ isItemClick && selected.length == 0}}</p>
   <table class="table-fixed border-separate border-spacing-0 flex flex-col h-full w-full">
     <!-- table header -->
     <thead class="flex-0 w-full">
@@ -35,7 +36,7 @@
 
       <tr v-for="(data, index) in datas" :key="'datas-'+index+ updateKey"
         class="group  odd:bg-grey-f4 even:bg-white " 
-        :class="[activeStyle(data.id),  highlightStyle(data),  {'cursor-pointer':isItemClick}, {'[&>td]:active:bg-root-hoverBlue': isItemClick},  {'[&>td]:bg-root-hoverBlue': (isInitSelectedIndex == index) && isItemClick}]">
+        :class="[activeStyle(data.id),  highlightStyle(data),  {'cursor-pointer':isItemClick}, {'[&>td]:active:bg-root-hoverBlue': isItemClick},  {'[&>td]:bg-root-hoverBlue': (initSelectedIndex == index) && selected.length == 0}]">
         <!-- checkbox -->
         <td v-if="isHasCheck" class="td-style w-40px check-content text-center align-middle" >
           <!-- todo error -->

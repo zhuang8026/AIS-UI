@@ -111,9 +111,9 @@ export default {
         }
       }
     },
-    isInitSelectedIndex: {  // 預設被選擇的index 
+    initSelectedIndex: {  // 預設被選擇的index 
       type: Number,
-      default: 0,
+      default: -1,
     },
     colWd: { // td width default: auto or ex: [80px, 100px] => index 0 width is 80px, index 1 width is 100px
       type: Array || String,  // auto for default , or array for each col width
@@ -413,6 +413,7 @@ export default {
       if(!props.isItemClick) return false;
       let _data = data;
       let _selected = [...props.selected];
+      
       
       // handle click item theme
       console.log('isSelectedOne',props.isSelectedOne == true)

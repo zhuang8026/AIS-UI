@@ -47,8 +47,9 @@
     <!-- :datas="tableData" -->
     <div >
       <p>有給寬度 ==> :colWd= {{colWd}}</p>
+      <p>initSelectedIndex: {{initSelectedIndex}}</p>
       
-      <UiTable :colWd="colWd" @onEditFinish="onEditFinish" @onSelectItem="onSelectItem" :isEdit="isEditTable" class="h-[200px]" :isHasCheck="false" @onChangeCheck="onChangeCheck" :isSelectedOne="isSelectedOne" v-model:selected="selectedArr" @onClickMoreItem="onClickMoreItem" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll"  :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
+      <UiTable :initSelectedIndex="initSelectedIndex" :colWd="colWd" @onEditFinish="onEditFinish" @onSelectItem="onSelectItem" :isEdit="isEditTable" class="h-[200px]" :isHasCheck="false" @onChangeCheck="onChangeCheck" :isSelectedOne="isSelectedOne" v-model:selected="selectedArr" @onClickMoreItem="onClickMoreItem" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll"  :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
     </div>
     <h1>Demo 有編輯畫面的Table</h1>
     <p>optionWd (下拉選單的寬度) {{optionWd}}</p>
@@ -514,6 +515,8 @@ export default {
       }
     });
 
+    let initSelectedIndex = 1;
+
     
 
     return{
@@ -538,6 +541,7 @@ export default {
       refresh,
       colWd,
       optionWd,
+      initSelectedIndex,
     }
 
   },//end: setup
