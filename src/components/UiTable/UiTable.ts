@@ -116,13 +116,13 @@ export default {
       default: -1,
     },
     colWd: { // td width default: auto or ex: [80px, 100px] => index 0 width is 80px, index 1 width is 100px
-      type: Array || String,  // auto for default , or array for each col width
+      type: [Array || String],  // auto for default , or array for each col width
       default(){
         return 'auto'
       }
     },
     optionWd: {  // td select width default: auto or ex: 2: {80px} => index 2 width is 80px
-      type: Object || String,  // auto for default , or array for each select width
+      type: [Object || String],  // auto for default , or array for each select width
       default(){
         return 'auto'
       }
