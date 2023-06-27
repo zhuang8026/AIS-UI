@@ -23,7 +23,7 @@ $title-config:(
 );
 
 
-$max-height-modal: 99vh; //670px;
+$max-height-modal: 89vh; //670px;
 $color-modal-bg: $color-white; //modal 背景色
 $size-cancel: 24px; //cancel btn
 
@@ -90,7 +90,7 @@ $align-config: left, center, right;
             left: 0;
             right: 0;
             margin: 0 auto;
-            top: 15vh;
+            top: 52px;
             background-color: $color-modal-bg;
             width: 100%;
             display: inline-block;
