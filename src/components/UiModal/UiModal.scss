@@ -23,7 +23,7 @@ $title-config:(
 );
 
 
-$max-height-modal: 95vh; //670px;
+$max-height-modal: 99vh; //670px;
 $color-modal-bg: $color-white; //modal 背景色
 $size-cancel: 24px; //cancel btn
 
@@ -352,7 +352,7 @@ $align-config: left, center, right;
 @media(max-width: map-get($wd-config, lg)){
   .ui-modal .modal-all-block .modal-block{
     overflow: auto;
-    max-height: 95vh;
+    max-height: 90vh;
     // max-height: unset;
     
     .content-block{
