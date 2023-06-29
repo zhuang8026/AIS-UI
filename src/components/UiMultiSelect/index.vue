@@ -289,7 +289,7 @@ export default {
         let enable  = localArr.value.filter(e => !e.disabled );
         let checkArr = state.mainSelect.filter(e => !e.disabled );
         state.allChecked = enable.length === checkArr.length ? true :false;
-        debounce(emit("onClickCheck", state.mainSelect), 500);
+        debounce(emit("onClickCheck", state.mainSelect), 200);
       },
       {deep: true},
     )
