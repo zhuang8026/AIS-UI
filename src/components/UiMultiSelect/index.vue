@@ -199,7 +199,8 @@ export default {
       let tempLocal = JSON.parse(JSON.stringify(state.mainSelect));
       let empty = []
       for (let i = 0; i < tempLocal.length; i++) {
-        if(tempLocal[i].id.indexOf(state.temp) < 0){
+        // if(tempLocal[i].id.indexOf(state.temp) < 0){
+        if(tempLocal[i].id != state.temp){
           empty.push(tempLocal[i])
         }
       }
