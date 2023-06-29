@@ -75,8 +75,54 @@ export default {
     let isTableCheckAll = ref(false)
     let tableHead = ref([])
 
+<<<<<<< HEAD
     let tableHeadData = reactive([])
        
+=======
+    let tableHeadData = reactive([
+        {
+          id: 'th0',
+          txt: 'Equipment Name / Model'
+      },
+      {
+          id: 'th444',
+          txt: 'hint demo'
+      },
+      // filter : 類型
+      {
+          id: 'th1',
+          txt: 'Equipment Name / Model',
+          options: [   // filter的選項
+            { "id": "op1", "name": "很長很長很長很長的選項", "disabled": false }, 
+            { "id": "op2", "name": "Option 2", "disabled": false },
+          ],
+          val: [   // 被選擇的值的id
+            "op1", "op2"
+          ]
+      },
+      {
+          id: 'th2',
+          txt: '篩選2篩選2',
+          options: [
+            { "id": "normal", "name": "Option 1", "disabled": false },
+            { "id": "abnormal", "name": "AAA 204", "disabled": false },
+          ],
+          val: [
+            "normal", "abnormal"
+          ]
+      },
+      {
+          id: 'th3',
+          txt: '標題3標題3標題3標題3',
+          options: [
+            { "id": "op2-1", "name": "Option 1", "disabled": false },
+            { "id": "op2-2", "name": "Option 2", "disabled": false },
+          ],
+          val: [
+            "op2-2"
+          ]
+      },])
+>>>>>>> aa77132 (Fixed - [checkbox] UiMultiSelect checkbox modify)
 
       
       // Object.assign(tableHead, tableHeadData);

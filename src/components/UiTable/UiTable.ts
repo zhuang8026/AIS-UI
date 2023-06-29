@@ -349,7 +349,7 @@ export default {
     
     // child component update head filter item update to parents
     let onClickFilter = (eve, id) => {
-      // console.log('onClickFilter', eve, id);
+      console.log('onClickFilter', eve, id);
       let _id = id; // 第幾個title
       let _selectedArr = eve;
       // console.log('itemId',_id);

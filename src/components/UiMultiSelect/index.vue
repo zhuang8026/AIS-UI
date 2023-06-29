@@ -166,7 +166,7 @@ export default {
     }
 
     const onmousedown = (id) => {
-      // console.log('idid',id)
+      console.log('idid',id)
       state.temp = id;
     }
 
@@ -195,16 +195,18 @@ export default {
 
 
     const beforeSelect = () => { //反轉checkbox已選擇選項
-    // console.log("三小",state.mainSelect)
       let tempLocal = JSON.parse(JSON.stringify(state.mainSelect));
       let empty = []
       for (let i = 0; i < tempLocal.length; i++) {
-        if(tempLocal[i].id.indexOf(state.temp) < 0){
+        // if(tempLocal[i].id.indexOf(state.temp) < 0){
+        if(tempLocal[i].id != state.temp){
           empty.push(tempLocal[i])
         }
       }
+      
       const set = new Set()
-      const result = empty.filter(item=>!set.has(item.id)?set.add(item.id):false) 
+      const result = empty.filter(item=>!set.has(item.id)?set.add(item.id):false);
+
       state.mainSelect = result
     }
 
