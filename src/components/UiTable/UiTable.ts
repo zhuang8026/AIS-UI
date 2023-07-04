@@ -233,6 +233,7 @@ export default {
       (val) => {
         let isAll = val;
         checkAllSetting.value = isAll ? [ALL] : [];
+        console.log('watch isCheckedAll',val, checkAllSetting.value)
       //  handlData(DATA_UPDATE_TYPE.CHECK_ALL); // // todo canecl
       }
     )
