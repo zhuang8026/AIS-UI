@@ -234,6 +234,10 @@ export default {
         let isAll = val;
         checkAllSetting.value = isAll ? [ALL] : [];
         console.log('watch isCheckedAll',val, checkAllSetting.value)
+        let _data =[...props.datas];
+        _data.map(item => item.isCheck = isAll);
+        console.log('watch isCheckedAll',_data, _data[0].isCheck)
+        emit('update:datas',_data);
       //  handlData(DATA_UPDATE_TYPE.CHECK_ALL); // // todo canecl
       }
     )
