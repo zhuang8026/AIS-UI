@@ -38,11 +38,11 @@ export default {
     })
 
     let time = ref(1676453263);
-    let timeRange = ref([]);
+    let timeRange = ref([1684140891,1684745691]);
 
     let defualtTime = () => {
       console.log('defualtTime')
-      timeRange.value = [1684140891,1684745691];
+      // timeRange.value = [1684140891,1684745691];
     }
 
 

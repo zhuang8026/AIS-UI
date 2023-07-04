@@ -65,7 +65,7 @@ export default {
       if (props.trigger !== 'manual') {
         return visible.value;
       } else {
-        console.log(props.modelValue);
+        // console.log(props.modelValue);
         //自定义触发
         return props.modelValue;
       }
@@ -73,7 +73,7 @@ export default {
 
     //hover——鼠标移入触发
     const hoverTriggerEnterHandler = () => {
-      console.log('hoverTriggerEnterHandler');
+      // console.log('hoverTriggerEnterHandler');
       if (props.trigger.toLowerCase() == 'hover') {
         if (!props.disabled) {
           clearTimeout(timer.value);
@@ -83,7 +83,7 @@ export default {
     };
     //hover——鼠标移出,关闭popover tips:当鼠标移出时，有个300ms的延时，如果在期间再次移入，则清空定时器，并当再次移出时，重新计时
     const hoverTriggerLeaveHandler = () => {
-      console.log('hoverTriggerLeaveHandler');
+      // console.log('hoverTriggerLeaveHandler');
       if (props.trigger.toLowerCase() == 'hover') {
         if (!props.disabled) {
           timer.value = setTimeout(() => {
@@ -111,7 +111,7 @@ export default {
     };
 
     onMounted(() => {
-      console.log(reference.value.clientWidth);
+      // console.log(reference.value.clientWidth);
       if (
         props.placement.includes('top') ||
         props.placement.includes('bottom')
