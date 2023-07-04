@@ -272,6 +272,7 @@ export default {
         isAnyCheck: isAnyCheck
       });
       emit('update:datas', _data);
+      emit('update:isCheckedAll',isAll);
     } //end: onChangeCheckDetail
 
     
