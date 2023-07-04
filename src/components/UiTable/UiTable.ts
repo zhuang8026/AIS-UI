@@ -278,7 +278,10 @@ export default {
 
 
     // detail check parent 改變
-    let checkToWatch = computed(() => props.datas.map(item => item.isCheck))
+    let checkToWatch = computed(() => {
+      console.log('checkToWatch compute', props.datas)
+      return props.datas.map(item => item.isCheck)
+    })
     watch(
       () => checkToWatch,
       (val, old) => {

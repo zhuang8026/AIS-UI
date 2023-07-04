@@ -6,6 +6,7 @@
     <!-- table 2  -->
     <p>tableData: {{tableData}}</p>
     <p>isItemClick: {{false}}</p>
+    <p>isTableCheckAll:{{isTableCheckAll}}</p>
 
     <UiTable :isEdit="isEditTable"  :isItemClick="false" v-model:isCheckedAll="isTableCheckAll" v-model:datas="tableData"></UiTable>
 
@@ -90,7 +91,8 @@ export default {
     }//end: checkAllControl
 
     let changeData = () => {
-      tableData.value = [];
+      tableData.value.splice(0, 1);
+      isTableCheckAll.value = false;
       console.log('changeData', tableData)
       
     }
