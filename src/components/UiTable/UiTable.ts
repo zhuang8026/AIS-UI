@@ -248,9 +248,8 @@ export default {
       console.log('onChangeCheckAll', val)
         let isAll = val.length > 0;
         let _data =[...props.datas];
-        if(isAll){
-          _data.map(item => item.isCheck = true);
-        }
+        _data.map(item => item.isCheck = isAll);
+
         console.log('onChangeCheckAll isCheck',_data[0].isCheck)
         emit('update:isCheckedAll',isAll);
         // emit('update:datas',isAll);
