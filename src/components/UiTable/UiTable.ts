@@ -233,11 +233,12 @@ export default {
       (val) => {
         let isAll = val;
         checkAllSetting.value = isAll ? [ALL] : [];
-        console.log('watch isCheckedAll',val, checkAllSetting.value)
-        let _data =[...props.datas];
-        _data.map(item => item.isCheck = isAll);
-        console.log('watch isCheckedAll',_data, _data[0].isCheck)
-        emit('update:datas',_data);
+        // console.log('watch isCheckedAll',val, checkAllSetting.value)
+        // let _data =[...props.datas];
+        // console.log('_data',_data)
+        // _data.map(item => item.isCheck = isAll);
+        // console.log('watch isCheckedAll >>> ',_data, 'isCheck', _data[0].isCheck)
+        // // emit('update:datas',_data);
       //  handlData(DATA_UPDATE_TYPE.CHECK_ALL); // // todo canecl
       }
     )
@@ -247,12 +248,17 @@ export default {
       console.log('onChangeCheckAll', val)
         let isAll = val.length > 0;
         let _data =[...props.datas];
+        if(isAll){
+          _data.map(item => item.isCheck = true);
+        }
+        console.log('onChangeCheckAll isCheck',_data[0].isCheck)
         emit('update:isCheckedAll',isAll);
         // emit('update:datas',isAll);
         emit('onChangeCheck', {
           data: _data,
           isAnyCheck: isAll
         });
+        emit('update:datas',_data);
         handlData(DATA_UPDATE_TYPE.CHECK_ALL);
     }
     
