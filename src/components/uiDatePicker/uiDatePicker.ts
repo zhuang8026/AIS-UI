@@ -58,6 +58,10 @@ export default {
         emit('update:value', _time);
         emit('onChange', e);
       }
+      else{
+        // when clear date
+        emit('onEmpty', e);
+      }
     }
 
     let defaultVal = computed(()=> {
