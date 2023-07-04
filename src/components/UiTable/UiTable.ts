@@ -176,11 +176,12 @@ export default {
       // privateDatas = JSON.parse(JSON.stringify(props.datas));
       privateDatas = [... props.datas]
       // Object.assign(privateDatas, props.datas);
-      // console.log('handlData privateDatas',privateDatas);
+      console.log('handlData privateDatas',privateDatas);
+      console.log('handlData', status)
 
       // 檢查是否有checkall
       let isAll = checkAllSetting.value.length > 0;
-      // console.log('handlData isAll', isAll)
+      console.log('handlData isAll', isAll)
 
       // 處理每列的checkbox
       privateDatas.forEach((item, index) => {
@@ -238,9 +239,11 @@ export default {
     // -- checkall child改變
 
     let onChangeCheckAll = (val) => {
+      console.log('onChangeCheckAll', val)
         let isAll = val.length > 0;
         let _data =[...props.datas];
         emit('update:isCheckedAll',isAll);
+        // emit('update:datas',isAll);
         emit('onChangeCheck', {
           data: _data,
           isAnyCheck: isAll
@@ -278,6 +281,7 @@ export default {
     watch(
       () => checkToWatch,
       (val, old) => {
+        console.log('checkToWatch',checkToWatch)
           handlData();
       },
       {
