@@ -52,7 +52,7 @@ export default {
     
 
     let onValueUpdate = (e) => {
-      console.log('onValueUpdate',e);
+      // console.log('onValueUpdate',e);
       if(e[0] && e[1]){
         let _time = Array.isArray(e) ?  e.map(item => item/1000) : e /1000 ;
         emit('update:value', _time);

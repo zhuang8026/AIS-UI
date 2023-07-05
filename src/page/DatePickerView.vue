@@ -16,7 +16,7 @@
       <h5>range: true / timeRange: {{timeRange}} </h5>
     </div>
     <div class="flex mb-24px">
-      <ui-date-picker v-model:value="timeRange" :range="true"  @onChange="chageTime" class="w-[300px]" ></ui-date-picker>
+      <ui-date-picker v-model:value="timeRange" :range="true"  @onEmpty="chageTime" class="w-[300px]" ></ui-date-picker>
     </div>
 
     <hr/>
@@ -51,7 +51,7 @@ export default {
     }
 
     let chageTime = () => {
-
+      // console.log('chageTime')
     }
 
 
