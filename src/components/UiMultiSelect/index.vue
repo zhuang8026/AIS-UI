@@ -291,7 +291,9 @@ export default {
         let checkArr = state.mainSelect.filter(e => !e.disabled );
         state.allChecked = enable.length === checkArr.length ? true :false;
         // debounce();
-        emit("onClickCheck", state.mainSelect), 200
+        setTimeout(()=> {
+          emit("onClickCheck", state.mainSelect)
+        },100)
       },
       {deep: true},
     )
