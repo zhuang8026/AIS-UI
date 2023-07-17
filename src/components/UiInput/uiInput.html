@@ -31,6 +31,6 @@
     <Icon class="h-24px w-24px ml-20px text-grey-90" :iconClass="activeShow ? 'icon-eye-on' : 'icon-eye-off'" type="svg" ></Icon>
   </a>
   <!-- end of pwd icon -->
-  <div class=" text-error-FF0000 pt-3px text-xxs" :class="`text-${direction}`" v-if="error && typeof error != 'boolean'"> {{error}}</div>
+  <div class=" text-error-FF0000 pt-3px text-xxs js-error" :class="`text-${direction}`" v-if="error && typeof error != 'boolean'"> {{error}}</div>
 </div>
 

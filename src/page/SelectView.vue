@@ -16,6 +16,7 @@
         :optionArr="state.fruits" 
         :required="true"
         :showCheckIcon="true"
+       
         @onChange="selectClick"
         @onblur="toblur" 
         name="demoSelect"
