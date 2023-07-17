@@ -31,7 +31,7 @@
       </template>
     </v-select>
     <div class="error" :class="`text-${direction}`" v-show="error" >
-      <small class="text-error-FF0000 pt-3px text-xxs">{{error}}</small>
+      <small class="text-error-FF0000 pt-3px text-xxs js-error">{{error}}</small>
     </div>
     
   </div>
