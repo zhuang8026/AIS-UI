@@ -148,6 +148,7 @@ export default {
     onMounted(() => {
       state.validClass = props.error ? true : false;
       Object.assign(state.mainSelect, props.defaultSelectedValue);
+      
     })
 
     // debounce.js v-debounce 自己写防抖函数
@@ -196,18 +197,39 @@ export default {
 
     const beforeSelect = () => { //反轉checkbox已選擇選項
     // console.log("三小",state.mainSelect)
+    // console.log('beforeSelect')
       let tempLocal = JSON.parse(JSON.stringify(state.mainSelect));
       let empty = []
-      for (let i = 0; i < tempLocal.length; i++) {
+      // check this id is in mainSelect, if in mainselct, remove it
+
+      let isExistId = tempLocal.filter(e => e.id == state.temp).length > 0;
+      // console.log('isExistId',isExistId)
+      if(isExistId){
+        for (let i = 0; i < tempLocal.length; i++) {
         // if(tempLocal[i].id.indexOf(state.temp) < 0){
-        if(tempLocal[i].id != state.temp){
-          empty.push(tempLocal[i])
-        }
-      }
-      const set = new Set()
-      const result = empty.filter(item=>!set.has(item.id)?set.add(item.id):false) 
-      state.mainSelect = result
-    }
+            if(tempLocal[i].id != state.temp){
+              empty.push(tempLocal[i])
+            }
+          }
+
+          // id is not in mainselect, add it
+          const set = new Set()
+          const result = empty.filter(item=>!set.has(item.id)?set.add(item.id):false) 
+          state.mainSelect = result
+          // console.log('result',result)
+      }// end: if
+      else{
+        let selectedItem  = localArr.value.filter(e => e.id == state.temp)[0];
+        state.mainSelect.push(selectedItem)
+        // let checkArr = state.mainSelect.filter(e => !e.disabled );
+
+      } //end: else 
+
+
+      
+
+      emit("onClickCheck", state.mainSelect)
+    } //end: beforeSelect
 
 
     const checkStyle = (option) => {
@@ -229,6 +251,11 @@ export default {
       if(!state.allChecked){
         state.mainSelect = []
       }
+      else{
+        let temp = localArr.value
+        state.mainSelect = temp.filter(e => !e.disabled );
+      }
+      emit("onClickCheck", state.mainSelect)
     }
 
 
@@ -274,11 +301,12 @@ export default {
       // {immediate : true}
     )
 
-
+    
     watch(
       () => props.defaultSelectedValue,
       (val) => {
         state.mainSelect = val
+       
       },
       {deep: true},
       // {immediate : true}
@@ -290,24 +318,26 @@ export default {
         let enable  = localArr.value.filter(e => !e.disabled );
         let checkArr = state.mainSelect.filter(e => !e.disabled );
         state.allChecked = enable.length === checkArr.length ? true :false;
-        // debounce();
-        setTimeout(()=> {
-          emit("onClickCheck", state.mainSelect)
-        },100)
+        // console.log('watch state.mainSelect',state.mainSelect)
+        // // debounce();
+        // setTimeout(()=> {
+        //   emit("onClickCheck", state.mainSelect)
+        // },100)
+        
       },
       {deep: true},
     )
 
-    watch(
-      () => state.allChecked,
-      (val) => {
-        if(val){
-          let temp = localArr.value
-          state.mainSelect = temp.filter(e => !e.disabled );
-        }
-      },
-      {deep: true},
-    )
+    // watch(
+    //   () => state.allChecked,
+    //   (val) => {
+    //     if(val){
+    //       let temp = localArr.value
+    //       state.mainSelect = temp.filter(e => !e.disabled );
+    //     }
+    //   },
+    //   {deep: true},
+    // )
 
     return {
       state,
