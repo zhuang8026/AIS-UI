@@ -42,6 +42,7 @@ let iconList = [
   { className: 'icon-pen' },
   { className: 'hint-normal' },
   { className: 'hint-hover' },
+  { className: 'icon-chart' },
 ];
 
 export default iconList;

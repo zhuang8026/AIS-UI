@@ -150,6 +150,7 @@ export default {
         { className: 'user' },
         { className: 'icon-check-bg' },
         { className: 'icon-pen-bg' },
+        { className: 'icon-chart' },
 
       ]
     })
