@@ -228,7 +228,9 @@ export default {
 
       
 
-      emit("onClickCheck", state.mainSelect)
+      setTimeout(()=> {
+          emit("onClickCheck", state.mainSelect)
+        },100)
     } //end: beforeSelect
 
 
@@ -255,7 +257,9 @@ export default {
         let temp = localArr.value
         state.mainSelect = temp.filter(e => !e.disabled );
       }
-      emit("onClickCheck", state.mainSelect)
+       setTimeout(()=> {
+          emit("onClickCheck", state.mainSelect)
+        },100)
     }
 
 
