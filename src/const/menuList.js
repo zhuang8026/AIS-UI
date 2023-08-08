@@ -33,8 +33,8 @@ export default [
   //   ],
   // },
   {
-    'title-cn': 'v0.0.01',
-    'title-en': 'v0.0.01',
+    'title-cn': 'v0.0.02',
+    'title-en': 'v0.0.02',
     list: [],
   },
   {
