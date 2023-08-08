@@ -33,6 +33,11 @@ export default [
   //   ],
   // },
   {
+    'title-cn': 'v0.0.01',
+    'title-en': 'v0.0.01',
+    list: [],
+  },
+  {
     'title-cn': '常規',
     'title-en': 'Conventional',
     list: [

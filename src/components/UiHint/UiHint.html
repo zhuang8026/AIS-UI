@@ -14,9 +14,11 @@
       :aria-hidden="!showPopover ? 'true' : 'false'"
     >
       <div class="hint-arrow" ref="popoverArrow"></div>
-      <div  class="max-h-16 overflow-y-auto" :class="['hint-box-content']">
+      <div  class="max-h-16 overflow-y-auto" :class="['hint-box-content']" :style="{ 'width': width +'px'}">
         <div v-if="title" v-text="title" class="hint-title"></div>
-        <slot>{{ content }}</slot>
+        <slot>
+          <p :class="[align]" v-html="content"/>
+        </slot>
       </div>
     </div>
   </transition>

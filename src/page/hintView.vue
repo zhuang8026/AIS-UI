@@ -137,6 +137,26 @@
         ></template>
       </UiHint>
     </div>
+
+    <div class="inline-block mr-10px">
+      <UiHint
+        class="space"
+        trigger="hover"
+        placement="bottom"
+        content="Due to the following unfilled fields in the Component Setting, the sensor health assessment cannot be initiated. Please confirm if you wish to proceed. <br/> 1. Base Plate Type   2. Rated Power"
+        width="380"
+        align="left"
+      >
+        <template #reference
+          ><UiIcon
+            class="h-18px w-18px text-main bg-text-red-500"
+            iconClass="hint-hover"
+            type="svg"
+          ></UiIcon
+        ></template>
+      </UiHint>
+    </div>
+
     <hr class="bg-grey-97 my-14px" />
 
     <h2 class="my-14px">left</h2>
