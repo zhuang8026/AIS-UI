@@ -57,6 +57,36 @@
     <div >
       <UiTable :optionWd="optionWd" v-model:datas="editTableData" @onSelectItem="onSelectItem" :isEdit="true" class="h-[200px]" :isHasCheck="true" @onChangeCheck="onChangeCheck" :isSelectedOne="isSelectedOne" v-model:selected="selectedArr" @onClickMoreItem="onClickMoreItem" @onClickItem="clickTableItem" :isItemClick="true" v-model:isCheckedAll="isTableCheckAll"  :head="tableHead" @onClickFilter="onClickFilter" ></UiTable>
     </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <div >
+      <p>有給寬度 ==> :colWd= {{colWd}}</p>
+      <p>initSelectedIndex: {{initSelectedIndex}}</p>
+      
+      <UiTable 
+          :initSelectedIndex="initSelectedIndex" 
+          :colWd="colWd" 
+          @onEditFinish="onEditFinish" 
+          @onSelectItem="onSelectItem" 
+          :isEdit="isEditTable" 
+          class="h-[200px]" 
+          :isHasCheck="false" 
+          @onChangeCheck="onChangeCheck" 
+          :isSelectedOne="isSelectedOne" 
+          v-model:selected="selectedArr" 
+          @onClickMoreItem="onClickMoreItem" 
+          @onClickItem="clickTableItem" 
+          :isItemClick="true" 
+          v-model:isCheckedAll="isTableCheckAll"  
+          v-model:datas="tableData_noData"
+          :head="tableHead_noData" 
+          @onClickFilter="onClickFilter" 
+      ></UiTable>
+    </div>
+
   </div>
 </template>
 
@@ -77,12 +107,13 @@ export default {
     let tableHead = ref([])
 
     let tableHeadData = reactive([])
-       
+
 
       
       // Object.assign(tableHead, tableHeadData);
       let tableData = ref([]);
-    
+      let tableData_noData = ref([]);
+      let tableHead_noData = ref([]); 
 
     let checkAllControl = () => {
       console.log('all')
@@ -212,6 +243,42 @@ export default {
       },]
 
       tableHead.value = [...head]
+
+
+      tableHead_noData.value = [
+        {
+          id: 'th0',
+          txt: 'Equipment Name / Model'
+        },
+        {
+            id: 'th1',
+            txt: 'Equipment Name / Model',
+            options: [],
+            val: []
+        },
+        {
+            id: 'th2',
+            txt: '篩選2篩選2',
+            options: [
+              { "id": "op2-1", "name": "Option 1", "disabled": false },
+              { "id": "op2-4", "name": "AAA 204", "disabled": false },
+            ],
+            val: [
+              "op2-4"
+            ]
+        },
+        {
+            id: 'th3',
+            txt: '標題3標題3標題3標題3',
+            options: [
+              { "id": "op2-1", "name": "Option 1", "disabled": false },
+              { "id": "op2-2", "name": "Option 2", "disabled": false },
+            ],
+            val: [
+              "op2-2"
+            ]
+        }
+      ]
 
 
       tableData.value = [{
@@ -524,9 +591,11 @@ export default {
     return{
       isTableCheckAll,
       tableData,
+      tableData_noData,
       checkAllControl,
       inputNewData,
       tableHead,
+      tableHead_noData,
       clickTableItem,
       onClickFilter,
       moreOpt,

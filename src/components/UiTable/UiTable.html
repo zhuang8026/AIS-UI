@@ -12,13 +12,15 @@
         :style="colWd != 'auto' ? tdWdStyle(index) : ''">
           <!-- type 1 : normal txtx -->
           <p v-if="!item.hasOwnProperty('options')" class="txt text-xs whitespace-normal break-words"
-            :class="headTheme">{{item.txt}}</p>
+            :class="headTheme"
+          >{{item.txt}}</p>
 
           <!-- end of type1 -->
 
           <!-- type2: select filter  -->
           <ul v-else>
-            <UiMultiSelect v-if="item.options.length" class="w-full" :defaultSelectedValue="headFilterVal[index]" :optionArr="item.options"
+            <!-- v-if="item.options.length" -->
+            <UiMultiSelect  class="w-full" :defaultSelectedValue="headFilterVal[index]" :optionArr="item.options"
               
               :required="true" :showCheckIcon="true" @onClickCheck="onClickFilter($event, item.id)"
               :name="'tableH_'+index" :hasAllOption="true" :placeholder="item.txt"

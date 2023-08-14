@@ -19,8 +19,10 @@
         </div>
       </template>
       <template #list-header>
-        <div class="  px-12px flex justify-start items-center group py-8px cursor-pointer" 
-        @mousedown="allCheck()" v-if="hasAllOption"> 
+        <div 
+          class="px-12px flex justify-start items-center group py-8px cursor-pointer" 
+          @mousedown="allCheck()" v-if="hasAllOption && localArr.length > 0"
+        > 
           <button class=" mr-8px w-24px h-24px rounded-5px border border-grey-4c hover:border-root-light"  :class="{'bg-main': state.allChecked ,'border-main': state.allChecked}">
             <span class="w-24px h-24px" :class="{'check': state.allChecked}"></span>
           </button>
