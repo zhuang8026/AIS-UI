@@ -42,6 +42,7 @@
     <Button class=" w-140px mx-20px mb-0" type="empty" text="Button" icon="dropdown"></Button>
     <Button class=" w-140px mx-20px mb-0" type="empty" :disable="true" text="Button" icon="add"></Button>
     <Button class=" w-140px mx-20px mb-0" type="" borderRadius="" text="Button" icon="icon-chart"></Button>
+    <Button class=" w-140px mx-20px mb-0" type="" borderRadius="" text="Button" icon="icon-chart" :disable="true"></Button>
   </div>
 
   <hr class="bg-grey-97 my-14px">
